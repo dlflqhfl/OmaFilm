@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<input type="text">
+	<button type="submit">보내기</button>
 </body>
 </html>
