@@ -3,7 +3,8 @@ package web.mybatis.vo;
 public class CouponItemVO {
 	private String ci_code// 쿠폰코드
 	, ci_discount// 할인내용
-	,ci_content;//쿠폰내용
+	,ci_content//쿠폰내용
+	, ci_date; //만료일자
 	
 	public CouponItemVO() {}
 
@@ -37,6 +38,16 @@ public class CouponItemVO {
 	void setCi_content(String ci_content) {
 		this.ci_content = ci_content;
 	}
+
+	public String getCi_date() {
+		return ci_date;
+	}
+
+	public void setCi_date(String ci_date) {
+		this.ci_date = ci_date;
+	}
+	
+	
 	
 	
 }

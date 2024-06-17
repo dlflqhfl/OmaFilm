@@ -5,7 +5,8 @@ public class NoticeVO {
 	private String nt_ct_code, //카테고리코드
 	n_title, //제목
 	n_content, //내용
-	n_imgString; //이미지경로
+	n_imgString, //이미지경로
+	n_time; //작성시간 
 	
 	public NoticeVO() {}
 
@@ -66,6 +67,16 @@ public class NoticeVO {
 	void setN_imgString(String n_imgString) {
 		this.n_imgString = n_imgString;
 	}
+
+	public String getN_time() {
+		return n_time;
+	}
+
+	public void setN_time(String n_time) {
+		this.n_time = n_time;
+	}
+	
+	
 	
 	
 }
