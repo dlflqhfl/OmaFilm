@@ -1,4 +1,4 @@
-package web.mybatis.dao;
+package web.mybatis.DAO;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class PaymentDAO {
 	//회원 아이디를 넣으면 회원 객체를 반환 
 	public static MemberVO getMvo(String id) {
 		SqlSession ss = FactoryService.getFactory().openSession();
-		MemberVO mvo = ss.selectOne("idToMvo", id);
+		MemberVO mvo = ss.selectOne("member.idToMvo", id);
 		ss.close();
 		return mvo;
 	}
@@ -24,9 +24,9 @@ public class PaymentDAO {
 		
 		SqlSession ss = FactoryService.getFactory().openSession();
 		List<IssuedCouponVO> list = ss.selectList("issuedCoupon.getCouponArr", mvo.getU_code());
-		ss.close();
 		IssuedCouponVO[] cvo = new IssuedCouponVO[list.size()];
 		list.toArray(cvo);
+		ss.close();
 		return cvo;
 	}
 	

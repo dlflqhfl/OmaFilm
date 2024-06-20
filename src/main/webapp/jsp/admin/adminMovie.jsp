@@ -12,122 +12,92 @@
       <div class="div-contents">
         <div class="div-con-wrap">
           <div class="horizontal-border">
-            <div class="table">
-              <div class="div">
-                <div class="cell"><div class="text-wrapper">번호</div></div>
-                <div class="div-wrapper"><div class="text-wrapper">선택</div></div>
-                <div class="cell-2"><div class="text-wrapper-2">영화 제목</div></div>
-                <div class="cell-3"><div class="text-wrapper-3">개봉일</div></div>
-              </div>
-              <div class="overlap">
-                <div class="body">
-                  <div class="row">
-                    <div class="data"><div class="text-wrapper-4">2</div></div>
-                    <div class="data-2"></div>
-                    <div class="link-wrapper">
-                      <div class="link"><p class="text-wrapper-5">타짜 23: 예림이 그 패 봐바 혹시 장이야?</p></div>
-                    </div>
-                    <div class="data-3"><div class="text-wrapper-6">2024.06.14</div></div>
-                  </div>
-                  <div class="overlap-group">
-                    <div class="div">
-                      <div class="data"><div class="text-wrapper-4">3</div></div>
-                      <div class="data-2"></div>
-                      <div class="link-wrapper">
-                        <div class="link"><div class="text-wrapper-7">노무현과 바보들</div></div>
-                      </div>
-                      <div class="data-3"><div class="text-wrapper-6">2024.06.14</div></div>
-                    </div>
-                    <div class="row-2">
-                      <div class="data-4"><div class="text-wrapper-8">4</div></div>
-                      <div class="data-5"></div>
-                      <div class="cell-4">
-                        <div class="link-2"><div class="text-wrapper-5">해리포터와 마법사의 돌</div></div>
-                      </div>
-                      <div class="data-6"><div class="text-wrapper-9">2024.06.14</div></div>
-                    </div>
-                    <div class="row-3">
-                      <div class="data-4"><div class="text-wrapper-8">5</div></div>
-                      <div class="data-5"></div>
-                      <div class="cell-4">
-                        <div class="link-2"><div class="text-wrapper-5">토르 : 다크월드</div></div>
-                      </div>
-                      <div class="data-6"><div class="text-wrapper-9">2024.06.14</div></div>
-                    </div>
-                    <div class="row-4">
-                      <div class="data-4"><div class="text-wrapper-8">6</div></div>
-                      <div class="data-5"></div>
-                      <div class="cell-4">
-                        <div class="link-2"><div class="text-wrapper-5">변신</div></div>
-                      </div>
-                      <div class="data-6"><div class="text-wrapper-9">2024.06.14</div></div>
-                    </div>
-                    <div class="row-5">
-                      <div class="data-4"><div class="text-wrapper-8">7</div></div>
-                      <div class="data-5"></div>
-                      <div class="cell-4">
-                        <div class="link-2"><div class="text-wrapper-5">나쁜녀석들</div></div>
-                      </div>
-                      <div class="data-6"><div class="text-wrapper-9">2024.06.14</div></div>
-                    </div>
-                    <div class="row-6">
-                      <div class="data-4"><div class="text-wrapper-8">8</div></div>
-                      <div class="data-5"></div>
-                      <div class="cell-4">
-                        <div class="link-2"><div class="text-wrapper-5">인터스텔라</div></div>
-                      </div>
-                      <div class="data-6"><div class="text-wrapper-9">2024.06.14</div></div>
-                    </div>
-                    <div class="row-7">
-                      <div class="data-4"><div class="text-wrapper-8">9</div></div>
-                      <div class="data-5"></div>
-                      <div class="cell-4">
-                        <div class="link-2"><div class="text-wrapper-5">위대한 쇼맨</div></div>
-                      </div>
-                      <div class="data-6"><div class="text-wrapper-9">2024.06.14</div></div>
-                    </div>
-                    <div class="row-8">
-                      <div class="data-4"><div class="text-wrapper-10">10</div></div>
-                      <div class="data-5"></div>
-                      <div class="cell-4">
-                        <div class="link-2"><div class="text-wrapper-5">탑건</div></div>
-                      </div>
-                      <div class="data-6"><div class="text-wrapper-9">2024.06.14</div></div>
-                    </div>
-                    <img class="rectangle" src="img/adminMovieImg/rectangle-3-1.svg" />
-                    <div class="rectangle-2"></div>
-                    <div class="rectangle-3"></div>
-                    <div class="rectangle-4"></div>
-                    <div class="rectangle-5"></div>
-                    <div class="rectangle-6"></div>
-                  </div>
-                  <div class="strong"><div class="text-wrapper-11">1</div></div>
-                  <div class="link-3"><div class="text-wrapper-12">2</div></div>
-                  <div class="link-4"><div class="text-wrapper-12">3</div></div>
-                  <div class="link-5"><div class="text-wrapper-12">4</div></div>
-                  <div class="link-6"><div class="text-wrapper-12">5</div></div>
-                  <div class="link-7"><div class="text-wrapper-12">6</div></div>
-                  <div class="link-8"><div class="text-wrapper-12">7</div></div>
-                  <div class="link-9"><div class="text-wrapper-12">8</div></div>
-                  <div class="link-10"><div class="text-wrapper-12">9</div></div>
-                  <div class="link-11"><div class="text-wrapper-13">10</div></div>
-                  <div class="link-12"></div>
-                  <div class="link-13"></div>
-                </div>
-                <div class="div">
-                  <div class="data-4"><div class="text-wrapper-8">1</div></div>
-                  <div class="data-5"></div>
-                  <div class="cell-4">
-                    <div class="link-2"><div class="text-wrapper-5">인사이드 아웃2</div></div>
-                  </div>
-                  <div class="data-6"><div class="text-wrapper-9">2024.06.14</div></div>
-                </div>
-                <img class="img" src="/img/adminMovieImg/rectangle-3-1.svg"/>
-                <div class="rectangle-7"></div>
-                <div class="rectangle-8"></div>
-                <div class="rectangle-9"></div>
-              </div>
-            </div>
+           <table class="table">
+              <thead>
+                <tr>
+                  <th class="cell"><div class="text-wrapper">번호</div></th>
+                  <th class="div-wrapper"><div class="text-wrapper">선택</div></th>
+                  <th class="cell-2"><div class="text-wrapper-2">영화 제목</div></th>
+                  <th class="cell-3"><div class="text-wrapper-3">개봉일</div></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="row">
+                  <td class="data"><div class="text-wrapper-4">2</div></td>
+                  <td class="data-2"></td>
+                  <td class="link-wrapper">
+                    <div class="link"><div class="text-wrapper-5">타짜 23: 예림이 그 패 봐바 혹시 장이야?</div></div>
+                  </td>
+                  <td class="data-3"><div class="text-wrapper-6">2024.06.14</div></td>
+                </tr>
+                <tr class="row-1">
+                  <td class="data"><div class="text-wrapper-4">3</div></td>
+                  <td class="data-2"></td>
+                  <td class="link-wrapper">
+                    <div class="link"><div class="text-wrapper-7">노무현과 바보들</div></div>
+                  </td>
+                  <td class="data-3"><div class="text-wrapper-6">2024.06.14</div></td>
+                </tr>
+                <tr class="row-2">
+                  <td class="data-4"><div class="text-wrapper-8">4</div></td>
+                  <td class="data-5"></td>
+                  <td class="cell-4">
+                    <div class="link-2"><div class="text-wrapper-5">해리포터와 마법사의 돌</div></div>
+                  </td>
+                  <td class="data-6"><div class="text-wrapper-9">2024.06.14</div></td>
+                </tr>
+                <tr class="row-3">
+                  <td class="data-4"><div class="text-wrapper-8">5</div></td>
+                  <td class="data-5"></td>
+                  <td class="cell-4">
+                    <div class="link-2"><div class="text-wrapper-5">토르 : 다크월드</div></div>
+                  </td>
+                  <td class="data-6"><div class="text-wrapper-9">2024.06.14</div></td>
+                </tr>
+                <tr class="row-4">
+                  <td class="data-4"><div class="text-wrapper-8">6</div></td>
+                  <td class="data-5"></td>
+                  <td class="cell-4">
+                    <div class="link-2"><div class="text-wrapper-5">변신</div></div>
+                  </td>
+                  <td class="data-6"><div class="text-wrapper-9">2024.06.14</div></td>
+                </tr>
+                <tr class="row-5">
+                  <td class="data-4"><div class="text-wrapper-8">7</div></td>
+                  <td class="data-5"></td>
+                  <td class="cell-4">
+                    <div class="link-2"><div class="text-wrapper-5">나쁜녀석들</div></div>
+                  </td>
+                  <td class="data-6"><div class="text-wrapper-9">2024.06.14</div></td>
+                </tr>
+                <tr class="row-6">
+                  <td class="data-4"><div class="text-wrapper-8">8</div></td>
+                  <td class="data-5"></td>
+                  <td class="cell-4">
+                    <div class="link-2"><div class="text-wrapper-5">인터스텔라</div></div>
+                  </td>
+                  <td class="data-6"><div class="text-wrapper-9">2024.06.14</div></td>
+                </tr>
+                <tr class="row-7">
+                  <td class="data-4"><div class="text-wrapper-8">9</div></td>
+                  <td class="data-5"></td>
+                  <td class="cell-4">
+                    <div class="link-2"><div class="text-wrapper-5">위대한 쇼맨</div></div>
+                  </td>
+                  <td class="data-6"><div class="text-wrapper-9">2024.06.14</div></td>
+                </tr>
+                <tr class="row-8">
+                  <td class="data-4"><div class="text-wrapper-10">10</div></td>
+                  <td class="data-5"></td>
+                  <td class="cell-4">
+                    <div class="link-2"><div class="text-wrapper-5">탑건</div></div>
+                  </td>
+                  <td class="data-6"><div class="text-wrapper-9">2024.06.14</div></td>
+                </tr>
+              </tbody>
+            </table>
+
+
           </div>
           <button class="button">
             <div class="container"><div class="text-wrapper-14">영화 제목</div></div>

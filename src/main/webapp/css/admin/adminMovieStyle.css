@@ -394,6 +394,13 @@
   line-height: 19.5px;
   white-space: nowrap;
 }
+.DB .row-1 {
+  top: 80px;
+  position: absolute;
+  width: 1293px;
+  height: 45px;
+  left: 0;
+}
 
 .DB .row-3 {
   top: 80px;
@@ -1218,4 +1225,38 @@
   min-width: 1680px;
   width: 100%;
   height: 319px;
+}
+
+.DB .table {
+  width: 1293px;
+  border-collapse: collapse;
+}
+
+.DB th, .DB td {
+  border: 1px solid #eaeaea;
+  text-align: left;
+  padding: 8px;
+}
+
+.DB th {
+  background-color: #f2f4f5;
+}
+
+.DB .cell, .DB .div-wrapper, .DB .cell-2, .DB .cell-3, .DB .data, .DB .data-2, .DB .link-wrapper, .DB .data-3, .DB .data-4, .DB .data-5, .DB .cell-4, .DB .data-6 {
+  background-color: transparent;
+}
+
+.DB .text-wrapper, .DB .text-wrapper-2, .DB .text-wrapper-3, .DB .text-wrapper-4, .DB .text-wrapper-5, .DB .text-wrapper-6, .DB .text-wrapper-7, .DB .text-wrapper-8, .DB .text-wrapper-9, .DB .text-wrapper-10, .DB .text-wrapper-11, .DB .text-wrapper-12, .DB .text-wrapper-13, .DB .text-wrapper-14, .DB .text-wrapper-15, .DB .text-wrapper-16, .DB .text-wrapper-17, .DB .text-wrapper-18, .DB .text-wrapper-19, .DB .text-wrapper-20, .DB .text-wrapper-21, .DB .text-wrapper-22, .DB .text-wrapper-23, .DB .text-wrapper-24 {
+  font-family: "ABeeZee", sans-serif;
+  color: #222222;
+  text-align: center;
+}
+
+.DB .button, .DB .input, .DB .cell-5, .DB .cell-6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #666666;
+  background-color: #f2f4f5;
+  border-radius: 4px;
 }

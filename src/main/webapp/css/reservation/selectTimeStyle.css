@@ -295,7 +295,7 @@
   position: absolute;
   width: 49px;
   height: 111px;
-  top: -29px;
+  top: -1px;
   left: 119px;
   font-family: "Noto Sans KR", Helvetica;
   font-weight: 300;
@@ -1606,4 +1606,61 @@
   top: 10px;
   left: 0;
   background-color: #111111;
+}
+/* 캘린더 */
+.calendar {
+	position: absolute;
+    top: -6px;
+    background-color: white;
+    border-radius: 10px;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    padding: 20px;
+    width: 495px;
+    text-align: center;
+    left: -38px;
+}
+
+.month {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.days {
+    display: flex;
+    justify-content: space-between;
+}
+
+.day {
+    width: 30px;
+    text-align: center;
+}
+
+.date {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+.now{
+    position: absolute;
+    left: 94px;
+}
+.day-name {
+    font-size: 0.8em;
+    color: gray;
+    position: absolute;
+    top: 14px;
+}
+.date {
+    position: absolute;
+    top: 47px;
+}
+.selected .date {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.day:nth-child(3) .date {
+    color: red;
 }

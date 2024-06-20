@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%
-    	String text = request.getParameter("text");
-    	String movieName = request.getParameter("movieName");
-    	String time = request.getParameter("time");
-    %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,8 +19,8 @@
                 <div class="div">
                   <div class="link">
                     <div class="strong">
-                      <div class="text-wrapper">01</div>
-                      <div class="text-wrapper-2">상영시간</div>
+                      <div class="text-wrapper text">01</div>
+                      <div class="text-wrapper-2 text">상영시간</div>
                       <div class="frame"></div>
                     </div>
                     <div class="frame-2"></div>
@@ -287,28 +284,37 @@
           </div>
           <div class="seat-background"><div class="select-seat-text">인원 / 좌석 선택</div></div>
         </div>
-        <form action="Controller?type=payment" id="goPayment">
-        	<input type="hidden" name="text" value=<%=text %>>
-        	<input type="hidden" name="movieName" value=<%=movieName %>>
-        	<input type="hidden" id="time" name=<%=time %>>
-        	<input type="hidden" id="adultCount" name="adultCount">
-        	<input type="hidden" id="teenCount" name="teenCount">
-        	<input type="hidden" id="oldCount" name="oldCount">
-        	<input type="hidden" id="checkSeat" name="checkSeat">
+        <form id="goPayment" action="Controller?type=payment" method="post">
+        	<input type="hidden" id="movieName" value="${param.movieName }">
+        	<input type="hidden" id="text" value="${param.text }">
+        	<input type="hidden" id="time" value="${param.time }">
+        	<input type="hidden" id="totalCount" value="">
+        	<input type="hidden" id="checkSeat" value="">
+        	<input type="hidden" id="date" value="">
         </form>
-      </div>
+        
     </div>
     
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
   crossorigin="anonymous"></script>
 <script type="text/javascript">
+
+	let text = '<%= request.getParameter("text") %>';
+	let movieName = '<%= request.getParameter("movieName") %>';
+	let time = '<%= request.getParameter("time") %>';
+	let date = '<%= request.getParameter("date") %>';
+	
+	console.log(text)
+	console.log(movieName)
+	console.log(time)
 	
 	let adult = parseInt($("#adult").text());
 	let teen = parseInt($("#teen").text());
 	let old = parseInt($("#old").text());
 	let checkSeat = new Set();
-	
+	let seatArray = [];
+	let seats = "";
 	let num = 0;
 	//좌석선택
 	$(".rectangle").click(function(){
@@ -319,8 +325,11 @@
 			if( checkSeat.has(value)){
 				alert("이미 선택한 좌석입니다")
 			} else {
+				checkSeat.add(value)
+				clickSeat()
 				console.log(value)
 				num++;
+				$(this).css('background-color', '#2CC7E9');
 			}
 		} else {
 			alert("인원을먼저 선택해줭~~")
@@ -336,23 +345,28 @@
         $(this).css('background-color', '#2CC7E9');
         },
         function() {
-            // 마우스가 벗어났을 때
-            $(this).css('background-color', '#999999');
+            if (!checkSeat.has($(this).attr("value"))) {
+                $(this).css('background-color', '#999999');
+            }
         }
 	);
 	
 	//성인관객 수 +
 	$(".aPlus").click(function(){
+		if( adult < 8){
 		adult = parseInt(adult) + 1;
 		$("#adult").text(adult);
 		updatePrice()
+		} else{
+			alert("최대 8명까지 가능합니다");
+		}
 		
 	})
 
 	//성인관객 수 -
 	$(".aMinus").click(function(){
 		adult = adult - 1;
-	    if(adult < 0){
+	    if(adult < 8){
 	        alert("0보다 작을 수 없습니다.");
 	    } else {
 	        $("#adult").text(adult);
@@ -362,15 +376,19 @@
 	
 	//청소년관객 수 +
 	$(".tPlus").click(function(){
-		teen = parseInt(teen) + 1;
-		let res = $("#teen").text(teen);
-		updatePrice()
+		if( old < 8){
+			teen = parseInt(teen) + 1;
+			let res = $("#teen").text(teen);
+			updatePrice()
+		} else{
+			alert("최대 8명까지 가능합니다")
+		}
 	})
 	
 	//청소년관객 수 -
 	$(".tMinus").click(function(){
 		teen = teen - 1;
-	    if(teen < 0){
+	    if(teen < 8){
 	        alert("0보다 작을 수 없습니다.");
 	    } else {
 	        $("#teen").text(teen);
@@ -380,10 +398,13 @@
 	
 	//경로관객 수 +
 	$(".oPlus").click(function(){
-		old = parseInt(old) + 1;
-		$("#old").text(old);
-		console.log("왜 안되냐고")
-		updatePrice()
+		if( old < 8){
+			old = parseInt(old) + 1;
+			$("#old").text(old);
+			updatePrice()
+		} else {
+			alert("최대 8명까지 가능합니다")
+		}
 	})
 	
 	//경로관객 수 -
@@ -413,15 +434,52 @@
 		$(".total-price-text").text(totalPrice)
 	}
 	
-	let adultCount = "성인" + adult
-	let teenCount = "청소년" + teen
-	let oldCount = "경로" + old
+    // 선택된 좌석 업데이트 함수
+    function clickSeat() {
+        seatArray = Array.from(checkSeat); // Set을 배열로 변환
+        seats = seatArray.join(","); // 좌석 배열을 쉼표로 구분된 문자열로 변환
+        console.log("Selected seats: " + seats); // 선택된 좌석 확인용 로그
+    }
+	
 	
 	//결제하기로 넘기기
 	$(".pay-button").click(function(){
-		console.log(adultCount)
-		
+		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?")
+		if( result ){
+			
+			let adult = $("#adult").text();
+			let teen = $("#adult").text();
+			let old = $("#adult").text();
+			
+			let adultCount = "성인" + adult;
+			let teenCount = "청소년" + teen;
+			let oldCount = "경로" + old;
+			
+			let totalCount = adultCount+"/" + teenCount+"/" + oldCount;
+        
+       	 	$("#goPayment").submit();
+		} else {
+			location.reload()
+		}
 	})
+	
+	$(".link").click(function(){
+		
+		window.location.href = "Controller?type=selectTime";
+	})
+	
+	$('.link').hover(
+	    function() {
+	        // 마우스가 올라갔을 때
+	        $(this).css('background-color', '#3D4D55');
+	        $(".text").css('color', 'white');
+	    },
+	    function() {
+	        // 마우스가 내려갔을 때
+	        $(this).css('background-color', 'white');
+	        $(".text").css('color', '#666666'); // 원래 색상으로 되돌리기
+	    }
+	);
 	
 	
 	
