@@ -20,53 +20,52 @@ public class IssuedPointVO {
 		this.p_after = p_after;
 	}
 
-	String getP_no() {
+	public String getP_no() {
 		return p_no;
 	}
 
-	void setP_no(String p_no) {
+	public void setP_no(String p_no) {
 		this.p_no = p_no;
 	}
 
-	String getU_code() {
+	public String getU_code() {
 		return u_code;
 	}
 
-	void setU_code(String u_code) {
+	public void setU_code(String u_code) {
 		this.u_code = u_code;
 	}
 
-	String getPi_code() {
+	public String getPi_code() {
 		return pi_code;
 	}
 
-	void setPi_code(String pi_code) {
+	public void setPi_code(String pi_code) {
 		this.pi_code = pi_code;
 	}
 
-	String getP_date() {
+	public String getP_date() {
 		return p_date;
 	}
 
-	void setP_date(String p_date) {
+	public void setP_date(String p_date) {
 		this.p_date = p_date;
 	}
 
-	String getP_before() {
+	public String getP_before() {
 		return p_before;
 	}
 
-	void setP_before(String p_before) {
+	public void setP_before(String p_before) {
 		this.p_before = p_before;
 	}
 
-	String getP_after() {
+	public String getP_after() {
 		return p_after;
 	}
 
-	void setP_after(String p_after) {
+	public void setP_after(String p_after) {
 		this.p_after = p_after;
 	}
-	
-	
+
 }
