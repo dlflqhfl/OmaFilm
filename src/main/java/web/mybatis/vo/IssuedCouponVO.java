@@ -8,6 +8,8 @@ public class IssuedCouponVO {
 	cp_use;// 사용날짜
 	private int cp_status;// 상태
 	
+	CouponItemVO c_item;
+	
 	public IssuedCouponVO() {}
 
 	public IssuedCouponVO(String cp_no, String u_code, String ci_code, String cp_date, String cp_use, int cp_status) {
@@ -20,53 +22,61 @@ public class IssuedCouponVO {
 		this.cp_status = cp_status;
 	}
 
-	String getCp_no() {
+	public String getCp_no() {
 		return cp_no;
 	}
 
-	void setCp_no(String cp_no) {
+	public void setCp_no(String cp_no) {
 		this.cp_no = cp_no;
 	}
 
-	String getU_code() {
+	public String getU_code() {
 		return u_code;
 	}
 
-	void setU_code(String u_code) {
+	public void setU_code(String u_code) {
 		this.u_code = u_code;
 	}
 
-	String getCi_code() {
+	public String getCi_code() {
 		return ci_code;
 	}
 
-	void setCi_code(String ci_code) {
+	public void setCi_code(String ci_code) {
 		this.ci_code = ci_code;
 	}
 
-	String getCp_date() {
+	public String getCp_date() {
 		return cp_date;
 	}
 
-	void setCp_date(String cp_date) {
+	public void setCp_date(String cp_date) {
 		this.cp_date = cp_date;
 	}
 
-	String getCp_use() {
+	public String getCp_use() {
 		return cp_use;
 	}
 
-	void setCp_use(String cp_use) {
+	public void setCp_use(String cp_use) {
 		this.cp_use = cp_use;
 	}
 
-	int getCp_status() {
+	public int getCp_status() {
 		return cp_status;
 	}
 
-	void setCp_status(int cp_status) {
+	public void setCp_status(int cp_status) {
 		this.cp_status = cp_status;
 	}
-	
+
+	public CouponItemVO getC_item() {
+		return c_item;
+	}
+
+	public void setC_item(CouponItemVO c_item) {
+		this.c_item = c_item;
+	}
+
 	
 }

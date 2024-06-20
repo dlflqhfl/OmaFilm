@@ -3,7 +3,7 @@ package web.mybatis.vo;
 public class CouponItemVO {
 	private String ci_code// 쿠폰코드
 	, ci_discount// 할인내용
-	,ci_content//쿠폰내용
+	, ci_content//쿠폰내용
 	, ci_date; //만료일자
 	
 	public CouponItemVO() {}
@@ -15,27 +15,27 @@ public class CouponItemVO {
 		this.ci_content = ci_content;
 	}
 
-	String getCi_code() {
+	public String getCi_code() {
 		return ci_code;
 	}
 
-	void setCi_code(String ci_code) {
+	public void setCi_code(String ci_code) {
 		this.ci_code = ci_code;
 	}
 
-	String getCi_discount() {
+	public String getCi_discount() {
 		return ci_discount;
 	}
 
-	void setCi_discount(String ci_discount) {
+	public void setCi_discount(String ci_discount) {
 		this.ci_discount = ci_discount;
 	}
 
-	String getCi_content() {
+	public String getCi_content() {
 		return ci_content;
 	}
 
-	void setCi_content(String ci_content) {
+	public void setCi_content(String ci_content) {
 		this.ci_content = ci_content;
 	}
 
@@ -46,8 +46,6 @@ public class CouponItemVO {
 	public void setCi_date(String ci_date) {
 		this.ci_date = ci_date;
 	}
-	
-	
-	
+
 	
 }
