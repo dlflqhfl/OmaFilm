@@ -90,7 +90,7 @@
               <div class="text-wrapper-5">목</div>
             </div>
             <div class="image-wrapper"><div class="image"></div></div>
-            <img class="img" src="img/adminSelectTimeimg/button.png"/>
+            <img class="img" src="img/adminSelectTime/button.png"/>
           </div>
           <div class="image-2"></div>
         </div>
