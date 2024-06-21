@@ -77,7 +77,7 @@
             <div class="background-3">
               <div class="background-4"><div class="heading-2">영화 선택</div></div>
               <div class="vertical-border-2">
-                <div class="horizontal-border">
+                <div class="horizontal-border"><div class="text-wrapper-10-1">영화목록</div>
                   <div class="container-2"><div class="text-wrapper-11">목</div></div>
                 </div>
                 <div class="container-wrapper">
@@ -87,29 +87,29 @@
                         <div class="item-link-7 movie">
                           <div class="overlap-group">
                             <div class="strong-3"><div class="text-wrapper-12 name">인사이드 아웃 2</div></div>
-                            <img class="image-background" src="img/reservationImg/image-background.svg" />
+                            <img class="image-background" src="img/reservation/image-background.svg" />
                           </div>
                           <div class="overlap-2 movie">
-                            <img class="img" src="img/reservationImg/image-background-2.png" />
-                            <img class="image-background" src="img/reservationImg/image-background-2.png" />
+                            <img class="img" src="img/reservation/image-background-2.png" />
+                            <img class="image-background" src="img/reservation/image-background-2.png" />
                           </div>
                         </div>
                         <div class="overlap-wrapper movie">
                           <div class="overlap-3">
                             <div class="strong-3"><div class="text-wrapper-13 name">하이재킹</div></div>
-                            <img class="image-background" src="img/reservationImg/image-background-3.svg" />
+                            <img class="image-background" src="img/reservation/image-background-3.svg" />
                           </div>
                         </div>
                         <div class="item-link-8 movie">
                           <div class="overlap-3">
                             <div class="strong-3"><div class="text-wrapper-13 name">원더랜드</div></div>
-                            <img class="image-background" src="img/reservationImg/image-background-4.svg" />
+                            <img class="image-background" src="img/reservation/image-background-4.svg" />
                           </div>
                         </div>
                         <div class="item-link-9 movie">
                           <div class="overlap-3">
                             <div class="strong-3"><div class="text-wrapper-14 name">탈주</div></div>
-                            <img class="image-background" src="img/reservationImg/image-background-5.svg" />
+                            <img class="image-background" src="img/reservation/image-background-5.svg" />
                           </div>
                         </div>
                         <div class="item-link-10 movie">
@@ -117,67 +117,67 @@
                             <div class="strong-3">
                               <div class="text-wrapper-15 movie name">극장판 하이큐!! 쓰레기장의 결전</div>
                             </div>
-                            <img class="image-background" src="img/reservationImg/image-background-6.svg" />
+                            <img class="image-background" src="img/reservation/image-background-6.svg" />
                           </div>
                         </div>
                         <div class="item-link-11 movie">
                           <div class="overlap-3">
                             <div class="strong-3"><div class="text-wrapper-16 name">퓨리오사: 매드맥스 사가</div></div>
-                            <img class="image-background" src="img/reservationImg/image-background-7.svg" />
+                            <img class="image-background" src="img/reservation/image-background-7.svg" />
                           </div>
                         </div>
                         <div class="item-link-12 movie">
                           <div class="overlap-3">
                             <div class="strong-3"><p class="p movie name">김준수 콘서트 무비 챕터 원 : 레크리에…</p></div>
-                            <img class="image-background" src="img/reservationImg/image-background-8.svg" />
+                            <img class="image-background" src="img/reservation/image-background-8.svg" />
                           </div>
                         </div>
                         <div class="item-link-13 movie">
                           <div class="overlap-3">
                             <div class="strong-3"><div class="text-wrapper-13 name">드라이브</div></div>
-                            <img class="image-background" src="img/reservationImg/image-background-9.svg" />
+                            <img class="image-background" src="img/reservation/image-background-9.svg" />
                           </div>
                         </div>
                         <div class="item-link-14 movie">
                           <div class="overlap-3">
                             <div class="strong-3"><div class="text-wrapper-17 name">[듄기획전]듄: 파트2</div></div>
-                            <img class="image-background" src="img/reservationImg/image-background-10.svg" />
+                            <img class="image-background" src="img/reservation/image-background-10.svg" />
                           </div>
                         </div>
                         <div class="item-link-15 movie">
                           <div class="overlap-3">
                             <div class="strong-3"><div class="text-wrapper-18 name">핸섬가이즈</div></div>
-                            <img class="image-background" src="img/reservationImg/image-background-11.svg" />
+                            <img class="image-background" src="img/reservation/image-background-11.svg" />
                           </div>
                         </div>
                         <div class="item-link-16 movie">
                           <div class="overlap-3">
                             <div class="strong-3"><div class="text-wrapper-19 name">존 오브 인터레스트</div></div>
-                            <img class="image-background" src="img/reservationImg/image-background-12.svg" />
+                            <img class="image-background" src="img/reservation/image-background-12.svg" />
                           </div>
                         </div>
                         <div class="item-link-17 movie">
                           <div class="overlap-3">
                             <div class="strong-3"><div class="text-wrapper-20 name">범죄도시4</div></div>
-                            <img class="image-background" src="img/reservationImg/image-background-13.svg" />
+                            <img class="image-background" src="img/reservation/image-background-13.svg" />
                           </div>
                         </div>
                         <div class="item-link-18 movie">
                           <div class="overlap-3">
                             <div class="strong-3"><div class="text-wrapper-21 name">[듄기획전]듄</div></div>
-                            <img class="image-background" src="img/reservationImg/image-background-14.svg" />
+                            <img class="image-background" src="img/reservation/image-background-14.svg" />
                           </div>
                         </div>
                         <div class="item-link-19 movie">
                           <div class="overlap-3">
                             <div class="strong-3"><div class="text-wrapper-22 name">그녀가 죽었다</div></div>
-                            <img class="image-background" src="img/reservationImg/image-background-15.svg" />
+                            <img class="image-background" src="img/reservation/image-background-15.svg" />
                           </div>
                         </div>
                         <div class="item-link-20 movie">
                           <div class="overlap-3">
                             <div class="strong-3"><div class="text-wrapper-23 name">매드맥스: 분노의 도로</div></div>
-                            <img class="image-background" src="img/reservationImg/image-background-16.svg" />
+                            <img class="image-background" src="img/reservation/image-background-16.svg" />
                           </div>
                         </div>
                       </div>
@@ -343,6 +343,83 @@
 	let date;
 $(function() {
 	
+	let checkClick = null;
+	let checkGuan = null;
+	let checkMovie = null;
+	let checkTime = null;
+	let checkDate = null;
+	
+	//선택확인
+	function check(element, selector, color, type){
+		 if (checkClick) {
+	        $(checkClick).css('background-color', '');
+	    }
+		$(element).css('background-color', color);
+        if (type === 1 && checkGuan && checkGuan !== element) { // checkGuan이 존재하고, 현재 클릭된 요소와 다를 때
+            $(checkGuan).css('background-color', '');
+        } else if (type === 2 && checkMovie && checkMovie !== element) {
+            $(checkMovie).css('background-color', '');
+        } else if (type === 3 && checkTime && checkTime !== element) {
+            $(checkTime).css('background-color', '');
+        } else if (type === 4 && checkDate && checkDate !== element) {
+            $(checkDate).css('background-color', '');
+        }
+		
+		$(element).css('background-color', color);
+		
+        // 선택된 요소 업데이트
+        if (type === 1) {
+            checkGuan = element;
+        } else if (type === 2) {
+            checkMovie = element;
+        } else if (type === 3) {
+            checkTime = element;
+        } else if (type === 4) {
+            checkDate = element;
+        }
+		
+	}
+	
+	$(".guan").click(function() {
+	    check(this, '.guan', '#C0C0C0',1); // 영화 선택 시 배경색 변경
+	});
+	$(".movie").click(function() {
+	    check(this, '.guan', '#C0C0C0',2); // 영화 선택 시 배경색 변경
+	});
+	$(".time").click(function() {
+	    check(this, '.guan', '#C0C0C0',3); // 영화 선택 시 배경색 변경
+	});
+
+	
+	
+	$('.guan').hover(function() {
+        if (this !== checkGuan) { // 선택된 요소가 아닐 때만 hover 효과 적용
+            $(this).css('background-color', '#C0C0C0');
+        }
+    }, function() {
+        if (this !== checkGuan) { // 선택된 요소가 아닐 때만 hover 효과 제거
+            $(this).css('background-color', ''); 
+        }
+    });
+	$('.movie').hover(function() {
+        if (this !== checkMovie) { // 선택된 요소가 아닐 때만 hover 효과 적용
+            $(this).css('background-color', '#C0C0C0');
+        }
+    }, function() {
+        if (this !== checkMovie) { // 선택된 요소가 아닐 때만 hover 효과 제거
+            $(this).css('background-color', ''); 
+        }
+    });
+	$('.time').hover(function() {
+        if (this !== checkTime) { // 선택된 요소가 아닐 때만 hover 효과 적용
+            $(this).css('background-color', '#C0C0C0');
+        }
+    }, function() {
+        if (this !== checkTime) { // 선택된 요소가 아닐 때만 hover 효과 제거
+            $(this).css('background-color', ''); 
+        }
+    });
+	
     let $daysContainer = $('#days');
     let $monthContainer = $('#current-month');
     
@@ -412,6 +489,11 @@ $(function() {
         
         $dayElement.append($dateElement);
         $daysContainer.append($dayElement);
+        
+        
+        $daysContainer.on('click', '.date', function() {
+            check(this,'date', '#C0C0C0', 4); // 마우스 오버 시 배경색 변경
+        });
     }
     
 	$(".date").click(function(){
@@ -430,8 +512,7 @@ $(function() {
 	    
 	    date = selectedYear+ "-"+selectedMonth + "-" + day
 	    console.log(date)
-	})
-    
+	})    
 
 });
 
@@ -448,38 +529,7 @@ $(function() {
 		console.log(text)
 	})
 	
-	//상영관 hover
-	$('.guan').hover(function() {
-        // 마우스가 올라갔을 때
-        $(this).css('background-color', '#C0C0C0');
-        },
-        function() {
-            // 마우스가 벗어났을 때
-            $(this).css('background-color', '#FFFFFF');
-        }
-	);
 	
-	//영화 선택 hover
-	$(".movie").hover(function() {
-        // 마우스가 올라갔을 때
-        $(this).css('background-color', '#C0C0C0');
-        },
-        function() {
-            // 마우스가 벗어났을 때
-            $(this).css('background-color', '#F8F8F8');
-        }
-	);
-	
-	//시간 선택 hover
-	$(".time").hover(function() {
-        // 마우스가 올라갔을 때
-        $(this).css('background-color' ,'#C0C0C0');
-        },
-        function() {
-            // 마우스가 벗어났을 때
-            $(this).css('background-color' ,'#F8F8F8');
-        }
-	);
 
 	//영화 가져오기
 	$(".name").click(function(){

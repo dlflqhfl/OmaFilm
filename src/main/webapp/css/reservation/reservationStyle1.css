@@ -14,15 +14,14 @@
 
 .selectseat .overlap {
   position: relative;
-  height: 872px;
-  top: -2px;
+  height: 870px;
 }
 
 .selectseat .overlap-group {
   position: absolute;
   width: 1280px;
   height: 870px;
-  top: 2px;
+  top: 0;
   left: 0;
 }
 
@@ -65,6 +64,15 @@
   height: 216px;
 }
 
+.selectseat .frame {
+  height: 36px;
+  top: 172px;
+  background-color: #0f212b;
+  position: absolute;
+  width: 1202px;
+  left: 77px;
+}
+
 .selectseat .strong {
   position: absolute;
   width: 76px;
@@ -105,23 +113,14 @@
   white-space: nowrap;
 }
 
-.selectseat .frame {
-  position: absolute;
-  width: 1203px;
-  height: 78px;
-  top: 52px;
-  left: 76px;
+.selectseat .frame-2 {
+  height: 76px;
+  top: 54px;
   background-color: #555555;
   border: 1px solid;
-}
-
-.selectseat .frame-2 {
   position: absolute;
-  width: 1204px;
-  height: 36px;
-  top: 172px;
-  left: 76px;
-  background-color: #0f212b;
+  width: 1202px;
+  left: 77px;
 }
 
 .selectseat .container {
@@ -294,13 +293,14 @@
   top: 1px;
   left: 975px;
   background-color: #3d4d55;
+  overflow: hidden;
   position: absolute;
   width: 228px;
   height: 77px;
 }
 
 .selectseat .pay-text {
-  top: 24px;
+  top: 19px;
   left: 0;
   font-family: "Lato", Helvetica;
   font-weight: 700;
@@ -316,55 +316,55 @@
 
 .selectseat .price-list {
   position: absolute;
-  width: 156px;
+  width: 176px;
   height: 33px;
   top: 28px;
   left: 799px;
 }
 
 .selectseat .overlap-group-2 {
-  position: relative;
-  height: 33px;
-  top: -1px;
+    position: relative;
+    height: 33px;
+    top: -1px;
 }
 
 .selectseat .total-text {
-  position: absolute;
-  width: 121px;
-  height: 33px;
-  top: 0;
-  left: -96px;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 20px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
+    position: absolute;
+    width: 121px;
+    height: 33px;
+    top: 0;
+    left: -96px;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
 }
 
 .selectseat .total-price-text {
-  position: absolute;
-  width: 33px;
-  height: 16px;
-  top: -2px;
-  left: 45px;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 25px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
+    position: absolute;
+    width: 33px;
+    height: 16px;
+    top: -2px;
+    left: 45px;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
 }
 
 .selectseat .won-text {
   position: absolute;
   width: 31px;
   height: 14px;
-  top: 0px;
-  left: 125px;
+  top: 0;
+  left: 130px;
   font-family: "Lato", Helvetica;
   font-weight: 700;
   color: #ffffff;
@@ -375,102 +375,49 @@
   white-space: nowrap;
 }
 
-.selectseat .seat-alpha-list {
+.selectseat .s-CREEN {
   position: absolute;
-  width: 38px;
-  height: 187px;
-  top: 334px;
-  left: 381px;
-}
-
-.selectseat .a {
-  position: absolute;
-  width: 27px;
+  width: 161px;
   height: 27px;
-  top: 0;
-  left: 3px;
+  top: 174px;
+  left: 599px;
   font-family: "Lato", Helvetica;
   font-weight: 700;
-  color: #000000;
-  font-size: 16px;
+  color: #ffffff;
+  font-size: 20px;
   text-align: center;
   letter-spacing: 0;
   line-height: normal;
 }
 
-.selectseat .b {
+.selectseat .line-a {
   position: absolute;
-  width: 24px;
-  height: 27px;
-  top: 54px;
-  left: 3px;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #000000;
-  font-size: 16px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
+  width: 392px;
+  height: 35px;
+  top: 311px;
+  left: 488px;
 }
 
-.selectseat .c {
-  position: absolute;
-  width: 24px;
-  height: 27px;
-  top: 105px;
-  left: 3px;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #000000;
-  font-size: 16px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.selectseat .d {
+.selectseat .text-wrapper-9 {
   position: absolute;
   width: 30px;
-  height: 27px;
-  top: 161px;
+  height: 35px;
+  top: -1px;
   left: 0;
   font-family: "Lato", Helvetica;
   font-weight: 700;
   color: #000000;
   font-size: 16px;
-  text-align: center;
   letter-spacing: 0;
   line-height: normal;
 }
 
-.selectseat .seat-count-list {
+.selectseat .overlap-2 {
   position: absolute;
-  width: 560px;
-  height: 291px;
-  top: 332px;
-  left: 423px;
-}
-
-.selectseat .list-2 {
+  width: 50px;
+  height: 40px;
   top: 0;
-  left: 0;
-  position: absolute;
-  width: 50px;
-  height: 442px;
-}
-
-.selectseat .component {
-  top: 51px;
-  left: 0;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .overlap-group-3 {
-  position: relative;
-  height: 36px;
-  top: -1px;
+  left: 342px;
 }
 
 .selectseat .rectangle {
@@ -489,11 +436,11 @@
   font-size: 1.3em;
 }
 
-.selectseat .text-wrapper-9 {
-  width: 33px;
-  height: 20px;
-  top: 9px;
-  left: 8px;
+.selectseat .text-wrapper-10 {
+  width: 50px;
+  height: 34px;
+  top: 6px;
+  left: 0;
   font-family: "Inter", Helvetica;
   color: #ffffff;
   font-size: 20px;
@@ -504,281 +451,87 @@
   letter-spacing: -0.36px;
 }
 
-.selectseat .overlap-group-wrapper {
-  top: 102px;
-  left: 0;
+.selectseat .overlap-3 {
   position: absolute;
   width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-2 {
-  top: 153px;
-  left: 0;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .div-wrapper-2 {
+  height: 40px;
   top: 0;
-  left: 0;
+  left: 274px;
+}
+
+.selectseat .overlap-4 {
   position: absolute;
   width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-3 {
-  height: 36px;
-}
-
-.selectseat .overlap-group-4 {
-  position: relative;
-  width: 50px;
-  height: 36px;
-  top: -1px;
-}
-
-.selectseat .list-3 {
+  height: 40px;
   top: 0;
-  left: 65px;
-  position: absolute;
-  width: 50px;
-  height: 442px;
+  left: 204px;
 }
 
-.selectseat .overlap-2 {
+.selectseat .overlap-5 {
   position: absolute;
-  width: 132px;
-  height: 443px;
+  width: 50px;
+  height: 40px;
   top: 0;
-  left: 130px;
+  left: 100px;
 }
 
-.selectseat .list-4 {
-  top: 1px;
-  left: 0;
+.selectseat .overlap-6 {
   position: absolute;
   width: 50px;
-  height: 442px;
-}
-
-.selectseat .component-4 {
-  top: 51px;
-  left: 18px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-5 {
-  top: 102px;
-  left: 18px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-6 {
-  top: 153px;
-  left: 18px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-7 {
+  height: 40px;
   top: 0;
-  left: 18px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
+  left: 30px;
 }
 
-.selectseat .component-8 {
+.selectseat .line-b {
   position: absolute;
-  width: 50px;
-  height: 36px;
-  top: 51px;
-  left: 82px;
+  width: 392px;
+  height: 35px;
+  top: 358px;
+  left: 488px;
 }
 
-.selectseat .component-9 {
-  left: 82px;
+.selectseat .line-c {
   position: absolute;
-  width: 50px;
-  height: 36px;
-  top: 102px;
+  width: 392px;
+  height: 35px;
+  top: 405px;
+  left: 488px;
 }
 
-.selectseat .component-10 {
-  left: 82px;
+.selectseat .line-d {
   position: absolute;
-  width: 50px;
-  height: 36px;
-  top: 153px;
+  width: 392px;
+  height: 35px;
+  top: 452px;
+  left: 488px;
 }
 
-.selectseat .component-11 {
-  top: 0;
-  left: 82px;
+.selectseat .line-e {
   position: absolute;
-  width: 50px;
-  height: 36px;
+  width: 392px;
+  height: 35px;
+  top: 542px;
+  left: 488px;
 }
 
-.selectseat .component-12 {
+.selectseat .line-f {
   position: absolute;
-  width: 50px;
-  height: 36px;
-  top: 51px;
-  left: 295px;
+  width: 392px;
+  height: 35px;
+  top: 589px;
+  left: 488px;
 }
 
-.selectseat .component-13 {
-  top: 51px;
-  left: 441px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-14 {
-  top: 51px;
-  left: 361px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-15 {
-  top: 51px;
-  left: 507px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-16 {
-  position: absolute;
-  width: 50px;
-  height: 36px;
-  top: 0;
-  left: 295px;
-}
-
-.selectseat .component-17 {
-  top: 0;
-  left: 441px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-18 {
-  top: 0;
-  left: 361px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-19 {
-  top: 0;
-  left: 507px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-20 {
-  left: 295px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-  top: 102px;
-}
-
-.selectseat .component-21 {
-  top: 102px;
-  left: 441px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-22 {
-  top: 102px;
-  left: 361px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-23 {
-  top: 102px;
-  left: 507px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-24 {
-  left: 295px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-  top: 153px;
-}
-
-.selectseat .component-25 {
-  top: 153px;
-  left: 441px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-26 {
-  top: 153px;
-  left: 361px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-27 {
-  top: 153px;
-  left: 507px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .s-CREEN {
-  position: absolute;
-  width: 161px;
-  height: 27px;
-  top: 176px;
-  left: 599px;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 20px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.selectseat .list-5 {
+.selectseat .list-2 {
   position: absolute;
   width: 525px;
   height: 28px;
-  top: 83px;
+  top: 81px;
   left: 430px;
 }
 
-.selectseat .overlap-3 {
+.selectseat .overlap-7 {
   position: absolute;
   width: 80px;
   height: 51px;
@@ -786,22 +539,22 @@
   left: 33px;
 }
 
-.selectseat .overlap-group-wrapper-2 {
+.selectseat .overlap-group-wrapper {
+  position: absolute;
   width: 50px;
   height: 51px;
-  position: absolute;
   top: 0;
   left: 0;
 }
 
-.selectseat .overlap-group-5 {
+.selectseat .overlap-group-3 {
   position: relative;
   width: 40px;
   height: 40px;
   background-color: #ffffff;
 }
 
-.selectseat .text-wrapper-10 {
+.selectseat .text-wrapper-11 {
   position: absolute;
   width: 28px;
   height: 28px;
@@ -817,17 +570,16 @@
   white-space: nowrap;
 }
 
-.selectseat .div-wrapper-3 {
+.selectseat .div-wrapper-2 {
   position: absolute;
   width: 40px;
   height: 40px;
   top: 0;
   left: 40px;
   background-color: #ffffff;
-  border-radius: 0px 5px 5px 0px;
 }
 
-.selectseat .text-wrapper-11 {
+.selectseat .text-wrapper-12 {
   position: absolute;
   width: 33px;
   height: 33px;
@@ -843,21 +595,13 @@
   white-space: nowrap;
 }
 
-.selectseat .overlap-4 {
-  position: absolute;
-  width: 131px;
-  height: 79px;
-  top: -30px;
-  left: -98px;
-}
-
 .selectseat .minus-adult-bt {
   display: inline-flex;
   align-items: flex-start;
   gap: 10px;
   position: absolute;
-  top: 18px;
-  left: 91px;
+  top: -12px;
+  left: -7px;
 }
 
 .selectseat .div-2 {
@@ -868,12 +612,12 @@
   border-radius: 5px 0px 0px 5px;
 }
 
-.selectseat .text-wrapper-12 {
+.selectseat .minus-adult-text {
   position: absolute;
   width: 33px;
   height: 33px;
-  top: -6px;
-  left: 5px;
+  top: -7px;
+  left: 7px;
   font-family: "Lato", Helvetica;
   font-weight: 700;
   color: #000000;
@@ -884,9 +628,12 @@
   white-space: nowrap;
 }
 
-.selectseat .text-wrapper-13 {
+.selectseat .adult-text {
+  position: absolute;
   width: 98px;
-  height: 79px;
+  height: 22px;
+  top: -3px;
+  left: -105px;
   font-family: "Lato", Helvetica;
   font-weight: 700;
   color: #ffffff;
@@ -894,35 +641,15 @@
   text-align: center;
   letter-spacing: 0;
   line-height: normal;
-  position: absolute;
-  top: 25px;
-  left: 0;
+  white-space: nowrap;
 }
 
-.selectseat .overlap-5 {
+.selectseat .overlap-8 {
   position: absolute;
   width: 201px;
-  height: 79px;
-  top: -29px;
-  left: 244px;
-}
-
-.selectseat .teen-count {
-  position: absolute;
-  width: 50px;
   height: 51px;
-  top: 17px;
-  left: 0;
-}
-
-.selectseat .plus-teen-bt {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  top: 17px;
-  left: 40px;
-  background-color: #ffffff;
-  border-radius: 0px 5px 5px 0px;
+  top: -12px;
+  left: 244px;
 }
 
 .selectseat .minus-senior-bt {
@@ -930,15 +657,31 @@
   align-items: flex-start;
   gap: 10px;
   position: absolute;
-  top: 17px;
+  top: 0;
   left: 161px;
+}
+
+.selectseat .text-wrapper-13 {
+  position: absolute;
+  width: 33px;
+  height: 33px;
+  top: -6px;
+  left: 4px;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
 }
 
 .selectseat .senior-text {
   position: absolute;
   width: 98px;
-  height: 79px;
-  top: 23px;
+  height: 29px;
+  top: 4px;
   left: 70px;
   font-family: "Lato", Helvetica;
   font-weight: 700;
@@ -949,11 +692,11 @@
   line-height: normal;
 }
 
-.selectseat .overlap-6 {
+.selectseat .overlap-9 {
   position: absolute;
   width: 131px;
-  height: 79px;
-  top: -32px;
+  height: 40px;
+  top: -12px;
   left: 113px;
 }
 
@@ -962,11 +705,27 @@
   align-items: flex-start;
   gap: 10px;
   position: absolute;
-  top: 20px;
+  top: 0;
   left: 91px;
 }
 
-.selectseat .overlap-7 {
+.selectseat .teen-text {
+  position: absolute;
+  width: 98px;
+  height: 20px;
+  top: 9px;
+  left: 0;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.selectseat .overlap-10 {
   position: absolute;
   width: 80px;
   height: 51px;
@@ -977,11 +736,10 @@
 .selectseat .seat-background {
   position: absolute;
   width: 1202px;
-  height: 55px;
+  height: 53px;
   top: 0;
   left: 78px;
   background-color: #0f212b;
-  overflow: hidden;
   border-right-width: 1px;
   border-right-style: solid;
 }
@@ -989,8 +747,8 @@
 .selectseat .select-seat-text {
   position: absolute;
   width: 453px;
-  height: 111px;
-  top: 1px;
+  height: 54px;
+  top: -1px;
   left: 375px;
   font-family: "Noto Sans KR", Helvetica;
   font-weight: 300;
@@ -999,4 +757,5 @@
   text-align: center;
   letter-spacing: -0.36px;
   line-height: 55px;
+  white-space: nowrap;
 }

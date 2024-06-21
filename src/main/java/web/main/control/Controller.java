@@ -106,8 +106,6 @@ public class Controller extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-			
 		}//while의 끝
 		
 	}

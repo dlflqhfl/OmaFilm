@@ -81,7 +81,7 @@
             </div>
           </div>
         </div>
-        <img class="line" src="img/line-2.svg" />
+        <img class="line" src="img/adminAddMovie/line-2.svg" />
         <div class="text-wrapper-9">영화 추가</div>
         <jsp:include page="/jsp/admin/menu/menu.jsp"></jsp:include>
         <div class="div-wrap"></div>

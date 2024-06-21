@@ -285,12 +285,13 @@
           <div class="seat-background"><div class="select-seat-text">인원 / 좌석 선택</div></div>
         </div>
         <form id="goPayment" action="Controller?type=payment" method="post">
-        	<input type="hidden" id="movieName" value="${param.movieName }">
-        	<input type="hidden" id="text" value="${param.text }">
-        	<input type="hidden" id="time" value="${param.time }">
-        	<input type="hidden" id="totalCount" value="">
-        	<input type="hidden" id="checkSeat" value="">
-        	<input type="hidden" id="date" value="">
+        	<input type="hidden" id="movieName" name="movieName" value="${param.movieName }">
+        	<input type="hidden" id="text" name="text" value="${param.text }">
+        	<input type="hidden" id="time" name="time" value="${param.time }">
+        	<input type="hidden" id="totalCount" name="totalCount" value="">
+        	<input type="hidden" id="checkSeat" name="checkSeat" value="">
+        	<input type="hidden" id="date" name="date" value="${param.date }">
+        	<input type="hidden" id="totalPrice" name="totalPrice" value="">
         </form>
         
     </div>
@@ -312,6 +313,7 @@
 	let adult = parseInt($("#adult").text());
 	let teen = parseInt($("#teen").text());
 	let old = parseInt($("#old").text());
+	
 	let checkSeat = new Set();
 	let seatArray = [];
 	let seats = "";
@@ -376,7 +378,7 @@
 	
 	//청소년관객 수 +
 	$(".tPlus").click(function(){
-		if( old < 8){
+		if( teen < 8){
 			teen = parseInt(teen) + 1;
 			let res = $("#teen").text(teen);
 			updatePrice()
@@ -432,6 +434,8 @@
 	function updatePrice(){
 		let totalPrice = (adult * 13000) + (teen * 10000) + (old * 8000);
 		$(".total-price-text").text(totalPrice)
+		$("#totalPrice").val(totalPrice); // hidden input 필드 값 업데이트
+		console.log(totalPrice)
 	}
 	
     // 선택된 좌석 업데이트 함수
@@ -456,7 +460,10 @@
 			let oldCount = "경로" + old;
 			
 			let totalCount = adultCount+"/" + teenCount+"/" + oldCount;
-        
+			
+			$("#totalCount").val(totalCount)
+			$("#checkSeat").val(seats);
+			
        	 	$("#goPayment").submit();
 		} else {
 			location.reload()
@@ -480,6 +487,7 @@
 	        $(".text").css('color', '#666666'); // 원래 색상으로 되돌리기
 	    }
 	);
+	
 	
 	
 	

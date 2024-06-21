@@ -14,15 +14,14 @@
 
 .selectseat .overlap {
   position: relative;
-  height: 872px;
-  top: -2px;
+  height: 870px;
 }
 
 .selectseat .overlap-group {
   position: absolute;
   width: 1280px;
   height: 870px;
-  top: 2px;
+  top: 0;
   left: 0;
 }
 
@@ -106,22 +105,22 @@
 }
 
 .selectseat .frame {
-  position: absolute;
   width: 1203px;
-  height: 78px;
-  top: 52px;
-  left: 76px;
+  height: 76px;
+  top: 54px;
   background-color: #555555;
   border: 1px solid;
+  position: absolute;
+  left: 76px;
 }
 
 .selectseat .frame-2 {
-  position: absolute;
-  width: 1204px;
+  width: 1202px;
   height: 36px;
-  top: 172px;
-  left: 76px;
+  top: 169px;
   background-color: #0f212b;
+  position: absolute;
+  left: 77px;
 }
 
 .selectseat .container {
@@ -300,18 +299,18 @@
 }
 
 .selectseat .pay-text {
-  top: 24px;
-  left: 0;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 20px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  width: 228px;
-  height: 77px;
+    top: 24px;
+    left: 0;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: 228px;
+    height: 77px;
 }
 
 .selectseat .price-list {
@@ -329,437 +328,57 @@
 }
 
 .selectseat .total-text {
-  position: absolute;
-  width: 121px;
-  height: 33px;
-  top: 0;
-  left: -96px;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 20px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
+	position: absolute;
+    width: 121px;
+    height: 33px;
+    top: 0;
+    left: -96px;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
 }
 
 .selectseat .total-price-text {
-  position: absolute;
-  width: 33px;
-  height: 16px;
-  top: -2px;
-  left: 45px;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 25px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
+    position: absolute;
+    width: 33px;
+    height: 16px;
+    top: -2px;
+    left: 45px;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
 }
 
 .selectseat .won-text {
-  position: absolute;
-  width: 31px;
-  height: 14px;
-  top: 0px;
-  left: 125px;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 20px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.selectseat .seat-alpha-list {
-  position: absolute;
-  width: 38px;
-  height: 187px;
-  top: 334px;
-  left: 381px;
-}
-
-.selectseat .a {
-  position: absolute;
-  width: 27px;
-  height: 27px;
-  top: 0;
-  left: 3px;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #000000;
-  font-size: 16px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.selectseat .b {
-  position: absolute;
-  width: 24px;
-  height: 27px;
-  top: 54px;
-  left: 3px;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #000000;
-  font-size: 16px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.selectseat .c {
-  position: absolute;
-  width: 24px;
-  height: 27px;
-  top: 105px;
-  left: 3px;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #000000;
-  font-size: 16px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.selectseat .d {
-  position: absolute;
-  width: 30px;
-  height: 27px;
-  top: 161px;
-  left: 0;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #000000;
-  font-size: 16px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.selectseat .seat-count-list {
-  position: absolute;
-  width: 560px;
-  height: 291px;
-  top: 332px;
-  left: 423px;
-}
-
-.selectseat .list-2 {
-  top: 0;
-  left: 0;
-  position: absolute;
-  width: 50px;
-  height: 442px;
-}
-
-.selectseat .component {
-  top: 51px;
-  left: 0;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .overlap-group-3 {
-  position: relative;
-  height: 36px;
-  top: -1px;
-}
-
-.selectseat .rectangle {
-  position: absolute;
-  width: 50px;
-  height: 34px;
-  top: 2px;
-  left: 0;
-  background-color: #999999;
-  border-radius: 6px;
-  border: 1px solid;
-  text-align: center;
-  padding: 5px;
-  font-weight: bolder;
-  color: white;
-  font-size: 1.3em;
-}
-
-.selectseat .text-wrapper-9 {
-  width: 33px;
-  height: 20px;
-  top: 9px;
-  left: 8px;
-  font-family: "Inter", Helvetica;
-  color: #ffffff;
-  font-size: 20px;
-  line-height: normal;
-  position: absolute;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: -0.36px;
-}
-
-.selectseat .overlap-group-wrapper {
-  top: 102px;
-  left: 0;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-2 {
-  top: 153px;
-  left: 0;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .div-wrapper-2 {
-  top: 0;
-  left: 0;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-3 {
-  height: 36px;
-}
-
-.selectseat .overlap-group-4 {
-  position: relative;
-  width: 50px;
-  height: 36px;
-  top: -1px;
-}
-
-.selectseat .list-3 {
-  top: 0;
-  left: 65px;
-  position: absolute;
-  width: 50px;
-  height: 442px;
-}
-
-.selectseat .overlap-2 {
-  position: absolute;
-  width: 132px;
-  height: 443px;
-  top: 0;
-  left: 130px;
-}
-
-.selectseat .list-4 {
-  top: 1px;
-  left: 0;
-  position: absolute;
-  width: 50px;
-  height: 442px;
-}
-
-.selectseat .component-4 {
-  top: 51px;
-  left: 18px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-5 {
-  top: 102px;
-  left: 18px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-6 {
-  top: 153px;
-  left: 18px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-7 {
-  top: 0;
-  left: 18px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-8 {
-  position: absolute;
-  width: 50px;
-  height: 36px;
-  top: 51px;
-  left: 82px;
-}
-
-.selectseat .component-9 {
-  left: 82px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-  top: 102px;
-}
-
-.selectseat .component-10 {
-  left: 82px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-  top: 153px;
-}
-
-.selectseat .component-11 {
-  top: 0;
-  left: 82px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-12 {
-  position: absolute;
-  width: 50px;
-  height: 36px;
-  top: 51px;
-  left: 295px;
-}
-
-.selectseat .component-13 {
-  top: 51px;
-  left: 441px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-14 {
-  top: 51px;
-  left: 361px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-15 {
-  top: 51px;
-  left: 507px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-16 {
-  position: absolute;
-  width: 50px;
-  height: 36px;
-  top: 0;
-  left: 295px;
-}
-
-.selectseat .component-17 {
-  top: 0;
-  left: 441px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-18 {
-  top: 0;
-  left: 361px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-19 {
-  top: 0;
-  left: 507px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-20 {
-  left: 295px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-  top: 102px;
-}
-
-.selectseat .component-21 {
-  top: 102px;
-  left: 441px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-22 {
-  top: 102px;
-  left: 361px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-23 {
-  top: 102px;
-  left: 507px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-24 {
-  left: 295px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-  top: 153px;
-}
-
-.selectseat .component-25 {
-  top: 153px;
-  left: 441px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-26 {
-  top: 153px;
-  left: 361px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
-}
-
-.selectseat .component-27 {
-  top: 153px;
-  left: 507px;
-  position: absolute;
-  width: 50px;
-  height: 36px;
+    position: absolute;
+    width: 31px;
+    height: 14px;
+    top: 0px;
+    left: 125px;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
 }
 
 .selectseat .s-CREEN {
   position: absolute;
   width: 161px;
   height: 27px;
-  top: 176px;
+  top: 174px;
   left: 599px;
   font-family: "Lato", Helvetica;
   font-weight: 700;
@@ -770,15 +389,15 @@
   line-height: normal;
 }
 
-.selectseat .list-5 {
+.selectseat .list-2 {
   position: absolute;
   width: 525px;
   height: 28px;
-  top: 83px;
+  top: 81px;
   left: 430px;
 }
 
-.selectseat .overlap-3 {
+.selectseat .overlap-2 {
   position: absolute;
   width: 80px;
   height: 51px;
@@ -786,7 +405,7 @@
   left: 33px;
 }
 
-.selectseat .overlap-group-wrapper-2 {
+.selectseat .overlap-group-wrapper {
   width: 50px;
   height: 51px;
   position: absolute;
@@ -794,14 +413,14 @@
   left: 0;
 }
 
-.selectseat .overlap-group-5 {
+.selectseat .overlap-group-3 {
   position: relative;
   width: 40px;
   height: 40px;
   background-color: #ffffff;
 }
 
-.selectseat .text-wrapper-10 {
+.selectseat .text-wrapper-9 {
   position: absolute;
   width: 28px;
   height: 28px;
@@ -817,7 +436,7 @@
   white-space: nowrap;
 }
 
-.selectseat .div-wrapper-3 {
+.selectseat .div-wrapper-2 {
   position: absolute;
   width: 40px;
   height: 40px;
@@ -827,7 +446,7 @@
   border-radius: 0px 5px 5px 0px;
 }
 
-.selectseat .text-wrapper-11 {
+.selectseat .text-wrapper-10 {
   position: absolute;
   width: 33px;
   height: 33px;
@@ -843,7 +462,7 @@
   white-space: nowrap;
 }
 
-.selectseat .overlap-4 {
+.selectseat .overlap-3 {
   position: absolute;
   width: 131px;
   height: 79px;
@@ -868,7 +487,7 @@
   border-radius: 5px 0px 0px 5px;
 }
 
-.selectseat .text-wrapper-12 {
+.selectseat .text-wrapper-11 {
   position: absolute;
   width: 33px;
   height: 33px;
@@ -884,7 +503,7 @@
   white-space: nowrap;
 }
 
-.selectseat .text-wrapper-13 {
+.selectseat .text-wrapper-12 {
   width: 98px;
   height: 79px;
   font-family: "Lato", Helvetica;
@@ -899,7 +518,7 @@
   left: 0;
 }
 
-.selectseat .overlap-5 {
+.selectseat .overlap-4 {
   position: absolute;
   width: 201px;
   height: 79px;
@@ -938,7 +557,7 @@
   position: absolute;
   width: 98px;
   height: 79px;
-  top: 23px;
+  top: 22px;
   left: 70px;
   font-family: "Lato", Helvetica;
   font-weight: 700;
@@ -949,7 +568,7 @@
   line-height: normal;
 }
 
-.selectseat .overlap-6 {
+.selectseat .overlap-5 {
   position: absolute;
   width: 131px;
   height: 79px;
@@ -966,7 +585,7 @@
   left: 91px;
 }
 
-.selectseat .overlap-7 {
+.selectseat .overlap-6 {
   position: absolute;
   width: 80px;
   height: 51px;
@@ -977,11 +596,10 @@
 .selectseat .seat-background {
   position: absolute;
   width: 1202px;
-  height: 55px;
+  height: 54px;
   top: 0;
   left: 78px;
   background-color: #0f212b;
-  overflow: hidden;
   border-right-width: 1px;
   border-right-style: solid;
 }
@@ -989,8 +607,8 @@
 .selectseat .select-seat-text {
   position: absolute;
   width: 453px;
-  height: 111px;
-  top: 1px;
+  height: 54px;
+  top: -1px;
   left: 375px;
   font-family: "Noto Sans KR", Helvetica;
   font-weight: 300;
@@ -999,4 +617,188 @@
   text-align: center;
   letter-spacing: -0.36px;
   line-height: 55px;
+  white-space: nowrap;
+}
+
+.selectseat .line-a {
+  position: absolute;
+  width: 392px;
+  height: 35px;
+  top: 308px;
+  left: 489px;
+}
+
+.selectseat .text-wrapper-13 {
+  position: absolute;
+  width: 30px;
+  height: 35px;
+  top: -1px;
+  left: 0;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.selectseat .overlap-7 {
+  position: absolute;
+  width: 51px;
+  height: 40px;
+  top: 0;
+  left: 308px;
+}
+
+.selectseat .rectangle {
+    position: absolute;
+    width: 50px;
+    height: 34px;
+    top: 2px;
+    left: 0;
+    background-color: #999999;
+    border-radius: 6px;
+    border: 1px solid;
+    text-align: center;
+    padding: 5px;
+    font-weight: bolder;
+    color: white;
+    font-size: 1.3em;
+}
+
+.selectseat .text-wrapper-14 {
+  width: 50px;
+  height: 34px;
+  top: 6px;
+  left: 1px;
+  font-family: "Inter", Helvetica;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: normal;
+  position: absolute;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.36px;
+}
+
+.selectseat .overlap-8 {
+  position: absolute;
+  width: 51px;
+  height: 40px;
+  top: 0;
+  left: 240px;
+}
+
+.selectseat .overlap-9 {
+  position: absolute;
+  width: 51px;
+  height: 40px;
+  top: 0;
+  left: 170px;
+}
+
+.selectseat .rectangle-2 {
+  position: absolute;
+  width: 50px;
+  height: 34px;
+  top: 0;
+  left: 1px;
+  background-color: #999999;
+  border-radius: 6px;
+  border: 1px solid;
+}
+
+.selectseat .text-wrapper-15 {
+  width: 50px;
+  height: 34px;
+  top: 6px;
+  left: 0;
+  font-family: "Inter", Helvetica;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: normal;
+  position: absolute;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.36px;
+}
+
+.selectseat .overlap-10 {
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  top: 0;
+  left: 100px;
+}
+
+.selectseat .overlap-11 {
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  top: 0;
+  left: 30px;
+}
+
+.selectseat .line-b {
+  position: absolute;
+  width: 392px;
+  height: 35px;
+  top: 363px;
+  left: 488px;
+}
+
+.selectseat .overlap-12 {
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  top: 0;
+  left: 308px;
+}
+
+.selectseat .overlap-13 {
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  top: 0;
+  left: 240px;
+}
+
+.selectseat .overlap-14 {
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  top: 0;
+  left: 170px;
+}
+
+.selectseat .line-c {
+  position: absolute;
+  width: 392px;
+  height: 35px;
+  top: 414px;
+  left: 488px;
+}
+
+.selectseat .line-d {
+  position: absolute;
+  width: 392px;
+  height: 35px;
+  top: 464px;
+  left: 488px;
+}
+
+.selectseat .line-e {
+  position: absolute;
+  width: 392px;
+  height: 35px;
+  top: 515px;
+  left: 489px;
+}
+
+.selectseat .line-f {
+  position: absolute;
+  width: 392px;
+  height: 35px;
+  top: 566px;
+  left: 488px;
 }

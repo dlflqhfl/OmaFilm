@@ -25,7 +25,6 @@ public class PayAction implements Action {
 		int point = PaymentDAO.getPoint(mvo);
 		request.setAttribute("point", point);
 		
-		
 		return "/jsp/payment/payment.jsp";
 	}
 
