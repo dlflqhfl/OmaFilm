@@ -111,7 +111,7 @@
   background-color: #555555;
   border: 1px solid;
   position: absolute;
-  left: 77px;
+  left: 76px;
 }
 
 .selectseat .frame-2 {
@@ -299,18 +299,18 @@
 }
 
 .selectseat .pay-text {
-  top: -1px;
-  left: 0;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 20px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  width: 228px;
-  height: 77px;
+    top: 24px;
+    left: 0;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: 228px;
+    height: 77px;
 }
 
 .selectseat .price-list {
@@ -328,50 +328,50 @@
 }
 
 .selectseat .total-text {
-  position: absolute;
-  width: 121px;
-  height: 33px;
-  top: 0;
-  left: 0;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 20px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
+	position: absolute;
+    width: 121px;
+    height: 33px;
+    top: 0;
+    left: -96px;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
 }
 
 .selectseat .total-price-text {
-  position: absolute;
-  width: 33px;
-  height: 16px;
-  top: 7px;
-  left: 97px;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 25px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
+    position: absolute;
+    width: 33px;
+    height: 16px;
+    top: -2px;
+    left: 45px;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
 }
 
 .selectseat .won-text {
-  position: absolute;
-  width: 31px;
-  height: 14px;
-  top: 9px;
-  left: 125px;
-  font-family: "Lato", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 20px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
+    position: absolute;
+    width: 31px;
+    height: 14px;
+    top: 0px;
+    left: 125px;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
 }
 
 .selectseat .s-CREEN {
@@ -443,6 +443,7 @@
   top: 0;
   left: 40px;
   background-color: #ffffff;
+  border-radius: 0px 5px 5px 0px;
 }
 
 .selectseat .text-wrapper-10 {
@@ -490,7 +491,7 @@
   position: absolute;
   width: 33px;
   height: 33px;
-  top: 0;
+  top: -6px;
   left: 5px;
   font-family: "Lato", Helvetica;
   font-weight: 700;
@@ -513,7 +514,7 @@
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 0;
+  top: 25px;
   left: 0;
 }
 
@@ -540,6 +541,7 @@
   top: 17px;
   left: 40px;
   background-color: #ffffff;
+  border-radius: 0px 5px 5px 0px;
 }
 
 .selectseat .minus-senior-bt {
@@ -555,7 +557,7 @@
   position: absolute;
   width: 98px;
   height: 79px;
-  top: 0;
+  top: 22px;
   left: 70px;
   font-family: "Lato", Helvetica;
   font-weight: 700;
@@ -649,14 +651,19 @@
 }
 
 .selectseat .rectangle {
-  position: absolute;
-  width: 50px;
-  height: 34px;
-  top: 0;
-  left: 0;
-  background-color: #999999;
-  border-radius: 6px;
-  border: 1px solid;
+    position: absolute;
+    width: 50px;
+    height: 34px;
+    top: 2px;
+    left: 0;
+    background-color: #999999;
+    border-radius: 6px;
+    border: 1px solid;
+    text-align: center;
+    padding: 5px;
+    font-weight: bolder;
+    color: white;
+    font-size: 1.3em;
 }
 
 .selectseat .text-wrapper-14 {

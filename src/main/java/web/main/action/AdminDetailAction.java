@@ -13,10 +13,6 @@ import org.jdom2.input.SAXBuilder;
 
 import web.mybatis.vo.MovieListVO;
 
-
-
-
-
 public class AdminDetailAction implements Action{
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
