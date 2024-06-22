@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 무능호
-  Date: 2024-06-14
-  Time: 오후 3:46
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>

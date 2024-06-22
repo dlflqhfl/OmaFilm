@@ -5,11 +5,9 @@ public class MovieListVO {
 	movieCd,// 영화코드
 	movieNm,//영화명(국문)
 	movieNmE,// 영화명(영문)
-	movieNmOg,// 영화명(원문)
 	prdtYear,// 제작연도
 	showTm,// 상영시간
 	openDt,// 개봉연도
-	prdtStatNm,// 제작상태명
 	typeNm,// 영화유형명
 	nations,// 제작국가
 	nationNm,// 제작국가명
@@ -25,33 +23,23 @@ public class MovieListVO {
 	showTypeNm,// 상영형태명
 	audits,// 심의정보
 	auditNo,// 심의번호
-	watchGradeNm,// 관람등급 명칭
-	companys,// 참여 영화사
-	companyCd,// 관람등급 명칭
-	companyNm,// 참여 영화사 코드
-	companyNmEn,// 참여 영화사명(영문)
-	companyPartNm,// 참여 영화사 분야명
-	staffs,// 스텝
-	staffRoleNm;// 스텝역할명
+	watchGradeNm;// 관람등급 명칭
 	
 	public MovieListVO() {}
 
-	public MovieListVO(String movie_code, String movieCd, String movieNm, String movieNmE, String movieNmOg,
-			String prdtYear, String showTm, String openDt, String prdtStatNm, String typeNm, String nations,
-			String nationNm, String genreNm, String directors, String peopleNm, String peopleNmEn, String actors,
-			String cast, String castEn, String showTypes, String showTypeGroupNm, String showTypeNm, String audits,
-			String auditNo, String watchGradeNm, String companys, String companyCd, String companyNm,
-			String companyNmEn, String companyPartNm, String staffs, String staffRoleNm) {
+	public MovieListVO(String movie_code, String movieCd, String movieNm, String movieNmE, String prdtYear,
+			String showTm, String openDt, String typeNm, String nations, String nationNm, String genreNm,
+			String directors, String peopleNm, String peopleNmEn, String actors, String cast, String castEn,
+			String showTypes, String showTypeGroupNm, String showTypeNm, String audits, String auditNo,
+			String watchGradeNm) {
 		super();
 		this.movie_code = movie_code;
 		this.movieCd = movieCd;
 		this.movieNm = movieNm;
 		this.movieNmE = movieNmE;
-		this.movieNmOg = movieNmOg;
 		this.prdtYear = prdtYear;
 		this.showTm = showTm;
 		this.openDt = openDt;
-		this.prdtStatNm = prdtStatNm;
 		this.typeNm = typeNm;
 		this.nations = nations;
 		this.nationNm = nationNm;
@@ -68,13 +56,6 @@ public class MovieListVO {
 		this.audits = audits;
 		this.auditNo = auditNo;
 		this.watchGradeNm = watchGradeNm;
-		this.companys = companys;
-		this.companyCd = companyCd;
-		this.companyNm = companyNm;
-		this.companyNmEn = companyNmEn;
-		this.companyPartNm = companyPartNm;
-		this.staffs = staffs;
-		this.staffRoleNm = staffRoleNm;
 	}
 
 	public String getMovie_code() {
@@ -109,14 +90,6 @@ public class MovieListVO {
 		this.movieNmE = movieNmE;
 	}
 
-	public String getMovieNmOg() {
-		return movieNmOg;
-	}
-
-	public void setMovieNmOg(String movieNmOg) {
-		this.movieNmOg = movieNmOg;
-	}
-
 	public String getPrdtYear() {
 		return prdtYear;
 	}
@@ -139,14 +112,6 @@ public class MovieListVO {
 
 	public void setOpenDt(String openDt) {
 		this.openDt = openDt;
-	}
-
-	public String getPrdtStatNm() {
-		return prdtStatNm;
-	}
-
-	public void setPrdtStatNm(String prdtStatNm) {
-		this.prdtStatNm = prdtStatNm;
 	}
 
 	public String getTypeNm() {
@@ -276,64 +241,6 @@ public class MovieListVO {
 	public void setWatchGradeNm(String watchGradeNm) {
 		this.watchGradeNm = watchGradeNm;
 	}
-
-	public String getCompanys() {
-		return companys;
-	}
-
-	public void setCompanys(String companys) {
-		this.companys = companys;
-	}
-
-	public String getCompanyCd() {
-		return companyCd;
-	}
-
-	public void setCompanyCd(String companyCd) {
-		this.companyCd = companyCd;
-	}
-
-	public String getCompanyNm() {
-		return companyNm;
-	}
-
-	public void setCompanyNm(String companyNm) {
-		this.companyNm = companyNm;
-	}
-
-	public String getCompanyNmEn() {
-		return companyNmEn;
-	}
-
-	public void setCompanyNmEn(String companyNmEn) {
-		this.companyNmEn = companyNmEn;
-	}
-
-	public String getCompanyPartNm() {
-		return companyPartNm;
-	}
-
-	public void setCompanyPartNm(String companyPartNm) {
-		this.companyPartNm = companyPartNm;
-	}
-
-	public String getStaffs() {
-		return staffs;
-	}
-
-	public void setStaffs(String staffs) {
-		this.staffs = staffs;
-	}
-
-	public String getStaffRoleNm() {
-		return staffRoleNm;
-	}
-
-	public void setStaffRoleNm(String staffRoleNm) {
-		this.staffRoleNm = staffRoleNm;
-	}
-	
-	
 	
 	
 }

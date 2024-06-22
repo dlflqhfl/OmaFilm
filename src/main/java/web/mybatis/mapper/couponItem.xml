@@ -3,5 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="couponItem">
-	
+	<select id="getCouponItem" parameterType="int" resultType="web.mybatis.vo.CouponItemVO">
+		SELECT * 
+		FROM coupon_item
+		WHERE ci_code = #{ci_code}
+	</select>
 </mapper>
