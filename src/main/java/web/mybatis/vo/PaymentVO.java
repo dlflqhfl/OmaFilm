@@ -29,84 +29,86 @@ public class PaymentVO {
 		this.p_content = p_content;
 	}
 
-	int getP_code() {
+	public int getP_code() {
 		return p_code;
 	}
 
-	void setP_code(int p_code) {
+	public void setP_code(int p_code) {
 		this.p_code = p_code;
 	}
 
-	int getU_code() {
+	public int getU_code() {
 		return u_code;
 	}
 
-	void setU_code(int u_code) {
+	public void setU_code(int u_code) {
 		this.u_code = u_code;
 	}
 
-	int getP_ex_price() {
+	public int getP_ex_price() {
 		return p_ex_price;
 	}
 
-	void setP_ex_price(int p_ex_price) {
+	public void setP_ex_price(int p_ex_price) {
 		this.p_ex_price = p_ex_price;
 	}
 
-	int getP_tt_price() {
+	public int getP_tt_price() {
 		return p_tt_price;
 	}
 
-	void setP_tt_price(int p_tt_price) {
+	public void setP_tt_price(int p_tt_price) {
 		this.p_tt_price = p_tt_price;
 	}
 
-	int getP_status() {
+	public int getP_status() {
 		return p_status;
 	}
 
-	void setP_status(int p_status) {
+	public void setP_status(int p_status) {
 		this.p_status = p_status;
 	}
 
-	String getP_no() {
+	public String getP_no() {
 		return p_no;
 	}
 
-	void setP_no(String p_no) {
+	public void setP_no(String p_no) {
 		this.p_no = p_no;
 	}
 
-	String getCp_no() {
+	public String getCp_no() {
 		return cp_no;
 	}
 
-	void setCp_no(String cp_no) {
+	public void setCp_no(String cp_no) {
 		this.cp_no = cp_no;
 	}
 
-	String getP_method() {
+	public String getP_method() {
 		return p_method;
 	}
 
-	void setP_method(String p_method) {
+	public void setP_method(String p_method) {
 		this.p_method = p_method;
 	}
 
-	String getP_time() {
+	public String getP_time() {
 		return p_time;
 	}
 
-	void setP_time(String p_time) {
+	public void setP_time(String p_time) {
 		this.p_time = p_time;
 	}
 
-	String getP_content() {
+	public String getP_content() {
 		return p_content;
 	}
 
-	void setP_content(String p_content) {
+	public void setP_content(String p_content) {
 		this.p_content = p_content;
 	}
+
+	
 	
 }

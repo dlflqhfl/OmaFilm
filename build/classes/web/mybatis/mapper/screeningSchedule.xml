@@ -3,5 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="screeningSchedule">
-	
+	<!-- 상영 영화 코드, 상영관 코드, 날짜+시작 시간 -> 상영시간표VO(ssvo) -->
+	<select id="getSsVO" parameterType="Map" resultType="web.mybatis.vo.ScreeningScheduleVO">
+		SELECT * 
+		FROM screening_schedule
+		WHERE movie_code = #{movie_code} and t_code = #{t_code} and ss_time = #{dateAndTime}
+	</select>
 </mapper>

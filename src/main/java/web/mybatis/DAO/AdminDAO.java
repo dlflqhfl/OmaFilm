@@ -1,7 +1,7 @@
-package web.mybatis.DAO;
+package web.mybatis.dao;
 
 import java.util.HashMap;
-
+ 
 import org.apache.ibatis.session.SqlSession;
 
 import web.mybatis.service.FactoryService;

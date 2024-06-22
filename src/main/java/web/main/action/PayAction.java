@@ -1,11 +1,20 @@
 package web.main.action;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import web.mybatis.DAO.PaymentDAO;
+import web.mybatis.dao.PaymentDAO;
+import web.mybatis.vo.AudienceVO;
 import web.mybatis.vo.IssuedCouponVO;
 import web.mybatis.vo.MemberVO;
+import web.mybatis.vo.MovieListVO;
+import web.mybatis.vo.ScreeningScheduleVO;
+import web.mybatis.vo.TheaterSeatVO;
+import web.mybatis.vo.TheaterVO;
 
 public class PayAction implements Action {
 
@@ -17,14 +26,106 @@ public class PayAction implements Action {
 		MemberVO mvo = PaymentDAO.getMvo("test1");
 		request.setAttribute("mvo", mvo);
 		
+		// 세션 객체 가져오기
+		HttpSession session = request.getSession();
+
+		// MVO 객체를 세션 객체에 설정
+		session.setAttribute("mvo", mvo);
+		
 		//회원 정보 -> 쿠폰 검색 -> request에 저장
 		IssuedCouponVO[] cvo = PaymentDAO.getCouponArr(mvo);
 		request.setAttribute("cvo", cvo);
 		
-		//회원 정보 -> 포인트 검색 -> request에 저장
-		int point = PaymentDAO.getPoint(mvo);
-		request.setAttribute("point", point);
+		String movieName = request.getParameter("movieName");
+		String theater = request.getParameter("text");
+		String time = request.getParameter("time");
+		String checkSeat = request.getParameter("checkSeat");
+		String totalCount = request.getParameter("totalCount");
+		String date = request.getParameter("date");
+	
+		System.out.println(movieName);
+		System.out.println(theater);
+		System.out.println(time);
+		System.out.println(checkSeat);//A2,A1
+		System.out.println(totalCount);//성인:1/청소년:1/경로:0
+		System.out.println(date);
+		String dateAndTime = date+" "+time;
+		System.out.println(dateAndTime);
+		request.setAttribute("dateAndTime", dateAndTime);
 		
+		
+		System.out.println("-------------여기까지 들어온 String-----------------");
+		System.out.println("-------------이제부터 바꾼 VO-----------------");
+		
+		//movieName -> 상영 영화 VO
+		MovieListVO movieVO = PaymentDAO.getMovieVO(movieName);
+		request.setAttribute("movieVO", movieVO);
+		System.out.println(movieVO.getMovie_code());
+		
+		//상영관 이름 -> 상영관 VO
+		TheaterVO theaterVO = PaymentDAO.getTheaterVO(theater);
+		request.setAttribute("theaterVO", theaterVO);
+		System.out.println(theaterVO.getT_code());
+		System.out.println(dateAndTime);
+		//상영 영화 코드, 상영관 코드, 날짜+시작 시간 -> 상영시간표VO(ssvo)->request 저장
+		ScreeningScheduleVO ssVO = PaymentDAO.getSsVO(movieVO.getMovie_code(), theaterVO.getT_code(), dateAndTime);
+		request.setAttribute("ssVO", ssVO);
+		System.out.println(ssVO.getSs_time());
+		
+		//선택 좌석 -> 상영관 좌석 VO list
+		String[] seat = checkSeat.split(",");
+		TheaterSeatVO[] tsVO = PaymentDAO.getTheaterSeatVO(theaterVO.getT_code(), seat);
+		request.setAttribute("tsVO", tsVO);
+		System.out.println(tsVO[0].getT_code());
+		
+		//totalCount -> 관객 VO list
+		String[] people = totalCount.split("/");
+		
+		//선택 좌석용 audienceVO
+		AudienceVO[] audiVO = PaymentDAO.getAudienceVO(people);
+		request.setAttribute("audiVO", audiVO);
+		System.out.println(audiVO[0].getA_name());
+		
+		//관객별 가격을 얻고 싶어요 
+		
+		//예매내역에 띄울 내용
+		String content="";
+		//DB에 저장할 내용
+		String dbContent =movieName+" ";
+		int totalPrice = 0;
+		//금액 내용을 위한 String 만들기 ex: 성인 1명 13000 + 청소년 2명
+		for(int i=0; i<people.length; i++) {
+			String[] temp = people[i].split(":");
+			int count = Integer.parseInt(temp[1]);
+			if(count != 0) { //수량이 유효하면
+				
+				switch(temp[0]) {
+				case "성인":
+					content += temp[0] +" × "+count+" = "+ (13000*count)+"\n";
+					dbContent += temp[0] +"("+count+") ";
+					totalPrice+=(13000*count);
+					break;
+				case "청소년":
+					content += temp[0] +" × "+ count+" = "+(10000*count)+"\n";
+					dbContent += temp[0] +"("+count+") ";
+					totalPrice+=(10000*count);
+					break;
+				case "경로":
+					content += temp[0] +" × "+ count+" = "+(8000*count)+"\n";
+					dbContent += temp[0] +"("+count+") ";
+					totalPrice+=(8000*count);
+					break;
+				}
+			}
+				
+		}
+		
+		request.setAttribute("payContent", content);
+		request.setAttribute("dbContent", dbContent);
+		request.setAttribute("totalPrice", totalPrice);
+		System.out.println(content);
+		System.out.println(totalPrice);
+		//금액 계산
 		
 		return "/jsp/payment/payment.jsp";
 	}

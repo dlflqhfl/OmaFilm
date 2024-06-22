@@ -1,3 +1,8 @@
+<%@page import="web.mybatis.vo.AudienceVO"%>
+<%@page import="web.mybatis.vo.TheaterSeatVO"%>
+<%@page import="web.mybatis.vo.ScreeningScheduleVO"%>
+<%@page import="web.mybatis.vo.TheaterVO"%>
+<%@page import="web.mybatis.vo.MovieListVO"%>
 <%@page import="web.mybatis.vo.IssuedCouponVO"%>
 <%@page import="web.mybatis.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,15 +11,35 @@
 <!DOCTYPE html>
 <html>
 	<%
+	
+		System.out.println("-------------payment.jsp------------");
 		MemberVO mvo = (MemberVO)request.getAttribute("mvo");
+		
+	
 		IssuedCouponVO[] cvo = (IssuedCouponVO[])request.getAttribute("cvo");
-		int point = (int)request.getAttribute("point");
 		int cvoLength = cvo.length;
 		request.setAttribute("cvoLength", cvoLength);
 		
-		int originalPrice = 35000;
+		//int point = (int)request.getAttribute("point");
+		MovieListVO movieVO = (MovieListVO)request.getAttribute("movieVO");
+		TheaterVO theaterVO = (TheaterVO)request.getAttribute("theaterVO");
+		ScreeningScheduleVO ssVO = (ScreeningScheduleVO)request.getAttribute("ssVO");
+		TheaterSeatVO[] tsVO = (TheaterSeatVO[])request.getAttribute("tsVO");
+		int tsLength = tsVO.length;
+		request.setAttribute("tsLength", tsLength);
+		AudienceVO[] audiVO = (AudienceVO[])request.getAttribute("audiVO");
+		
+		System.out.println(mvo.getU_name());
+		System.out.println(cvoLength);
+		System.out.println(movieVO.getMovieNm());
+		System.out.println(theaterVO.getT_name());
+		System.out.println(ssVO.getSs_time());
+		System.out.println(tsVO[0].getT_code());
+		System.out.println(audiVO[0].getA_name());
+		
+		int originalPrice = (int)request.getAttribute("totalPrice");
 		int saleAmount = 0;
-		int finalPrice = 35000;
+		int finalPrice = originalPrice;
 		
 	%>
   <head>
@@ -26,6 +51,7 @@
     <div class="payment">
       <div class="overlap-wrapper">
         <div class="overlap">
+        <!-- 메뉴 시작 -->
           <div class="menu">
             <div class="menu-list">
               <div class="watchbt">
@@ -65,6 +91,7 @@
               </div>
             </div>
           </div>
+          <!-- 여기까지 메뉴  -->
           <div class="total-container">
             <div class="infor-back"><div class="infor-text">예매정보</div></div>
             <div class="pay-meth-back"><div class="pay-meth-text">결제수단</div></div>
@@ -73,42 +100,40 @@
           <div class="infor-frame">
             <div class="seat-frame">
               <div class="seat-text">좌석</div>
-              <div class="seat-num">A1</div>
+              <div class="seat-num">${param.checkSeat.replace(",", ", ") }</div>
             </div>
             <div class="movie-image"></div>
-            <img class="age-image" src="img/payment/age_15_img.png" />
-            <div class="movie-name">드라이브</div>
+            <c:if test="${requestScope.movieVO.watchGradeNm == '전체관람가' }">
+            	<img class="age-image" src="img/payment/age_all_img.png" />
+            </c:if>
+            <c:if test="${param.movieVO.watchGradeNm == '12세이상관람가' }">
+            	<img class="age-image" src="img/payment/age_12_img.png" />
+            </c:if>
+            <c:if test="${param.movieVO.watchGradeNm == '15세이상관람가' }">
+            	<img class="age-image" src="img/payment/age_15_img.png" />
+            </c:if>
+            <c:if test="${param.movieVO.watchGradeNm == '청소년관람불가' }">
+            	<img class="age-image" src="img/payment/age_18_img.png" />
+            </c:if>
+            <div class="movie-name"><%=movieVO.getMovieNm() %></div>
             <div class="date-text">일시</div>
             <div class="theater-text">영화관</div>
             <div class="peo-num-text">인원</div>
-            <p class="watch-date">2024-06-15 (토) 20:05 ~ 21:51</p>
-            <div class="theater-num">쌍용 2관</div>
-            <div class="people-num">성인1</div>
+            <p class="watch-date">${param.date } ${param.time }</p>
+            <div class="theater-num"><%=theaterVO.getT_name() %></div>
+            <div class="people-num">${param.totalCount.replace(":", " ").replace("/", " / ") }</div>
           </div>
           <div class="pay-meth-frame">
             <div class="point-pay-method">
-              <div class="div-2"><div class="text-wrapper-10">포인트</div></div>
+             
               <div class="ticket-pay">
                 <div class="coupon-pay">
                   <div class="coupon-num"><div class="coupon-count">1</div></div>
                   <div class="text-wrapper-10">쿠폰</div>
                 </div>
               </div>
-              <div class="text-wrapper-11">쿠폰/포인트</div>
+              <div class="text-wrapper-11">쿠폰</div>
               <div class="overlap-group">
-                <div class="frame" id="point-frame">
-                  <div class="text-wrapper-12">사용 가능한 포인트</div>
-                  <div class="frame-2">
-                  	<div class="point-num"><div class="point-count">2</div></div>
-                    <div class="text-wrapper-13">포인트</div>
-                    <div class="div-wrapper"><div class="text-wrapper-14">✕</div></div>
-                  </div>
-                  <div class="frame-3"><div class="text-wrapper-15">${requestScope.point}</div></div>
-                  <input type="text" class="frame-4"/>
-                  <div class="frame-5"><div class="text-wrapper-17">취소</div></div>
-                  <div class="frame-6"><div class="text-wrapper-18">적용</div></div>
-                  <div class="frame-7"><div class="text-wrapper-19">최대 적용</div></div>
-                </div>
                 <div class="frame" id="coupon-frame">
                 <div class="frame-2">
                     <div class="text-wrapper-23">쿠폰</div>
@@ -208,7 +233,102 @@
   		$('#Discount').val(saleAmount);
   		$('#FinalPrice').val(finalPrice);
 		
-		$('.coupon').on('click', function() {
+  		
+  		//결제 버튼
+  		$('.pay-button').click(function(){
+  			var IMP = window.IMP;
+  			IMP.init('imp40288328');
+  			IMP.request_pay({
+  			    pg : 'kakaopay',
+  			    pay_method : 'card', //카드결제
+  			    merchant_uid : 'merchant_' + new Date().getTime(),
+  			    name : '${movieVO.movieNm}',
+  			    amount : finalPrice,
+  			    buyer_email : '${mvo.u_email}',
+  			    buyer_name : '${mvo.u_name}',
+  			    buyer_tel : '${mvo.u_phone}',
+  			    buyer_addr : '${mvo.u_address}',
+  			    buyer_postcode : '${mvo.u_postcode}'
+  			},  function(rsp) {
+  			    if ( rsp.success ) {
+  			    	 // 결제 성공 시 로직,
+  			        var msg = '결제가 완료되었습니다.';
+  			        msg += '고유ID : ' + rsp.imp_uid;
+  			        msg += '상점 거래ID : ' + rsp.merchant_uid;
+  			        msg += '결제 금액 : ' + rsp.paid_amount;
+  			        msg += '카드 승인번호 : ' + rsp.apply_num;
+  			        
+  			        console.log(rsp);
+  			        console.log(msg);
+  			        
+  			        
+  	              	alert('결제 성공');
+  	              	
+  	              pay_info(rsp);
+  			        
+  			    } else {
+  			    	 // 결제 실패 시 로직,
+  			        var msg = '결제에 실패하였습니다.';
+  			        msg += '에러내용 : ' + rsp.error_msg;
+  			      	console.log(rsp);
+			        console.log(msg);
+  			        //location.href="goods_pay_fail.do?error_msg="+rsp.error_msg;
+			        alert('결제 실패');
+		            console.log(rsp);
+  			    }
+  			} );
+  		});
+  		
+  		//--------------------PayCompleteAction으로 보낼 데이터---------------------
+  		
+  		var form = document.createElement('form');
+	    var objs;
+	    
+	    function input_info(name, value){
+	    	objs = document.createElement('input');
+	  	    objs.setAttribute('type', 'hidden');
+	  	    objs.setAttribute('name', name);
+	  	    objs.setAttribute('value', value);
+	  	    form.appendChild(objs);
+	    }
+  		
+  		function pay_info(rsp){
+  			//예매자 저장 내용
+  	      	if(sessionStorage.getItem('mvo') === null){ //비회원일 때
+  	      		input_info('non_name', rsp.buyer_name);
+  	      		input_info('non_phone',  rsp.buyer_tel);
+  	      		input_info('non_address', rsp.buyer_addr);
+  	      		input_info('non_postal_code', rsp.buyer_postcode);
+  	      		input_info('non_email', rsp.buyer_email);
+  	      	}
+  			
+  			//결제 내역 저장 내용
+  	      	input_info('cp_no', ); //쿠폰 발급 번호
+  	      	input_info('p_method', rsp.pay_method);
+  	      	input_info('p_content', '${dbContent}'); //DB 저장 내용
+  	      	input_info('p_ex_price', '${totalPrice}'); //할인 전 금액
+  	      	input_info('p_tt_price', rsp.paid_amount);
+  	      	input_info('merchant_uid', rsp.merchant_uid);
+  	      	
+  	      	//예매 내역 저장 내용
+  	      	input_info('ss_code', '${ssVO.ss_code}'); //상영시간표 코드
+  	      	input_info('rs_count', '${tsLength}'); //선택 좌석 개수
+  	    
+  	      	//선택 좌석
+  	      	input_info('s_code', '${checkSeat}'); //좌석코드 문자열로
+  	      	input_info('a_code', '${totalCount}'); //관객 내용 문자열로
+  	      	input_info('t_code', '${theaterVO.t_code}'); //관객 내용 문자열로
+  	      	
+  	      	input_info('checkSeat', '${param.checkSeat}'); //관객 내용 문자열로
+  	      	input_info('totalCount', '${param.totalCount}'); //관객 내용 문자열로
+  	 
+	  	    form.setAttribute('method', 'post');
+	  	    form.setAttribute('action', 'Controller?type=paycomplete');
+	  	    document.body.appendChild(form);
+	  	    form.submit();
+  		} 
+  		
+	  	$('.coupon').on('click', function() {
 		    let clickedElement = $(this);
 		    let couponIndex = clickedElement.attr('id');
 		    let discountPercent = parseFloat($('#form' + couponIndex).val());
@@ -242,137 +362,7 @@
 	    $('.text-wrapper-17').click(function() {
 	        $('.coupon').removeClass('selected');
 	    });
-	  		
-	  		
-  		//'포인트' 버튼 눌렀을 때 포인트 적용 창 열림 //호버 있으면 좋겠다
-  		$('.div-2').click(function(){
-  			$('#coupon-frame').hide();
-  			$('#point-frame').show();
-  		});
   		
-  		//결제 버튼
-  		$('.pay-button').click(function(){
-  			var IMP = window.IMP;
-  			IMP.init('imp40288328');
-  			IMP.request_pay({
-  			    pg : 'kakaopay',
-  			    pay_method : 'card', //카드결제
-  			    merchant_uid : 'merchant_' + new Date().getTime(),
-  			    name : '주문명:결제테스트',
-  			    amount : 100, //판매가격
-  			    buyer_email : '구매자 아이디',
-  			    buyer_name : '구매자 이름',
-  			    buyer_tel : '연락처',
-  			    buyer_addr : '주소',
-  			    buyer_postcode : '우편번호'
-  			},  function(rsp) {
-  			    if ( rsp.success ) {
-  			    	 // 결제 성공 시 로직,
-  			        var msg = '결제가 완료되었습니다.';
-  			        msg += '고유ID : ' + rsp.imp_uid;
-  			        msg += '상점 거래ID : ' + rsp.merchant_uid;
-  			        msg += '결제 금액 : ' + rsp.paid_amount;
-  			        msg += '카드 승인번호 : ' + rsp.apply_num;
-  			        
-  			        console.log(rsp);
-  			        console.log(msg);
-  			        //pay_info(rsp);
-  			        
-  			  
-  	              	alert('결제 성공');
-  			        
-  			        
-  			    } else {
-  			    	 // 결제 실패 시 로직,
-  			        var msg = '결제에 실패하였습니다.';
-  			        msg += '에러내용 : ' + rsp.error_msg;
-  			      	console.log(rsp);
-			        console.log(msg);
-  			        //location.href="goods_pay_fail.do?error_msg="+rsp.error_msg;
-			        alert('결제 실패');
-		            console.log(rsp);
-  			    }
-  			} );
-  		});
-  		
-  		/* 
-  		function pay_info(rsp){
-  	      var form = document.createElement('form');
-  	      var objs;
-  	 
-  	      objs = document.createElement('input');
-  	      objs.setAttribute('type', 'hidden');
-  	      objs.setAttribute('name', 'buyer_name');
-  	      objs.setAttribute('value', rsp.buyer_name);
-  	      form.appendChild(objs);
-  	 
-  	      objs = document.createElement('input');
-  	      objs.setAttribute('type', 'hidden');
-  	      objs.setAttribute('name', 'buyer_phone');
-  	      objs.setAttribute('value', rsp.buyer_tel);
-  	      form.appendChild(objs);
-  	      
-  	      objs = document.createElement('input');
-  	      objs.setAttribute('type', 'hidden');
-  	      objs.setAttribute('name', 'member_email');
-  	      objs.setAttribute('value', rsp.buyer_email);
-  	      form.appendChild(objs);
-  	      
-  	      objs = document.createElement('input');
-  	      objs.setAttribute('type', 'hidden');
-  	      objs.setAttribute('name', 'buy_addr');
-  	      objs.setAttribute('value', rsp.buyer_addr);
-  	      form.appendChild(objs);
-  	      
-  	      objs = document.createElement('input');
-  	      objs.setAttribute('type', 'hidden');
-  	      objs.setAttribute('name', 'buy_product_name');
-  	      objs.setAttribute('value', rsp.name);
-  	      form.appendChild(objs);
-  	      
-  	      objs = document.createElement('input');
-  	      objs.setAttribute('type', 'hidden');
-  	      objs.setAttribute('name', 'buyer_buyid');
-  	      objs.setAttribute('value', rsp.imp_uid);
-  	      form.appendChild(objs);
-  	      
-  	      objs = document.createElement('input');
-  	      objs.setAttribute('type', 'hidden');
-  	      objs.setAttribute('name', 'buyer_merid');
-  	      objs.setAttribute('value', rsp.merchant_uid);
-  	      form.appendChild(objs);
-  	      
-  	      objs = document.createElement('input');
-  	      objs.setAttribute('type', 'hidden');
-  	      objs.setAttribute('name', 'amount');
-  	      objs.setAttribute('value', rsp.paid_amount);
-  	      form.appendChild(objs);
-  	      
-  	      objs = document.createElement('input');
-  	      objs.setAttribute('type', 'hidden');
-  	      objs.setAttribute('name', 'buyer_card_num');
-  	      objs.setAttribute('value', rsp.apply_num);
-  	      form.appendChild(objs);
-  	      
-  	      objs = document.createElement('input');
-  	      objs.setAttribute('type', 'hidden');
-  	      objs.setAttribute('name', 'buyer_pay_ok');
-  	      objs.setAttribute('value', rsp.success);
-  	      form.appendChild(objs);
-  	      
-  	      objs = document.createElement('input');
-  	      objs.setAttribute('type', 'hidden');
-  	      objs.setAttribute('name', 'buyer_postcode');
-  	      objs.setAttribute('value', rsp.buyer_postcode);
-  	      form.appendChild(objs);
-  	 
-  	      form.setAttribute('method', 'post');
-  	      form.setAttribute('action', "goods_pay_success.do");
-  	      document.body.appendChild(form);
-  	      form.submit();
-  	} */
-  		
-	  		
  //-------[hover]-------------------------------------------------------------------------------------------
   		$('.coupon-pay').hover(function() {
   	        // 마우스가 올라갔을 때
@@ -380,7 +370,7 @@
   	        },
   	        function() {
   	            // 마우스가 벗어났을 때
-  	            $(this).css('background-color', '#F8F8F8');
+  	            $(this).css('background-color', '#FFFFFF');
   	        }
   	   	); 
         
@@ -390,7 +380,7 @@
       	     },
       	     function() {
       	        // 마우스가 벗어났을 때
-      	        $(this).css('background-color', '#F8F8F8');
+      	        $(this).css('background-color', '#FFFFFF');
       	     }
       	);
   		
@@ -400,27 +390,24 @@
   	        },
   	        function() {
   	            // 마우스가 벗어났을 때
-  	            $(this).css('background-color', '#F8F8F8');
+  	            $(this).css('background-color', '#FFFFFF');
   	        }
   		);
 		
       //쿠폰, 포인트 적용창 닫기 버튼 
   		$('.text-wrapper-14').click(function(){
   			$('#coupon-frame').hide();
-  			$('#point-frame').hide();
   		});
         
         //맨 처음 닫힌 상태
   		$('#coupon-frame').hide();
-		$('#point-frame').hide();
 		
 		//'쿠폰' 버튼 눌렀을 때 쿠폰 적용 창 열림 //호버 있으면 좋겠다
   		$('.coupon-pay').click(function(){
   			$('#coupon-frame').show();
-  			$('#point-frame').hide();
   		});
 		
-  		 var selectedButton = null;
+  		var selectedButton = null;
 
 		  $('.card-pay-bt, .div-2').click(function(){
 		    if (selectedButton !== null) {

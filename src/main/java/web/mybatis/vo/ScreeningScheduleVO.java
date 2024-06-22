@@ -16,37 +16,37 @@ public class ScreeningScheduleVO {
 		this.ss_time = ss_time;
 	}
 
-	String getSs_code() {
+	public String getSs_code() {
 		return ss_code;
 	}
 
-	void setSs_code(String ss_code) {
+	public void setSs_code(String ss_code) {
 		this.ss_code = ss_code;
 	}
 
-	String getMovie_code() {
+	public String getMovie_code() {
 		return movie_code;
 	}
 
-	void setMovie_code(String movie_code) {
+	public void setMovie_code(String movie_code) {
 		this.movie_code = movie_code;
 	}
 
-	String getT_code() {
+	public String getT_code() {
 		return t_code;
 	}
 
-	void setT_code(String t_code) {
+	public void setT_code(String t_code) {
 		this.t_code = t_code;
 	}
 
-	String getSs_time() {
+	public String getSs_time() {
 		return ss_time;
 	}
 
-	void setSs_time(String ss_time) {
+	public void setSs_time(String ss_time) {
 		this.ss_time = ss_time;
 	}
-	
+
 	
 }
