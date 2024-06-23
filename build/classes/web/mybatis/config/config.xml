@@ -6,9 +6,9 @@
   <environments default="">
     <environment id="">
       <transactionManager type="JDBC"/>
-		<dataSource type="JNDI"> 
-	        <property name="data_source" value="java:comp/env/jdbc/mysql"/>
-		</dataSource>
+	<dataSource type="JNDI">
+        <property name="data_source" value="java:comp/env/jdbc/mysql"/>
+	</dataSource>
     </environment>
   </environments>
   <mappers>

@@ -1,4 +1,4 @@
-package web.mybatis.DAO;
+package web.mybatis.dao;
 
 import java.util.List;
 
