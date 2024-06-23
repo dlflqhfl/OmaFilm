@@ -17,7 +17,7 @@
             <div class="list">
               <div class="item">
                 <div class="div">
-                  <div class="link">
+                  <div class="link a">
                     <div class="strong">
                       <div class="text-wrapper text">01</div>
                       <div class="text-wrapper-2 text">상영시간</div>
@@ -368,7 +368,7 @@
 	//성인관객 수 -
 	$(".aMinus").click(function(){
 		adult = adult - 1;
-	    if(adult < 8){
+	    if(adult < 0){
 	        alert("0보다 작을 수 없습니다.");
 	    } else {
 	        $("#adult").text(adult);
@@ -390,7 +390,7 @@
 	//청소년관객 수 -
 	$(".tMinus").click(function(){
 		teen = teen - 1;
-	    if(teen < 8){
+	    if(teen < 0){
 	        alert("0보다 작을 수 없습니다.");
 	    } else {
 	        $("#teen").text(teen);
@@ -470,12 +470,12 @@
 		}
 	})
 	
-	$(".link").click(function(){
+	(".a").click(function(){
 		
 		window.location.href = "Controller?type=selectTime";
 	})
 	
-	$('.link').hover(
+	$('.a').hover(
 	    function() {
 	        // 마우스가 올라갔을 때
 	        $(this).css('background-color', '#3D4D55');

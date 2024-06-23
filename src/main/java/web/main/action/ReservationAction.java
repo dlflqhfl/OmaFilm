@@ -7,7 +7,6 @@ public class ReservationAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		
 		String text = request.getParameter("text");
 		String path = "";
 		

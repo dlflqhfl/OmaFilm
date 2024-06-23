@@ -15,10 +15,10 @@
             <div class="list">
               <div class="item">
                 <div class="div">
-                  <div class="link">
+                  <div class="link a">
                     <div class="strong">
-                      <div class="text-wrapper">01</div>
-                      <div class="text-wrapper-2">상영시간</div>
+                      <div class="text-wrapper text">01</div>
+                      <div class="text-wrapper-2 text">상영시간</div>
                       <div class="frame"></div>
                     </div>
                     <div class="frame-2"></div>
@@ -220,7 +220,7 @@
         	<input type="hidden" id="totalCount" name="totalCount" value="">
         	<input type="hidden" id="checkSeat" name="checkSeat" value="">
         	<input type="hidden" id="date" name="date" value="${param.date }">
-        	<input type="hidden" id="price" name="price" value="">
+        	<input type="hidden" id="totalPrice" name="totalPrice" value="">
         </form>
       </div>
     </div>
@@ -365,6 +365,8 @@
 	function updatePrice(){
 		let totalPrice = (adult * 13000) + (teen * 10000) + (old * 8000);
 		$(".total-price-text").text(totalPrice)
+		$("#totalPrice").val(totalPrice); // hidden input 필드 값 업데이트
+		console.log(totalPrice)
 	}
 	
     // 선택된 좌석 업데이트 함수
@@ -383,7 +385,6 @@
 			let adult = $("#adult").text();
 			let teen = $("#adult").text();
 			let old = $("#adult").text();
-			let price = $("#price").text();
 			
 			let adultCount = "성인" + adult;
 			let teenCount = "청소년" + teen;
@@ -392,7 +393,6 @@
 			totalCount = adultCount+"/" + teenCount+"/" + oldCount;
         	
 			$("#totalCount").val(totalCount)
-			$("#price").val(price)
 			$("#checkSeat").val(seats);
 			
        	 	$("#goPayment").submit();
@@ -401,12 +401,12 @@
 		}
 	})
 	
-	$(".link").click(function(){
+	$(".a").click(function(){
 		
 		window.location.href = "Controller?type=selectTime";
 	})
 	
-	$('.link').hover(
+	$('.a').hover(
 	    function() {
 	        // 마우스가 올라갔을 때
 	        $(this).css('background-color', '#3D4D55');
