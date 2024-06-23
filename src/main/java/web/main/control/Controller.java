@@ -1,6 +1,5 @@
 package web.main.control;
 
-
 import web.main.action.Action;
 
 import javax.servlet.RequestDispatcher;
