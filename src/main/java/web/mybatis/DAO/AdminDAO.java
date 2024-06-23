@@ -1,11 +1,10 @@
-package web.mybatis.DAO;
-
-import java.util.HashMap;
+package web.mybatis.dao;
 
 import org.apache.ibatis.session.SqlSession;
-
 import web.mybatis.service.FactoryService;
 import web.mybatis.vo.MovieListVO;
+
+import java.util.HashMap;
 
 
 //MoviedataVO mvo = SqlSession.selectOne("movie.getMovieCd", movie.getMovieCd());

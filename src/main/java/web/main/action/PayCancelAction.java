@@ -1,19 +1,14 @@
 package web.main.action;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.URL;
-import java.util.Map;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import java.io.*;
+import java.net.URL;
+import java.util.Map;
 
 public class PayCancelAction implements Action{
 	

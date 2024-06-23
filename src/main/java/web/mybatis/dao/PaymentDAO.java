@@ -1,13 +1,12 @@
-package web.mybatis.DAO;
-
-import java.util.List;
+package web.mybatis.dao;
 
 import org.apache.ibatis.session.SqlSession;
-
 import web.mybatis.service.FactoryService;
 import web.mybatis.vo.IssuedCouponVO;
 import web.mybatis.vo.IssuedPointVO;
 import web.mybatis.vo.MemberVO;
+
+import java.util.List;
 
 public class PaymentDAO {
 
