@@ -53,7 +53,6 @@ public class PayAction implements Action {
 		System.out.println(dateAndTime);
 		request.setAttribute("dateAndTime", dateAndTime);
 		
-		
 		System.out.println("-------------여기까지 들어온 String-----------------");
 		System.out.println("-------------이제부터 바꾼 VO-----------------");
 		

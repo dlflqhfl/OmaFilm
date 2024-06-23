@@ -1,8 +1,10 @@
+
 <%@page import="web.mybatis.vo.AudienceVO"%>
 <%@page import="web.mybatis.vo.TheaterSeatVO"%>
 <%@page import="web.mybatis.vo.ScreeningScheduleVO"%>
 <%@page import="web.mybatis.vo.TheaterVO"%>
 <%@page import="web.mybatis.vo.MovieListVO"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="web.mybatis.vo.IssuedCouponVO"%>
 <%@page import="web.mybatis.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

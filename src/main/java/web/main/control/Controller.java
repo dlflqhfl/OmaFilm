@@ -1,22 +1,22 @@
 package web.main.control;
 
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebInitParam;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import web.main.action.Action;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebInitParam;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import web.main.action.Action;
 
 /**
  * Servlet implementation class Controller
@@ -82,7 +82,7 @@ public class Controller extends HttpServlet {
 		//이제는 Properties객체에 있는 값들을 객체로 생성하여
 		// actionMap에 저장해야한다.
 		//Iterator타입의 반복자 받을수있음 key만 넘어옴 ex) emp
-		Iterator<Object> it = prop.keySet().iterator(); 
+		Iterator<Object> it = prop.keySet().iterator();
 		
 		//키들을 모두 얻었으니 키에 연결된 클래스경로들을 하나씩 
 		// 가져와서 객체를 생성한 후 actionMap에 저장한다.
@@ -106,8 +106,6 @@ public class Controller extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-			
 		}//while의 끝
 		
 	}

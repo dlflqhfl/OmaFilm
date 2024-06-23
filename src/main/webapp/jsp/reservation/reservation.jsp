@@ -17,7 +17,7 @@
             <div class="list">
               <div class="item">
                 <div class="div">
-                  <div class="link">
+                  <div class="link a">
                     <div class="strong">
                       <div class="text-wrapper text">01</div>
                       <div class="text-wrapper-2 text">상영시간</div>
@@ -285,12 +285,13 @@
           <div class="seat-background"><div class="select-seat-text">인원 / 좌석 선택</div></div>
         </div>
         <form id="goPayment" action="Controller?type=payment" method="post">
-        	<input type="hidden" id="movieName" name="movieName" value="${param.movieName }"/>
-        	<input type="hidden" id="text" name="text" value="${param.text }"/>
-        	<input type="hidden" id="time" name="time" value="${param.time }"/>
-        	<input type="hidden" id="totalCount" name="totalCount" value=""/>
-        	<input type="hidden" id="checkSeat" name="checkSeat" value=""/>
-        	<input type="hidden" id="date" name="date" value="${param.date }"/>
+        	<input type="hidden" id="movieName" name="movieName" value="${param.movieName }">
+        	<input type="hidden" id="text" name="text" value="${param.text }">
+        	<input type="hidden" id="time" name="time" value="${param.time }">
+        	<input type="hidden" id="totalCount" name="totalCount" value="">
+        	<input type="hidden" id="checkSeat" name="checkSeat" value="">
+        	<input type="hidden" id="date" name="date" value="${param.date }">
+        	<input type="hidden" id="totalPrice" name="totalPrice" value="">
         </form>
         
     </div>
@@ -313,6 +314,7 @@
 	let adult = parseInt($("#adult").text());
 	let teen = parseInt($("#teen").text());
 	let old = parseInt($("#old").text());
+	
 	let checkSeat = new Set();
 	let seatArray = [];
 	let seats = "";
@@ -367,7 +369,7 @@
 	//성인관객 수 -
 	$(".aMinus").click(function(){
 		adult = adult - 1;
-	    if(adult < 8){
+	    if(adult < 0){
 	        alert("0보다 작을 수 없습니다.");
 	    } else {
 	        $("#adult").text(adult);
@@ -377,7 +379,7 @@
 	
 	//청소년관객 수 +
 	$(".tPlus").click(function(){
-		if( old < 8){
+		if( teen < 8){
 			teen = parseInt(teen) + 1;
 			let res = $("#teen").text(teen);
 			updatePrice()
@@ -389,7 +391,7 @@
 	//청소년관객 수 -
 	$(".tMinus").click(function(){
 		teen = teen - 1;
-	    if(teen < 8){
+	    if(teen < 0){
 	        alert("0보다 작을 수 없습니다.");
 	    } else {
 	        $("#teen").text(teen);
@@ -433,6 +435,8 @@
 	function updatePrice(){
 		let totalPrice = (adult * 13000) + (teen * 10000) + (old * 8000);
 		$(".total-price-text").text(totalPrice)
+		$("#totalPrice").val(totalPrice); // hidden input 필드 값 업데이트
+		console.log(totalPrice)
 	}
 	
     // 선택된 좌석 업데이트 함수
@@ -457,23 +461,22 @@
 			let oldCount = "경로:" + old;
 			
 			let totalCount = adultCount+"/" + teenCount+"/" + oldCount;
-			$("#totalCount").val(totalCount);
+
+			$("#totalCount").val(totalCount)
 			$("#checkSeat").val(seats);
-			console.log(totalCount);
-			console.log(seats);
-        
+			
        	 	$("#goPayment").submit();
 		} else {
 			location.reload()
 		}
 	})
 	
-	$(".link").click(function(){
+	(".a").click(function(){
 		
 		window.location.href = "Controller?type=selectTime";
 	})
 	
-	$('.link').hover(
+	$('.a').hover(
 	    function() {
 	        // 마우스가 올라갔을 때
 	        $(this).css('background-color', '#3D4D55');
@@ -485,6 +488,7 @@
 	        $(".text").css('color', '#666666'); // 원래 색상으로 되돌리기
 	    }
 	);
+	
 	
 	
 	
