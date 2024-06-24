@@ -543,8 +543,6 @@ $(function(){
 		console.log(text)
 	})
 	
-	
-
 	//영화 가져오기
 	$(".name").click(function(){
 		movieName = $(this).text()
@@ -561,7 +559,7 @@ $(function(){
 		$("#text").val(text)
 		$("#movieName").val(movieName)
 		$("#time").val(time)
-		$("#date").val(date)
+		$("#date").val(date) //임시값
 		
 		let checkText = $("#text").val()
 		let checkMovieName = $("#movieName").val()

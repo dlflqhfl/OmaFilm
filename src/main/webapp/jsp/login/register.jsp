@@ -10,9 +10,9 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../css/globals.css" />
-    <link rel="stylesheet" href="../../css/login.css" />
-    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="css/globals.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <div class="screen">

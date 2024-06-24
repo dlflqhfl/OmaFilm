@@ -1,7 +1,7 @@
 package web.mybatis.vo;
 
 public class MovieListVO {
-	private String movie_code,// 
+	private String  
 	movieCd,// 영화코드
 	movieNm,//영화명(국문)
 	movieNmEn,// 영화명(영문)
@@ -32,7 +32,7 @@ public class MovieListVO {
 
 	@Override
 	public String toString() {
-		return "MovieListVO [movie_code=" + movie_code + ", movieCd=" + movieCd + ", movieNm=" + movieNm + ", movieNmE="
+		return "MovieListVO [movieCd=" + movieCd + ", movieNm=" + movieNm + ", movieNmE="
 				+ movieNmEn + ", prdtYear=" + prdtYear + ", showTm=" + showTm + ", openDt=" + openDt + ", typeNm="
 				+ typeNm + ", nations=" + nations + ", nationNm=" + nationNm + ", genreNm=" + genreNm + ", directors="
 				+ directors + ", peopleNm=" + peopleNm + ", peopleNmEn=" + peopleNmEn + ", actors=" + actors + ", cast="
@@ -48,7 +48,6 @@ public class MovieListVO {
 			String showTypes, String showTypeGroupNm, String showTypeNm, String audits, String auditNo,
 			String watchGradeNm) {
 		super();
-		this.movie_code = movie_code;
 		this.movieCd = movieCd;
 		this.movieNm = movieNm;
 		this.movieNmEn = movieNmEn;
@@ -73,23 +72,12 @@ public class MovieListVO {
 		this.watchGradeNm = watchGradeNm;
 	}
 
-	
 	public String getMovieNmEn() {
 		return movieNmEn;
 	}
 
-
 	public void setMovieNmEn(String movieNmEn) {
 		this.movieNmEn = movieNmEn;
-	}
-
-
-	public String getMovie_code() {
-		return movie_code;
-	}
-
-	public void setMovie_code(String movie_code) {
-		this.movie_code = movie_code;
 	}
 
 	public String getMovieCd() {

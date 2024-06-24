@@ -63,7 +63,4 @@ public class ScreeningScheduleVO {
 		this.ss_time = ss_time;
 	}
 
-	
-	
-
 }
