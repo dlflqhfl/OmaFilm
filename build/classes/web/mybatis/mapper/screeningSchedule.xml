@@ -7,6 +7,6 @@
 	<select id="getSsVO" parameterType="Map" resultType="web.mybatis.vo.ScreeningScheduleVO">
 		SELECT * 
 		FROM screening_schedule
-		WHERE movie_code = #{movie_code} and t_code = #{t_code} and ss_time = #{dateAndTime}
+		WHERE movieCd = #{movieCd} and t_name = #{t_name} and ss_time = #{dateAndTime}
 	</select>
 </mapper>

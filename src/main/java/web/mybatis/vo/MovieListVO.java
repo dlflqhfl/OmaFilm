@@ -1,7 +1,7 @@
 package web.mybatis.vo;
 
 public class MovieListVO {
-	private String movie_code,// 
+	private String  
 	movieCd,// 영화코드
 	movieNm,//영화명(국문)
 	movieNmE,// 영화명(영문)
@@ -27,13 +27,12 @@ public class MovieListVO {
 	
 	public MovieListVO() {}
 
-	public MovieListVO(String movie_code, String movieCd, String movieNm, String movieNmE, String prdtYear,
+	public MovieListVO(String movieCd, String movieNm, String movieNmE, String prdtYear,
 			String showTm, String openDt, String typeNm, String nations, String nationNm, String genreNm,
 			String directors, String peopleNm, String peopleNmEn, String actors, String cast, String castEn,
 			String showTypes, String showTypeGroupNm, String showTypeNm, String audits, String auditNo,
 			String watchGradeNm) {
 		super();
-		this.movie_code = movie_code;
 		this.movieCd = movieCd;
 		this.movieNm = movieNm;
 		this.movieNmE = movieNmE;
@@ -56,14 +55,6 @@ public class MovieListVO {
 		this.audits = audits;
 		this.auditNo = auditNo;
 		this.watchGradeNm = watchGradeNm;
-	}
-
-	public String getMovie_code() {
-		return movie_code;
-	}
-
-	public void setMovie_code(String movie_code) {
-		this.movie_code = movie_code;
 	}
 
 	public String getMovieCd() {

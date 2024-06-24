@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
   <head> <!-- !1정보전략1! -->
@@ -7,7 +8,8 @@
     <link rel="stylesheet" href="css/payment/complete_globals.css" />
     <link rel="stylesheet" href="css/payment/complete_style.css" />
   </head>
-  <% String name = request.getParameter("buyer_name");
+  <% 
+  String name = request.getParameter("buyer_name");
   		System.out.println(name);%>
   <body>
     <div class="pay-complt">
@@ -50,8 +52,14 @@
             </div>
             <div class="pay-complt-frame div">
               <div class="text">
+              	<c:if test="${sessionScope.mvo != null }">
+              		<div class="pay-id">${sessionScope.mvo.u_name }</div>
+              	</c:if>
+              	<c:if test="${sessionScope.mvo == null }">
+              		<div class="pay-id">${param.non_phone }</div>
+              	</c:if>
                 <div class="pay-complt-text">회원님, 결제가 성공적으로 완료되었습니다.</div>
-                <div class="pay-id">정한별</div>
+               
               </div>
               <div class="text-warrning"><!--
                 <div class="flexcontainer">
@@ -92,16 +100,16 @@
                 <div class="movie-image"></div>
                 <div class="date-text">상영일시</div>
                 <div class="peo-num-text">관람인원</div>
-                <p class="watch-date">2024-06-15 (토) 20:05 ~ 21:51</p>
-                <div class="people-num">성인1</div>
+                <p class="watch-date">${param.date } ${param.time } </p>
+                <div class="people-num">${param.totalCount.replace(":", " ") }</div>
                 <div class="theaters">
                   <div class="theater-text">상영관</div>
-                  <div class="theater-num">쌍용 2관</div>
+                  <div class="theater-num">${theaterVO.t_name}</div>
                 </div>
                 <img class="line" src="img/payment/line-1.svg" />
                 <img class="img" src="img/payment/line-2.svg" />
                 <div class="seat-text">좌석</div>
-                <div class="seat-num">A1</div>
+                <div class="seat-num">${param.checkSeat.replace(",", ", ")}</div>
                 <div class="minus">
                   <div class="overlap-group">
                     <img class="line-2" src="img/payment/line-4.svg" />
@@ -122,13 +130,13 @@
                 <div class="price">
                   <div class="sel-price-text">주문금액</div>
                   <div class="select-won">원</div>
-                  <div class="select-price">35,000</div>
+                  <div class="select-price">${param.p_ex_price }</div>
                 </div>
-                <div class="dis-price">0</div>
-                <div class="total-price">35,000</div>
-                <div class="text-wrapper-7">예매번호</div>
+                <div class="dis-price">${param.saleprice}</div>
+                <div class="total-price">${param.p_tt_price }</div>
+                <div class="text-wrapper-7">예매번호 ${rs_num }</div>
                 <div class="text-wrapper-8">
-                  뇨오오오오오오오오옴 여기다 div만들면 됩니다 ^^ ${param.buyer_name}
+                  ${payContent }
                 </div>
               </div>
             </div>

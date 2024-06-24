@@ -1,4 +1,3 @@
-
 <%@page import="web.mybatis.vo.AudienceVO"%>
 <%@page import="web.mybatis.vo.TheaterSeatVO"%>
 <%@page import="web.mybatis.vo.ScreeningScheduleVO"%>
@@ -10,39 +9,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 	<%
-	
-		System.out.println("-------------payment.jsp------------");
-		MemberVO mvo = (MemberVO)request.getAttribute("mvo");
-		
-	
-		IssuedCouponVO[] cvo = (IssuedCouponVO[])request.getAttribute("cvo");
-		int cvoLength = cvo.length;
-		request.setAttribute("cvoLength", cvoLength);
-		
-		//int point = (int)request.getAttribute("point");
-		MovieListVO movieVO = (MovieListVO)request.getAttribute("movieVO");
-		TheaterVO theaterVO = (TheaterVO)request.getAttribute("theaterVO");
-		ScreeningScheduleVO ssVO = (ScreeningScheduleVO)request.getAttribute("ssVO");
-		TheaterSeatVO[] tsVO = (TheaterSeatVO[])request.getAttribute("tsVO");
-		int tsLength = tsVO.length;
-		request.setAttribute("tsLength", tsLength);
-		AudienceVO[] audiVO = (AudienceVO[])request.getAttribute("audiVO");
-		
-		System.out.println(mvo.getU_name());
-		System.out.println(cvoLength);
-		System.out.println(movieVO.getMovieNm());
-		System.out.println(theaterVO.getT_name());
-		System.out.println(ssVO.getSs_time());
-		System.out.println(tsVO[0].getT_code());
-		System.out.println(audiVO[0].getA_name());
-		
-		int originalPrice = (int)request.getAttribute("totalPrice");
+		int originalPrice = Integer.parseInt(request.getParameter("totalPrice"));
 		int saleAmount = 0;
 		int finalPrice = originalPrice;
 		
+		String checkSeat = request.getParameter("checkSeat");
+		String seat[] = checkSeat.split(",");
+		int seatLength = seat.length;
 	%>
   <head>
     <meta charset="utf-8" />
@@ -117,12 +94,12 @@
             <c:if test="${param.movieVO.watchGradeNm == '청소년관람불가' }">
             	<img class="age-image" src="img/payment/age_18_img.png" />
             </c:if>
-            <div class="movie-name"><%=movieVO.getMovieNm() %></div>
+            <div class="movie-name">${ movieVO.getMovieNm()}</div>
             <div class="date-text">일시</div>
             <div class="theater-text">영화관</div>
             <div class="peo-num-text">인원</div>
             <p class="watch-date">${param.date } ${param.time }</p>
-            <div class="theater-num"><%=theaterVO.getT_name() %></div>
+            <div class="theater-num">${param.text}</div>
             <div class="people-num">${param.totalCount.replace(":", " ").replace("/", " / ") }</div>
           </div>
           <div class="pay-meth-frame">
@@ -130,7 +107,6 @@
              
               <div class="ticket-pay">
                 <div class="coupon-pay">
-                  <div class="coupon-num"><div class="coupon-count">1</div></div>
                   <div class="text-wrapper-10">쿠폰</div>
                 </div>
               </div>
@@ -143,40 +119,41 @@
                   </div>
                   <div class="overlap-2">
                     <div class="text-wrapper-20">사용 가능한 쿠폰</div>
-                    <div class="text-wrapper-21">(<span> <%=cvoLength %> </span>)</div>
+                    <div class="text-wrapper-21">(<span> ${fn:length(cvo)}</span>)</div>
                   </div>
-                  
                   
                   <div class="frame-8">
 						<div class="text-wrapper-24">
-							<c:if test="${cvoLength<1 }">
+							<c:if test="${fn:length(cvo)<1 }">
 								사용 가능한 쿠폰이 없습니다.
 							</c:if>
-							<c:if test="${cvoLength!=null and cvoLength > 0 }">
+							<c:if test="${fn:length(cvo)!=null and fn:length(cvo) > 0 }">
 							    <c:forEach var="item" items="${requestScope.cvo}" varStatus="vs">
 							        <div class="coupon" id="${vs.index}">
 							            ${item.c_item.ci_content}
 							            <input type="hidden" id="form${vs.index}" value="${item.c_item.ci_discount}">
+							            <input type="hidden" id="couponform${vs.index}" value="${item.cp_no}">
 							        </div>
 							    </c:forEach>
+							    <div class="coupon" id="${vs.index}">선택 안 함</div>
 							</c:if>
 					    </div>
 				  </div>
-
+<!-- 
                   <div class="frame-5"><div class="text-wrapper-17">취소</div></div>
-                  <div class="frame-6"><div class="text-wrapper-18">등록</div></div>
+                  <div class="frame-6"><div class="text-wrapper-18">등록</div></div> -->
                 </div>
               </div>
             </div>
             <div class="final-pay-method">
-              <div class="card-pay-bt">
+              <div class="card-pay-bt button" id="kakaopay-bt">
                 <div class="overlap-group-2">
-                  <div class="text-wrapper-26">카드결제</div>
-                  <img class="element" src="img/payment/card_payment_img.png" />
+                  <div class="text-wrapper-26">카카오페이</div>
+                  <img class="element" src="img/payment/easy_payment_img.png" />
                 </div>
               </div>
-              <div class="div-2">
-                <div class="text-wrapper-27">간편결제</div>
+              <div class="div-2 button" id="card-bt">
+                <div class="text-wrapper-27">카드 결제</div> 
                 <img class="img" src="img/payment/easy_payment_img.png" />
               </div>
               <div class="text-wrapper-28">최종 결제수단</div>
@@ -215,6 +192,8 @@
         <input type="hidden" id="OriginalPrice" name="hiddenOriginalPrice" value="<%= originalPrice%>" >
         <!-- 할인 금액 -->
         <input type="hidden" id="Discount" name="hiddenDiscount" value="<%=saleAmount%>">
+        <!-- 쿠폰 코드 -->
+        <input type="hidden" id="coupon_id" name="hiddenDiscount" value="">
         <!-- 최종 금액 -->
         <input type="hidden" id="FinalPrice" name="hiddenFinalPrice" value="<%=finalPrice%>">
     </form>
@@ -225,199 +204,252 @@
   <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
   <script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
   <script>
-  	
-  	$(function(){
-		let originalPrice = <%= originalPrice %>;
-		let saleAmount = <%= saleAmount %>;
-		let finalPrice = <%= finalPrice %>;
-		
-		$('#OriginalPrice').val(originalPrice);
-  		$('#Discount').val(saleAmount);
-  		$('#FinalPrice').val(finalPrice);
-		
-  		
-  		//결제 버튼
-  		$('.pay-button').click(function(){
-  			var IMP = window.IMP;
-  			IMP.init('imp40288328');
-  			IMP.request_pay({
-  			    pg : 'kakaopay',
-  			    pay_method : 'card', //카드결제
-  			    merchant_uid : 'merchant_' + new Date().getTime(),
-  			    name : '${movieVO.movieNm}',
-  			    amount : finalPrice,
-  			    buyer_email : '${mvo.u_email}',
-  			    buyer_name : '${mvo.u_name}',
-  			    buyer_tel : '${mvo.u_phone}',
-  			    buyer_addr : '${mvo.u_address}',
-  			    buyer_postcode : '${mvo.u_postcode}'
-  			},  function(rsp) {
-  			    if ( rsp.success ) {
-  			    	 // 결제 성공 시 로직,
-  			        var msg = '결제가 완료되었습니다.';
-  			        msg += '고유ID : ' + rsp.imp_uid;
-  			        msg += '상점 거래ID : ' + rsp.merchant_uid;
-  			        msg += '결제 금액 : ' + rsp.paid_amount;
-  			        msg += '카드 승인번호 : ' + rsp.apply_num;
-  			        
-  			        console.log(rsp);
-  			        console.log(msg);
-  			        
-  			        
-  	              	alert('결제 성공');
-  	              	
-  	              pay_info(rsp);
-  			        
-  			    } else {
-  			    	 // 결제 실패 시 로직,
-  			        var msg = '결제에 실패하였습니다.';
-  			        msg += '에러내용 : ' + rsp.error_msg;
-  			      	console.log(rsp);
-			        console.log(msg);
-  			        //location.href="goods_pay_fail.do?error_msg="+rsp.error_msg;
-			        alert('결제 실패');
-		            console.log(rsp);
-  			    }
-  			} );
-  		});
-  		
-  		//--------------------PayCompleteAction으로 보낼 데이터---------------------
-  		
-  		var form = document.createElement('form');
-	    var objs;
-	    
-	    function input_info(name, value){
-	    	objs = document.createElement('input');
-	  	    objs.setAttribute('type', 'hidden');
-	  	    objs.setAttribute('name', name);
-	  	    objs.setAttribute('value', value);
-	  	    form.appendChild(objs);
-	    }
-  		
-  		function pay_info(rsp){
-  			//예매자 저장 내용
-  	      	if(sessionStorage.getItem('mvo') === null){ //비회원일 때
-  	      		input_info('non_name', rsp.buyer_name);
-  	      		input_info('non_phone',  rsp.buyer_tel);
-  	      		input_info('non_address', rsp.buyer_addr);
-  	      		input_info('non_postal_code', rsp.buyer_postcode);
-  	      		input_info('non_email', rsp.buyer_email);
-  	      	}
-  			
-  			//결제 내역 저장 내용
-  	      	input_info('cp_no', ); //쿠폰 발급 번호
-  	      	input_info('p_method', rsp.pay_method);
-  	      	input_info('p_content', '${dbContent}'); //DB 저장 내용
-  	      	input_info('p_ex_price', '${totalPrice}'); //할인 전 금액
-  	      	input_info('p_tt_price', rsp.paid_amount);
-  	      	input_info('merchant_uid', rsp.merchant_uid);
-  	      	
-  	      	//예매 내역 저장 내용
-  	      	input_info('ss_code', '${ssVO.ss_code}'); //상영시간표 코드
-  	      	input_info('rs_count', '${tsLength}'); //선택 좌석 개수
-  	    
-  	      	//선택 좌석
-  	      	input_info('s_code', '${checkSeat}'); //좌석코드 문자열로
-  	      	input_info('a_code', '${totalCount}'); //관객 내용 문자열로
-  	      	input_info('t_code', '${theaterVO.t_code}'); //관객 내용 문자열로
-  	      	
-  	      	input_info('checkSeat', '${param.checkSeat}'); //관객 내용 문자열로
-  	      	input_info('totalCount', '${param.totalCount}'); //관객 내용 문자열로
-  	 
-	  	    form.setAttribute('method', 'post');
-	  	    form.setAttribute('action', 'Controller?type=paycomplete');
-	  	    document.body.appendChild(form);
-	  	    form.submit();
-  		} 
-  		
-	  	$('.coupon').on('click', function() {
-		    let clickedElement = $(this);
-		    let couponIndex = clickedElement.attr('id');
-		    let discountPercent = parseFloat($('#form' + couponIndex).val());
-		
-		    console.log(discountPercent);
-		    
-		    // 할인된 가격 계산
-		    let discountedPrice = originalPrice * (1 - (discountPercent / 100));
-		    finalPrice = discountedPrice;
-		    console.log(finalPrice);
-		    
-		    //finalPrice = discountedPrice.toFixed(2); // 소수점 두 자리까지 표시
-		
-		    // 표시되는 가격 업데이트
-		    $('.dis-price').text(originalPrice - finalPrice);
-		    $('.total-price').text(finalPrice);
-		
-		    // 서버 측 처리를 위한 숨겨진 폼 필드 업데이트 (선택 사항)
-		    
-		    $('#Discount').val(originalPrice - finalPrice);
-		    $('#FinalPrice').val(finalPrice);
-		
-		    // 선택된 쿠폰에 대한 시각적 피드백 적용 (선택 사항)
-		    $('.coupon').removeClass('selected');
-		    clickedElement.addClass('selected');
-		  
-		    $('#coupon-frame').hide();
-		});
-		
-		// 쿠폰 선택 취소
-	    $('.text-wrapper-17').click(function() {
-	        $('.coupon').removeClass('selected');
-	    });
-  		
- //-------[hover]-------------------------------------------------------------------------------------------
-  		$('.coupon-pay').hover(function() {
-  	        // 마우스가 올라갔을 때
-  	        $(this).css('background-color', '#C0C0C0');
-  	        },
-  	        function() {
-  	            // 마우스가 벗어났을 때
-  	            $(this).css('background-color', '#FFFFFF');
-  	        }
-  	   	); 
-        
-        $('.div-2').hover(function() {
-      	        // 마우스가 올라갔을 때
-      	     $(this).css('background-color', '#C0C0C0');
-      	     },
-      	     function() {
-      	        // 마우스가 벗어났을 때
-      	        $(this).css('background-color', '#FFFFFF');
-      	     }
-      	);
-  		
-        $('.coupon').hover(function() {
-  	        // 마우스가 올라갔을 때
-  	        $(this).css('background-color', '#C0C0C0');
-  	        },
-  	        function() {
-  	            // 마우스가 벗어났을 때
-  	            $(this).css('background-color', '#FFFFFF');
-  	        }
-  		);
-		
-      //쿠폰, 포인트 적용창 닫기 버튼 
-  		$('.text-wrapper-14').click(function(){
-  			$('#coupon-frame').hide();
-  		});
-        
-        //맨 처음 닫힌 상태
-  		$('#coupon-frame').hide();
-		
-		//'쿠폰' 버튼 눌렀을 때 쿠폰 적용 창 열림 //호버 있으면 좋겠다
-  		$('.coupon-pay').click(function(){
-  			$('#coupon-frame').show();
-  		});
-		
-  		var selectedButton = null;
+  	let selectedPay;
+    $(function(){
+        let originalPrice = <%= originalPrice %>;
+        let saleAmount = <%= saleAmount %>;
+        let finalPrice = <%= finalPrice %>;
 
-		  $('.card-pay-bt, .div-2').click(function(){
-		    if (selectedButton !== null) {
-		      selectedButton.removeClass('selected');
-		    }
-		    $(this).addClass('selected');
-		    selectedButton = $(this);
-		  });
-  	}); 
-  </script>
+        $('#OriginalPrice').val(originalPrice);
+        $('#Discount').val(saleAmount);
+        $('#FinalPrice').val(finalPrice);
+
+        // ---------------------- 결제 API ----------------------
+        $('.pay-button').click(function(){
+        	console.log(selectedPay);
+        	if(selectedPay == null){
+        		alert("결제 방법을 선택해주세요.");
+        	}
+        	else{
+        		var IMP = window.IMP;
+                IMP.init('imp40288328');
+                
+                IMP.request_pay({
+                    pg : selectedPay,
+                    pay_method : 'card', //카드결제
+                    merchant_uid : 'merchant_' + new Date().getTime(),
+                    name : '${movieVO.movieNm}',
+                    amount : finalPrice,
+                    buyer_email : '${mvo.u_email}',
+                    buyer_name : '${mvo.u_name}',
+                    buyer_tel : '${mvo.u_phone}',
+                    buyer_addr : '${mvo.u_address}',
+                    buyer_postcode : '${mvo.u_postcode}'
+                },  function(rsp) {
+                    if ( rsp.success ) {
+                        // 결제 성공 시 로직,
+                        var msg = '결제가 완료되었습니다.';
+                        msg += '고유ID : ' + rsp.imp_uid;
+                        msg += '상점 거래ID : ' + rsp.merchant_uid;
+                        msg += '결제 금액 : ' + rsp.paid_amount;
+                        msg += '카드 승인번호 : ' + rsp.apply_num;
+
+                        alert('결제 성공');
+
+                        pay_info(rsp);
+
+                    } else {
+                        // 결제 실패 시 로직,
+                        var msg = '결제에 실패하였습니다.';
+                        msg += '에러내용 : ' + rsp.error_msg;
+                        console.log(rsp);
+                        console.log(msg);
+                        //location.href="goods_pay_fail.do?error_msg="+rsp.error_msg;
+                        alert('결제 실패');
+                    }
+                });
+        	}
+        	
+            
+        });
+    });
+
+        //-------------------- 결제 완료 시 PayCompleteAction으로 데이터 보내기---------------------
+
+        var form = document.createElement('form');
+        var objs;
+
+        function input_info(name, value){
+            objs = document.createElement('input');
+            objs.setAttribute('type', 'hidden');
+            objs.setAttribute('name', name);
+            objs.setAttribute('value', value);
+            form.appendChild(objs);
+        }
+
+        function pay_info(rsp){
+            //예매자 저장 내용
+            if(sessionStorage.getItem('mvo') === null){ //비회원일 때
+                input_info('non_name', rsp.buyer_name);
+                input_info('non_phone',  rsp.buyer_tel);
+                input_info('non_address', rsp.buyer_addr);
+                input_info('non_postal_code', rsp.buyer_postcode);
+                input_info('non_email', rsp.buyer_email);
+            }
+
+            //결제 내역 저장 내용
+            var coupon_no = $('#coupon_id').val()
+            input_info('cp_no', coupon_no); //쿠폰 발급 번호
+            input_info('p_method', rsp.pay_method);
+            input_info('p_content', '${dbContent}'); //DB 저장 내용
+            input_info('p_ex_price', '${param.totalPrice}'); //할인 전 금액
+            input_info('p_tt_price', rsp.paid_amount);
+            input_info('merchant_uid', rsp.merchant_uid);
+
+            //예매 내역 저장 내용
+            input_info('ss_code', '${ssVO.ss_code}'); //상영시간표 코드
+            input_info('rs_count', '<%=seatLength%>'); //선택 좌석 개수
+
+            //선택 좌석
+            input_info('s_code', '${checkSeat}'); //좌석코드 문자열로
+            input_info('a_code', '${totalCount}'); //관객 내용 문자열로
+            input_info('t_name', '${theaterVO.t_name}'); //상영관 코드
+
+            input_info('checkSeat', '${param.checkSeat}'); //관객 내용 문자열로
+            input_info('totalCount', '${param.totalCount}'); //관객 내용 문자열로
+
+            input_info('date', '${param.date }');
+            input_info('time', ' ${param.time }');
+
+            var saleprice = $('#Discount').val()
+            input_info('saleprice', saleprice);
+
+            form.setAttribute('method', 'post');
+            form.setAttribute('action', 'Controller?type=paycomplete');
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        //----------------- 쿠폰 선택 시 금액 바꾸고 쿠폰 no 저장 -----------------
+        $('.coupon').on('click', function() {
+            let clickedElement = $(this);
+            let couponIndex = clickedElement.attr('id');
+            let discountPercent = parseFloat($('#form' + couponIndex).val());
+            let cp_no = $('#couponform' + couponIndex).val();
+            console.log(cp_no);
+
+            console.log(discountPercent);
+
+            // 할인된 가격 계산
+            let discountedPrice = originalPrice * (1 - (discountPercent / 100));
+            finalPrice = discountedPrice;
+
+            //finalPrice = discountedPrice.toFixed(2); // 소수점 두 자리까지 표시
+
+            // 표시되는 가격 업데이트
+            $('.dis-price').text(originalPrice - finalPrice);
+            $('.total-price').text(finalPrice);
+
+            // 서버 측 처리를 위한 숨겨진 폼 필드 업데이트 (선택 사항)
+
+            $('#Discount').val(originalPrice - finalPrice);
+            $('#FinalPrice').val(finalPrice);
+            $('#coupon_id').val(cp_no);
+
+            // 선택된 쿠폰에 대한 시각적 피드백 적용 (선택 사항)
+            $('.coupon').removeClass('selected');
+            clickedElement.addClass('selected');
+
+            $('#coupon-frame').hide();
+        });
+
+        // 쿠폰 선택 취소
+        $('.text-wrapper-17').click(function() {
+            $('.coupon').removeClass('selected');
+        });
+
+        //-------[hover]-------------------------------------------------------------------------------------------
+
+        let checkPay = null;
+        let checkCoupon = null;
+
+        $('.coupon-pay').hover(function() {
+                // 마우스가 올라갔을 때
+                $(this).css('background-color', '#C0C0C0');
+            },
+            function() {
+                // 마우스가 벗어났을 때
+                $(this).css('background-color', '#FFFFFF');
+            }
+        );
+
+        $('.coupon').hover(function() {
+                // 마우스가 올라갔을 때
+                $(this).css('background-color', '#C0C0C0');
+            },
+            function() {
+                // 마우스가 벗어났을 때
+                $(this).css('background-color', '#FFFFFF');
+            }
+        );
+        //쿠폰, 포인트 적용창 닫기 버튼
+        $('.text-wrapper-14').click(function(){
+            $('#coupon-frame').hide();
+        });
+
+        //맨 처음 닫힌 상태
+        $('#coupon-frame').hide();
+
+        //'쿠폰' 버튼 눌렀을 때 쿠폰 적용 창 열림 //호버 있으면 좋겠다
+        $('.coupon-pay').click(function(){
+            $('#coupon-frame').show();
+        });
+
+        var selectedButton = null;
+
+        /* $('#kakaopay-bt, #naverpay-bt').click(function(){
+            if (selectedButton !== null) {
+                selectedButton.removeClass('selected');
+            }
+            $(this).addClass('selected');
+            selectedButton = $(this);
+        });
+
+        $('#naverpay-bt').click(function() {
+                // 마우스가 올라갔을 때
+                $(this).css('background-color', '#C0C0C0');
+        }); */
+
+
+    /*============= 간편 결제 호버 ======= */
+	 $('#kakaopay-bt').hover(function() {
+	       if (!$(this).hasClass('c')) { //선택되지 않았다면
+	           $(this).css('background-color', '#C0C0C0');
+	       }
+	  }, function() {
+	       if (!$(this).hasClass('c')) {
+	           $(this).css('background-color', '#ffffff');
+	       }
+	  }).click(function() {
+	       if ($(this).hasClass('c')) {
+	           $(this).removeClass('c').css('background-color', '#ffffff');
+	           selectedPay = '';
+	       } else {
+	           $(this).addClass('c').css('background-color', '#C0C0C0');
+	           $('#card-bt').removeClass('c').css('background-color', '#ffffff');
+	           selectedPay = 'kakaopay';
+	       }
+	  });
+        
+      $('#card-bt').hover(function() {
+ 	       if (!$(this).hasClass('c')) {
+ 	           $(this).css('background-color', '#C0C0C0');
+ 	       }
+ 	   }, function() {
+ 	       if (!$(this).hasClass('c')) {
+ 	           $(this).css('background-color', '#ffffff');
+ 	       }
+ 	   }).click(function() {
+ 	       if ($(this).hasClass('c')) {
+ 	           $(this).removeClass('c').css('background-color', '#ffffff');
+ 	          selectedPay = '';
+ 	       } else {
+ 	           $(this).addClass('c').css('background-color', '#C0C0C0');
+ 	          $('#kakaopay-bt').removeClass('c').css('background-color', '#ffffff');
+ 	         selectedPay = 'kcp';
+ 	       }
+ 	   });
+
+</script>
+
 </html>

@@ -22,69 +22,52 @@ public class PayAction implements Action {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		//임시로 회원 정보 가져오기
-		//MemberVO mvo = sesseion.getAttribute("mvo");
-		MemberVO mvo = PaymentDAO.getMvo("test1");
-		request.setAttribute("mvo", mvo);
-		
-		// 세션 객체 가져오기
+		//MemberVO mvo = PaymentDAO.getMvo("test1");
+		//request.setAttribute("mvo", mvo);
 		HttpSession session = request.getSession();
-
-		// MVO 객체를 세션 객체에 설정
-		session.setAttribute("mvo", mvo);
+		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 		
-		//회원 정보 -> 쿠폰 검색 -> request에 저장
-		IssuedCouponVO[] cvo = PaymentDAO.getCouponArr(mvo);
-		request.setAttribute("cvo", cvo);
+		if(mvo!=null) {
+			//회원 정보 -> 쿠폰 검색 -> request에 저장
+			IssuedCouponVO[] cvo = PaymentDAO.getCouponArr(mvo);
+			request.setAttribute("cvo", cvo);
+		}
 		
-		String movieName = request.getParameter("movieName");
-		String theater = request.getParameter("text");
-		String time = request.getParameter("time");
-		String checkSeat = request.getParameter("checkSeat");
-		String totalCount = request.getParameter("totalCount");
-		String date = request.getParameter("date");
-	
-		System.out.println(movieName);
-		System.out.println(theater);
-		System.out.println(time);
-		System.out.println(checkSeat);//A2,A1
-		System.out.println(totalCount);//성인:1/청소년:1/경로:0
-		System.out.println(date);
-		String dateAndTime = date+" "+time;
-		System.out.println(dateAndTime);
+		String movieName = request.getParameter("movieName"); //인사이드 아웃 2
+		String theater = request.getParameter("text"); //쌍용 1관
+		String date = request.getParameter("date"); //2024-06-26
+		String time = request.getParameter("time"); // 09:00:00
+		String checkSeat = request.getParameter("checkSeat"); //A1,A2
+		String totalCount = request.getParameter("totalCount"); //성인:1/청소년:1/경로:0
+		
+		String dateAndTime = date+" "+time; //상영시간표 검색용
 		request.setAttribute("dateAndTime", dateAndTime);
 		
-		System.out.println("-------------여기까지 들어온 String-----------------");
-		System.out.println("-------------이제부터 바꾼 VO-----------------");
-		
 		//movieName -> 상영 영화 VO
-		MovieListVO movieVO = PaymentDAO.getMovieVO(movieName);
+		MovieListVO movieVO = PaymentDAO.getMovieVO(movieName); //필요
 		request.setAttribute("movieVO", movieVO);
-		System.out.println(movieVO.getMovie_code());
 		
-		//상영관 이름 -> 상영관 VO
+		//상영관 이름 -> 상영관 VO 
 		TheaterVO theaterVO = PaymentDAO.getTheaterVO(theater);
 		request.setAttribute("theaterVO", theaterVO);
-		System.out.println(theaterVO.getT_code());
-		System.out.println(dateAndTime);
-		//상영 영화 코드, 상영관 코드, 날짜+시작 시간 -> 상영시간표VO(ssvo)->request 저장
-		ScreeningScheduleVO ssVO = PaymentDAO.getSsVO(movieVO.getMovie_code(), theaterVO.getT_code(), dateAndTime);
-		request.setAttribute("ssVO", ssVO);
-		System.out.println(ssVO.getSs_time());
 		
-		//선택 좌석 -> 상영관 좌석 VO list
-		String[] seat = checkSeat.split(",");
-		TheaterSeatVO[] tsVO = PaymentDAO.getTheaterSeatVO(theaterVO.getT_code(), seat);
-		request.setAttribute("tsVO", tsVO);
-		System.out.println(tsVO[0].getT_code());
+		//상영 영화 코드, 상영관 코드, 날짜+시작 시간 -> 상영시간표VO(ssvo)->request 저장 
+		ScreeningScheduleVO ssVO = PaymentDAO.getSsVO(movieVO.getMovieCd(), theaterVO.getT_name(),dateAndTime); 
+		request.setAttribute("ssVO", ssVO);
+		/*
+		 * //선택 좌석 -> 상영관 좌석 VO list String[] seat = checkSeat.split(",");
+		 * TheaterSeatVO[] tsVO
+		 * =PaymentDAO.getTheaterSeatVO(theaterVO.getT_name(),seat);
+		 * request.setAttribute("tsVO", tsVO); System.out.println(tsVO[0].getT_code());
+		 */
 		
 		//totalCount -> 관객 VO list
 		String[] people = totalCount.split("/");
-		
-		//선택 좌석용 audienceVO
-		AudienceVO[] audiVO = PaymentDAO.getAudienceVO(people);
-		request.setAttribute("audiVO", audiVO);
-		System.out.println(audiVO[0].getA_name());
-		
+		/*
+		 * //선택 좌석용 audienceVO AudienceVO[] audiVO = PaymentDAO.getAudienceVO(people);
+		 * request.setAttribute("audiVO", audiVO);
+		 * System.out.println(audiVO[0].getA_name());
+		 */
 		//관객별 가격을 얻고 싶어요 
 		
 		//예매내역에 띄울 내용
@@ -116,12 +99,11 @@ public class PayAction implements Action {
 					break;
 				}
 			}
-				
 		}
 		
 		request.setAttribute("payContent", content);
 		request.setAttribute("dbContent", dbContent);
-		request.setAttribute("totalPrice", totalPrice);
+		//request.setAttribute("totalPrice", totalPrice);
 		System.out.println(content);
 		System.out.println(totalPrice);
 		//금액 계산

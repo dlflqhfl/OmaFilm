@@ -29,7 +29,6 @@ public class PaymentDAO {
 	
 	//회원 객체를 넣어 보유 쿠폰 리스트 가져오는 함수
 	public static IssuedCouponVO[] getCouponArr(MemberVO mvo) {
-		
 		SqlSession ss = FactoryService.getFactory().openSession();
 		List<IssuedCouponVO> list = ss.selectList("issuedCoupon.getCouponArr", mvo.getU_code());
 		IssuedCouponVO[] cvo = new IssuedCouponVO[list.size()];
@@ -54,12 +53,12 @@ public class PaymentDAO {
 	}
 	
 	//상영 영화 코드, 상영관 코드, 날짜+시작 시간 -> 상영시간표VO(ssvo)
-	public static ScreeningScheduleVO getSsVO(String movie_code, String t_code, String dateAndTime) {
+	public static ScreeningScheduleVO getSsVO(String movieCd, String t_name, String dateAndTime) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		
 		Map<String, String> map = new HashMap<>();
-		map.put("movie_code", movie_code);
-		map.put("t_code", t_code);
+		map.put("movieCd", movieCd);
+		map.put("t_name", t_name);
 		map.put("dateAndTime", dateAndTime);
 		
 		ScreeningScheduleVO ssvo = ss.selectOne("screeningSchedule.getSsVO", map);
@@ -67,13 +66,13 @@ public class PaymentDAO {
 		return ssvo;
 	}
 	
-	public static TheaterSeatVO[] getTheaterSeatVO(String tNum, String[] seat) {
+	public static TheaterSeatVO[] getTheaterSeatVO(String tName, String[] seat) {
 		List<SelectSeatVO> list = new ArrayList<>();
 		TheaterSeatVO[] ssvoArr = new TheaterSeatVO[seat.length];
 		SqlSession ss = FactoryService.getFactory().openSession();
 		
 		for(int i=0; i<seat.length; i++) {
-			String temp = tNum+seat[i];
+			String temp = tName+seat[i];
 			TheaterSeatVO svo = ss.selectOne("theaterSeat.getTsVO", temp);
 			ssvoArr[i] = svo;
 		}
@@ -149,7 +148,11 @@ public class PaymentDAO {
 	public static int savePayment(Map<String, String> map) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		
-		int cnt = ss.insert("payment.insertPayment", map);
+		int cnt;
+		if(map.containsKey("cp_no"))
+			cnt = ss.insert("payment.insertPayment", map);
+		else
+			cnt = ss.insert("payment.insertPaymentNoCP", map); 
 		int p_code =0;
 		if(cnt > 0) {
 			p_code = ss.selectOne("getPCode", map);
@@ -160,9 +163,24 @@ public class PaymentDAO {
 		}
 		else
 			ss.rollback();
+		
 		ss.close();
 		
 		return p_code;
+	}
+	
+	public static void useCoupon(int cp_no) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		int cnt = ss.update("issuedCoupon.useCoupon", cp_no);
+		
+		if(cnt > 0) 
+			ss.commit();
+		else
+			ss.rollback();
+		
+		ss.close();
+		
 	}
 	
 	//예매 내역 저장, 예매번호 반환
