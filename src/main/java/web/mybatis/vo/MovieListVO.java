@@ -4,7 +4,7 @@ public class MovieListVO {
 	private String  
 	movieCd,// 영화코드
 	movieNm,//영화명(국문)
-	movieNmE,// 영화명(영문)
+	movieNmEn,// 영화명(영문)
 	prdtYear,// 제작연도
 	showTm,// 상영시간
 	openDt,// 개봉연도
@@ -23,11 +23,26 @@ public class MovieListVO {
 	showTypeNm,// 상영형태명
 	audits,// 심의정보
 	auditNo,// 심의번호
-	watchGradeNm;// 관람등급 명칭
+	watchGradeNm,// 관람등급 명칭
+	m_plot, //줄거리
+	audiAcc; //누적관람객수
 	
 	public MovieListVO() {}
+	
 
-	public MovieListVO(String movieCd, String movieNm, String movieNmE, String prdtYear,
+	@Override
+	public String toString() {
+		return "MovieListVO [movieCd=" + movieCd + ", movieNm=" + movieNm + ", movieNmE="
+				+ movieNmEn + ", prdtYear=" + prdtYear + ", showTm=" + showTm + ", openDt=" + openDt + ", typeNm="
+				+ typeNm + ", nations=" + nations + ", nationNm=" + nationNm + ", genreNm=" + genreNm + ", directors="
+				+ directors + ", peopleNm=" + peopleNm + ", peopleNmEn=" + peopleNmEn + ", actors=" + actors + ", cast="
+				+ cast + ", castEn=" + castEn + ", showTypes=" + showTypes + ", showTypeGroupNm=" + showTypeGroupNm
+				+ ", showTypeNm=" + showTypeNm + ", audits=" + audits + ", auditNo=" + auditNo + ", watchGradeNm="
+				+ watchGradeNm + ", m_plot=" + m_plot + ", audiAcc=" + audiAcc + "]";
+	}
+
+
+	public MovieListVO(String movie_code, String movieCd, String movieNm, String movieNmEn, String prdtYear,
 			String showTm, String openDt, String typeNm, String nations, String nationNm, String genreNm,
 			String directors, String peopleNm, String peopleNmEn, String actors, String cast, String castEn,
 			String showTypes, String showTypeGroupNm, String showTypeNm, String audits, String auditNo,
@@ -35,7 +50,7 @@ public class MovieListVO {
 		super();
 		this.movieCd = movieCd;
 		this.movieNm = movieNm;
-		this.movieNmE = movieNmE;
+		this.movieNmEn = movieNmEn;
 		this.prdtYear = prdtYear;
 		this.showTm = showTm;
 		this.openDt = openDt;
@@ -57,6 +72,14 @@ public class MovieListVO {
 		this.watchGradeNm = watchGradeNm;
 	}
 
+	public String getMovieNmEn() {
+		return movieNmEn;
+	}
+
+	public void setMovieNmEn(String movieNmEn) {
+		this.movieNmEn = movieNmEn;
+	}
+
 	public String getMovieCd() {
 		return movieCd;
 	}
@@ -74,11 +97,11 @@ public class MovieListVO {
 	}
 
 	public String getMovieNmE() {
-		return movieNmE;
+		return movieNmEn;
 	}
 
 	public void setMovieNmE(String movieNmE) {
-		this.movieNmE = movieNmE;
+		this.movieNmEn = movieNmE;
 	}
 
 	public String getPrdtYear() {
@@ -232,6 +255,24 @@ public class MovieListVO {
 	public void setWatchGradeNm(String watchGradeNm) {
 		this.watchGradeNm = watchGradeNm;
 	}
+
+	public String getM_plot() {
+		return m_plot;
+	}
+
+	public void setM_plot(String m_plot) {
+		this.m_plot = m_plot;
+	}
+
+	public String getAudiAcc() {
+		return audiAcc;
+	}
+
+	public void setAudiAcc(String audiAcc) {
+		this.audiAcc = audiAcc;
+	}
+	
+	
 	
 	
 }

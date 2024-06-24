@@ -30,6 +30,5 @@
     <mapper resource="web/mybatis/mapper/selectSeat.xml"/>
     <mapper resource="web/mybatis/mapper/theater.xml"/>
     <mapper resource="web/mybatis/mapper/theaterSeat.xml"/>
-    <mapper resource="web/mybatis/mapper/weekyBoxOffice.xml"/>
   </mappers>
 </configuration>

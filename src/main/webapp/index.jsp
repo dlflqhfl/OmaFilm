@@ -3,9 +3,11 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="css/globals.css?after"/>
-    <link rel="stylesheet" href="css/main.css?after"/>
-    <link rel="stylesheet" href="css/header.css?after"/>
+
+    <link rel="stylesheet" href="css/globals.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/footer.css"/>
 
 </head>
 <body>
