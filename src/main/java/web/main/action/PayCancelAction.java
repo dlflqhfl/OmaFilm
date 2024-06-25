@@ -13,13 +13,16 @@ import java.util.Map;
 public class PayCancelAction implements Action{
 	
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String execute(HttpServletRequest request, HttpServletResponse response)  {
 		String ex="";
 		
-		String token = getToken("7460120027740537", "RfLyd6jn5E7CpQS0O4f9F71cYBmlKkrxQzktZpWwkmsQRv9zemtZI4tezjHP5oWEecgLTiZhws7sXIsn");
-		
-		//
-		refundRequest(token, "merchant_1718845162581", "취소 사유");
+		try {
+			String token = getToken("7460120027740537", "RfLyd6jn5E7CpQS0O4f9F71cYBmlKkrxQzktZpWwkmsQRv9zemtZI4tezjHP5oWEecgLTiZhws7sXIsn");
+			
+			refundRequest(token, "merchant_1718845162581", "취소 사유");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		return ex;
 	}

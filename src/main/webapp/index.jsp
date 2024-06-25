@@ -3,8 +3,12 @@
 <html>
 <head>
     <meta charset="utf-8"/>
+
     <link rel="stylesheet" href="css/globals.css"/>
     <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/footer.css"/>
+
 </head>
 <body>
 <div class="omakase-cinema">

@@ -309,6 +309,7 @@
 	console.log(text)
 	console.log(movieName)
 	console.log(time)
+	console.log(date)
 	
 	let adult = parseInt($("#adult").text());
 	let teen = parseInt($("#teen").text());
@@ -452,15 +453,15 @@
 		if( result ){
 			
 			let adult = $("#adult").text();
-			let teen = $("#adult").text();
-			let old = $("#adult").text();
+			let teen = $("#teen").text();
+			let old = $("#old").text();
 			
-			let adultCount = "성인" + adult;
-			let teenCount = "청소년" + teen;
-			let oldCount = "경로" + old;
+			let adultCount = "성인:" + adult;
+			let teenCount = "청소년:" + teen;
+			let oldCount = "경로:" + old;
 			
 			let totalCount = adultCount+"/" + teenCount+"/" + oldCount;
-			
+
 			$("#totalCount").val(totalCount)
 			$("#checkSeat").val(seats);
 			

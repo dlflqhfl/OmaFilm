@@ -19,6 +19,10 @@
             <a href="https://www.figma.com/design/zjZiIKzfy5FWahhBCQ2XjX?node-id=67-612">
                 <div class="text-wrapper-26">고객센터</div></a>
         </div>
+
+        <div class="link-23"><div class="text-wrapper-27">관리자</div></div>
+        <div class="text-wrapper-28"><a href="jsp/login/login_1.jsp">로그인</a></div>
+        <%--<div class="logout">로그아웃</div>--%>
         <div class="link-24"><div class="text-wrapper-26">빠른예매</div></div>
         <img class="link-26" src="../../img/main_img/link-1.png" />
         <img class="link-27" src="../../img/main_img/link-2.png" />

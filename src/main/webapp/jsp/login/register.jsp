@@ -13,6 +13,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../css/globals.css" />
     <link rel="stylesheet" href="../../css/register.css" />
+
 </head>
 <body>
 <div class="screen">
