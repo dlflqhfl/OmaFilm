@@ -8,5 +8,18 @@
     <select id="login_check" parameterType="map" resultType="web.mybatis.vo.MemberVO">
         SELECT * FROM member WHERE (u_address = #{id} OR u_id = #{id}) AND u_pw = #{pw}
     </select>
+
+    <!--아이디 중복체크-->
+    <select id="id_check" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM member WHERE u_id = #{id}
+    </select>
+
+    <!--회원가입-->
+    <insert id="regist" parameterType="web.mybatis.vo.MemberVO">
+        INSERT INTO member(u_id, u_pw, u_authority, u_social, u_name, u_phone,
+    u_postcode, u_address, u_email, u_email_rcv, u_birth, u_status, u_join_date, u_none)
+        VALUES(#{u_id}, #{u_pw}, #{u_authority}, #{u_social}, #{u_name}, #{u_phone}, #{u_postcode},
+    #{u_address}, #{u_email}, #{u_email_rcv}, #{u_birth}, #{u_status}, #{u_join_date}, #{u_none})
+    </insert>
 	
 </mapper>

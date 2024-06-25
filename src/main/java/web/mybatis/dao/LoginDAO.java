@@ -1,4 +1,4 @@
-package web.mybatis.dao;
+package web.mybatis.DAO;
 
 import org.apache.ibatis.session.SqlSession;
 import web.mybatis.service.FactoryService;
@@ -16,5 +16,31 @@ public class LoginDAO {
         ss.close();
 
         return mvo;
+    }
+
+    //id 중복체크
+    public static int idCheck(String id) {
+        SqlSession ss = FactoryService.getFactory().openSession();
+
+        int cnt = ss.selectOne("member.id_check", id);
+        ss.close();
+
+        return cnt;
+    }
+
+    //회원가입
+    public static int regist(MemberVO mvo) {
+        SqlSession ss = FactoryService.getFactory().openSession();
+        int cnt = ss.insert("member.regist", mvo);
+
+        if (cnt > 0){
+            ss.commit();
+        } else {
+            ss.rollback();
+        }
+
+        ss.close();
+
+        return cnt;
     }
 }

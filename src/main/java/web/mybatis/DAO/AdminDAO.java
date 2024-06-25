@@ -1,4 +1,4 @@
-package web.mybatis.dao;
+package web.mybatis.DAO;
 
 import org.apache.ibatis.session.SqlSession;
 import web.mybatis.service.FactoryService;
