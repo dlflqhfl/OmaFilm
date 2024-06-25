@@ -15,21 +15,31 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import web.mybatis.dao.MyReservationDAO;
+
 public class PayCancelAction implements Action{
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)  {
-		String ex="";
+		String rs_num = request.getParameter("rs_num"); //status = 1 수정
+		System.out.println(rs_num);
+		String p_code = request.getParameter("p_code"); //status = 1 수정
+		System.out.println(p_code);
+		
+		MyReservationDAO.cancelReservation(rs_num, p_code);
+		
+		//p_code에 해당되는 merchant_uid 들고오기
+		String merchant_uid = MyReservationDAO.getUid(p_code);
 		
 		try {
 			String token = getToken("7460120027740537", "RfLyd6jn5E7CpQS0O4f9F71cYBmlKkrxQzktZpWwkmsQRv9zemtZI4tezjHP5oWEecgLTiZhws7sXIsn");
 			
-			refundRequest(token, "merchant_1718845162581", "취소 사유");
+			refundRequest(token, merchant_uid, "취소 사유");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-		return ex;
+		return "Controller?type=myReservation";
 	}
 	
 	//merchant_uid 주면 됨

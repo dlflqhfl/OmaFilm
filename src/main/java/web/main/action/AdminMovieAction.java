@@ -15,8 +15,9 @@ import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 
 import web.mybatis.dao.AdminDAO;
-import web.mybatis.vo.DailyBoxOfficeVO;
+import web.mybatis.vo.DailyBoxOfficeVO;//OpenMovieListVO
 import web.mybatis.vo.OpenMovieListVO;
+
 
 public class AdminMovieAction implements Action{
 	

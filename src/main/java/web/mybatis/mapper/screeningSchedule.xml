@@ -14,4 +14,17 @@
 		INSERT INTO screening_schedule(movieCd, t_name, ss_time, ss_date)
 		VALUES(#{movieCd}, #{t_name}, #{ss_time}, #{ss_date})
 	</insert>
+	
+	
+	<resultMap type ="web.mybatis.vo.ScreeningScheduleVO" id="m1">
+		<id property="movieCd" column="movieCd"/> 
+		<association property="mvo" javaType="web.mybatis.vo.MovieListVO"
+		select="movieList.getMVO" column="movieCd">
+		</association>
+	</resultMap>
+	
+	<select id="getSSVO" parameterType="String" resultMap="m1">
+		select * from screening_schedule 
+		where ss_code = #{ss_code}
+	</select>
 </mapper>
