@@ -18,46 +18,45 @@ public class SelectSeatVO {
 		this.s_code = s_code;
 	}
 
-	int getIdx() {
+	public int getIdx() {
 		return idx;
 	}
 
-	void setIdx(int idx) {
+	public void setIdx(int idx) {
 		this.idx = idx;
 	}
 
-	int getP_code() {
+	public int getP_code() {
 		return p_code;
 	}
 
-	void setP_code(int p_code) {
+	public void setP_code(int p_code) {
 		this.p_code = p_code;
 	}
 
-	int getA_code() {
+	public int getA_code() {
 		return a_code;
 	}
 
-	void setA_code(int a_code) {
+	public void setA_code(int a_code) {
 		this.a_code = a_code;
 	}
 
-	String getRs_num() {
+	public String getRs_num() {
 		return rs_num;
 	}
 
-	void setRs_num(String rs_num) {
+	public void setRs_num(String rs_num) {
 		this.rs_num = rs_num;
 	}
 
-	String getS_code() {
+	public String getS_code() {
 		return s_code;
 	}
 
-	void setS_code(String s_code) {
+	public void setS_code(String s_code) {
 		this.s_code = s_code;
 	}
-	
-	
+
 	
 }

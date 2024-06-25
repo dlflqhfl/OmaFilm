@@ -12,8 +12,8 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../css/globals.css" />
-    <link rel="stylesheet" href="../../css/login.css" />
+    <link rel="stylesheet" href="css/globals.css?after" />
+    <link rel="stylesheet" href="css/login.css?after" />
 
 </head>
 <body>

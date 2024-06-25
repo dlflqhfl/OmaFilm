@@ -6,9 +6,9 @@
   <environments default="">
     <environment id="">
       <transactionManager type="JDBC"/>
-		<dataSource type="JNDI"> 
-	        <property name="data_source" value="java:comp/env/jdbc/mysql"/>
-		</dataSource>
+	<dataSource type="JNDI">
+        <property name="data_source" value="java:comp/env/jdbc/mysql"/>
+	</dataSource>
     </environment>
   </environments>
   <mappers>
@@ -18,7 +18,6 @@
     <mapper resource="web/mybatis/mapper/inquiry.xml"/>
     <mapper resource="web/mybatis/mapper/iqComment.xml"/>
     <mapper resource="web/mybatis/mapper/issuedCoupon.xml"/>
-    <mapper resource="web/mybatis/mapper/issuedPoint.xml"/>
     <mapper resource="web/mybatis/mapper/member.xml"/>
     <mapper resource="web/mybatis/mapper/movieList.xml"/>
     <mapper resource="web/mybatis/mapper/notice.xml"/>

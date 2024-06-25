@@ -3,5 +3,19 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="movieList">
-
+	<!-- 영화 이름 -> MovieListVO -->
+	<select id="getMovieVO" parameterType="String" resultType="web.mybatis.vo.MovieListVO">
+		SELECT * 
+		FROM movie_list
+		WHERE movieNm = #{movieNm}
+	</select>
+	
+	 <insert id="insertMovie" parameterType="web.mybatis.vo.MovieListVO">
+		INSERT INTO movie_list(movieCd, movieNm,movieNmEn,prdtYear,showTm,openDt,typeNm,
+		nationNm,genreNm,directors,peopleNm,peopleNmEn,actors,cast,castEn,showTypeGroupNm,
+		showTypeNm,watchGradeNm,m_plot)
+		VALUES(#{movieCd}, #{movieNm},#{movieNmEn},#{prdtYear},#{showTm},#{openDt},#{typeNm},
+		#{nationNm},#{genreNm},#{directors},#{peopleNm},#{peopleNmEn},#{actors},#{cast},#{castEn},#{showTypeGroupNm},
+		#{showTypeNm},#{watchGradeNm},#{m_plot} ) 
+	</insert>
 </mapper>
