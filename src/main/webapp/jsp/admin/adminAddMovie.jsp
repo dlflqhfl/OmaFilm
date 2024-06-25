@@ -141,14 +141,6 @@ $(function() {
         time = $(this).text();
     });
 
-    // 시간 추가 버튼 클릭시 이벤트
-    $("#sb").click(function() {
-        $("#screenName").val(name);
-        $("#screenTime").val(time);
-        $("#screenDate").val(date);
-        closeDialog();
-    });
-
     let checkClick = null;
     let checkGuan = null;
     let checkMovie = null;

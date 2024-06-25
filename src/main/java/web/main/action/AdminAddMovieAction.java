@@ -82,7 +82,7 @@ public class AdminAddMovieAction implements Action {
 		            
 		            movie.setMovieCd(movieInfo.getChildText("movieCd"));
 		            movie.setMovieNm(movieInfo.getChildText("movieNm"));
-		            movie.setMovieNmE(movieInfo.getChildText("movieNmEn"));
+		            movie.setMovieNmEn(movieInfo.getChildText("movieNmEn"));
 		            movie.setShowTm(movieInfo.getChildText("showTm"));
 		            movie.setPrdtYear(movieInfo.getChildText("prdtYear"));
 		            movie.setOpenDt(movieInfo.getChildText("openDt"));

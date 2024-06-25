@@ -18,4 +18,14 @@
 		#{nationNm},#{genreNm},#{directors},#{peopleNm},#{peopleNmEn},#{actors},#{cast},#{castEn},#{showTypeGroupNm},
 		#{showTypeNm},#{watchGradeNm},#{m_plot} ) 
 	</insert>
+	
+	<select id="selectMovie" resultType="web.mybatis.vo.MovieListVO">
+		SELECT * FROM movie_list
+	</select>
+	
+	<insert id="insertScreen" parameterType="web.mybatis.vo.ScreeningScheduleVO">
+		INSERT INTO screening_schedule(movieCd, ss_time, ss_date, t_name)
+		VALUES(#{movieCd}, #{ss_time}, #{ss_date}, #{t_name})
+	</insert>
+	
 </mapper>

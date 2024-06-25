@@ -25,28 +25,27 @@ public class MovieListVO {
 	auditNo,// 심의번호
 	watchGradeNm,// 관람등급 명칭
 	m_plot, //줄거리
-	audiAcc; //누적관람객수
+	audiAcc,//누적관람객수
+	m_file; //파일명
 	
 	public MovieListVO() {}
-	
 
 	@Override
 	public String toString() {
-		return "MovieListVO [movieCd=" + movieCd + ", movieNm=" + movieNm + ", movieNmE="
-				+ movieNmEn + ", prdtYear=" + prdtYear + ", showTm=" + showTm + ", openDt=" + openDt + ", typeNm="
-				+ typeNm + ", nations=" + nations + ", nationNm=" + nationNm + ", genreNm=" + genreNm + ", directors="
-				+ directors + ", peopleNm=" + peopleNm + ", peopleNmEn=" + peopleNmEn + ", actors=" + actors + ", cast="
-				+ cast + ", castEn=" + castEn + ", showTypes=" + showTypes + ", showTypeGroupNm=" + showTypeGroupNm
-				+ ", showTypeNm=" + showTypeNm + ", audits=" + audits + ", auditNo=" + auditNo + ", watchGradeNm="
-				+ watchGradeNm + ", m_plot=" + m_plot + ", audiAcc=" + audiAcc + "]";
+		return "MovieListVO [movieCd=" + movieCd + ", movieNm=" + movieNm + ", movieNmEn=" + movieNmEn + ", prdtYear="
+				+ prdtYear + ", showTm=" + showTm + ", openDt=" + openDt + ", typeNm=" + typeNm + ", nations=" + nations
+				+ ", nationNm=" + nationNm + ", genreNm=" + genreNm + ", directors=" + directors + ", peopleNm="
+				+ peopleNm + ", peopleNmEn=" + peopleNmEn + ", actors=" + actors + ", cast=" + cast + ", castEn="
+				+ castEn + ", showTypes=" + showTypes + ", showTypeGroupNm=" + showTypeGroupNm + ", showTypeNm="
+				+ showTypeNm + ", audits=" + audits + ", auditNo=" + auditNo + ", watchGradeNm=" + watchGradeNm
+				+ ", m_plot=" + m_plot + ", audiAcc=" + audiAcc + ", m_file=" + m_file + "]";
 	}
 
-
-	public MovieListVO(String movie_code, String movieCd, String movieNm, String movieNmEn, String prdtYear,
-			String showTm, String openDt, String typeNm, String nations, String nationNm, String genreNm,
-			String directors, String peopleNm, String peopleNmEn, String actors, String cast, String castEn,
-			String showTypes, String showTypeGroupNm, String showTypeNm, String audits, String auditNo,
-			String watchGradeNm) {
+	public MovieListVO(String movieCd, String movieNm, String movieNmEn, String prdtYear, String showTm, String openDt,
+			String typeNm, String nations, String nationNm, String genreNm, String directors, String peopleNm,
+			String peopleNmEn, String actors, String cast, String castEn, String showTypes, String showTypeGroupNm,
+			String showTypeNm, String audits, String auditNo, String watchGradeNm, String m_plot, String audiAcc,
+			String m_file) {
 		super();
 		this.movieCd = movieCd;
 		this.movieNm = movieNm;
@@ -70,14 +69,9 @@ public class MovieListVO {
 		this.audits = audits;
 		this.auditNo = auditNo;
 		this.watchGradeNm = watchGradeNm;
-	}
-
-	public String getMovieNmEn() {
-		return movieNmEn;
-	}
-
-	public void setMovieNmEn(String movieNmEn) {
-		this.movieNmEn = movieNmEn;
+		this.m_plot = m_plot;
+		this.audiAcc = audiAcc;
+		this.m_file = m_file;
 	}
 
 	public String getMovieCd() {
@@ -96,12 +90,12 @@ public class MovieListVO {
 		this.movieNm = movieNm;
 	}
 
-	public String getMovieNmE() {
+	public String getMovieNmEn() {
 		return movieNmEn;
 	}
 
-	public void setMovieNmE(String movieNmE) {
-		this.movieNmEn = movieNmE;
+	public void setMovieNmEn(String movieNmEn) {
+		this.movieNmEn = movieNmEn;
 	}
 
 	public String getPrdtYear() {
@@ -271,6 +265,17 @@ public class MovieListVO {
 	public void setAudiAcc(String audiAcc) {
 		this.audiAcc = audiAcc;
 	}
+
+	public String getM_file() {
+		return m_file;
+	}
+
+	public void setM_file(String m_file) {
+		this.m_file = m_file;
+	}
+	
+
+	
 	
 	
 	

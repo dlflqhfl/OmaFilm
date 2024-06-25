@@ -1,13 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/admin/adminSelectTimeglobals.css" />
-    <link rel="stylesheet" href="css/admin/adminSelectTimeStyle.css" />
-  </head>
-  <body>
     <div class="screen">
       <div class="div">
 		<div class="calendar">
@@ -31,7 +23,7 @@
               <div class="data"><div class="text-wrapper-10 time">15:00</div></div>
             </div>
             <div class="overlap-4">
-              <div class="div-wrapper"><div class="text-wrapper-10 time">16:00</div></div>
+              <div class="data"><div class="text-wrapper-10 time">16:00</div></div>
             </div>
             <div class="overlap-5">
               <div class="data"><div class="text-wrapper-10 time">17:00</div></div>
@@ -78,5 +70,3 @@
         <button class="button-14"><div class="text-wrapper-22" id="sb">등록</div></button>
       </div>
     </div>
-  </body>
-</html>
