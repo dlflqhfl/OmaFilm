@@ -10,6 +10,12 @@
 		WHERE movieNm = #{movieNm}
 	</select>
 	
+	<select id="getMVO" parameterType="String" resultType="web.mybatis.vo.MovieListVO">
+		SELECT * 
+		FROM movie_list
+		WHERE movieCd = #{movieCd}
+	</select>
+	
 	 <insert id="insertMovie" parameterType="web.mybatis.vo.MovieListVO">
 		INSERT INTO movie_list(movieCd, movieNm,movieNmEn,prdtYear,showTm,openDt,typeNm,
 		nationNm,genreNm,directors,peopleNm,peopleNmEn,actors,cast,castEn,showTypeGroupNm,

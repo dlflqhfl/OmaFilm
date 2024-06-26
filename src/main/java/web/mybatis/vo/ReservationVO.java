@@ -5,9 +5,13 @@ public class ReservationVO {
 	, rsvr_code //예매자코드
 	, rs_count //선택좌석개수
 	, rs_status; //예매 상태
-	private String rs_num //예매번호
+	
+	private String ss_code, rs_num //예매번호
 	, s_code // 상영시간표 코드
 	, rs_time; //예매시간
+	
+	private PaymentVO pvo;
+	private ScreeningScheduleVO ssvo;
 	
 	public ReservationVO() {}
 
@@ -79,5 +83,30 @@ public class ReservationVO {
 		this.rs_time = rs_time;
 	}
 
+	public PaymentVO getPvo() {
+		return pvo;
+	}
+
+	public void setPvo(PaymentVO pvo) {
+		this.pvo = pvo;
+	}
+
+	public ScreeningScheduleVO getSsvo() {
+		return ssvo;
+	}
+
+	public void setSsvo(ScreeningScheduleVO ssvo) {
+		this.ssvo = ssvo;
+	}
+
+	public String getSs_code() {
+		return ss_code;
+	}
+
+	public void setSs_code(String ss_code) {
+		this.ss_code = ss_code;
+	}
+
+	
 	
 }

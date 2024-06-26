@@ -28,4 +28,16 @@
         values (#{u_code}, now())
     </insert>
     
+    <select id="getMonthRsvrList" parameterType="Map" resultType="web.mybatis.vo.ReserverVO">
+    	select *
+    	from reserver
+    	where u_code = ${u_code} and rsvr_time = ${yearAndMonth}    
+    </select>
+    
+    <select id="getAllRsvrList" parameterType="int" resultType="web.mybatis.vo.ReserverVO">
+    	select *
+    	from reserver
+    	where u_code = ${u_code}
+    	ORDER BY rsvr_time DESC
+    </select>
 </mapper>

@@ -15,11 +15,10 @@ import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 
 import web.mybatis.dao.AdminDAO;
-import web.mybatis.vo.DailyBoxOfficeVO;
+import web.mybatis.vo.DailyBoxOfficeVO;//OpenMovieListVO
 import web.mybatis.vo.OpenMovieListVO;
 
 public class AdminMovieApiAction implements Action{
-	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// if문으로 만약 MovieCD 파라메터를 받을 경우에만 실행
