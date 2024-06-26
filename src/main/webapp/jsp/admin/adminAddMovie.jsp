@@ -20,21 +20,6 @@
               <input type="file" class="fileText">
             </div>
           </div>
-          <div class="row-2">
-            <div class="cell"><div class="label">전체 상영관</div></div>
-            <div class="data">
-              <input type="text" id="screenName" class="input-2">
-              <input type="text" id="screenTime" class="input-3">
-              <input type="text" id="screenDate" class="input-4">
-              <button class="div-wrapper" onclick="showDialog()">시간 추가하기</button> 
-             	 <div id="myModal" class="modal">
-        		<div class="modal-content">
-        			<jsp:include page="/jsp/admin/adminSelectTime.jsp" />
-        		</div>
-        	</div>
-              <div class="label-wrapper"><div class="label-2">전체 상영시간표</div></div>
-            </div>
-          </div>
           <div class="row-3">
             <div class="cell"><div class="label">장르</div></div>
             <div class="data">
@@ -76,12 +61,10 @@
           </div>
         </div>
         <form id="add" action="Controller?type=adminAddMovie" method="post">
-	        <input type="hidden" id="nameData" name="nameData" value="">
-	        <input type="hidden" id="timeData" name="timeData" value="">
-	        <input type="hidden" id="dateData" name="dateData" value="">
 	        <input type="hidden" id="contentData" name="contentData" value="">
 	        <input type="hidden" id="submit" name="submit" value="submit">
-	        <input type="hidden" id="movieCd" name="movieCd" value="${movie.movieCd }">
+	        <input type="hidden" id="fileData" name="fileData" value="">
+	        <input type="hidden" id="movieCd" name="movieCd" value="${param.movieCd }">
         	<button type="submit" id="goAdd" class="button-2 "><div class="text-wrapper-5">등록</div></button>
         </form>
         <button class="button-3"><div class="text-wrapper-6">목록</div></button>
@@ -118,7 +101,7 @@ $(function() {
             $('.input').val('');
         }
     });
-
+    
     // 모달창 닫기
     $(".text-wrapper-21").click(function() {
         closeDialog();
@@ -308,16 +291,13 @@ $(function() {
         console.log(date);
     });
     $("#goAdd").click(function() {
-		console.log(name)
-		console.log(time)
-		console.log(date)
-		
-	    $("#nameData").val(name);
-	    $("#timeData").val(time);
-	    $("#dateData").val(date);
-	    let content = $("#area").val(); // content의 값을 가져와야 할 것 같습니다.
+	    let content = $("#area").val(); 
 	    console.log(content)
 	    $("#contentData").val(content);
+	    
+	    let file = $(".input").val()
+	    $("#fileData").val(file)
+	    console.log(file)
 	    
 	    $("#add").submit(); // form을 submit하는 코드입니다.
 	});

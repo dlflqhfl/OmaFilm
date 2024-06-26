@@ -31,13 +31,20 @@ public class AdminDAO {
         }
         return result;
     }
+	
+	public static int checkMovie(String movieCd) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		int res = ss.selectOne("dailyBoxOffice.check",movieCd);
+		
+		return res;
+	}
 
-	public static int insertMovieList(MovieListVO movie, ScreeningScheduleVO sc) {
+	public static int insertMovieList(MovieListVO movie) {
 	    SqlSession ss = FactoryService.getFactory().openSession();
 
 	    int res = ss.insert("movieList.insertMovie",movie);
 	    if( res > 0) {
-	    	int result = ss.insert("screeningSchedule.insertScreen",sc);
 	    	ss.commit();
 	    } else {
 	    	ss.rollback();
@@ -68,5 +75,26 @@ public class AdminDAO {
 		}
 		return res;
 	}
+
+	public static int updateDailyMovie(DailyBoxOfficeVO daily, List<DailyBoxOfficeVO> dailyList) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int result = 0;
+        try {
+            for (DailyBoxOfficeVO movie : dailyList) {
+                movie.setBoxofficeType(daily.getBoxofficeType());
+                movie.setShowRange(daily.getShowRange());
+                result += ss.update("dailyBoxOffice.updateMovie", movie);
+            }
+            ss.commit();
+        } catch (Exception e) {
+            ss.rollback();
+            e.printStackTrace();
+        } finally {
+            ss.close();
+        }
+        return result;
+	}
+
+
 
 }

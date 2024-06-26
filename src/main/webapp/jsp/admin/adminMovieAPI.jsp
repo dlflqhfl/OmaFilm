@@ -68,8 +68,8 @@
 			    <button type="submit">조회</button>
 				</form>
             <div class="overlap-group">
-              <a href="Controller?adminMovieApi"><div class="view"><div class="text-wrapper-14">API</div></div></a>
-              <a href="Controller?adminMovieDb"><div class="view-2"><div class="text-wrapper-15">DB</div></div></a>
+              <a href="Controller?type=adminMovieApi"><div class="view"><div class="text-wrapper-14">API</div></div></a>
+              <a href="Controller?type=adminMovieDb"><div class="view-2"><div class="text-wrapper-15">DB</div></div></a>
             </div>
 			<table class="movie-table">
 	          <thead>

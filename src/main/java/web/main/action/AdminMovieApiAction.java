@@ -61,6 +61,7 @@ public class AdminMovieApiAction implements Action{
 			daily.setShowRange(root.getChildText("showRange"));
 
 			daily_list = new DailyBoxOfficeVO[list.size()];
+			DailyBoxOfficeVO dvo = new DailyBoxOfficeVO();
 			if (list != null && list.size() > 0) {
 				daily_list = new DailyBoxOfficeVO[list.size()];
 				int i = 0;
@@ -81,7 +82,7 @@ public class AdminMovieApiAction implements Action{
 					String scrnCnt = e.getChildText("scrnCnt");
 					String showCnt = e.getChildText("showCnt");
 
-					DailyBoxOfficeVO dvo = new DailyBoxOfficeVO();
+					
 					dvo.setRnum(rnum);
 					dvo.setRank(rank);
 					dvo.setRankOldAndNew(rankOldAndNew);
@@ -110,9 +111,12 @@ public class AdminMovieApiAction implements Action{
 
 			AdminDAO dao=new AdminDAO();
 			List<DailyBoxOfficeVO> dailyList = List.of(daily_list);
-            int insertCount = dao.insertDailyMovie(daily, dailyList);
-            System.out.println(insertCount);
-            System.out.println("테스트 끝");
+			int check = AdminDAO.checkMovie(dvo.getMovieCd());
+			if( check <= 0) {
+				int insertCount = dao.insertDailyMovie(daily, dailyList);
+			} else {
+				int updateDaily = AdminDAO.updateDailyMovie(daily, dailyList);
+			}
             htp.disconnect();
 			
 		} catch (Exception e) {
