@@ -21,4 +21,21 @@
 		    ORDER BY p_time DESC
 		    LIMIT 1
 	</select>
+	
+	<select id="getPVO" parameterType="String" resultType="web.mybatis.vo.PaymentVO">
+		select * from payment 
+		where p_code = #{p_code}
+	</select>
+	
+	<update id="cancelPayment" parameterType="String">
+		UPDATE payment
+		SET p_status = 1
+		WHERE p_code = ${p_code} AND p_status = 0;
+	</update>
+	
+	<select id="getUid" parameterType="String" resultType="String">
+		select merchant_uid
+		from payment
+		where p_code = ${p_code}
+	</select>
 </mapper>

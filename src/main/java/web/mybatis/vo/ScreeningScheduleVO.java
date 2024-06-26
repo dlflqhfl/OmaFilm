@@ -3,9 +3,11 @@ package web.mybatis.vo;
 public class ScreeningScheduleVO {
 	private String ss_code, //상영시간표코드
 	movieCd, //상영영화코드
-	t_name, //상영관 코드
+	t_name, //상영관 이름
 	ss_time,//시작시간
 	ss_date;//시작날짜
+	
+	private MovieListVO mvo;
 	
 	public ScreeningScheduleVO() {}
 	
@@ -63,4 +65,13 @@ public class ScreeningScheduleVO {
 		this.ss_time = ss_time;
 	}
 
+	public MovieListVO getMvo() {
+		return mvo;
+	}
+
+	public void setMvo(MovieListVO mvo) {
+		this.mvo = mvo;
+	}
+
+	
 }
