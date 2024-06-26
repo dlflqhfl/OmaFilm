@@ -1,16 +1,14 @@
 package web.mybatis.dao;
 
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
+
 import web.mybatis.service.FactoryService;
 import web.mybatis.vo.DailyBoxOfficeVO;
 import web.mybatis.vo.MovieListVO;
 import web.mybatis.vo.ScreeningScheduleVO;
-
-import java.util.HashMap;
 
 
 public class AdminDAO {
@@ -45,6 +43,29 @@ public class AdminDAO {
 	    	ss.rollback();
 	    }
 	    ss.close();
+		return res;
+	}
+	public static MovieListVO[] selectMovieList() {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		List<MovieListVO> list = ss.selectList("movieList.selectMovie");
+		MovieListVO[] ar = null;
+		if( list != null && list.size() > 0) {
+			ar = new MovieListVO[list.size()];
+			list.toArray(ar);
+		}
+		return ar;
+	}
+
+	public static int insertScreen(ScreeningScheduleVO sc) {
+		SqlSession ss= FactoryService.getFactory().openSession();
+		
+		int res = ss.insert("movieList.insertScreen",sc);
+		if( res > 0) {
+			ss.commit();
+		} else {
+			ss.rollback();
+		}
 		return res;
 	}
 

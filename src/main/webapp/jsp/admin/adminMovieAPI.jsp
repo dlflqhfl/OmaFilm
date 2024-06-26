@@ -6,14 +6,14 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/admin/adminMovieGlobals.css" />
-    <link rel="stylesheet" href="css/admin/adminMovieStyle.css" />
+    <link rel="stylesheet" href="css/admin/adminMovieApiStyle.css" />
   </head>
   <body>
     <div class="DB">
       <div class="overlap-wrapper">
         <div class="overlap">
           <div class="div-sidebar">
-            <img class="element" src="img/1.png" />
+            <img class="element" src="img/admin/1.png" />
             <div class="text-wrapper">관리자</div>
             <div class="list">
               <div class="item-link"><div class="div">영화관리</div></div>
@@ -39,7 +39,7 @@
             </div>
             <button class="button">
               <div class="container"><div class="text-wrapper-8">구분</div></div>
-              <img class="image" src="img/image.png" />
+              <img class="image" src="img/admin/image.png" />
             </button>
             <div class="border">
               <div class="input">
@@ -68,8 +68,8 @@
 			    <button type="submit">조회</button>
 				</form>
             <div class="overlap-group">
-              <div class="view"><div class="text-wrapper-14">API</div></div>
-              <div class="view-2"><div class="text-wrapper-15">DB</div></div>
+              <a href="Controller?adminMovieApi"><div class="view"><div class="text-wrapper-14">API</div></div></a>
+              <a href="Controller?adminMovieDb"><div class="view-2"><div class="text-wrapper-15">DB</div></div></a>
             </div>
 			<table class="movie-table">
 	          <thead>

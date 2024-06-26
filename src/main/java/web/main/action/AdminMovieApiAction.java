@@ -18,9 +18,7 @@ import web.mybatis.dao.AdminDAO;
 import web.mybatis.vo.DailyBoxOfficeVO;//OpenMovieListVO
 import web.mybatis.vo.OpenMovieListVO;
 
-
-public class AdminMovieAction implements Action{
-	
+public class AdminMovieApiAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// if문으로 만약 MovieCD 파라메터를 받을 경우에만 실행
@@ -179,7 +177,7 @@ public class AdminMovieAction implements Action{
 			e.printStackTrace();
 			System.out.println("값 안넣어짐");
 		}
-		return "jsp/admin/adminMovie.jsp";
+		return "jsp/admin/adminMovieAPI.jsp";
 	}
 	
 
