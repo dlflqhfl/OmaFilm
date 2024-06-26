@@ -1,32 +1,40 @@
 package web.main.action;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.URL;
-import java.util.Map;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.net.URL;
+import java.util.Map;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import web.mybatis.dao.MyReservationDAO;
 
 public class PayCancelAction implements Action{
 	
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String ex="";
+	public String execute(HttpServletRequest request, HttpServletResponse response)  {
+		String rs_num = request.getParameter("rs_num"); //status = 1 수정
+		System.out.println(rs_num);
+		String p_code = request.getParameter("p_code"); //status = 1 수정
+		System.out.println(p_code);
 		
-		String token = getToken("7460120027740537", "RfLyd6jn5E7CpQS0O4f9F71cYBmlKkrxQzktZpWwkmsQRv9zemtZI4tezjHP5oWEecgLTiZhws7sXIsn");
+		MyReservationDAO.cancelReservation(rs_num, p_code);
 		
-		//
-		refundRequest(token, "merchant_1718845162581", "취소 사유");
+		//p_code에 해당되는 merchant_uid 들고오기
+		String merchant_uid = MyReservationDAO.getUid(p_code);
 		
-		return ex;
+		try {
+			String token = getToken("7460120027740537", "RfLyd6jn5E7CpQS0O4f9F71cYBmlKkrxQzktZpWwkmsQRv9zemtZI4tezjHP5oWEecgLTiZhws7sXIsn");
+			
+			refundRequest(token, merchant_uid, "취소 사유");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return "Controller?type=myReservation";
 	}
 	
 	//merchant_uid 주면 됨

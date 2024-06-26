@@ -3,9 +3,11 @@
 <html>
 <head>
     <meta charset="utf-8"/>
+
     <link rel="stylesheet" href="css/globals.css"/>
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/footer.css"/>
 
 </head>
 <body>
@@ -39,7 +41,7 @@
                                         <div class="text-wrapper-3">[인사이드 아웃2]N춘기 이벤트</div>
                                     </div>
                                     <div class="text-wrapper-2">2024.06.11~2024.06.25</div>
-                                    <img class="img" src="../../img/container.png"/></div>
+                                    <img class="img" src="img/main_img/container.png"/></div>
                             </a>
                             <div class="div-wrapper">
                                 <div class="text-wrapper-4">더보기</div>
@@ -324,8 +326,8 @@
             <jsp:include page="jsp/header/header.jsp"/>
         </div>
     </div>
-    <%@ include file="jsp/footer/footer.jsp" %>
 </div>
+<%@ include file="jsp/footer/footer.jsp" %>
 <script>
     var movieHoverElements = document.querySelectorAll('.MovieHover');
 

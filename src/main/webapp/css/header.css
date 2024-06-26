@@ -1,11 +1,9 @@
 .header {
-    position: absolute;
+    position: relative;
     width: 100%;
     max-width: 1920px;
     margin: auto;
     height: 98px;
-    top: 0;
-    left: 0;
     background-color: transparent;
     background-image: url(../img/main_img/overlay-1.svg);
     background-size: 100% 100%;
@@ -269,6 +267,7 @@
     width: 1920px;
     height: 46px;
     top: 100px;
+    z-index: -9998;
     position: absolute;
     background: rgba(0, 0, 0, 0.30);
     justify-content: flex-end;
@@ -281,12 +280,11 @@
 .menu-event {
     width: 1920px;
     height: 49px;
-    top: 100px;
-    position: relative;
-    display: none;
-    display: none;
+    top: 50px;
     z-index: -9998;
-
+    position: absolute;
+    z-index: -9998;
+    display: none;
 }
 
 .MenuAll {
