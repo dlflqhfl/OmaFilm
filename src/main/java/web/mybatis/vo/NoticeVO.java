@@ -20,51 +20,51 @@ public class NoticeVO {
 		this.n_imgString = n_imgString;
 	}
 
-	public int getN_idx() {
+	int getN_idx() {
 		return n_idx;
 	}
 
-	public void setN_idx(int n_idx) {
+	void setN_idx(int n_idx) {
 		this.n_idx = n_idx;
 	}
 
-	public int getN_status() {
+	int getN_status() {
 		return n_status;
 	}
 
-	public void setN_status(int n_status) {
+	void setN_status(int n_status) {
 		this.n_status = n_status;
 	}
 
-	public String getNt_ct_code() {
+	String getNt_ct_code() {
 		return nt_ct_code;
 	}
 
-	public void setNt_ct_code(String nt_ct_code) {
+	void setNt_ct_code(String nt_ct_code) {
 		this.nt_ct_code = nt_ct_code;
 	}
 
-	public String getN_title() {
+	String getN_title() {
 		return n_title;
 	}
 
-	public void setN_title(String n_title) {
+	void setN_title(String n_title) {
 		this.n_title = n_title;
 	}
 
-	public String getN_content() {
+	String getN_content() {
 		return n_content;
 	}
 
-	public void setN_content(String n_content) {
+	void setN_content(String n_content) {
 		this.n_content = n_content;
 	}
 
-	public String getN_imgString() {
+	String getN_imgString() {
 		return n_imgString;
 	}
 
-	public void setN_imgString(String n_imgString) {
+	void setN_imgString(String n_imgString) {
 		this.n_imgString = n_imgString;
 	}
 
@@ -75,6 +75,7 @@ public class NoticeVO {
 	public void setN_time(String n_time) {
 		this.n_time = n_time;
 	}
+	
 	
 	
 	

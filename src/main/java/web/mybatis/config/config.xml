@@ -12,7 +12,7 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="web/mybatis/mapper/audience.xml"/>
+    <mapper resource="web/mybatis/mapper/member.xml"/>
     <mapper resource="web/mybatis/mapper/couponItem.xml"/>
     <mapper resource="web/mybatis/mapper/dailyBoxOffice.xml"/>
     <mapper resource="web/mybatis/mapper/inquiry.xml"/>

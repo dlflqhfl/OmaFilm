@@ -23,61 +23,61 @@ public class ReservationVO {
 		this.rs_time = rs_time;
 	}
 
-	public int getP_code() {
+	int getP_code() {
 		return p_code;
 	}
 
-	public void setP_code(int p_code) {
+	void setP_code(int p_code) {
 		this.p_code = p_code;
 	}
 
-	public int getRsvr_code() {
+	int getRsvr_code() {
 		return rsvr_code;
 	}
 
-	public void setRsvr_code(int rsvr_code) {
+	void setRsvr_code(int rsvr_code) {
 		this.rsvr_code = rsvr_code;
 	}
 
-	public int getRs_count() {
+	int getRs_count() {
 		return rs_count;
 	}
 
-	public void setRs_count(int rs_count) {
+	void setRs_count(int rs_count) {
 		this.rs_count = rs_count;
 	}
 
-	public int getRs_status() {
+	int getRs_status() {
 		return rs_status;
 	}
 
-	public void setRs_status(int rs_status) {
+	void setRs_status(int rs_status) {
 		this.rs_status = rs_status;
 	}
 
-	public String getRs_num() {
+	String getRs_num() {
 		return rs_num;
 	}
 
-	public void setRs_num(String rs_num) {
+	void setRs_num(String rs_num) {
 		this.rs_num = rs_num;
 	}
 
-	public String getS_code() {
+	String getS_code() {
 		return s_code;
 	}
 
-	public void setS_code(String s_code) {
+	void setS_code(String s_code) {
 		this.s_code = s_code;
 	}
 
-	public String getRs_time() {
+	String getRs_time() {
 		return rs_time;
 	}
 
-	public void setRs_time(String rs_time) {
+	void setRs_time(String rs_time) {
 		this.rs_time = rs_time;
 	}
-
+	
 	
 }
