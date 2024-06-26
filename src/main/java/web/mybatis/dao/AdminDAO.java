@@ -1,7 +1,9 @@
 package web.mybatis.dao;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -52,10 +54,15 @@ public class AdminDAO {
 	    ss.close();
 		return res;
 	}
-	public static MovieListVO[] selectMovieList() {
+	public static MovieListVO[] selectMovieList(int begin, int end) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		
-		List<MovieListVO> list = ss.selectList("movieList.selectMovie");
+		Map<String, String> map = new HashMap<>();
+		map.put("begin", String.valueOf(begin));
+		map.put("end", String.valueOf(end));
+		
+		
+		List<MovieListVO> list = ss.selectList("movieList.selectMovie",map);
 		MovieListVO[] ar = null;
 		if( list != null && list.size() > 0) {
 			ar = new MovieListVO[list.size()];
@@ -93,6 +100,14 @@ public class AdminDAO {
             ss.close();
         }
         return result;
+	}
+
+	public static int getCount() {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		int res = ss.selectOne("movieList.count");
+		
+		return res;
 	}
 
 

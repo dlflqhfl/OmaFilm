@@ -68,6 +68,45 @@
                 </div>
               </div>
             </div>
+            
+            <div class="nav1">
+		            <ol class="paging">
+		           	 
+					
+						<c:set var="page" value="${requestScope.page}"/>
+						
+						<c:if test="${page.startPage < page.pagePerBlock }">
+							<li class="disable">&lt;</li>
+						</c:if>
+					
+						<c:if test="${page.startPage >= page.pagePerBlock }">
+						
+						<li><a href="Controller?type=adminMovieDb&cPage=${page.nowPage-page.pagePerBlock }">&lt;</a></li>
+						</c:if>
+					
+						<c:forEach begin="${page.startPage }" end="${page.endPage }" varStatus="vs">
+						<c:if test="${vs.index eq page.nowPage }">
+						<li class="now">${vs.index}</li>
+					    </c:if> 
+					    <c:if test="${vs.index ne page.nowPage }">
+						<li><a href="Controller?type=adminMovieDb&cPage=${vs.index}">${vs.index}</a></li>
+						</c:if>
+						</c:forEach>
+					
+					
+						<c:if test="${page.endPage < page.totalPage }">
+							
+							<li><a href="Controller?type=adminMovieDb&cPage=${page.nowPage+page.pagePerBlock}">&gt;</a></li>
+						</c:if>
+						
+						<c:if test="${page.endPage > page.totalPage }">	
+							<li class="disable">&gt;</li>
+						</c:if>	
+		
+		              </ol>
+		          </div>
+            
+            
             <div class="menu">
               <a href="Controller?type=adminMovieApi"><div class="view"><div class="text-wrapper-14">API</div></div></a>
               <a href="Controller?type=adminMovieDb"><div class="view-2"><div class="text-wrapper-15">DB</div></div></a>

@@ -955,5 +955,37 @@
     text-decoration: none;
     cursor: pointer;
 }
+.nav1 {
+    position: relative;
+    top: 1000px;
+    LEFT: 50px;
+}
+ol.paging {
+	list-style:none;
+	display: flex; /* flexbox 사용 */
+	justify-content: center; /* 가운데 정렬 */
+}
+	
+ol.paging li {
+	float:left;
+	margin: 0 8px;
+	min-width: 20px;
+}
+	
+ol.paging li a {
+	display:FLEX;
+	padding:3px 7px;
+	border:1px solid #00B3DC;
+	color:#2f313e;
+	font-weight:bold;
+	align-items: center;
+	justify-content:center;
+}
+	
+ol.paging li a:hover {
+	background:#00B3DC;
+	color:white;
+	font-weight:bold;
+}
 
 

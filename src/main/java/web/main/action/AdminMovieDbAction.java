@@ -3,7 +3,9 @@ package web.main.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import web.main.util.Paging;
 import web.mybatis.dao.AdminDAO;
+import web.mybatis.dao.FaqDAO;
 import web.mybatis.vo.MovieListVO;
 import web.mybatis.vo.ScreeningScheduleVO;
 
@@ -12,8 +14,16 @@ public class AdminMovieDbAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		MovieListVO[] ar = AdminDAO.selectMovieList();
-		request.setAttribute("ar", ar);
+		//페이징 처리를 위한 객체생성
+		Paging page = new Paging(5, 3);
+		
+		String cPage = request.getParameter("cPage");
+		
+		//전체페이지 수를 구하기
+		page.setTotalRecode(AdminDAO.getCount());
+		
+		request.setAttribute("page", page);
+		MovieListVO[] ar = AdminDAO.selectMovieList(page.getBegin(),page.getEnd());
 		
 		String movieCd = request.getParameter("movieCd");
 		String name = request.getParameter("nameData");
