@@ -117,12 +117,14 @@
                         </div>
                         <div class="overlap-4">
                             <div class="pw">
+<<<<<<< HEAD
                                 <input type="password" class="frame-8" id="pw" name="pw" placeholder="비밀번호를 입력하세요"/>
                                 <div class="frame-9"><div class="text-wrapper-3">비밀번호</div></div>
                             </div>
                             <div class="id">
                                 <div class="overlap-group">
                                     <div class="frame-10">
+<<<<<<< HEAD
                                         <input type="text" class="frame-11" id="id" name="id" placeholder="아이디를 입력하세요"/>
                                         <button type="button" class="frame-12" id="id_check">중복확인</button>
                                         <div class="text-wrapper-20" id="overlap">중복 없음</div>

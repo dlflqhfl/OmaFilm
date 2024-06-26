@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css" />
 
+
 <header class="header">
     <div class="navbar">
         <c:choose>
@@ -13,6 +14,7 @@
         <div class="link-21"><div class="text-wrapper-26"><a href="/jsp/login/register.jsp">회원가입</a></div></div>
         <div class="link-23"><div class="text-wrapper-27">관리자</div></div>
         <div class="text-wrapper-28"><a href="jsp/login/login_1.jsp">로그인</a></div>
+
             </c:otherwise>
         </c:choose>
         <div class="link-22">
@@ -22,6 +24,7 @@
         <div class="link-24"><div class="text-wrapper-26">빠른예매</div></div>
         <img class="link-26" src="${pageContext.request.contextPath}/img/main_img/link-1.png" />
         <img class="link-27" src="${pageContext.request.contextPath}/img/main_img/link-2.png" />
+
         <a href="www.naver.com"><div class="text-wrapper-29">예매</div></a>
         <a href="www.naver.com"><div class="text-wrapper-30">영화</div></a>
         <a href="www.naver.com"><div class="text-wrapper-31">이벤트</div></a>

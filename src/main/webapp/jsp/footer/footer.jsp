@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css" />
 
+
 <footer class="footer">
     <div class="footer_wrapper">
         <div class="navbar">
