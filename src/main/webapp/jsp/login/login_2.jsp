@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="../../css/login.css" />
     <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="../../css/header.css">
-
-
 </head>
 <body>
 <div class="login_2">

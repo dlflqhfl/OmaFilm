@@ -12,20 +12,27 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/globals.css?after" />
-    <link rel="stylesheet" href="css/login.css?after" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css" />
+
 
 </head>
 <body>
 <div class="container">
     <div class="div">로그인</div>
-    <jsp:include page="../header/header.jsp"/>
+    <jsp:include page="/jsp/header/header.jsp"/>
     <span class="button"><div class="text-wrapper-8">회원</div></span>
     <span class="button-2"><div class="text-wrapper-9"><a href="login_2.jsp">비회원</a></div></span>
     <div class="link-7">
         <div class="text-wrapper-10">회원가입</div>
         <div class="vertical-divider"></div>
     </div>
+    <c:if test="${not empty loginErrorMessage}">
+    <script>
+        alert("${loginErrorMessage}");
+    </script>
+    <% session.removeAttribute("loginErrorMessage"); %> 
+	</c:if>
     <div class="overlap">
         <form class="form" id="login_form" name="login_form" action="../../Controller?type=login" method="post">
             <label class="text-wrapper-13" for="login_id">ID :</label>

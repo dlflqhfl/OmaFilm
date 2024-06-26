@@ -30,6 +30,11 @@
       </if>
     </where>
 </select>
-  
+
+	<insert id="ad	d" parameterType="Map">
+		INSERT INTO inquiry (u_code, iq_title, iq_content, iq_time)
+    	VALUES (#{u_code}, #{iq_title}, #{iq_content}, NOW());
+	</insert>
+
 </mapper>
 
