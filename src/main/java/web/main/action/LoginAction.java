@@ -28,7 +28,7 @@ public class LoginAction implements Action{
         map.put("pw", pw);
 
         MemberVO mvo = LoginDAO.loginCheck(map);
-        System.out.println("여기까지는 왔다");
+        /*System.out.println("여기까지는 왔다");*/
 
         if(mvo != null){
             request.getSession().setAttribute("mvo", mvo);
@@ -39,6 +39,7 @@ public class LoginAction implements Action{
             return "/Controller?type=index";
         }
 
-        return "/jsp/login/login_1.jsp";
+        request.setAttribute("errorMessage", "아이디 또는 비밀번호가 일치하지 않습니다.");
+        return "jsp/login/login_1.jsp";
     }
 }

@@ -1,5 +1,6 @@
 package web.main.action;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +16,9 @@ import web.mybatis.vo.MovieListVO;
 import web.mybatis.vo.ScreeningScheduleVO;
 import web.mybatis.vo.TheaterSeatVO;
 import web.mybatis.vo.TheaterVO;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class PayAction implements Action {
 
