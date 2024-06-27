@@ -10,14 +10,13 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../css/globals.css" />
-    <link rel="stylesheet" href="../../css/login.css" />
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/login.css" />
 </head>
 <body>
 <div class="login_2">
     <div class="div">로그인</div>
     <jsp:include page="../header/header.jsp"/>
-    <img class="footer" src="https://c.animaapp.com/I6c9R1Xr/img/footer.png" />
     <button class="button"><div class="text-wrapper-8"><a href="login_1.jsp">회원</a></div></button>
     <button class="button-2"><div class="text-wrapper-9">비회원</div></button>
     <div class="overlap-group">
@@ -45,8 +44,9 @@
         </div>
         <div class="submit"><div class="text-wrapper-15">로그인</div></div>
     </div>
-    <div class="link-7"><div class="text-wrapper-16">회원가입</div></div>
+    <div class="link-7"><div class="text-wrapper-16"><a href="register.jsp">회원가입</a></div></div>
 </div>
+<%@ include file="/jsp/footer/footer.jsp"%>
 </body>
 </html>
 

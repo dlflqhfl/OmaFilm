@@ -1,25 +1,35 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="../../css/globals.css" />
-<link rel="stylesheet" href="../../css/header.css" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css" />
+
 
 <header class="header">
     <div class="navbar">
-        <div class="link-21"><div class="text-wrapper-26"><a href="/Controller?type=register">회원가입</a></div></div>
+        <c:choose>
+            <c:when test="${not empty sessionScope.mvo}">
+                <div class="link-21" id="logout"><div class="text-wrapper-26"><a href="Controller?type=logout">로그아웃</a></div></div>
+            </c:when>
+            <c:otherwise>
+        <div class="link-21"><div class="text-wrapper-26"><a href="/jsp/login/register.jsp">회원가입</a></div></div>
+        <div class="link-23"><div class="text-wrapper-27">관리자</div></div>
+        <div class="text-wrapper-28"><a href="jsp/login/login_1.jsp">로그인</a></div>
+
+            </c:otherwise>
+        </c:choose>
         <div class="link-22">
-            <a href="https://www.figma.com/design/zjZiIKzfy5FWahhBCQ2XjX?node-id=67-612">
+            <a href="Controller?type=home">
                 <div class="text-wrapper-26">고객센터</div></a>
         </div>
-        <div class="link-23"><div class="text-wrapper-27">관리자</div></div>
-        <div class="text-wrapper-28"><a href="/jsp/login/login_1.jsp">로그인</a></div>
-        <%--<div class="logout">로그아웃</div>--%>
         <div class="link-24"><div class="text-wrapper-26">빠른예매</div></div>
-        <img class="link-26" src="../../img/link-1.png" />
-        <img class="link-27" src="../../img/link-2.png" />
+        <img class="link-26" src="${pageContext.request.contextPath}/img/main_img/link-1.png" />
+        <img class="link-27" src="${pageContext.request.contextPath}/img/main_img/link-2.png" />
+
         <a href="www.naver.com"><div class="text-wrapper-29">예매</div></a>
         <a href="www.naver.com"><div class="text-wrapper-30">영화</div></a>
         <a href="www.naver.com"><div class="text-wrapper-31">이벤트</div></a>
         <a href="www.naver.com"><div class="text-wrapper-32">혜택</div></a>
-        <img class="heading-link" src="../../img/heading-1-link.png" />
+        <img class="heading-link" src="${pageContext.request.contextPath}/img/main_img/heading-1-link.png" />
         <div class="m_all"></div>
 
         <%-- 예매 섹션에 마우스를 올렸을 때 보여지는 메뉴 --%>
@@ -130,11 +140,20 @@
         //menu_all의 background-image가 link-4.png이면 MenuAll을 숨긴다.
 
         if (img.includes('link-3.png')) {
-            element.style.backgroundImage = "url('../../img/cancle.png')";
+            element.style.backgroundImage = "url('${pageContext.request.contextPath}/img/main_img/cancle.png')";
             document.querySelector('.MenuAll').style.display = 'block';
         }else if (img.includes("cancle.png")) {
-            element.style.backgroundImage = "url('../../img/link-3.png')";
+            element.style.backgroundImage = "url('${pageContext.request.contextPath}/img/main_img/link-3.png')";
             document.querySelector('.MenuAll').style.display = 'none';
+        }
+    });
+
+    //아이디가 로그아웃을 클릭했을때 로그아웃할거냐고 경고창
+    document.querySelector('#logout').addEventListener('click', function(event) {
+        var confirmLogout = confirm("로그아웃하시겠습니까?");
+        if (!confirmLogout) {
+            // 사용자가 취소를 클릭하면 이벤트를 중단합니다.
+            event.preventDefault();
         }
     });
 </script>

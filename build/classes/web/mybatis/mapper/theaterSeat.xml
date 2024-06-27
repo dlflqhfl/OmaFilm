@@ -3,5 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="theaterSeat">
-	
+	<!-- 상영 영화 코드, 상영관 코드, 날짜+시작 시간 -> 상영시간표VO(ssvo) -->
+	<select id="getTsVO" parameterType="String" resultType="web.mybatis.vo.TheaterSeatVO">
+		SELECT * 
+		FROM theater_seat
+		WHERE s_code = #{s_code}
+	</select>
 </mapper>
