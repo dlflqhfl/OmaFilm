@@ -10,12 +10,8 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../css/globals.css" />
-    <link rel="stylesheet" href="../../css/login.css" />
-    <link rel="stylesheet" href="../../css/footer.css">
-    <link rel="stylesheet" href="../../css/header.css">
-
-
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/login.css" />
 </head>
 <body>
 <div class="login_2">

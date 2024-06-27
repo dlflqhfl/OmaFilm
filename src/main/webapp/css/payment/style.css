@@ -506,7 +506,6 @@
   letter-spacing: -0.36px;
   line-height: 16.5px;
   white-space: nowrap;
-  text-align: left;
 }
 
 .payment .theater-num {
@@ -801,7 +800,7 @@
   position: absolute;
   letter-spacing: -0.36px;
 }
-/* 
+
 .payment .frame-5 {
   width: 172px;
   height: 42px;
@@ -813,7 +812,7 @@
   border-color: #595959;
   position: absolute;
   overflow: hidden;
-} */
+}
 
 .payment .text-wrapper-17 {
   width: 35px;
@@ -828,7 +827,7 @@
   font-family: "Noto Sans KR", Helvetica;
   letter-spacing: -0.36px;
 }
-/* 
+
 .payment .frame-6 {
   width: 172px;
   height: 42px;
@@ -839,7 +838,7 @@
   border: 1px solid;
   position: absolute;
   overflow: hidden;
-} */
+}
 
 .payment .text-wrapper-18 {
   width: 35px;
@@ -953,7 +952,7 @@
 
 .payment .frame-8 {
   width: 348px;
-  height: 120px;
+  height: 86px;
   position: absolute;
   top: 73px;
   left: 18px;
@@ -1040,7 +1039,7 @@
 }
 
 .payment .element {
-  width: 22px;
+  width: 20px;
   top: 0;
   left: 28px;
   position: absolute;
@@ -1309,5 +1308,5 @@
 
 <!---->
 .selected {
-  background-color: #C0C0C0;
+  background-color: #007bff;
 }

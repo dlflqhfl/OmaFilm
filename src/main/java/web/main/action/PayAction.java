@@ -1,11 +1,11 @@
 package web.main.action;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import web.mybatis.dao.PaymentDAO;
 import web.mybatis.vo.IssuedCouponVO;
 import web.mybatis.vo.MemberVO;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class PayAction implements Action {
 

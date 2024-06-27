@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,7 +12,7 @@
       <div class="overlap-wrapper">
         <div class="overlap">
           <div class="div-sidebar">
-            <img class="element" src="img/1.png" />
+            <img class="element" src="img/adminMovie/1.png" />
             <div class="text-wrapper">관리자</div>
             <div class="list">
               <div class="item-link"><div class="div">영화관리</div></div>
@@ -39,7 +38,7 @@
             </div>
             <button class="button">
               <div class="container"><div class="text-wrapper-8">구분</div></div>
-              <img class="image" src="img/image.png" />
+              <img class="image" src="img/adminMovie/image.png" />
             </button>
             <div class="border">
               <div class="input">
@@ -62,54 +61,27 @@
               </div>
             </div>
             <div class="heading">영화관리</div>
-                <form id="searchForm" action="Controller?type=adminMovie" method="post">
-			    시작 년도: <input type="text" name="openStartDt" required> &nbsp;
-			    종료 년도: <input type="text" name="openEndDt" required> &nbsp;
-			    <button type="submit">조회</button>
-				</form>
             <div class="overlap-group">
               <div class="view"><div class="text-wrapper-14">API</div></div>
               <div class="view-2"><div class="text-wrapper-15">DB</div></div>
             </div>
-			<table class="movie-table">
-	          <thead>
-	            <tr>
-	              <th>번호</th>
-	              <th>영화 제목</th>
-	              <th>개봉일</th>
-	            </tr>
-	          </thead>
-	          <tbody>
-	            <c:forEach var="movie" items="${movie }" varStatus="num">
-	              <tr>
-	                <td>${num.index + 1}</td>
-	                <td><a href="Controller?type=adminAddMovie&movieCd=${movie.movieCd }" class="movie-link">${movie.movieNm}</a></td>
-	                <td>${movie.openDt}</td>
-	              </tr>
-	            </c:forEach>
-	          </tbody>
-	        </table>
-
+            <div class="header-row">
+              <div class="cell-3"><div class="text-wrapper-16">번호</div></div>
+              <div class="cell-4"><div class="text-wrapper-16">선택</div></div>
+              <div class="cell-5"><div class="text-wrapper-17">영화 제목</div></div>
+              <div class="cell-6"><div class="text-wrapper-18">개봉일</div></div>
+            </div>
+            <div class="row">
+              <div class="data"><div class="text-wrapper-19">1</div></div>
+              <img class="img" src="img/adminMovie/data.svg" />
+              <div class="link-wrapper">
+                <div class="link-13"><div class="text-wrapper-20">인사이드 아웃2</div></div>
+              </div>
+              <div class="data-2"><div class="text-wrapper-21">2024.06.14</div></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"></script>
-<script type="text/javascript">
-$(function() {
-    let audiAcc = ${count}; 
-
-    $('.movie-link').each(function() {
-        let path = $(this).attr('href'); 
-        if (path) { // href 값이 존재하는 경우에만 처리
-            path += "&audiAcc=" + audiAcc; // audiAcc 값을 추가
-            $(this).attr('href', path); // 수정된 URL을 href 속성에 설정
-        }
-    });
-});
-</script>
   </body>
 </html>
