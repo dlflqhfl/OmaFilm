@@ -29,7 +29,7 @@ public class InquiryWriteAction implements Action {
 		     return "jsp/serviceCenter/inquiry_success.jsp";
 		 } else {
 			 request.getSession().setAttribute("loginErrorMessage", "로그인이 필요한 서비스입니다.");
-			 return "/jsp/login/login_1.jsp";
+			 return "jsp/login/login_1.jsp";
 		 }
 
 	    

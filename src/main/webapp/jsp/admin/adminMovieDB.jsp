@@ -25,20 +25,6 @@
             </div>
           </div>
           <div class="div-con-wrap">
-            <div class="nav">
-              <div class="strong"><div class="text-wrapper-5">1</div></div>
-              <div class="link"><div class="text-wrapper-6">2</div></div>
-              <div class="link-2"><div class="text-wrapper-6">3</div></div>
-              <div class="link-3"><div class="text-wrapper-6">4</div></div>
-              <div class="link-4"><div class="text-wrapper-6">5</div></div>
-              <div class="link-5"><div class="text-wrapper-6">6</div></div>
-              <div class="link-6"><div class="text-wrapper-6">7</div></div>
-              <div class="link-7"><div class="text-wrapper-6">8</div></div>
-              <div class="link-8"><div class="text-wrapper-6">9</div></div>
-              <div class="link-9"><div class="text-wrapper-7">10</div></div>
-              <div class="link-10"></div>
-              <div class="link-11"></div>
-            </div>
             <button class="button">
               <div class="container"><div class="text-wrapper-8">구분</div></div>
               <img class="image" src="img/admin/image.png" />
