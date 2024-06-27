@@ -987,5 +987,10 @@ ol.paging li a:hover {
 	color:white;
 	font-weight:bold;
 }
+.paging{
+    position: absolute;
+    top: 76px;
+    left: 700px;
+}
 
 

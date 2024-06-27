@@ -137,8 +137,7 @@
                         <button class="button">
                             <div class="text-wrapper-13">박스오피스</div>
                         </button>
-                        <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                        >
+                        <a href="www.naver.com" target="_blank" rel="noopener noreferrer">
                             <div class="link-14">
                                 <div class="text-wrapper-14">더 많은 영화보기</div>
                                 <div class="image-6"></div>
@@ -218,8 +217,7 @@
                                     </div>
                                 </div>
                                 <div class="container-5">
-                                    <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                                    >
+                                    <a href="Controller?type=selectTime" target="_blank" rel="noopener noreferrer">
                                         <div class="link-17">
                                             <div class="text-wrapper-18">예매</div>
                                         </div>
