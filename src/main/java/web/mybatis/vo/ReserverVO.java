@@ -22,61 +22,60 @@ public class ReserverVO {
 		this.non_email = non_email;
 	}
 
-	int getRsvr_code() {
+
+	public int getRsvr_code() {
 		return rsvr_code;
 	}
 
-	void setRsvr_code(int rsvr_code) {
+	public void setRsvr_code(int rsvr_code) {
 		this.rsvr_code = rsvr_code;
 	}
 
-	int getU_code() {
+	public int getU_code() {
 		return u_code;
 	}
 
-	void setU_code(int u_code) {
+	public void setU_code(int u_code) {
 		this.u_code = u_code;
 	}
 
-	String getNon_name() {
+	public String getNon_name() {
 		return non_name;
 	}
 
-	void setNon_name(String non_name) {
+	public void setNon_name(String non_name) {
 		this.non_name = non_name;
 	}
 
-	String getNon_phone() {
+	public String getNon_phone() {
 		return non_phone;
 	}
 
-	void setNon_phone(String non_phone) {
+	public void setNon_phone(String non_phone) {
 		this.non_phone = non_phone;
 	}
 
-	String getNon_address() {
+	public String getNon_address() {
 		return non_address;
 	}
 
-	void setNon_address(String non_address) {
+	public void setNon_address(String non_address) {
 		this.non_address = non_address;
 	}
 
-	String getNon_postal_code() {
+	public String getNon_postal_code() {
 		return non_postal_code;
 	}
 
-	void setNon_postal_code(String non_postal_code) {
+	public void setNon_postal_code(String non_postal_code) {
 		this.non_postal_code = non_postal_code;
 	}
 
-	String getNon_email() {
+	public String getNon_email() {
 		return non_email;
 	}
 
-	void setNon_email(String non_email) {
+	public void setNon_email(String non_email) {
 		this.non_email = non_email;
 	}
-	
-	
 }

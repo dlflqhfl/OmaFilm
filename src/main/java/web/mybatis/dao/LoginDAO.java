@@ -1,4 +1,4 @@
-package web.mybatis.DAO;
+package web.mybatis.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import web.mybatis.service.FactoryService;
@@ -11,7 +11,7 @@ public class LoginDAO {
     /* 마이바티스를 통해 인자로 받은 아이디와 비밀번호의 값이 db에 있는값과 일치하는 vo객체를 불러오는 함수*/
     public static MemberVO loginCheck(Map map) {
         SqlSession ss = FactoryService.getFactory().openSession();
-
+        System.out.println("loginCheck");
         MemberVO mvo = ss.selectOne("member.login_check", map);
         ss.close();
 
@@ -23,6 +23,7 @@ public class LoginDAO {
         SqlSession ss = FactoryService.getFactory().openSession();
 
         int cnt = ss.selectOne("member.id_check", id);
+
         ss.close();
 
         return cnt;

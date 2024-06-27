@@ -1,12 +1,10 @@
 package web.main.action;
 
-import java.io.IOException;
+import web.mybatis.dao.SinquiryDAO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import web.mybatis.dao.SinquiryDAO;
+import java.io.IOException;
 
 public class InquiryWriteAction implements Action {
 

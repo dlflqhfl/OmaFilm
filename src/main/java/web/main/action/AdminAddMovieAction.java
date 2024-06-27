@@ -1,21 +1,16 @@
 package web.main.action;
 
-import java.net.URL;
-import java.util.List;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+import web.mybatis.dao.AdminDAO;
+import web.mybatis.vo.MovieListVO;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.ibatis.session.SqlSession;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.input.SAXBuilder;
-
-import web.mybatis.dao.AdminDAO;
-import web.mybatis.service.FactoryService;
-import web.mybatis.vo.MovieListVO;
-import web.mybatis.vo.ScreeningScheduleVO;
+import java.net.URL;
+import java.util.List;
 
 public class AdminAddMovieAction implements Action {
 

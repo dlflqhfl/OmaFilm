@@ -58,7 +58,7 @@ public class SendAction implements Action {
             //이메일을 보내기 위한 메시지 생성
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("dlflqhfl11@naver.com", "(주)OMAKASE", "UTF-8"));
-            message.setRecipients(Message.RecipientType.TO, javax.mail.internet.InternetAddress.parse(email));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
             message.setSubject("오마카세 시네마 인증 요청 메일입니다");
             message.setContent("인증번호는 <strong>" + code + "</strong>입니다.", "text/html; charset=UTF-8");
 

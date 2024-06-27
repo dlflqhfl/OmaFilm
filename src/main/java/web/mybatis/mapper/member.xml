@@ -36,5 +36,9 @@
     <select id="social_login_check" parameterType="String" resultType="int">
         SELECT u_social FROM member WHERE u_email = #{email}
     </select>
-	
+
+    <select id="idToMvo" resultType="String">
+        SELECT * FROM member WHERE u_id = #{id}
+    </select>
+
 </mapper>
