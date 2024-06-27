@@ -22,61 +22,62 @@ public class ReviewVO {
 		this.r_recomm = r_recomm;
 	}
 
-	public int getR_idx() {
+	int getR_idx() {
 		return r_idx;
 	}
 
-	public void setR_idx(int r_idx) {
+	void setR_idx(int r_idx) {
 		this.r_idx = r_idx;
 	}
 
-	public int getR_status() {
+	int getR_status() {
 		return r_status;
 	}
 
-	public void setR_status(int r_status) {
+	void setR_status(int r_status) {
 		this.r_status = r_status;
 	}
 
-	public String getU_code() {
+	String getU_code() {
 		return u_code;
 	}
 
-	public void setU_code(String u_code) {
+	void setU_code(String u_code) {
 		this.u_code = u_code;
 	}
 
-	public String getR_grade() {
+	String getR_grade() {
 		return r_grade;
 	}
 
-	public void setR_grade(String r_grade) {
+	void setR_grade(String r_grade) {
 		this.r_grade = r_grade;
 	}
 
-	public String getR_content() {
+	String getR_content() {
 		return r_content;
 	}
 
-	public void setR_content(String r_content) {
+	void setR_content(String r_content) {
 		this.r_content = r_content;
 	}
 
-	public String getR_date() {
+	String getR_date() {
 		return r_date;
 	}
 
-	public void setR_date(String r_date) {
+	void setR_date(String r_date) {
 		this.r_date = r_date;
 	}
 
-	public String getR_recomm() {
+	String getR_recomm() {
 		return r_recomm;
 	}
 
-	public void setR_recomm(String r_recomm) {
+	void setR_recomm(String r_recomm) {
 		this.r_recomm = r_recomm;
 	}
-
+	
+	
 	
 }

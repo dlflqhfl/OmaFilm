@@ -31,7 +31,7 @@
     <script>
         alert("${loginErrorMessage}");
     </script>
-    <% session.removeAttribute("loginErrorMessage"); %> 
+    <% session.removeAttribute("loginErrorMessage"); %>
 	</c:if>
     <div class="overlap">
         <form class="form" id="login_form" name="login_form" action="../../Controller?type=login" method="post">
@@ -46,12 +46,10 @@
         </form>
     </div>
     <div class="link-8"><div class="text-wrapper-16">ID/PW 찾기</div></div>
-    <img class="image" src="https://c.animaapp.com/s5cVxUlg/img/image-5@2x.png" />
-    <img class="image-2" src="https://c.animaapp.com/s5cVxUlg/img/image-6@2x.png" />
+    <a href="javascript:kakao_login()"><img class="image" src="https://c.animaapp.com/s5cVxUlg/img/image-5@2x.png" id="kakao_login"/></a>
+    <a href="javascript: naver_login()"><img class="image-2" src="https://c.animaapp.com/s5cVxUlg/img/image-6@2x.png" /></a>
 </div>
 <%@ include file="../footer/footer.jsp"%>
-<%--jquery--%>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     /*로그인 버튼을 눌렀을때 폼객체를 컨트롤러로 보냄*/
     function login(){
@@ -75,7 +73,144 @@
     window.onload = function(){<c:if test="${not empty errorMessage}">
         alert("${errorMessage}");
         $("#login_id").focus();
-    </c:if>}
+        </c:if>}
+    /*=========================================================================*/
+    /*카카오톡 이미지 클릭시 kakao()함수 호출하고 카카오 로그인 실행*/
+    window.Kakao.init('54deeff9c26a36a95bf1373bd36aaddd');
+    window.Kakao.isInitialized();
+    /*카카오 로그인*/
+    function kakao_login() {
+        console.log("카카오 로그인")
+        Kakao.Auth.login({
+            success: function(authObj) {
+                Kakao.API.request({
+                    url: '/v2/user/me',
+                    success: function(response) {
+                        var access_token = authObj.access_token;
+                        var id = response.id;
+                        var name = response.properties.nickname;
+                        var profile_image = response.properties.profile_image;
+                        var thumbnail_image = response.properties.thumbnail_image;
+                        var email = response.kakao_account.email;
+
+
+                        //만약 이 이메일과 연동된 db가 없으면 register.jsp로 이동
+                        //만약 이 이메일과 연동된 db가 있으면 로그인 처리
+                        $.ajax({
+                            url: "../../Controller?type=social_login",
+                            type: "post",
+                            data: {
+                                id: id,
+                                email: email,
+                                name: name,
+                                profile_image: profile_image,
+                                thumbnail_image: thumbnail_image,
+                                token: access_token,
+                            },
+                            success: function(data) {
+                                console.log(data);
+                                if(data == 0){
+                                    alert("가입하지 않은 이메일입니다")
+                                    /*회원가입 페이지로 이동*/
+                                    window.location.href = "/jsp/login/register.jsp";
+                                }
+                                else if(data == 1){
+                                    /*등록된 이메일 경고창*/
+                                    alert("이미 등록된 이메일입니다.");
+                                }
+                                else if(data == 2){
+                                    /*로그인 성공*/
+                                    alert("로그인 성공");
+                                    location.href = "/Controller?type=index";
+                                }
+                            },
+                            fail: function(error) {
+                                console.log(error);
+                            },
+                        });
+                    },
+                    fail: function(error) {
+                        console.log(error);
+                    },
+                });
+            },
+            fail: function(err) {
+                console.log(err);
+            },
+        });
+    }
+    /*=========================================================================*/
+    /*네이버 로그인*/
+    function naver_login() {
+        console.log("네이버 로그인")
+        var naverLogin = new naver.LoginWithNaverId({
+            clientId: "prTymuieNCdwFguuzeIa",
+            callbackUrl: "http://localhost:9090/jsp/login/login_1.jsp",
+            isPopup: false,
+            callbackHandle: true,
+        });
+
+        naverLogin.init();
+
+        naverLogin.getLoginStatus(function(status){
+            console.log(status)
+            if (status) {
+                var email = naverLogin.user.getEmail();
+                var name = naverLogin.user.getName();
+                var id = naverLogin.user.getId();
+                var profile_image = naverLogin.user.getProfileImage();
+                var thumbnail_image = naverLogin.user.getProfileImage();
+                var token = naverLogin.accessToken.accessToken;
+                //휴대폰 번호 생일 등 추가 정보 가져옴
+                var mobile = naverLogin.user.getMobile();
+                var birthday = naverLogin.user.getBirthday();
+                console.log(email);
+                console.log(name);
+                console.log(id);
+                console.log(profile_image);
+                console.log(thumbnail_image);
+                console.log(token);
+                console.log(mobile);
+                console.log(birthday);
+
+                //만약 이 이메일과 연동된 db가 없으면 register.jsp로 이동
+                //만약 이 이메일과 연동된 db가 있으면 로그인 처리
+                /*$.ajax({
+                    url: "../../Controller?type=social_login",
+                    type: "post",
+                    data: {
+                        id: id,
+                        email: email,
+                        name: name,
+                        profile_image: profile_image,
+                        thumbnail_image: thumbnail_image,
+                        token: token,
+                    },
+                    success: function(data) {
+                        console.log(data);
+                        if(data == 0){
+                            alert("가입하지 않은 이메일입니다")
+                            /!*회원가입 페이지로 이동*!/
+                            window.location.href = "/jsp/login/register.jsp";
+                        }
+                        else if(data == 1)
+                            /!*등록된 이메일 경고창*!/
+                            alert("이미 등록된 이메일입니다.");
+                        else if(data == 2){
+                            /!*로그인 성공*!/
+                            alert("로그인 성공");
+                            location.href = "/Controller?type=index";
+                        }
+                    },
+                    fail: function(error) {
+                        console.log(error);
+                    },
+                });*/
+            } else {
+                console.log("로그인 실패");
+            }
+        });
+    }
 </script>
 </body>
 </html>

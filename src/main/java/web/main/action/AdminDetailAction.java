@@ -1,15 +1,17 @@
 package web.main.action;
 
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.input.SAXBuilder;
-import web.mybatis.vo.MovieListVO;
+import java.net.URL;
+import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.net.URL;
-import java.util.List;
+
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+
+import web.mybatis.vo.MovieListVO;
 
 public class AdminDetailAction implements Action{
 	public String execute(HttpServletRequest request,
