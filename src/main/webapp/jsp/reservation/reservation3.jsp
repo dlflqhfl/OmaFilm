@@ -4,8 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/reservation/reservationGlobals3.css" />
-    <link rel="stylesheet" href="css/reservation/reservationStyle3.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/reservationGlobals3.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/reservationStyle3.css" />
   </head>
   <body>
     <div class="selectseat">
@@ -385,9 +385,9 @@
 			let old = $("#adult").text();
 			let price = $("#price").text();
 			
-			let adultCount = "성인" + adult;
-			let teenCount = "청소년" + teen;
-			let oldCount = "경로" + old;
+			let adultCount = "성인:" + adult;
+			let teenCount = "청소년:" + teen;
+			let oldCount = "경로:" + old;
 			
 			totalCount = adultCount+"/" + teenCount+"/" + oldCount;
         	

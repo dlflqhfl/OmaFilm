@@ -14,29 +14,27 @@ public class TheaterSeatVO {
 		this.ts_column = ts_column;
 	}
 
-	int getT_code() {
+	public int getT_code() {
 		return t_code;
 	}
 
-	void setT_code(int t_code) {
+	public void setT_code(int t_code) {
 		this.t_code = t_code;
 	}
 
-	int getTs_row() {
+	public int getTs_row() {
 		return ts_row;
 	}
 
-	void setTs_row(int ts_row) {
+	public void setTs_row(int ts_row) {
 		this.ts_row = ts_row;
 	}
 
-	int getTs_column() {
+	public int getTs_column() {
 		return ts_column;
 	}
 
-	void setTs_column(int ts_column) {
+	public void setTs_column(int ts_column) {
 		this.ts_column = ts_column;
 	}
-	
-	
 }

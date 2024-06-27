@@ -1,11 +1,10 @@
 package web.main.action;
 
 
+import web.mybatis.vo.MemberVO;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import web.mybatis.vo.MemberVO;
 
 public class SinquiryAction implements Action {
 

@@ -8,12 +8,12 @@
     <div class="navbar">
         <c:choose>
             <c:when test="${not empty sessionScope.mvo}">
-                <div class="link-21" id="logout"><div class="text-wrapper-26"><a href="Controller?type=logout">로그아웃</a></div></div>
+                <div class="link-21" id="logout"><div class="text-wrapper-26"><a href="${pageContext.request.contextPath}/Controller?type=logout">로그아웃</a></div></div>
             </c:when>
             <c:otherwise>
-        <div class="link-21"><div class="text-wrapper-26"><a href="/jsp/login/register.jsp">회원가입</a></div></div>
+        <div class="link-21"><div class="text-wrapper-26"><a href="${pageContext.request.contextPath}/jsp/login/register.jsp">회원가입</a></div></div>
         <div class="link-23"><div class="text-wrapper-27">관리자</div></div>
-        <div class="text-wrapper-28"><a href="jsp/login/login_1.jsp">로그인</a></div>
+        <div class="text-wrapper-28"><a href="${pageContext.request.contextPath}/jsp/login/login_1.jsp">로그인</a></div>
 
             </c:otherwise>
         </c:choose>

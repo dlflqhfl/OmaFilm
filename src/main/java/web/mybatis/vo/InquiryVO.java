@@ -17,45 +17,43 @@ public class InquiryVO {
 		this.iq_time = iq_time;
 	}
 
-	int getIq_idx() {
+	public int getIq_idx() {
 		return iq_idx;
 	}
 
-	void setIq_idx(int iq_idx) {
+	public void setIq_idx(int iq_idx) {
 		this.iq_idx = iq_idx;
 	}
 
-	int getU_code() {
+	public int getU_code() {
 		return u_code;
 	}
 
-	void setU_code(int u_code) {
+	public void setU_code(int u_code) {
 		this.u_code = u_code;
 	}
 
-	String getIq_title() {
+	public String getIq_title() {
 		return iq_title;
 	}
 
-	void setIq_title(String iq_title) {
+	public void setIq_title(String iq_title) {
 		this.iq_title = iq_title;
 	}
 
-	String getIq_content() {
+	public String getIq_content() {
 		return iq_content;
 	}
 
-	void setIq_content(String iq_content) {
+	public void setIq_content(String iq_content) {
 		this.iq_content = iq_content;
 	}
 
-	String getIq_time() {
+	public String getIq_time() {
 		return iq_time;
 	}
 
-	void setIq_time(String iq_time) {
+	public void setIq_time(String iq_time) {
 		this.iq_time = iq_time;
 	}
-	
-	
 }
