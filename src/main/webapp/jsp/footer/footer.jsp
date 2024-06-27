@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<link rel="stylesheet" href="../../css/globals.css" />
-<link rel="stylesheet" href="../../css/footer.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css" />
+
 
 <footer class="footer">
     <div class="footer_wrapper">

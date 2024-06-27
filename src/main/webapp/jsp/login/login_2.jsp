@@ -46,7 +46,7 @@
     </div>
     <div class="link-7"><div class="text-wrapper-16"><a href="register.jsp">회원가입</a></div></div>
 </div>
-<%@ include file="../footer/footer.jsp"%>
+<%@ include file="/jsp/footer/footer.jsp"%>
 </body>
 </html>
 

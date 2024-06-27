@@ -7,64 +7,20 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="/css/globals.css"/>
-    <link rel="stylesheet" href="/css/register.css"/>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../css/globals.css" />
+    <link rel="stylesheet" href="../../css/register.css" />
+
 </head>
 <body>
-<script>
-    /*소셜로 회원가입창으로 이동했을 경우*/
-
-    window.onload = function () {
-        <%
-            String id = (String) session.getAttribute("token") + (String) session.getAttribute("social_id");
-            String name = (String) session.getAttribute("social_name");
-            String email = (String) session.getAttribute("social_email");
-        %>
-
-        var id= "<%=id%>";
-        var name = "<%=name%>";
-        var email = "<%=email%>";
-
-        console.log(id);
-        console.log(name);
-        console.log(email);
-
-        if (id && name && email){
-            $('#id').val(id).prop('readonly', true);
-            $('#name').val(name).prop('readonly', true);
-            $('#email_1').val(email.split('@')[0]).prop('readonly', true);
-            var domain = email.split('@')[1];
-            var match = false;
-            $('#email_2 option').each(function () {
-                if (this.value == domain) {
-                    match = true;
-                    return false; // loop를 중단합니다.
-                }
-            });
-            $('#email_2').val(domain);
-            $('#email_2').prop('disabled', true);
-            $('.button_1').hide();
-            $('.button_2').hide();
-            $('.text_2').hide();
-
-            $('#id').css('background-color', '#f0f0f0');
-            $('#name').css('background-color', '#f0f0f0');
-            $('#email_1').css('background-color', '#f0f0f0');
-            $('#email_2').css('background-color', '#f0f0f0');
-            $('#email_3').css('background-color', '#f0f0f0');
-        }
-    };
-</script>
 <div class="screen">
     <div class="div">
         <div class="overlap">
             <div class="container">
-                <img class="overlay" src="https://c.animaapp.com/BnU3osMX/img/overlay.png"/>
+                <img class="overlay" src="https://c.animaapp.com/BnU3osMX/img/overlay.png" />
                 <div class="heading">회원가입</div>
                 <div class="text-wrapper">회원님의 정보를 정확히 입력해주세요.</div>
                 <div class="form">
@@ -74,9 +30,7 @@
                                 <div class="div-2">
                                     <input type="text" class="frame" id="name" name="name" placeholder="이름을 입력하세요"/>
                                 </div>
-                                <div class="div-wrapper">
-                                    <div class="text-wrapper-3">이름</div>
-                                </div>
+                                <div class="div-wrapper"><div class="text-wrapper-3">이름</div></div>
                             </div>
                         </div>
                         <div class="birth">
@@ -84,25 +38,15 @@
                                 <div class="div-2">
                                     <select class="frame-2" id="year" name="year">
                                         <option>::년도::</option>
-                                        <% for (int i = 2024; i >= 1900; i--) { %>
-                                        <option><%= i %>
-                                        </option>
+                                        <% for(int i = 2024; i >= 1900; i--) { %>
+                                        <option><%= i %></option>
                                         <% } %>
                                     </select>
                                     <select class="frame-3" id="month" name="month">
                                         <option>::월::</option>
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                        <option>05</option>
-                                        <option>06</option>
-                                        <option>07</option>
-                                        <option>08</option>
-                                        <option>09</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
+                                        <c:forEach var="i" begin="1" end="12">
+                                            <option>${i}</option>
+                                        </c:forEach>
                                     </select>
                                     <select class="frame-4" id="day" name="day">
                                         <option>::일::</option>
@@ -114,57 +58,43 @@
                                     <div class="text-wrapper-8">월</div>
                                     <div class="text-wrapper-9">일</div>
                                 </div>
-                                <div class="div-wrapper">
-                                    <div class="text-wrapper-3">생년월일</div>
-                                </div>
+                                <div class="div-wrapper"><div class="text-wrapper-3">생년월일</div></div>
                             </div>
                         </div>
                         <div class="overlap-2">
                             <div class="phone">
                                 <div class="overlap-group">
                                     <div class="div-2">
-                                        <input type="text" class="select" placeholder="010" id="phone_1"
-                                               name="phone_1"/>
+                                        <input type="text" class="select" placeholder="010" id="phone_1" name="phone_1"/>
                                         <div class="text-wrapper-11">-</div>
-                                        <input type="text" class="frame-5" placeholder="0000" id="phone_2"
-                                               name="phone_2"/>
+                                        <input type="text" class="frame-5" placeholder="0000" id="phone_2" name="phone_2"/>
                                         <div class="text-wrapper-12">-</div>
-                                        <input type="text" class="frame-6" placeholder="0000" id="phone_3"
-                                               name="phone_3"/>
+                                        <input type="text" class="frame-6" placeholder="0000" id="phone_3" name="phone_3"/>
 
                                     </div>
-                                    <div class="div-wrapper">
-                                        <div class="text-wrapper-3">휴대폰</div>
-                                    </div>
+                                    <div class="div-wrapper"><div class="text-wrapper-3">휴대폰</div></div>
                                 </div>
                             </div>
                             <div class="esend">
                                 <div class="overlap-group">
                                     <div class="div-2">
-                                        <label class="overlap-group-2"><input type="checkbox" id="agree" name="agree"/>동의</label>
-                                        <label class="label-2"><input type="checkbox" id="disagree"
-                                                                      name="agree"/>비동의</label>
+                                        <label class="overlap-group-2"><input type="radio"/>동의</label>
+                                        <label class="label-2"><input type="radio"/>비동의</label>
                                     </div>
-                                    <div class="div-wrapper">
-                                        <div class="text-wrapper-14">이메일 수신 여부</div>
-                                    </div>
+                                    <div class="div-wrapper"><div class="text-wrapper-14">이메일 수신 여부</div></div>
                                 </div>
                             </div>
                             <div class="adress">
                                 <input type="text" class="textfield" id="addr_1" name="addr_1"/>
                                 <input type="text" class="frame-7" id="addr_2" name="addr_2" placeholder="상세주소"/>
-                                <input type="text" class="adnum-textfield" id="addr_num" name="addr_num"
-                                       placeholder="우편번호"/>
-                                <button type="button" class="adnum" onclick="address()">우편번호</button>
-                                <div class="adress-name">
-                                    <div class="text-wrapper-3">주소</div>
-                                </div>
+                                <input type="text" class="adnum-textfield" id="addr_num" name="addr_num" placeholder="우편번호"/>
+                                <button class="adnum">우편번호</button>
+                                <div class="adress-name"><div class="text-wrapper-3">주소</div></div>
                             </div>
                             <div class="email">
                                 <div class="overlap-3">
                                     <div class="email_1">
-                                        <input type="text" class="frame_1" placeholder="이메일" id="email_1"
-                                               name="email_1"/>
+                                        <input type="text" class="frame_1" placeholder="아이디" id="email_1"/>
                                         <div class="text-wrapper-3_1">@</div>
                                         <select class="select_1" id="email_2" name="email_2">
                                             <option>naver.com</option>
@@ -174,67 +104,53 @@
                                             <option>nate.com</option>
                                             <option id="self">직접입력</option>
                                         </select>
-                                        <input type="text" class="frame_2" placeholder="직접입력" id="email_3"
-                                               name="email_2" display="none"/>
-                                        <button type="button" class="button_1" onclick="submit()">전송하기</button>
+                                        <input type="text" class="frame_2" placeholder="직접입력" id="email_3" name="email_2"  display="none"/>
+                                        <button class="button_1">전송하기</button>
                                     </div>
                                     <div class="email-check">
-                                        <button type="button" class="button_2" onclick="check()">확인</button>
-                                        <input type="text" class="text_2" id="check_num" name="check_num"
-                                               placeholder="인증번호 확인"/>
+                                        <button class="button_2">확인</button>
+                                        <input type="text" class="text_2" id="check_num" name="check_num" placeholder="인증번호 확인"/>
                                         <div class="div_2">일치함</div>
                                     </div>
-                                    <div class="email-name">
-                                        <div class="text-wrapper-18">이메일</div>
-                                    </div>
+                                    <div class="email-name"><div class="text-wrapper-18">이메일</div></div>
                                 </div>
                             </div>
                         </div>
                         <div class="overlap-4">
                             <div class="pw">
-                                <input type="password" class="frame-8" id="pw" name="pw" placeholder="비밀번호를 입력하세요"/>
-                                <div class="frame-9">
-                                    <div class="text-wrapper-3">비밀번호</div>
-                                </div>
+                                <div class="frame-8"><div class="text-wrapper-2">78910</div></div>
+                                <div class="frame-9"><div class="text-wrapper-3">비밀번호</div></div>
                             </div>
                             <div class="id">
                                 <div class="overlap-group">
                                     <div class="frame-10">
-                                        <input type="text" class="frame-11" id="id" name="id" placeholder="아이디를 입력하세요"/>
-                                        <button type="button" class="frame-12" id="id_check">중복확인</button>
-                                        <div class="text-wrapper-20" id="overlap">중복 없음</div>
+                                        <div class="frame-11"><div class="text-wrapper-2">qweasd</div></div>
+                                        <div class="frame-12"><div class="text-wrapper-19">중복확인</div></div>
+                                        <div class="text-wrapper-20">중복 없음</div>
                                     </div>
-                                    <div class="frame-13">
-                                        <div class="text-wrapper-3">아이디</div>
-                                    </div>
+                                    <div class="frame-13"><div class="text-wrapper-3">아이디</div></div>
                                 </div>
                             </div>
                             <div class="pw-check">
                                 <div class="overlap-group">
                                     <div class="div-2">
-                                        <input type="password" class="frame-8" id="pw_check" name="pw_check"
-                                               placeholder="비밀번호 확인"/>
+                                        <div class="frame-8"><div class="text-wrapper-21">78910</div></div>
                                         <div class="text-wrapper-22">일치함</div>
                                     </div>
-                                    <div class="div-wrapper">
-                                        <div class="text-wrapper-23">비밀번호 확인</div>
-                                    </div>
+                                    <div class="div-wrapper"><div class="text-wrapper-23">비밀번호 확인</div></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="button" id="submit" name="submit" onclick="regist()">가입</button>
-                    <button type="button" class="button-2">
-                        <div class="text-wrapper-25">취소</div>
-                    </button>
+                    <button class="button"><div class="text-wrapper-24">가입</div></button>
+                    <button class="button-2"><div class="text-wrapper-25">취소</div></button>
                 </div>
             </div>
-            <jsp:include page="../header/header.jsp"/>
-            <jsp:include page="../footer/footer.jsp"/>
+            <jsp:include page="../header/header.jsp" />
+            <jsp:include page="../footer/footer.jsp" />
         </div>
     </div>
 </div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -405,7 +321,7 @@
         <%
             if (session.getAttribute("token") != null && session.getAttribute("social_id") != null && session.getAttribute("social_name") != null && session.getAttribute("social_email") != null) {
         %>
-            u_social = "1";
+        u_social = "1";
         <%
             }
         %>
@@ -442,30 +358,30 @@
         <%
             if (session.getAttribute("token") == null && session.getAttribute("social_id") == null && session.getAttribute("social_name") == null && session.getAttribute("social_email") == null) {
         %>
-            if (id == "") {
-                alert("아이디를 입력해주세요.");
-                return;
-            }
+        if (id == "") {
+            alert("아이디를 입력해주세요.");
+            return;
+        }
 
-            if ($('#overlap').text() == '중복됨') {
-                alert("아이디 중복확인을 해주세요.");
-                return;
-            }
+        if ($('#overlap').text() == '중복됨') {
+            alert("아이디 중복확인을 해주세요.");
+            return;
+        }
 
-            if (name == "") {
-                alert("이름을 입력해주세요.");
-                return;
-            }
+        if (name == "") {
+            alert("이름을 입력해주세요.");
+            return;
+        }
 
-            if (sessionStorage.getItem("emailVerified") !== "true") {
-                alert("이메일 인증을 완료해주세요.");
-                return;
-            }
+        if (sessionStorage.getItem("emailVerified") !== "true") {
+            alert("이메일 인증을 완료해주세요.");
+            return;
+        }
 
-            if (email_1 == "" || email_2 == "") {
-                alert("이메일을 입력해주세요.");
-                return;
-            }
+        if (email_1 == "" || email_2 == "") {
+            alert("이메일을 입력해주세요.");
+            return;
+        }
         <%
             }
         %>
