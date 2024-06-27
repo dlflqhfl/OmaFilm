@@ -61,10 +61,12 @@
           </div>
         </div>
         <form id="add" action="Controller?type=adminAddMovie" method="post">
+	        <input type="hidden" id="nameData" name="nameData" value="">
+	        <input type="hidden" id="timeData" name="timeData" value="">
+	        <input type="hidden" id="dateData" name="dateData" value="">
 	        <input type="hidden" id="contentData" name="contentData" value="">
 	        <input type="hidden" id="submit" name="submit" value="submit">
-	        <input type="hidden" id="fileData" name="fileData" value="">
-	        <input type="hidden" id="movieCd" name="movieCd" value="${param.movieCd }">
+	        <input type="hidden" id="movieCd" name="movieCd" value="${movie.movieCd }">
         	<button type="submit" id="goAdd" class="button-2 "><div class="text-wrapper-5">등록</div></button>
         </form>
         <button class="button-3"><div class="text-wrapper-6">목록</div></button>
@@ -101,7 +103,7 @@ $(function() {
             $('.input').val('');
         }
     });
-    
+
     // 모달창 닫기
     $(".text-wrapper-21").click(function() {
         closeDialog();
@@ -113,9 +115,9 @@ $(function() {
             closeDialog();
         }
     });
-    
-   
-    
+
+
+
     $(".guan").click(function() {
         name = $(this).text();
     });
@@ -286,15 +288,15 @@ $(function() {
 
         let selectedYear = selectedDate.getFullYear(); // 선택한 일자의 연도를 가져옵니다.
         let selectedMonth = selectedDate.getMonth() + 1; // 선택한 일자의 월을 가져옵니다.
-        
+
         date = selectedYear + "-" + selectedMonth + "-" + day;
         console.log(date);
     });
     $("#goAdd").click(function() {
-	    let content = $("#area").val(); 
+	    let content = $("#area").val();
 	    console.log(content)
 	    $("#contentData").val(content);
-	    
+
 	    let file = $(".input").val()
 	    $("#fileData").val(file)
 	    console.log(file)
