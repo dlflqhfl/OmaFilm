@@ -31,7 +31,7 @@
                 <p class="text-wrapper-2">문의하시기 전 FAQ를 확인하시면 궁금증을 더욱 빠르게 해결하실 수 있습니다.</p>
               </div>
             </div>
-           <form action="/OmaTest/Controller?type=inquirywrite" method="post">
+           <form action="Controller?type=inquirywrite" method="post">
            <div class="horizontal-border">
               <div class="table-body">
                 <div class="row-3">
