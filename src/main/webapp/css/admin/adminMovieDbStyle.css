@@ -981,6 +981,11 @@ ol.paging li a {
   align-items: center;
   justify-content:center;
 }
+.paging{
+    position: absolute;
+    top: 76px;
+    left: 700px;
+}
 
 ol.paging li a:hover {
   background:#00B3DC;

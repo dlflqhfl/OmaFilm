@@ -14,14 +14,43 @@
 <div class="DB">
     <div class="overlap-wrapper">
         <div class="overlap">
-            <div class="div-sidebar">
-                <img class="element" src="img/admin/1.png" />
-                <div class="text-wrapper">관리자</div>
-                <div class="list">
-                    <div class="item-link"><div class="div">영화관리</div></div>
-                    <div class="div-wrapper"><div class="text-wrapper-2">이벤트/혜택 관리</div></div>
-                    <div class="item-link-2"><div class="text-wrapper-3">쿠폰관리</div></div>
-                    <div class="item-link-2"><div class="text-wrapper-4">고객센터 관리</div></div>
+          <div class="div-sidebar">
+            <img class="element" src="img/admin/1.png" />
+            <div class="text-wrapper">관리자</div>
+            <div class="list">
+              <div class="item-link"><div class="div">영화관리</div></div>
+              <div class="div-wrapper"><div class="text-wrapper-2">이벤트/혜택 관리</div></div>
+              <div class="item-link-2"><div class="text-wrapper-3">쿠폰관리</div></div>
+              <div class="item-link-2"><div class="text-wrapper-4">고객센터 관리</div></div>
+            </div>
+          </div>
+          <div class="div-con-wrap">
+            <button class="button">
+              <div class="container"><div class="text-wrapper-8">구분</div></div>
+              <img class="image" src="img/admin/image.png" />
+            </button>
+            <div class="border">
+              <div class="input">
+                <div class="container-2"><div class="text-wrapper-9">검색어를 입력해 주세요.</div></div>
+              </div>
+              <div class="button-2"></div>
+            </div>
+            <div class="cell"><div class="text-wrapper-10">삭제</div></div>
+            <div class="cell-2"><div class="text-wrapper-11" onclick="dialog()">시간 추가</div></div>
+       	 	<div id="myModal" class="modal">
+       			<div class="modal-content">
+       				<%@ include file="/jsp/admin/adminSelectTime.jsp" %>
+       			</div>
+       		</div>
+            <div class="frame">
+              <div class="span-name"></div>
+              <div class="text-wrapper-12">관리자 님</div>
+              <div class="item-wrapper">
+                <div class="item">
+                  <div class="link-12">
+                    <div class="text-wrapper-13">로그아웃</div>
+                    <div class="pseudo"></div>
+                  </div>
                 </div>
             </div>
             <div class="div-con-wrap">
