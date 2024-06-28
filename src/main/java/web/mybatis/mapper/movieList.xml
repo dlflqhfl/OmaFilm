@@ -25,7 +25,7 @@
         #{showTypeNm},#{watchGradeNm},#{m_plot} )
     </insert>
 
-    <select id="selectMovie" resultType="web.mybatis.vo.MovieListVO" parameterType="map">
+    <select id="selectMovie" resultType="web.mybatis.vo.MovieListVO" parameterType="Map">
         SELECT * FROM(
         SELECT @RN:=@RN+1 AS rnum, a.* FROM(
         SELECT * FROM movie_list

@@ -221,6 +221,9 @@
         	<input type="hidden" id="date" name="date" value="${param.date }">
         	<input type="hidden" id="totalPrice" name="totalPrice" value="">
         </form>
+      <c:forEach var="a" items="${svo }">
+        ${a.s_code }
+      </c:forEach>
       </div>
     </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -381,9 +384,8 @@
 		if( result ){
 			
 			let adult = $("#adult").text();
-			let teen = $("#adult").text();
-			let old = $("#adult").text();
-			let price = $("#price").text();
+			let teen = $("#teen").text();
+			let old = $("#old").text();
 			
 			let adultCount = "성인:" + adult;
 			let teenCount = "청소년:" + teen;

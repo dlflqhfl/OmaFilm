@@ -311,6 +311,11 @@
             <input type="hidden" id="date" name="date" value="${param.date }">
             <input type="hidden" id="totalPrice" name="totalPrice" value="">
         </form>
+        <c:forEach var="a" items="${svo }">
+	        ${a.s_code }
+        </c:forEach>
+        <div>
+        </div>
     </div>
 </div>
 
@@ -323,7 +328,10 @@
     let movieName = '<%= request.getParameter("movieName") %>';
     let time = '<%= request.getParameter("time") %>';
     let date = '<%= request.getParameter("date") %>';
+	
 
+    // 콘솔창에 출력
+    
     console.log(text)
     console.log(movieName)
     console.log(time)
@@ -334,9 +342,10 @@
     let old = parseInt($("#old").text());
 
     let checkSeat = new Set();
-    let seatArray = [];
-    let seats = "";
     let num = 0;
+    
+    //중복좌석
+    
     //좌석선택
     $(".rectangle").click(function () {
 
@@ -462,6 +471,7 @@
         seatArray = Array.from(checkSeat); // Set을 배열로 변환
         seats = seatArray.join(","); // 좌석 배열을 쉼표로 구분된 문자열로 변환
         console.log("Selected seats: " + seats); // 선택된 좌석 확인용 로그
+        console.log(seats);
     }
 
 
@@ -479,7 +489,7 @@
             let oldCount = "경로:" + old;
 
             let totalCount = adultCount + "/" + teenCount + "/" + oldCount;
-
+			console.log(totalCount)
             $("#totalCount").val(totalCount)
             $("#checkSeat").val(seats);
 

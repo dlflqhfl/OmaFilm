@@ -19,7 +19,7 @@
 <script>
     /*소셜로 회원가입창으로 이동했을 경우*/
 
-    /*window.onload = function () {
+    window.onload = function () {
         <%
             String id = (String) session.getAttribute("token") + (String) session.getAttribute("social_id");
             String name = (String) session.getAttribute("social_name");
@@ -33,8 +33,9 @@
         console.log(id);
         console.log(name);
         console.log(email);
-
-        if (id && name && email){
+        
+        //아이디 이름 이메일이 존재하고 널이 아닐떄만 뜨는 함수
+        if (id && name && email && id != "null" && name != "null" && email != "null") {
             $('#id').val(id).prop('readonly', true);
             $('#name').val(name).prop('readonly', true);
             $('#email_1').val(email.split('@')[0]).prop('readonly', true);
@@ -58,7 +59,7 @@
             $('#email_2').css('background-color', '#f0f0f0');
             $('#email_3').css('background-color', '#f0f0f0');
         }
-    };*/
+    };
 </script>
 <div class="screen">
     <div class="div">
@@ -257,7 +258,7 @@
         // jQuery AJAX를 사용하여 서버에 이메일을 보냅니다.
         $.ajax({
             type: "POST",
-            url: "/Controller?type=send",
+            url: "${pageContext.request.contextPath}/Controller?type=send",
             data: {email: email},
             success: function () {
                 alert("이메일이 성공적으로 전송되었습니다.");
@@ -284,7 +285,7 @@
 
         $.ajax({
             type: "POST",
-            url: "/Controller?type=check",
+            url: "${pageContext.request.contextPath}/Controller?type=check",
             data: {code_user: code},
             success: function (response) {
                 var success = response.success;
@@ -323,7 +324,7 @@
 
         $.ajax({
             type: "POST",
-            url: "/Controller?type=idCheck",
+            url: "${pageContext.request.contextPath}/Controller?type=idCheck",
             data: {id: id},
             success: function (response) {
                 var cnt = response;
@@ -417,7 +418,7 @@
         console.log(phone_1);
         console.log(phone_2);
         console.log(phone_3);
-        console.log(phone);
+        console.log(콜);
         console.log(addr_1);
         console.log(addr_2);
         console.log(addr_num);
@@ -507,7 +508,7 @@
 
         $.ajax({
             type: "POST",
-            url: "/Controller?type=register",
+            url: "${pageContext.request.contextPath}/Controller?type=register",
             data: {
                 birth: year + '-' + month + '-' + day,
                 day: day,
