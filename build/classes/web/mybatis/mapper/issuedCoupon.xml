@@ -14,7 +14,7 @@
 	<!-- 예매 결제 후에 쿠폰 status를 1로 바꾸는 쿼리 -->
 	<update id="useCoupon" parameterType="int">
     	UPDATE issued_coupon
-    	SET cp_status = 1
+    	SET status = 1
     	WHERE cp_no = #{cp_no}
 	</update>
 

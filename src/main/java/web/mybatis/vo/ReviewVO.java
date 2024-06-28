@@ -77,6 +77,4 @@ public class ReviewVO {
 	public void setR_recomm(String r_recomm) {
 		this.r_recomm = r_recomm;
 	}
-
-	
 }

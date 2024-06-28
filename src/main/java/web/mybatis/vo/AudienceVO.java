@@ -37,6 +37,4 @@ public class AudienceVO {
 	public void setA_name(String a_name) {
 		this.a_name = a_name;
 	}
-
-	
 }

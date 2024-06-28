@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reservation">
-	
-	<insert id="insertReservation" parameterType="Map">
+
+    <insert id="insertReservation" parameterType="Map">
         insert into reservation (p_code, rsvr_code, ss_code, rs_count, rs_time, rs_status)
         values (#{p_code}, #{rsvr_code}, #{ss_code}, #{rs_count}, now(), 0)
 	</insert>
@@ -75,4 +75,5 @@
 		JOIN screening_schedule s ON r.ss_code = s.ss_code
 		WHERE r.rsvr_code = #{rsvr_code} AND r.rs_status=1
 	</select>
+
 </mapper>

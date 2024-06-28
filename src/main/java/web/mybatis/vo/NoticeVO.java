@@ -75,7 +75,4 @@ public class NoticeVO {
 	public void setN_time(String n_time) {
 		this.n_time = n_time;
 	}
-	
-	
-	
 }

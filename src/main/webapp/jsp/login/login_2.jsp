@@ -10,12 +10,8 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../css/globals.css" />
-    <link rel="stylesheet" href="../../css/login.css" />
-    <link rel="stylesheet" href="../../css/footer.css">
-    <link rel="stylesheet" href="../../css/header.css">
-
-
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/login.css" />
 </head>
 <body>
 <div class="login_2">
@@ -50,7 +46,7 @@
     </div>
     <div class="link-7"><div class="text-wrapper-16"><a href="register.jsp">회원가입</a></div></div>
 </div>
-<%@ include file="../footer/footer.jsp"%>
+<%@ include file="/jsp/footer/footer.jsp"%>
 </body>
 </html>
 

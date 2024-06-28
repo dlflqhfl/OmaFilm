@@ -6,8 +6,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/admin/adminAddMovieGlobals.css" />
-    <link rel="stylesheet" href="css/admin/adminAddMovieStyle.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminAddMovieGlobals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminAddMovieStyle.css" />
   </head>
   <body>
     <div class="API">
@@ -18,21 +18,6 @@
             <div class="data">
               <input type="text" class="input">
               <input type="file" class="fileText">
-            </div>
-          </div>
-          <div class="row-2">
-            <div class="cell"><div class="label">전체 상영관</div></div>
-            <div class="data">
-              <input type="text" id="screenName" class="input-2">
-              <input type="text" id="screenTime" class="input-3">
-              <input type="text" id="screenDate" class="input-4">
-              <button class="div-wrapper" onclick="showDialog()">시간 추가하기</button> 
-             	 <div id="myModal" class="modal">
-        		<div class="modal-content">
-        			<jsp:include page="/jsp/admin/adminSelectTime.jsp" />
-        		</div>
-        	</div>
-              <div class="label-wrapper"><div class="label-2">전체 상영시간표</div></div>
             </div>
           </div>
           <div class="row-3">
@@ -130,9 +115,9 @@ $(function() {
             closeDialog();
         }
     });
-    
-   
-    
+
+
+
     $(".guan").click(function() {
         name = $(this).text();
     });
@@ -303,21 +288,18 @@ $(function() {
 
         let selectedYear = selectedDate.getFullYear(); // 선택한 일자의 연도를 가져옵니다.
         let selectedMonth = selectedDate.getMonth() + 1; // 선택한 일자의 월을 가져옵니다.
-        
+
         date = selectedYear + "-" + selectedMonth + "-" + day;
         console.log(date);
     });
     $("#goAdd").click(function() {
-		console.log(name)
-		console.log(time)
-		console.log(date)
-		
-	    $("#nameData").val(name);
-	    $("#timeData").val(time);
-	    $("#dateData").val(date);
-	    let content = $("#area").val(); // content의 값을 가져와야 할 것 같습니다.
+	    let content = $("#area").val();
 	    console.log(content)
 	    $("#contentData").val(content);
+
+	    let file = $(".input").val()
+	    $("#fileData").val(file)
+	    console.log(file)
 	    
 	    $("#add").submit(); // form을 submit하는 코드입니다.
 	});

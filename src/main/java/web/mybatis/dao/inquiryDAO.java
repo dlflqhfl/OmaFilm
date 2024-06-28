@@ -1,11 +1,10 @@
 package web.mybatis.dao;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
-
 import web.mybatis.service.FactoryService;
 import web.mybatis.vo.InquiryVO;
+
+import java.util.List;
 
 public class inquiryDAO {
 	

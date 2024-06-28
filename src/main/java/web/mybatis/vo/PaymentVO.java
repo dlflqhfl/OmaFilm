@@ -108,7 +108,4 @@ public class PaymentVO {
 	public void setP_content(String p_content) {
 		this.p_content = p_content;
 	}
-
-	
-	
 }

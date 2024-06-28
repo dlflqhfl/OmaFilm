@@ -3,12 +3,8 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-
-    <link rel="stylesheet" href="css/globals.css"/>
-    <link rel="stylesheet" href="css/main.css"/>
-    <link rel="stylesheet" href="css/header.css"/>
-    <link rel="stylesheet" href="css/footer.css"/>
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css"/>
 </head>
 <body>
 <div class="omakase-cinema">
@@ -141,8 +137,7 @@
                         <button class="button">
                             <div class="text-wrapper-13">박스오피스</div>
                         </button>
-                        <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                        >
+                        <a href="www.naver.com" target="_blank" rel="noopener noreferrer">
                             <div class="link-14">
                                 <div class="text-wrapper-14">더 많은 영화보기</div>
                                 <div class="image-6"></div>
@@ -222,8 +217,7 @@
                                     </div>
                                 </div>
                                 <div class="container-5">
-                                    <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                                    >
+                                    <a href="Controller?type=selectTime" target="_blank" rel="noopener noreferrer">
                                         <div class="link-17">
                                             <div class="text-wrapper-18">예매</div>
                                         </div>
@@ -290,8 +284,7 @@
                                     </div>
                                     <div class="button-4"></div>
                                 </div>
-                                <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                                >
+                                <a href="www.naver.com" target="_blank" rel="noopener noreferrer">
                                     <div class="vertical-border">
                                         <div class="link-18">
                                             <div class="image-13"></div>
@@ -303,13 +296,11 @@
                                     <div class="link-wrapper">
                                         <div class="link-19">
                                             <div class="image-14"></div>
-                                            <div class="text-wrapper-24">박스오피스</div>
+                                            <div class="text-wrapper-24">박스오피스 </div>
                                         </div>
                                     </div>
-                                </a
-                                >
-                                <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                                >
+                                </a>
+                                <a href="www.naver.com" target="_blank" rel="noopener noreferrer" >
                                     <div class="vertical-border-2">
                                         <div class="link-20">
                                             <div class="image-15"></div>
@@ -323,11 +314,12 @@
                     </div>
                 </div>
             </div>
-            <jsp:include page="jsp/header/header.jsp"/>
+            <jsp:include page="/jsp/header/header.jsp"/> <!--  -->
         </div>
     </div>
 </div>
-<%@ include file="jsp/footer/footer.jsp" %>
+<jsp:include page="/jsp/footer/footer.jsp"/>
+
 <script>
     var movieHoverElements = document.querySelectorAll('.MovieHover');
 

@@ -25,7 +25,7 @@
   position: absolute;
   width: 1125px;
   height: 68px;
-  top: 200px;
+  top: 151px;
   left: 0;
 }
 
@@ -432,7 +432,7 @@ button .text-wrapper {
 
 .API .row-6 {
   height: 328px;
-  top: 258px;
+  top: 210px;
   position: absolute;
   width: 1125px;
   left: 0;
@@ -543,7 +543,7 @@ button .text-wrapper {
   box-sizing: border-box;
   width: 124px;
   height: 46px;
-  top: 1032px;
+  top: 945px;
   left: 706px;
   background-color: #0e202a;
   position: absolute;
@@ -571,7 +571,7 @@ button .text-wrapper {
   box-sizing: border-box;
   width: 126px;
   height: 48px;
-  top: 1031px;
+  top: 945px;
   left: 860px;
   background-color: #ffffff;
   border: 1px solid;

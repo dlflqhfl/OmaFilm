@@ -1,7 +1,5 @@
 package web.main.action;
 
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import web.mybatis.dao.MyCouponDAO;
 import web.mybatis.vo.IssuedCouponVO;
 import web.mybatis.vo.MemberVO;
+import java.io.IOException;
 
 public class MyCouponAction implements Action {
 

@@ -1,17 +1,13 @@
 package web.main.action;
 
-import java.io.IOException;
-import java.util.Date;
+import web.mybatis.dao.MyReservationDAO;
+import web.mybatis.vo.MemberVO;
+import web.mybatis.vo.ReservationVO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import web.mybatis.dao.MyReservationDAO;
-import web.mybatis.dao.PaymentDAO;
-import web.mybatis.vo.IssuedCouponVO;
-import web.mybatis.vo.MemberVO;
-import web.mybatis.vo.ReservationVO;
+import java.io.IOException;
 
 public class MyReservationAction implements Action {
 

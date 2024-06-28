@@ -17,43 +17,43 @@ public class IqCommentVO {
 		this.comm_time = comm_time;
 	}
 
-	public int getComm_idx() {
+	int getComm_idx() {
 		return comm_idx;
 	}
 
-	public void setComm_idx(int comm_idx) {
+	void setComm_idx(int comm_idx) {
 		this.comm_idx = comm_idx;
 	}
 
-	public int getIq_idx() {
+	int getIq_idx() {
 		return iq_idx;
 	}
 
-	public void setIq_idx(int iq_idx) {
+	void setIq_idx(int iq_idx) {
 		this.iq_idx = iq_idx;
 	}
 
-	public String getComm_title() {
+	String getComm_title() {
 		return comm_title;
 	}
 
-	public void setComm_title(String comm_title) {
+	void setComm_title(String comm_title) {
 		this.comm_title = comm_title;
 	}
 
-	public String getComm_content() {
+	String getComm_content() {
 		return comm_content;
 	}
 
-	public void setComm_content(String comm_content) {
+	void setComm_content(String comm_content) {
 		this.comm_content = comm_content;
 	}
 
-	public String getComm_time() {
+	String getComm_time() {
 		return comm_time;
 	}
 
-	public void setComm_time(String comm_time) {
+	void setComm_time(String comm_time) {
 		this.comm_time = comm_time;
 	}
 	

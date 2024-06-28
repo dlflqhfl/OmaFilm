@@ -1,21 +1,16 @@
 package web.main.action;
 
-import java.net.URL;
-import java.util.List;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+import web.mybatis.dao.AdminDAO;
+import web.mybatis.vo.MovieListVO;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.ibatis.session.SqlSession;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.input.SAXBuilder;
-
-import web.mybatis.dao.AdminDAO;
-import web.mybatis.service.FactoryService;
-import web.mybatis.vo.MovieListVO;
-import web.mybatis.vo.ScreeningScheduleVO;
+import java.net.URL;
+import java.util.List;
 
 public class AdminAddMovieAction implements Action {
 
@@ -23,14 +18,10 @@ public class AdminAddMovieAction implements Action {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		String movieCd = request.getParameter("movieCd");
-        String nameData = request.getParameter("nameData");
-        String timeData = request.getParameter("timeData");
-        String dateData = request.getParameter("dateData");
         String content = request.getParameter("contentData");
-        System.out.println(nameData);
-        System.out.println(timeData);
-        System.out.println(dateData);
+        String file = request.getParameter("fileData");
         System.out.println(content);
+        System.out.println(file);
 
 		 try {
 		    	
@@ -141,7 +132,6 @@ public class AdminAddMovieAction implements Action {
 		            	movie.setCast(e.getChildText("cast"));
 		            	movie.setCastEn(e.getChildText("castEn"));
 		            }
-		            movie.setM_plot(content);
 		            
 		            System.out.println("Movie Name: " + movie.getMovieNm());
 		            System.out.println("감독이름: "+movie.getDirectors());
@@ -149,20 +139,13 @@ public class AdminAddMovieAction implements Action {
 		            System.out.println("이용 등급"+movie.getWatchGradeNm());
 		            System.out.println("배우 이름들 출력"+movie.getActors());
 		            request.setAttribute("movie", movie);
-			        
+		            
+		            movie.setM_plot(content);
+			        movie.setM_file(file);
 		            System.out.println("총영화 목록" + movie);
 		            
 		            if (request.getParameter("submit") != null) {
-		            	
-		            	ScreeningScheduleVO sc = new ScreeningScheduleVO();
-		            	sc.setMovieCd(movieCd);
-		            	sc.setSs_time(timeData);
-		            	System.out.println(timeData);
-		            	sc.setT_name(nameData);
-		            	System.out.println(nameData);
-		            	sc.setSs_date(dateData);
-		            	System.out.println(dateData);
-		            	int res = AdminDAO.insertMovieList(movie, sc);
+		            	int res = AdminDAO.insertMovieList(movie);
 		            	
 		            }
 		            
