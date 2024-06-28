@@ -52,7 +52,7 @@
     <a href="javascript: naver_login()"><img class="image-2" src="https://c.animaapp.com/s5cVxUlg/img/image-6@2x.png" /></a>
 </div>
 
-<%@ include file="../footer/footer.jsp"%>
+<jsp:include page="/jsp/footer/footer.jsp"/>
 <script>
     /*로그인 버튼을 눌렀을때 폼객체를 컨트롤러로 보냄*/
     function login(){
