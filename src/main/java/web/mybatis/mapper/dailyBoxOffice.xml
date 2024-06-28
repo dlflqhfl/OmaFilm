@@ -35,4 +35,5 @@
 		    showCnt = #{showCnt}
 			WHERE movieCd = #{movieCd} 
 	</update>
+	
 </mapper>

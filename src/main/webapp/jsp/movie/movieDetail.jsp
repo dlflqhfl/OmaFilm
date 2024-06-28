@@ -5,8 +5,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../css/globals.css" />
-    <link rel="stylesheet" href="../../css/myPage/movieDetail.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/movie/movieDetail.css" />
   </head>
   <body>
     <div class="www-lottecinema-co">
@@ -16,7 +16,7 @@
             <div class="overlap-group">
               <div class="strong">드라이브</div>
               <div class="item">
-                <img class="image" src="../../img/myPage/movieDetail/image.svg" />
+                <img class="image" src="${pageContext.request.contextPath}/img/movie/movieDetail/image.svg" />
                 <div class="text-wrapper">89</div>
                 <div class="text-wrapper-2">분</div>
                 <div class="vertical-divider"></div>
@@ -116,7 +116,7 @@
                     <div class="emphasis-4"></div>
                     <div class="strong-2">티저 예고편</div>
                   </div>
-                  <img class="img" src="../../img/myPage/movieDetail/image-1.png" />
+                  <img class="img" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-1.png" />
                 </div>
               </div>
               <div class="container-5">
@@ -125,7 +125,7 @@
                     <div class="emphasis-5"></div>
                     <div class="strong-2">메인 예고편</div>
                   </div>
-                  <img class="img" src="../../img/myPage/movieDetail/image-2.png" />
+                  <img class="img" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-2.png" />
                 </div>
               </div>
               <div class="container-6">
@@ -134,7 +134,7 @@
                     <div class="emphasis-6"></div>
                     <div class="strong-3">30초 예고편</div>
                   </div>
-                  <img class="img" src="../../img/myPage/movieDetail/image-3.png" />
+                  <img class="img" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-3.png" />
                 </div>
               </div>
             </div>
@@ -142,7 +142,7 @@
             <div class="image-5"></div>
           </div>
         </div>
-        <img class="footer" src="../../img/myPage/movieDetail/footer.png" />
+        <img class="footer" src="${pageContext.request.contextPath}/img/movie/movieDetail/footer.png" />
         <div class="overlap-10">
           <div class="nav">
             <div class="strong-4"><div class="text-wrapper-17">1</div></div>
@@ -172,51 +172,51 @@
             <div class="frame-2"><div class="text-wrapper-26">안녕</div></div>
             <div class="overlap-13">
               <div class="text-wrapper-27">2024-06-14</div>
-              <img class="image-6" src="img/movieDetail/image-1-6.png" />
+              <img class="image-6" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-1-6.png" />
             </div>
             <div class="frame-3"><div class="text-wrapper-28">메롱</div></div>
-            <img class="img-2" src="img/1.svg" />
+            <img class="img-2" src="${pageContext.request.contextPath}/img/movie/movieDetail/1.svg" />
           </div>
           <div class="frame-4">
             <div class="frame-2"><div class="text-wrapper-26">안녕</div></div>
             <div class="overlap-14">
               <div class="frame-5"><div class="text-wrapper-29">메롱</div></div>
-              <img class="rectangle" src="../../img/myPage/movieDetail/ectangle-1.svg" />
+              <img class="rectangle" src="${pageContext.request.contextPath}/img/movie/movieDetail/ectangle-1.svg" />
               <div class="rectangle-2"></div>
               <div class="text-wrapper-30">삭제</div>
               <div class="text-wrapper-31">수정</div>
             </div>
-            <img class="element-2" src="../../img/myPage/1-1.svg" />
+            <img class="element-2" src="${pageContext.request.contextPath}/img/movie/movieDetail/1-1.svg" />
             <div class="overlap-15">
               <div class="text-wrapper-27">2024-06-14</div>
-              <img class="image-6" src="../../img/myPage/movieDetail/image-1-6.png" />
+              <img class="image-6" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-1-6.png" />
             </div>
           </div>
           <div class="frame-6">
             <div class="frame-7"><div class="text-wrapper-26">안녕</div></div>
             <div class="frame-8"><div class="text-wrapper-32">메롱</div></div>
-            <img class="clip-path-group" src="../../img/myPage/movieDetail/clip-path-group-3.png" />
+            <img class="clip-path-group" src="${pageContext.request.contextPath}/img/movie/movieDetail/clip-path-group-3.png" />
             <div class="overlap-16">
               <div class="text-wrapper-27">2024-06-14</div>
-              <img class="image-6" src="../../img/myPage/movieDetail/image-1-6.png" />
+              <img class="image-6" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-1-6.png" />
             </div>
           </div>
           <div class="frame-9">
             <div class="frame-7"><div class="text-wrapper-26">안녕</div></div>
             <div class="frame-8"><div class="text-wrapper-33">메롱</div></div>
-            <img class="img-2" src="../../img/myPage/movieDetail/clip-path-group-3.png" />
+            <img class="img-2" src="${pageContext.request.contextPath}/img/movie/movieDetail/clip-path-group-3.png" />
             <div class="overlap-17">
               <div class="text-wrapper-27">2024-06-14</div>
-              <img class="image-6" src="../../img/myPage/movieDetail/image-1-6.png" />
+              <img class="image-6" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-1-6.png" />
             </div>
           </div>
           <div class="frame-10">
             <div class="frame-7"><div class="text-wrapper-26">안녕</div></div>
             <div class="frame-8"><div class="text-wrapper-34">메롱</div></div>
-            <img class="clip-path-group" src="../../img/myPage/movieDetail/clip-path-group-3.png" />
+            <img class="clip-path-group" src="${pageContext.request.contextPath}/img/movie/movieDetail/clip-path-group-3.png" />
             <div class="overlap-15">
               <div class="text-wrapper-27">2024-06-14</div>
-              <img class="image-6" src="../../img/myPage/movieDetail/image-1-6.png" />
+              <img class="image-6" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-1-6.png" />
             </div>
           </div>
           <div class="frame-11">
@@ -224,26 +224,26 @@
             <div class="frame-8"><div class="text-wrapper-35">메롱</div></div>
             <div class="overlap-17">
               <div class="text-wrapper-27">2024-06-14</div>
-              <img class="image-6" src="../../img/myPage/movieDetail/image-1-6.png" />
+              <img class="image-6" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-1-6.png" />
             </div>
-            <img class="img-2" src="../../img/myPage/movieDetail/clip-path-group-3.png" />
+            <img class="img-2" src="${pageContext.request.contextPath}/img/movie/movieDetail/clip-path-group-3.png" />
           </div>
         </div>
         <div class="overlap-18">
           <div class="background-4">
             <div class="overlap-19">
-              <img class="star" src="../../img/myPage/movieDetail/star-4-1.svg" />
-              <img class="star-2" src="../../img/myPage/movieDetail/star-4-1.svg" />
+              <img class="star" src="${pageContext.request.contextPath}/img/movie/movieDetail/star-4-1.svg" />
+              <img class="star-2" src="${pageContext.request.contextPath}/img/movie/movieDetail/star-4-1.svg" />
               <div class="overlap-20">
-                <img class="element-3" src="../../img/myPage/movieDetail/16132.png" />
-                <img class="star-3" src="../../img/myPage/movieDetail/star-4-1.svg" />
-                <img class="star-4" src="../../img/myPage/movieDetail/star-4-1.svg" />
+                <img class="element-3" src="${pageContext.request.contextPath}/img/movie/movieDetail/16132.png" />
+                <img class="star-3" src="${pageContext.request.contextPath}/img/movie/movieDetail/star-4-1.svg" />
+                <img class="star-4" src="${pageContext.request.contextPath}/img/movie/movieDetail/star-4-1.svg" />
               </div>
-              <img class="star-5" src="../../img/myPage/movieDetail/star-4-1.svg" />
+              <img class="star-5" src="${pageContext.request.contextPath}/img/movie/movieDetail/star-4-1.svg" />
             </div>
             <div class="text-wrapper-36">평점을 입력하세요.</div>
           </div>
-          <img class="frame-12" src="../../img/myPage/movieDetail/frame-1.png" />
+          <img class="frame-12" src="${pageContext.request.contextPath}/img/movie/movieDetail/frame-1.png" />
           <div class="frame-13"><div class="text-wrapper-37">관람평 작성</div></div>
           <p class="text-wrapper-38">영화 관람 후 관람평 작성 시 포인트 500P 적립</p>
         </div>

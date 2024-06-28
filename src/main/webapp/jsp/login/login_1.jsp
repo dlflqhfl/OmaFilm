@@ -31,7 +31,7 @@
     <script>
         alert("${loginErrorMessage}");
     </script>
-    <% session.removeAttribute("loginErrorMessage"); %> 
+
 	</c:if>
     <div class="overlap">
         <form class="form" id="login_form" name="login_form" action="../../Controller?type=login" method="post">

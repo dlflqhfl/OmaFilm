@@ -12,9 +12,9 @@
 	 <c:if test="${not empty successMessage}">
     <script>
 	    if (confirm("${successMessage}\n\n 나의 문의내역으로 이동하시겠습니까?")) {
-	        window.location.href = "jsp/myPage/inquiry.jsp"; 
+	        window.location.href = "Controller?type=inquiry"; 
 	      } else {
-	    	window.location.href = "jsp/serviceCenter/inquiry.jsp";
+	    	window.location.href = "Controller?type=sinquiry";
 	      }
 
     </script>
