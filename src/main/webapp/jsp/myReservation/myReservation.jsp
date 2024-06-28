@@ -1,7 +1,10 @@
+<%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -56,19 +59,29 @@
             <div class="container-2">
               <div class="label">영화명</div>
               <div class="border">
-                <div class="input">
-                  <div class="container-3"><div class="text-wrapper-15">검색어를 입력해 주세요.</div></div>
-                </div>
-                <div class="button"></div>
+                
+                  <input type="text" id="searchKey" class="input" placeholder="검색어를 입력해 주세요."/>
+                
               </div>
             </div>
             <div class="overlap-2">
+             
               <div class="label-wrapper"><div class="label-2">기간</div></div>
-              <button class="button-2">
-                <div class="text-wrapper-16">예매 월</div>
-                <img class="image" src="https://c.animaapp.com/G7hSAD2g/img/image@2x.png" />
-              </button>
-              <div class="link-10"><div class="text-wrapper-17">조회</div></div>
+               <%
+				    java.util.Calendar cal = java.util.Calendar.getInstance();
+				    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM");
+				%>
+				
+				<select class="text-wrapper-16" id="reservationValue">
+				    <option value=""> ::선택하세요:: </option>
+				    <% for(int i = 0; i < 12; i++) { %>
+				        <% String formattedDate = sdf.format(cal.getTime()); %>
+            			<option value="<%=formattedDate%>"><%=formattedDate%></option>
+            			<%
+                		cal.add(java.util.Calendar.MONTH, -1);
+           				 } %>
+				</select>
+              <button class="link-10" id="reservationSearch">조회</button>
             </div>
           </div>
           <div class="horizontal-border">
@@ -97,7 +110,7 @@
 					    <c:if test="${item.pvo != null}">            
 					      <div class="data-6"><div class="text-wrapper-27">${item.pvo.p_tt_price}</div></div>
 					    </c:if><!-- rs_num, p_code -->
-					    <div class="th-8"><div class="text-wrapper-23"><button value="${item.rs_num} ${item.pvo.p_code}">취소</button></div></div>
+					    <div class="th-8"><div class="text-wrapper-23"><button class="cancel-bt" value="${item.rs_num} ${item.pvo.p_code}">취소</button></div></div>
 					  </div>
 					</c:forEach>
                 	
@@ -166,6 +179,40 @@
                 </div>
               </div>
               <div class="heading-2">예매 취소 내역</div>
+              
+              
+              <!-- 
+              
+              div class="label-wrapper"><div class="label-2">기간</div></div>
+               
+				
+				<select class="text-wrapper-16" id="reservationValue">
+				    <option value=""> ::선택하세요:: </option>
+				    <% for(int i = 0; i < 12; i++) { %>
+				        <% String formattedDate = sdf.format(cal.getTime()); %>
+            			<option value="<%=formattedDate%>"><%=formattedDate%></option>
+            			<%
+                		cal.add(java.util.Calendar.MONTH, -1);
+           				 } %>
+				</select>
+				
+               -->
+               <div class="overlap-2">
+             
+              <div class="label-wrapper"><div class="label-2">기간</div></div>
+               		<%
+				    java.util.Calendar cal2 = java.util.Calendar.getInstance();
+				%>
+				<select class="text-wrapper-16" id="cancelMonth">
+				    <option value=""> ::선택하세요:: </option>
+				    <% for(int i = 0; i < 12; i++) { %>
+				        <% String formattedDate = sdf.format(cal2.getTime()); %>
+            			<option value="<%=formattedDate%>"><%=formattedDate%></option>
+            			<%
+                		cal2.add(java.util.Calendar.MONTH, -1);
+           				 } %>
+				</select>
+              <button class="link-10" id="cancelSearch">조회</button>
             </div>
           </div>
           <img class="line" src="https://c.animaapp.com/G7hSAD2g/img/line-1.svg" />
@@ -177,14 +224,13 @@
   <script>
 		$(function(){
 			//필요한 거 : rs_num, p_code
-			$("button").click(function() {
+			$(".cancel-bt").click(function() {
 				var confirmCancel = confirm("예매를 취소하시겠습니까?");
 		        
 		        if (confirmCancel) {
 		        	var buttonValue = $(this).val();   // 클릭된 버튼의 value 속성 값
 			        console.log(buttonValue); //19 23
 			        var str = buttonValue.split(" ");
-			        
 			        
 			        var form = document.createElement('form');
 			        var objs;
@@ -206,32 +252,60 @@
 		            document.body.appendChild(form);
 		            form.submit();
 		        }
-		        
-		        /* 
-		        // 서버로 보낼 데이터 준비
-		        var dataToSend = {
-		            id: buttonId,
-		            value: buttonValue
-		        };
-
-		        // Ajax를 사용하여 서버로 데이터 전송
-		        $.ajax({
-		            type: "POST",                   // 전송 방식 (POST)
-		            url: "/your-server-endpoint",   // 서버 URL (실제 서버 주소로 변경해야 함)
-		            data: dataToSend,               // 전송할 데이터
-		            success: function(response) {   // 성공적으로 응답을 받았을 때의 처리
-		                console.log("서버 응답:", response);
-		                // 원하는 추가 처리 (예: 화면 갱신 등)
-		            },
-		            error: function(xhr, status, error) {  // 에러 발생 시 처리
-		                console.error("에러 발생:", error);
-		                // 에러 처리 로직 추가
-		            }
-		        }); */
-	        	
-		       
 		    });
+		
+			 $("#reservationSearch").click(function() {
+			    const searchKey = $("#searchKey").val(); // 검색어 입력값
+			    const selectedMonth = $("#reservationValue").val(); // 선택된 월 값
+	
+			    // 입력값과 선택값을 활용하여 원하는 작업 수행
+			    console.log("검색어:", searchKey);
+			    console.log("선택된 달:", selectedMonth);
+	
+			    var form = document.createElement('form');
+		        var objs;
+		        
+		        objs = document.createElement('input');
+	            objs.setAttribute('type', 'hidden');
+	            objs.setAttribute('name', 'searchKey');
+	            objs.setAttribute('value', searchKey);
+	            form.appendChild(objs);
+	            
+	            objs = document.createElement('input');
+	            objs.setAttribute('type', 'hidden');
+	            objs.setAttribute('name', 'selectedMonth');
+	            objs.setAttribute('value', selectedMonth);
+	            form.appendChild(objs);
+	            
+	            form.setAttribute('method', 'post');
+	            form.setAttribute('action', 'Controller?type=myReservation');
+	            document.body.appendChild(form);
+	            form.submit();
+			    
+			 });
+			 
+			 //예매 취소 내역 기간 검색 버튼
+			 $("#cancelSearch").click(function() {
+				    const selectedMonth = $("#cancelMonth").val(); // 선택된 월 값
+		
+				    var form = document.createElement('form');
+			        var objs;
+		            
+		            objs = document.createElement('input');
+		            objs.setAttribute('type', 'hidden');
+		            objs.setAttribute('name', 'cancelMonth');
+		            objs.setAttribute('value', selectedMonth);
+		            form.appendChild(objs);
+		            
+		            form.setAttribute('method', 'post');
+		            form.setAttribute('action', 'Controller?type=myReservation');
+		            document.body.appendChild(form);
+		            form.submit();
+				    
+				 });
 		});
+		
+		
   </script>
 </html>
 

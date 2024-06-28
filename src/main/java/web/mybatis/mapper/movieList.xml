@@ -34,4 +34,9 @@
 		VALUES(#{movieCd}, #{ss_time}, #{ss_date}, #{t_name})
 	</insert>
 	
+	<select id="searchMovie" parameterType="String" resultType="web.mybatis.vo.MovieListVO">
+		SELECT *
+		FROM movie_list
+		WHERE movieNm LIKE CONCAT('%', #{movieNm}, '%')
+	</select>
 </mapper>
