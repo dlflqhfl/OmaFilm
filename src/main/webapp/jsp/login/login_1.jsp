@@ -35,6 +35,14 @@
         <div class="text-wrapper-10">회원가입</div>
         <div class="vertical-divider"></div>
     </div>
+  
+    <c:if test="${not empty loginErrorMessage}">
+    <script>
+        alert("${loginErrorMessage}");
+    </script>
+
+	</c:if>
+
     <div class="overlap">
         <form class="form" id="login_form" name="login_form" action="../../Controller?type=login" method="post">
             <label class="text-wrapper-13" for="login_id">ID :</label>

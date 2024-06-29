@@ -321,7 +321,7 @@
   top: -3px;
   left: 0;
   border-radius: 20px;
-  background-image: url(./img/21152-103-1-jpg.png);
+  background-image: url(../../img/movie/movieDetail/21152-103-1-jpg.png);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -740,7 +740,7 @@
   top: 0;
   left: 0;
   border-radius: 8px;
-  background-image: url(./img/emphasis-21152-109-1-jpg.png);
+  background-image: url(../../img/movie/movieDetail/emphasis-21152-109-1-jpg.png);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -783,7 +783,7 @@
   top: 0;
   left: 0;
   border-radius: 8px;
-  background-image: url(./img/emphasis-21152-109-2-jpg.png);
+  background-image: url(../../img/movie/movieDetail/emphasis-21152-109-2-jpg.png);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -803,7 +803,7 @@
   top: 0;
   left: 0;
   border-radius: 8px;
-  background-image: url(./img/emphasis-21152-109-3-jpg.png);
+  background-image: url(../../img/movie/movieDetail/emphasis-21152-109-3-jpg.png);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -830,7 +830,7 @@
   top: -8px;
   left: 934px;
   opacity: 0.35;
-  background-image: url(./img/image-4.png);
+  background-image: url(../../img/movie/movieDetail/image-4.png);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -841,7 +841,7 @@
   height: 39px;
   top: -8px;
   left: 959px;
-  background-image: url(./img/image-5.png);
+  background-image: url(../../img/movie/movieDetail/image-5.png);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -1036,7 +1036,7 @@
   top: 30px;
   left: 562px;
   border-radius: 4px;
-  background-image: url(./img/link.png);
+  background-image: url(../../img/movie/movieDetail/link.png);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -1048,7 +1048,7 @@
   top: 30px;
   left: 603px;
   border-radius: 4px;
-  background-image: url(./img/link-1.png);
+  background-image: url(../../img/movie/movieDetail/link-1.png);
   background-size: cover;
   background-position: 50% 50%;
 }
