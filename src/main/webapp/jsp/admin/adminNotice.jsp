@@ -4,8 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/admin/adminNoticeStyle.css" />
-    <link rel="stylesheet" href="css/admin/adminNoticeGlobals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminNoticeStyle.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminNoticeGlobals.css" />
   </head>
   <body>
     <div class="div-wrapper">

@@ -56,7 +56,4 @@ public class InquiryVO {
 	public void setIq_time(String iq_time) {
 		this.iq_time = iq_time;
 	}
-
-	
-	
 }

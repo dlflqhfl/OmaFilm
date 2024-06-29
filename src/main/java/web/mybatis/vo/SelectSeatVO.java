@@ -8,6 +8,15 @@ public class SelectSeatVO {
 	, s_code; //좌석코드
 	
 	public SelectSeatVO() {}
+	
+	
+
+	@Override
+	public String toString() {
+		return "SelectSeatVO [idx=" + idx + ", p_code=" + p_code + ", a_code=" + a_code + ", rs_num=" + rs_num
+				+ ", s_code=" + s_code + "]";
+	}
+
 
 	public SelectSeatVO(int idx, int p_code, int a_code, String rs_num, String s_code) {
 		super();
@@ -57,6 +66,4 @@ public class SelectSeatVO {
 	public void setS_code(String s_code) {
 		this.s_code = s_code;
 	}
-
-	
 }

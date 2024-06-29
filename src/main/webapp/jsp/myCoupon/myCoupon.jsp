@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -27,31 +29,39 @@
           </div>
           <div>
          <table class="table">
-          <thead>
+          <thead> <!-- 발급일 | 내용 | 상태(2024-06-28 사용/ 사용 가능) | 만료일(-/2024-06-28) -->
             <tr>
-              <th class="cell"><div class="text-wrapper-10">번호</div></th>
-              <th class="cell-2"><div class="text-wrapper-11">제목</div></th>
-              <th class="cell-3"><div class="text-wrapper-12">등록일</div></th>
+              <th class="cell"><div class="text-wrapper-10">발급일</div></th>
+              <th class="cell-2"><div class="text-wrapper-11">내용</div></th>
+              <th class="cell-3"><div class="text-wrapper-12">상태</div></th>
+              <th class="cell-3"><div class="text-wrapper-12">만료일</div></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="data"><div class="text-wrapper-13">1</div></td>
-              <td class="link-wrapper"> [쿠폰]영화 한 번 무료 쿠폰! </td>
-              <td class="data-2"><div class="text-wrapper-14">2024.06.14</div></td>
-            </tr>
-            <tr>
-              <td class="data"><div class="text-wrapper-13">2</div></td>
-              <td class="link-wrapper"> [쿠폰]팝콘 공짜!
-              </td>
-              <td class="data-2"><div class="text-wrapper-14">2024.06.14</div></td>
-            </tr>
-            <tr>
-              <td class="data"><div class="text-wrapper-13">3</div></td>
-              <td class="link-wrapper"> [쿠폰]배고파? 나도 배고파
-              </td>
-              <td class="data-2"><div class="text-wrapper-14">2024.06.14</div></td>
-            </tr>
+          		<c:if test="${fn:length(cvo)<1 }">
+          		<tr>
+					<td colspan="4">조회할 쿠폰이 없습니다.</td>
+				</tr>
+				</c:if>
+				
+				<c:if test="${fn:length(cvo)!=null and fn:length(cvo) > 0 }">
+				    <c:forEach var="item" items="${requestScope.cvo}" varStatus="vs">
+				    	<tr>
+			              <td class="data"><div class="text-wrapper-13"> ${item.cp_date} </div></td>
+			              <td class="link-wrapper"> ${item.c_item.ci_content} </td>
+			              
+			              <c:if test="${item.cp_status == 0 }">
+				              <td class="data-2"><div class="text-wrapper-14"> 사용 가능 </div></td>
+				              <td class="data-2"><div class="text-wrapper-14"> ${item.c_item.ci_time} </div></td>
+			              </c:if>
+			               <c:if test="${item.cp_status == 1 }">
+				              <td class="data-2"><div class="text-wrapper-14"> ${item.cp_use} 사용</div></td>
+				              <td class="data-2"><div class="text-wrapper-14"> - </div></td>
+			              </c:if>
+			            </tr>
+				    </c:forEach>
+				</c:if>
+      
           </tbody>
         </table>          
           
@@ -60,20 +70,21 @@
           <div class="heading">나의 쿠폰 조회</div>
           <div class="bar">
             <div>
-               <select class="select">
-              <option class="item" value="all">::선택::</option>
-              <option class="item" value="usable" selected>사용 가능</option>
-              <option class="item" value="used">사용 완료</option>
-            </select>
-         </div>
+              <select class="select" id="searchType">
+	              
+	              <option class="item" value="usable">사용 가능</option>
+	              <option class="item" value="used">사용 완료</option>
+	              <option class="item" value="all">전체</option>
+	            </select>
+	         </div>
          <div>
-           <button type="button" class="button">조회</button>
+           <button type="button" class="button" id="search-bt">조회</button>
            </div>
             <div class="label-wrapper"><div class="label">사용 상태</div></div>
           </div>
           <div class="overlap-2">
-            <div class="text-wrapper-19">총</div>
-            <p class="element"><span class="span">3</span> <span class="text-wrapper-20"> 매</span></p>
+            <div ></div>
+            <p class="element"><span class="text-wrapper-19">총</span><span class="span">3</span> <span class="text-wrapper-20"> 매</span></p>
           </div>
           <div class="frame">
             <div class="navbar">
@@ -101,6 +112,37 @@
         </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  
+    <script>
+    $(function(){
+    	$('#search-bt').click(function(){
+    		console.log("바보야");
+    		let selectedType = $("#searchType").val();
+    		
+    		var form = document.createElement('form');
+            var objs;
+            objs = document.createElement('input');
+            objs.setAttribute('type', 'hidden');
+            objs.setAttribute('name', 'selectedType');
+            
+    		if(selectedType == "usable"){ //사용 가능한 쿠폰 조회
+    			objs.setAttribute('value', 'usable');
+    		}else if(selectedType == "used"){ //사용 불가능한 쿠폰 조회
+    			objs.setAttribute('value', 'used');
+    		}else{
+    			objs.setAttribute('value', 'all');
+    		}
+    		
+    		form.appendChild(objs);
+            form.setAttribute('method', 'post');
+            form.setAttribute('action', 'Controller?type=myCoupon');
+            document.body.appendChild(form);
+            form.submit();
+                
+    	});
+    });
+    </script>
   </body>
 </html>
     

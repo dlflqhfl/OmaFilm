@@ -27,6 +27,4 @@ public class NtCategoryVO {
 	public void setNt_ct_name(String nt_ct_name) {
 		this.nt_ct_name = nt_ct_name;
 	}
-	
-	
 }

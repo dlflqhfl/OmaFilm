@@ -13,15 +13,13 @@ public class MemberVO {
 	u_email,// 이메일
 	u_email_rcv,// 이메일 수신여부
 	u_birth,// 생년월일
-	u_status;// 상태
-	
+	u_status,// 상태
+	u_join_date,// 가입일
+	u_none;
+
 	public MemberVO() {}
-	
-	public MemberVO(int u_code, String u_id, String u_pw, String u_authority, String u_social, String u_name,
-			String u_phone, String u_postcode, String u_address, String u_email, String u_email_rcv, String u_birth,
-			String u_status) {
-		super();
-		this.u_code = u_code;
+
+	public MemberVO( String u_id, String u_pw, String u_authority, String u_social, String u_name, String u_phone, String u_postcode, String u_address, String u_email, String u_email_rcv, String u_birth, String u_status, String u_join_date, String u_none) {
 		this.u_id = u_id;
 		this.u_pw = u_pw;
 		this.u_authority = u_authority;
@@ -34,6 +32,8 @@ public class MemberVO {
 		this.u_email_rcv = u_email_rcv;
 		this.u_birth = u_birth;
 		this.u_status = u_status;
+		this.u_join_date = u_join_date;
+		this.u_none = u_none;
 	}
 
 	public int getU_code() {
@@ -139,7 +139,20 @@ public class MemberVO {
 	public void setU_status(String u_status) {
 		this.u_status = u_status;
 	}
-	
-	
-	
+
+	public String getU_join_date() {
+		return u_join_date;
+	}
+
+	public void setU_join_date(String u_join_date) {
+		this.u_join_date = u_join_date;
+	}
+
+	public String getU_none() {
+		return u_none;
+	}
+
+	public void setU_none(String u_none) {
+		this.u_none = u_none;
+	}
 }

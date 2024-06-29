@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/reservation/selectTimeGlobals.css" />
-    <link rel="stylesheet" href="css/reservation/selectTimeStyle.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/selectTimeGlobals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/selectTimeStyle.css" />
   </head>
   <body>
+
     <div class="select-movie">
       <div class="div">
         <div class="list">
@@ -193,7 +195,7 @@
             <div class="item-link-25 guan"><div class="text-wrapper-24">쌍용 1관</div></div>
           </div>
           <div class="background-5">
-            <div class="background-6"><div class="heading-3"></div></div>
+            <div class="background-6"><div class="heading-3">2024-06-14(오늘)</div></div>
             <div class="container-5">
               <div class="list-4">
                 <div class="overlap-4">
@@ -446,12 +448,12 @@ $(function() {
     $monthContainer.text(`${monthNames[currentMonth]}`);
 
     // 오늘의 날짜가 왼쪽에서 두 번째 위치에 나타나도록 위치 조정
- 	let startDay = today.getDay() - 1;
+    let startDay = currentDay - 1;
     if (startDay < 0) {
         startDay = 6; // 일요일의 경우
     }
 
-    for (let i = -startDay; i <= 6 - startDay; i++) {
+    for (let i = 0; i < 7; i++) {
     	let dayDate = new Date(today);
         dayDate.setDate(currentDate - currentDay + startDay + i);
 
@@ -512,23 +514,9 @@ $(function() {
 	    
 	    date = selectedYear+ "-"+selectedMonth + "-" + day
 	    console.log(date)
-	})  
-	
+	})    
 
 });
-
-$(function(){
-    
-    // 오늘 날짜 가져오기
-    let today = new Date();
-    let year = today.getFullYear();
-    let month = String(today.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1을 해주고, 두 자리로 만듭니다.
-    let day = String(today.getDate()).padStart(2, '0'); // 날짜를 두 자리로 만듭니다.
-	
-    // heading-3 클래스를 가진 요소에 날짜 설정
-    $(".heading-3").text(year+ "-"+ month +"-"+ day + "(오늘)");
-	
-})
 
 
 	let text, movieName, time;
@@ -543,6 +531,8 @@ $(function(){
 		console.log(text)
 	})
 	
+	
+
 	//영화 가져오기
 	$(".name").click(function(){
 		movieName = $(this).text()
@@ -559,7 +549,7 @@ $(function(){
 		$("#text").val(text)
 		$("#movieName").val(movieName)
 		$("#time").val(time)
-		$("#date").val(date) //임시값
+		$("#date").val(date)
 		
 		let checkText = $("#text").val()
 		let checkMovieName = $("#movieName").val()
