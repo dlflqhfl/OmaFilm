@@ -13,7 +13,8 @@
 <!DOCTYPE html>
 <html>
 <%
-  int originalPrice = Integer.parseInt(request.getParameter("totalPrice"));
+  int originalPrice = Integer.parseInt(request.getParameter("totalPrice"));	
+	System.out.println("여기 payment.jsp 인데요, "+originalPrice+" 원 넘어왔어요.");
   int saleAmount = 0;
   int finalPrice = originalPrice;
 
@@ -214,6 +215,42 @@
     $('#Discount').val(saleAmount);
     $('#FinalPrice').val(finalPrice);
 
+    
+    $('.coupon').on('click', function() {
+        let clickedElement = $(this);
+        let couponIndex = clickedElement.attr('id');
+        let discountPercent = parseFloat($('#form' + couponIndex).val());
+        let cp_no = $('#couponform' + couponIndex).val();
+        console.log(cp_no);
+
+        console.log(discountPercent);
+
+        // 할인된 가격 계산
+        let discountedPrice = originalPrice * (1 - (discountPercent / 100));
+        finalPrice = discountedPrice;
+
+        //finalPrice = discountedPrice.toFixed(2); // 소수점 두 자리까지 표시
+
+        // 표시되는 가격 업데이트
+        $('.dis-price').text(originalPrice - finalPrice);
+        $('.total-price').text(finalPrice);
+
+        $('.dis-price').hide().show(0); // 숨겼다가 즉시 다시 표시
+        $('.total-price').hide().show(0);
+        
+        // 서버 측 처리를 위한 숨겨진 폼 필드 업데이트 (선택 사항)
+
+        $('#Discount').val(originalPrice - finalPrice);
+        $('#FinalPrice').val(finalPrice);
+        $('#coupon_id').val(cp_no);
+
+        // 선택된 쿠폰에 대한 시각적 피드백 적용 (선택 사항)
+        $('.coupon').removeClass('selected');
+        clickedElement.addClass('selected');
+
+        $('#coupon-frame').hide();
+      });
+
     // ---------------------- 결제 API ----------------------
     $('.pay-button').click(function(){
       console.log(selectedPay);
@@ -258,9 +295,105 @@
             alert('결제 실패');
           }
         });
+    });
+    
+  //----------------- 쿠폰 선택 시 금액 바꾸고 쿠폰 no 저장 -----------------
+    
+    // 쿠폰 선택 취소
+    $('.text-wrapper-17').click(function() {
+      $('.coupon').removeClass('selected');
+    });
+
+    //-------[hover]-------------------------------------------------------------------------------------------
+
+    let checkPay = null;
+    let checkCoupon = null;
+
+    $('.coupon-pay').hover(function() {
+              // 마우스가 올라갔을 때
+              $(this).css('background-color', '#C0C0C0');
+            },
+            function() {
+              // 마우스가 벗어났을 때
+              $(this).css('background-color', '#FFFFFF');
+            }
+    );
+
+    $('.coupon').hover(function() {
+              // 마우스가 올라갔을 때
+              $(this).css('background-color', '#C0C0C0');
+            },
+            function() {
+              // 마우스가 벗어났을 때
+              $(this).css('background-color', '#FFFFFF');
+            }
+    );
+    //쿠폰, 포인트 적용창 닫기 버튼
+    $('.text-wrapper-14').click(function(){
+      $('#coupon-frame').hide();
+    });
+
+    //맨 처음 닫힌 상태
+    $('#coupon-frame').hide();
+
+    //'쿠폰' 버튼 눌렀을 때 쿠폰 적용 창 열림 //호버 있으면 좋겠다
+    $('.coupon-pay').click(function(){
+      $('#coupon-frame').show();
+    });
+
+    var selectedButton = null;
+
+    /* $('#kakaopay-bt, #naverpay-bt').click(function(){
+        if (selectedButton !== null) {
+            selectedButton.removeClass('selected');
+        }
+        $(this).addClass('selected');
+        selectedButton = $(this);
+    });
+
+    $('#naverpay-bt').click(function() {
+            // 마우스가 올라갔을 때
+            $(this).css('background-color', '#C0C0C0');
+    }); */
+
+
+    /*============= 간편 결제 호버 ======= */
+    $('#kakaopay-bt').hover(function() {
+      if (!$(this).hasClass('c')) { //선택되지 않았다면
+        $(this).css('background-color', '#C0C0C0');
       }
+    }, function() {
+      if (!$(this).hasClass('c')) {
+        $(this).css('background-color', '#ffffff');
+      }
+    }).click(function() {
+      if ($(this).hasClass('c')) {
+        $(this).removeClass('c').css('background-color', '#ffffff');
+        selectedPay = '';
+      } else {
+        $(this).addClass('c').css('background-color', '#C0C0C0');
+        $('#card-bt').removeClass('c').css('background-color', '#ffffff');
+        selectedPay = 'kakaopay';
+      }
+    });
 
-
+    $('#card-bt').hover(function() {
+      if (!$(this).hasClass('c')) {
+        $(this).css('background-color', '#C0C0C0');
+      }
+    }, function() {
+      if (!$(this).hasClass('c')) {
+        $(this).css('background-color', '#ffffff');
+      }
+    }).click(function() {
+      if ($(this).hasClass('c')) {
+        $(this).removeClass('c').css('background-color', '#ffffff');
+        selectedPay = '';
+      } else {
+        $(this).addClass('c').css('background-color', '#C0C0C0');
+        $('#kakaopay-bt').removeClass('c').css('background-color', '#ffffff');
+        selectedPay = 'kcp';
+      }
     });
   });
 
@@ -310,6 +443,7 @@
 
     input_info('date', '${param.date }');
     input_info('time', ' ${param.time }');
+    input_info('payContent', ' ${payContent }');
 
     var saleprice = $('#Discount').val()
     input_info('saleprice', saleprice);
@@ -320,135 +454,7 @@
     form.submit();
   }
 
-  //----------------- 쿠폰 선택 시 금액 바꾸고 쿠폰 no 저장 -----------------
-  $('.coupon').on('click', function() {
-    let clickedElement = $(this);
-    let couponIndex = clickedElement.attr('id');
-    let discountPercent = parseFloat($('#form' + couponIndex).val());
-    let cp_no = $('#couponform' + couponIndex).val();
-    console.log(cp_no);
-
-    console.log(discountPercent);
-
-    // 할인된 가격 계산
-    let discountedPrice = originalPrice * (1 - (discountPercent / 100));
-    finalPrice = discountedPrice;
-
-    //finalPrice = discountedPrice.toFixed(2); // 소수점 두 자리까지 표시
-
-    // 표시되는 가격 업데이트
-    $('.dis-price').text(originalPrice - finalPrice);
-    $('.total-price').text(finalPrice);
-
-    // 서버 측 처리를 위한 숨겨진 폼 필드 업데이트 (선택 사항)
-
-    $('#Discount').val(originalPrice - finalPrice);
-    $('#FinalPrice').val(finalPrice);
-    $('#coupon_id').val(cp_no);
-
-    // 선택된 쿠폰에 대한 시각적 피드백 적용 (선택 사항)
-    $('.coupon').removeClass('selected');
-    clickedElement.addClass('selected');
-
-    $('#coupon-frame').hide();
-  });
-
-  // 쿠폰 선택 취소
-  $('.text-wrapper-17').click(function() {
-    $('.coupon').removeClass('selected');
-  });
-
-  //-------[hover]-------------------------------------------------------------------------------------------
-
-  let checkPay = null;
-  let checkCoupon = null;
-
-  $('.coupon-pay').hover(function() {
-            // 마우스가 올라갔을 때
-            $(this).css('background-color', '#C0C0C0');
-          },
-          function() {
-            // 마우스가 벗어났을 때
-            $(this).css('background-color', '#FFFFFF');
-          }
-  );
-
-  $('.coupon').hover(function() {
-            // 마우스가 올라갔을 때
-            $(this).css('background-color', '#C0C0C0');
-          },
-          function() {
-            // 마우스가 벗어났을 때
-            $(this).css('background-color', '#FFFFFF');
-          }
-  );
-  //쿠폰, 포인트 적용창 닫기 버튼
-  $('.text-wrapper-14').click(function(){
-    $('#coupon-frame').hide();
-  });
-
-  //맨 처음 닫힌 상태
-  $('#coupon-frame').hide();
-
-  //'쿠폰' 버튼 눌렀을 때 쿠폰 적용 창 열림 //호버 있으면 좋겠다
-  $('.coupon-pay').click(function(){
-    $('#coupon-frame').show();
-  });
-
-  var selectedButton = null;
-
-  /* $('#kakaopay-bt, #naverpay-bt').click(function(){
-      if (selectedButton !== null) {
-          selectedButton.removeClass('selected');
-      }
-      $(this).addClass('selected');
-      selectedButton = $(this);
-  });
-
-  $('#naverpay-bt').click(function() {
-          // 마우스가 올라갔을 때
-          $(this).css('background-color', '#C0C0C0');
-  }); */
-
-
-  /*============= 간편 결제 호버 ======= */
-  $('#kakaopay-bt').hover(function() {
-    if (!$(this).hasClass('c')) { //선택되지 않았다면
-      $(this).css('background-color', '#C0C0C0');
-    }
-  }, function() {
-    if (!$(this).hasClass('c')) {
-      $(this).css('background-color', '#ffffff');
-    }
-  }).click(function() {
-    if ($(this).hasClass('c')) {
-      $(this).removeClass('c').css('background-color', '#ffffff');
-      selectedPay = '';
-    } else {
-      $(this).addClass('c').css('background-color', '#C0C0C0');
-      $('#card-bt').removeClass('c').css('background-color', '#ffffff');
-      selectedPay = 'kakaopay';
-    }
-  });
-
-  $('#card-bt').hover(function() {
-    if (!$(this).hasClass('c')) {
-      $(this).css('background-color', '#C0C0C0');
-    }
-  }, function() {
-    if (!$(this).hasClass('c')) {
-      $(this).css('background-color', '#ffffff');
-    }
-  }).click(function() {
-    if ($(this).hasClass('c')) {
-      $(this).removeClass('c').css('background-color', '#ffffff');
-      selectedPay = '';
-    } else {
-      $(this).addClass('c').css('background-color', '#C0C0C0');
-      $('#kakaopay-bt').removeClass('c').css('background-color', '#ffffff');
-      selectedPay = 'kcp';
-    }
-  });
+  
 
 </script>
 

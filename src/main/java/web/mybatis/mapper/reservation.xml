@@ -45,7 +45,7 @@
 	
 	<update id="cancelReservation" parameterType="String">
 		UPDATE reservation
-		SET rs_status = 1
+		SET rs_status = 1, rs_cancel_time = now()
 		WHERE rs_num = ${rs_num} AND rs_status = 0;
 	</update>
 	
@@ -74,6 +74,7 @@
 		FROM reservation r
 		JOIN screening_schedule s ON r.ss_code = s.ss_code
 		WHERE r.rsvr_code = #{rsvr_code} AND r.rs_status=1
+		 ORDER BY r.rs_cancel_time DESC
 	</select>
 
 </mapper>

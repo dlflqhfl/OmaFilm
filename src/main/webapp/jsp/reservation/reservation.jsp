@@ -490,7 +490,7 @@
 
             let totalCount = adultCount + "/" + teenCount + "/" + oldCount;
 			console.log(totalCount)
-            $("#totalCount").val(totalCount)
+            $("#totalCount").val(totalCount);
             $("#checkSeat").val(seats);
 
             $("#goPayment").submit();

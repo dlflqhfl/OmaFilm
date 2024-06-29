@@ -22,7 +22,7 @@ public class PaymentDAO {
 	//회원 객체를 넣어 보유 쿠폰 리스트 가져오는 함수
 	public static IssuedCouponVO[] getCouponArr(MemberVO mvo) {
 		SqlSession ss = FactoryService.getFactory().openSession();
-		List<IssuedCouponVO> list = ss.selectList("issuedCoupon.getCouponArr", mvo.getU_code());
+		List<IssuedCouponVO> list = ss.selectList("issuedCoupon.getUsableCoupon", mvo.getU_code());
 		IssuedCouponVO[] cvo = new IssuedCouponVO[list.size()];
 		list.toArray(cvo);
 		ss.close();

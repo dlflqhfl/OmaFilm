@@ -136,7 +136,7 @@
             <div class="total-price">${param.p_tt_price }</div>
             <div class="text-wrapper-7">예매번호 ${rs_num }</div>
             <div class="text-wrapper-8">
-              ${payContent }??????
+              ${param.payContent }??????
             </div>
           </div>
         </div>

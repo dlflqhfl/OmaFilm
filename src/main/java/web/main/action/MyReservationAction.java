@@ -27,13 +27,11 @@ public class MyReservationAction implements Action {
 		String searchKey = request.getParameter("searchKey");
 		if(searchKey!=null && searchKey.trim().length()<1) {
 			searchKey=null;
-			System.out.println("searchKey:"+searchKey);
 		}
 			
 		String selectedMonth = request.getParameter("selectedMonth");
 		if(selectedMonth!=null && selectedMonth.length()<1) {
 			selectedMonth=null;
-			System.out.println("selectedMonth:"+selectedMonth);
 		}
 		
 		String cancelMonth = request.getParameter("cancelMonth");

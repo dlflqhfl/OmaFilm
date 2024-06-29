@@ -523,6 +523,7 @@
   letter-spacing: -0.36px;
   line-height: 16.5px;
   white-space: nowrap;
+  text-align: left;
 }
 
 .div .people-num {

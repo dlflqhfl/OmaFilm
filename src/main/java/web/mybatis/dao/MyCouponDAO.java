@@ -27,7 +27,7 @@ public class MyCouponDAO {
 	public static IssuedCouponVO[] getUsableCoupon(MemberVO mvo) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		
-		List<IssuedCouponVO> list = ss.selectList("issuedCoupon.getCouponArr", mvo.getU_code());
+		List<IssuedCouponVO> list = ss.selectList("issuedCoupon.getUsableCoupon", mvo.getU_code());
 		
 		IssuedCouponVO[] cvo = new IssuedCouponVO[list.size()];
 		
