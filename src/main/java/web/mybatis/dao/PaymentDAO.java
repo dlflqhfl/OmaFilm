@@ -205,5 +205,13 @@ public class PaymentDAO {
 		ss.close();
 
 	}
+	//쿠폰 코드를 받아서 쿠폰 내용 가져오는 함수
+	public static String getCouponContent(int cp_no) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		String content = ss.selectOne("issuedCoupon.getCouponContent", cp_no);
+		ss.close();
+		return content;
+	}
+	
 
 }

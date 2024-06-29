@@ -820,10 +820,10 @@
 }
 
 .div .dis-price {
-  width: 11px;
+  width: 70px;
   height: 15px;
   top: 258px;
-  left: 359px;
+  left: 296px;
   position: absolute;
   font-family: "Noto Sans KR", Helvetica;
   font-weight: 500;
@@ -832,6 +832,7 @@
   letter-spacing: -0.36px;
   line-height: 16.5px;
   white-space: nowrap;
+  text-align: right;
 }
 
 .div .total-price {
@@ -874,4 +875,18 @@
   font-size: 10px;
   letter-spacing: -0.36px;
   line-height: 16.5px;
+}
+
+.div .text-wrapper-9 {
+  position: absolute;
+  width: 122px;
+  top: 287px;
+  left: 250px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 10px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  text-align: center;
 }
