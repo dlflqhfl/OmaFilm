@@ -1,7 +1,16 @@
+<%@page import="web.mybatis.vo.SelectSeatVO"%>
+<%@page import="web.mybatis.vo.ScreeningScheduleVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%
+	Object obj = request.getAttribute("svo");
+	SelectSeatVO[] svo = null;
+	if( obj != null){
+		svo = (SelectSeatVO[])obj;
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -324,198 +333,218 @@
         crossorigin="anonymous"></script>
 <script type="text/javascript">
 
-    let text = '<%= request.getParameter("text") %>';
-    let movieName = '<%= request.getParameter("movieName") %>';
-    let time = '<%= request.getParameter("time") %>';
-    let date = '<%= request.getParameter("date") %>';
+	let text = '<%= request.getParameter("text") %>';
+	let movieName = '<%= request.getParameter("movieName") %>';
+	let time = '<%= request.getParameter("time") %>';
+	let date = '<%= request.getParameter("date") %>';
 	
+	function hoverEvent() {
+	    $('.rectangle').not('[style*="background-color: black"]').hover(
+	        function() {
+	            // 마우스가 올라갔을 때
+	            $(this).css('background-color', '#2CC7E9');
+	        },
+	        function() {
+	            if (!checkSeat.has($(this).attr("value"))) {
+	                $(this).css('background-color', '#999999');
+	            }
+	        }
+	    );
+	}
 
-    // 콘솔창에 출력
-    
-    console.log(text)
-    console.log(movieName)
-    console.log(time)
-    console.log(date)
-
-    let adult = parseInt($("#adult").text());
-    let teen = parseInt($("#teen").text());
-    let old = parseInt($("#old").text());
-
-    let checkSeat = new Set();
-    let num = 0;
-    
-    //중복좌석
-    
-    //좌석선택
-    $(".rectangle").click(function () {
-
-        let length = adult + teen + old;
-        if (length > 0) {
-            let value = $(this).attr("value")
-            if (checkSeat.has(value)) {
-                alert("이미 선택한 좌석입니다")
-            } else {
-                checkSeat.add(value)
-                clickSeat()
-                console.log(value)
-                num++;
-                $(this).css('background-color', '#2CC7E9');
-            }
-        } else {
-            alert("인원을먼저 선택해줭~~")
-        }
-
-        if (length == (num - 1)) {
-            checkClick(num)
-        }
-    })
-
-    $('.rectangle').hover(function () {
-            // 마우스가 올라갔을 때
-            $(this).css('background-color', '#2CC7E9');
-        },
-        function () {
-            if (!checkSeat.has($(this).attr("value"))) {
-                $(this).css('background-color', '#999999');
-            }
-        }
-    );
-
-    //성인관객 수 +
-    $(".aPlus").click(function () {
-        if (adult < 8) {
-            adult = parseInt(adult) + 1;
-            $("#adult").text(adult);
-            updatePrice()
-        } else {
-            alert("최대 8명까지 가능합니다");
-        }
-
-    })
-
-    //성인관객 수 -
-    $(".aMinus").click(function () {
-        adult = adult - 1;
-        if (adult < 0) {
-            alert("0보다 작을 수 없습니다.");
-        } else {
-            $("#adult").text(adult);
-            updatePrice()
-        }
+	
+	//이미 예매된 좌석
+	let noSeat;
+    let selectedSeat = [];
+    <% if (svo != null) {
+        for (int i = 0; i < svo.length; i++) {
+            SelectSeatVO ss = svo[i]; 
+            String sr =  ss.getS_code();
+            String trimSeat = sr.substring(1);%>
+            selectedSeat.push("<%=trimSeat%>");
+    <% }
+    } %>
+    console.log(selectedSeat)
+    // 예매된 좌석에 대해 처리
+    selectedSeat.forEach(function(seatCode) {
+        let seatElement = $(".rectangle[value='" + seatCode + "']");
+        seatElement.css("background-color", "black");
+        seatElement.click(function(){
+        	alert("이미 예매된 좌석입니다.")
+        })
+        
     });
+    
+    console.log()
+	console.log(text)
+	console.log(movieName)
+	console.log(time)
 
-    //청소년관객 수 +
-    $(".tPlus").click(function () {
-        if (teen < 8) {
-            teen = parseInt(teen) + 1;
-            let res = $("#teen").text(teen);
-            updatePrice()
-        } else {
-            alert("최대 8명까지 가능합니다")
-        }
-    })
+	let adult = parseInt($("#adult").text());
+	let teen = parseInt($("#teen").text());
+	let old = parseInt($("#old").text());
+	let checkSeat = new Set();
+	let seatArray = [];
+	let seats = "";
+	let num = 0;
+	//좌석선택
+	 $('.rectangle').not('[style*="background-color: black"]').click(function(){
+		let length = adult + teen + old;
+		if(length > 0){
+			let value = $(this).attr("value")
+			if( checkSeat.has(value)){
+				alert("이미 선택한 좌석입니다")
+			} else {
+				hoverEvent()
+				checkSeat.add(value)
+				clickSeat()
+				console.log(value)
+				num++;
+				$(this).css('background-color', '#2CC7E9');
+			}
+		} else {
+			alert("인원을먼저 선택해줭~~")
+		}
 
-    //청소년관객 수 -
-    $(".tMinus").click(function () {
-        teen = teen - 1;
-        if (teen < 0) {
-            alert("0보다 작을 수 없습니다.");
-        } else {
-            $("#teen").text(teen);
-            updatePrice()
-        }
-    });
+		if( length == (num-1)){
+			checkClick(num)
+		}
+	})
+	
+	//성인관객 수 +
+	$(".aPlus").click(function(){
+		if( adult < 8){
+		adult = parseInt(adult) + 1;
+		$("#adult").text(adult);
+		updatePrice()
+		} else{
+			alert("최대 8명까지 가능합니다");
+		}
 
-    //경로관객 수 +
-    $(".oPlus").click(function () {
-        if (old < 8) {
-            old = parseInt(old) + 1;
-            $("#old").text(old);
-            updatePrice()
-        } else {
-            alert("최대 8명까지 가능합니다")
-        }
-    })
+	})
 
-    //경로관객 수 -
-    $(".oMinus").click(function () {
-        old = old - 1;
-        if (old < 0) {
-            alert("0보다 작을 수 없습니다.");
-        } else {
-            $("#old").text(old);
-            updatePrice()
-        }
-    });
+	//성인관객 수 -
+	$(".aMinus").click(function(){
+		adult = adult - 1;
+	    if(adult < 0){
+	        alert("0보다 작을 수 없습니다.");
+	    } else {
+	        $("#adult").text(adult);
+	        updatePrice()
+	    }
+	});
 
-    function checkClick(num) {
-        $(".text-wrapper-9").off("click");
+	//청소년관객 수 +
+	$(".tPlus").click(function(){
+		if( teen < 8){
+			teen = parseInt(teen) + 1;
+			let res = $("#teen").text(teen);
+			updatePrice()
+		} else{
+			alert("최대 8명까지 가능합니다")
+		}
+	})
 
-        if (num != null) {
+	//청소년관객 수 -
+	$(".tMinus").click(function(){
+		teen = teen - 1;
+	    if(teen < 0){
+	        alert("0보다 작을 수 없습니다.");
+	    } else {
+	        $("#teen").text(teen);
+	        updatePrice()
+	    }
+	});
 
-            alert("최대" + (num - 1) + "까지 선택할 수 있습니당")
-            location.reload()
-        }
+	//경로관객 수 +
+	$(".oPlus").click(function(){
+		if( old < 8){
+			old = parseInt(old) + 1;
+			$("#old").text(old);
+			updatePrice()
+		} else {
+			alert("최대 8명까지 가능합니다")
+		}
+	})
 
-    }
+	//경로관객 수 -
+	$(".oMinus").click(function(){
+	    old = old - 1;
+	    if(old < 0){
+	        alert("0보다 작을 수 없습니다.");
+	    } else {
+	        $("#old").text(old);
+	        updatePrice()
+	    }
+	});
 
-    function updatePrice() {
-        let totalPrice = (adult * 13000) + (teen * 10000) + (old * 8000);
-        $(".total-price-text").text(totalPrice)
-        $("#totalPrice").val(totalPrice); // hidden input 필드 값 업데이트
-        console.log(totalPrice)
-    }
+	function checkClick(num){
+		$(".text-wrapper-9").off("click");
+
+		if( num != null){
+
+			alert("최대"+(num-1) +"까지 선택할 수 있습니당")
+			location.reload()
+	   }
+
+	}
+
+	function updatePrice(){
+		let totalPrice = (adult * 13000) + (teen * 10000) + (old * 8000);
+		$(".total-price-text").text(totalPrice)
+		$("#totalPrice").val(totalPrice); // hidden input 필드 값 업데이트
+		console.log(totalPrice)
+	}
 
     // 선택된 좌석 업데이트 함수
     function clickSeat() {
         seatArray = Array.from(checkSeat); // Set을 배열로 변환
         seats = seatArray.join(","); // 좌석 배열을 쉼표로 구분된 문자열로 변환
         console.log("Selected seats: " + seats); // 선택된 좌석 확인용 로그
-        console.log(seats);
     }
 
 
-    //결제하기로 넘기기
-    $(".pay-button").click(function () {
-        let result = confirm("선택하신 상영관은 " + text + " 영화제목은 " + movieName + "날짜" + date + " 예매 시간 " + time + " 선택좌석은 " + seats + " 입니다 예매하시겠습니까?")
-        if (result) {
+	//결제하기로 넘기기
+	$(".pay-button").click(function(){
+		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?")
+		if( result ){
 
-            let adult = $("#adult").text();
-            let teen = $("#teen").text();
-            let old = $("#old").text();
+			let adult = $("#adult").text();
+			let teen = $("#teen").text();
+			let old = $("#old").text();
 
-            let adultCount = "성인:" + adult;
-            let teenCount = "청소년:" + teen;
-            let oldCount = "경로:" + old;
+			let adultCount = "성인:" + adult;
+			let teenCount = "청소년:" + teen;
+			let oldCount = "경로:" + old;
 
-            let totalCount = adultCount + "/" + teenCount + "/" + oldCount;
-			console.log(totalCount)
-            $("#totalCount").val(totalCount);
-            $("#checkSeat").val(seats);
+			let totalCount = adultCount+ "/" + teenCount+"/" + oldCount;
+			console.log()
+			$("#totalCount").val(totalCount)
+			$("#checkSeat").val(seats);
 
-            $("#goPayment").submit();
-        } else {
-            location.reload()
-        }
-    })
+       	 	$("#goPayment").submit();
+		} else {
+			location.reload()
+		}
+	})
 
-    (".a").click(function () {
+	$(".a").click(function(){
 
-        window.location.href = "Controller?type=selectTime";
-    })
+		window.location.href = "Controller?type=selectTime";
+	})
 
-    $('.a').hover(
-        function () {
-            // 마우스가 올라갔을 때
-            $(this).css('background-color', '#3D4D55');
-            $(".text").css('color', 'white');
-        },
-        function () {
-            // 마우스가 내려갔을 때
-            $(this).css('background-color', 'white');
-            $(".text").css('color', '#666666'); // 원래 색상으로 되돌리기
-        }
-    );
+	$('.a').hover(
+	    function() {
+	        // 마우스가 올라갔을 때
+	        $(this).css('background-color', '#3D4D55');
+	        $(".text").css('color', 'white');
+	    },
+	    function() {
+	        // 마우스가 내려갔을 때
+	        $(this).css('background-color', 'white');
+	        $(".text").css('color', '#666666'); // 원래 색상으로 되돌리기
+	    }
+	);
 </script>
 </body>
 </html>

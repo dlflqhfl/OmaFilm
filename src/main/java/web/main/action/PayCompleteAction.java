@@ -71,6 +71,7 @@ public class PayCompleteAction implements Action {
 			Map<String, String> map = new HashMap<>();
 			String ss_code = request.getParameter("ss_code");
 			String rs_count = request.getParameter("rs_count");
+			System.out.println("좌석번호"+ ss_code);
 
 			map.put("rsvr_code", String.valueOf(rsvr_code));
 			map.put("p_code", String.valueOf(p_code));
