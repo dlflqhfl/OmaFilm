@@ -39,34 +39,12 @@
         VALUES(#{movieCd}, #{ss_time}, #{ss_date}, #{t_name})
     </insert>
 
-    <select id="count" resultType="int">
-        SELECT COUNT(*)
-        FROM movie_list
-    </select>
-
 	<select id="searchMovie" parameterType="String" resultType="web.mybatis.vo.MovieListVO">
 		SELECT *
 		FROM movie_list
 		WHERE movieNm LIKE CONCAT('%', #{movieNm}, '%')
 	</select>
 	
-	 <insert id="insertMovie" parameterType="web.mybatis.vo.MovieListVO">
-		INSERT INTO movie_list(movieCd, movieNm,movieNmEn,prdtYear,showTm,openDt,typeNm,
-		nationNm,genreNm,directors,peopleNm,peopleNmEn,actors,cast,castEn,showTypeGroupNm,
-		showTypeNm,watchGradeNm,m_plot)
-		VALUES(#{movieCd}, #{movieNm},#{movieNmEn},#{prdtYear},#{showTm},#{openDt},#{typeNm},
-		#{nationNm},#{genreNm},#{directors},#{peopleNm},#{peopleNmEn},#{actors},#{cast},#{castEn},#{showTypeGroupNm},
-		#{showTypeNm},#{watchGradeNm},#{m_plot} ) 
-	</insert>
-	
-	<select id="selectMovie" resultType="web.mybatis.vo.MovieListVO">
-		SELECT * FROM movie_list
-	</select>
-	
-	<insert id="insertScreen" parameterType="web.mybatis.vo.ScreeningScheduleVO">
-		INSERT INTO screening_schedule(movieCd, ss_time, ss_date, t_name)
-		VALUES(#{movieCd}, #{ss_time}, #{ss_date}, #{t_name})
-	</insert>
 	
 	<!--  전체 영화 수  -->
 	<select id="count" resultType="int"> 
@@ -192,8 +170,5 @@
 	    ) c
 	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
 	</select>
-
-	
-	
 
 </mapper>

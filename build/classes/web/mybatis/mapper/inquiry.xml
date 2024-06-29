@@ -13,6 +13,7 @@
         </where>
     </select>
 
+
     <select id="search" parameterType="string" resultType="web.mybatis.vo.InquiryVO">
         SELECT * FROM inquiry
         <where>
