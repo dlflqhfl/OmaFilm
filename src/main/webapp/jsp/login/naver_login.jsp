@@ -19,7 +19,7 @@
 <div id="naver_id_login"></div>
 <!-- //네이버 로그인 버튼 노출 영역 -->
 <script type="text/javascript">
-    var naver_id_login = new naver_id_login("prTymuieNCdwFguuzeIa", "${pageContext.request.contextPath}/jsp/login/callback.jsp");
+    var naver_id_login = new naver_id_login("prTymuieNCdwFguuzeIa", "/jsp/login/callback.jsp");
     var state = naver_id_login.getUniqState();
     naver_id_login.setButton("white", 2,40);
     naver_id_login.setDomain("http://localhost:9090/jsp/login/naver_login.jsp");
