@@ -1,5 +1,14 @@
+<%@page import="web.mybatis.vo.SelectSeatVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	Object obj = request.getAttribute("svo");
+	SelectSeatVO[] svo = null;
+	if( obj != null){
+		svo = (SelectSeatVO[])obj;
+	}
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -210,7 +219,6 @@
           </div>
           <div class="seat-background"><div class="select-seat-text">인원 / 좌석 선택</div></div>
         </div>
-
         <form id="goPayment" action="Controller?type=payment" method="post">
         	<input type="hidden" id="movieName" name="movieName" value="${param.movieName }">
         	<input type="hidden" id="text" name="text" value="${param.text }">
@@ -220,7 +228,6 @@
         	<input type="hidden" id="date" name="date" value="${param.date }">
         	<input type="hidden" id="totalPrice" name="totalPrice" value="">
         </form>
-
       </div>
     </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -232,7 +239,45 @@
 	let movieName = '<%= request.getParameter("movieName") %>';
 	let time = '<%= request.getParameter("time") %>';
 	let date = '<%= request.getParameter("date") %>';
+	
+	function hoverEvent() {
+	    $('.rectangle').not('[style*="background-color: black"]').hover(
+	        function() {
+	            // 마우스가 올라갔을 때
+	            $(this).css('background-color', '#2CC7E9');
+	        },
+	        function() {
+	            if (!checkSeat.has($(this).attr("value"))) {
+	                $(this).css('background-color', '#999999');
+	            }
+	        }
+	    );
+	}
 
+	
+	//이미 예매된 좌석
+	let noSeat;
+    let selectedSeat = [];
+    <% if (svo != null) {
+        for (int i = 0; i < svo.length; i++) {
+            SelectSeatVO ss = svo[i]; 
+            String sr =  ss.getS_code();
+            String trimSeat = sr.substring(1);%>
+            selectedSeat.push("<%=trimSeat%>");
+    <% }
+    } %>
+    console.log(selectedSeat)
+    // 예매된 좌석에 대해 처리
+    selectedSeat.forEach(function(seatCode) {
+        let seatElement = $(".rectangle[value='" + seatCode + "']");
+        seatElement.css("background-color", "black");
+        seatElement.click(function(){
+        	alert("이미 예매된 좌석입니다.")
+        })
+        
+    });
+    
+    console.log()
 	console.log(text)
 	console.log(movieName)
 	console.log(time)
@@ -245,13 +290,14 @@
 	let seats = "";
 	let num = 0;
 	//좌석선택
-	$(".rectangle").click(function(){
+	 $('.rectangle').not('[style*="background-color: black"]').click(function(){
 		let length = adult + teen + old;
 		if(length > 0){
 			let value = $(this).attr("value")
 			if( checkSeat.has(value)){
 				alert("이미 선택한 좌석입니다")
 			} else {
+				hoverEvent()
 				checkSeat.add(value)
 				clickSeat()
 				console.log(value)
@@ -266,18 +312,7 @@
 			checkClick(num)
 		}
 	})
-
-	$('.rectangle').hover(function() {
-        // 마우스가 올라갔을 때
-        $(this).css('background-color', '#2CC7E9');
-        },
-        function() {
-            if (!checkSeat.has($(this).attr("value"))) {
-                $(this).css('background-color', '#999999');
-            }
-        }
-	);
-
+	
 	//성인관객 수 +
 	$(".aPlus").click(function(){
 		if( adult < 8){
@@ -377,15 +412,15 @@
 		if( result ){
 
 			let adult = $("#adult").text();
-			let teen = $("#adult").text();
-			let old = $("#adult").text();
+			let teen = $("#teen").text();
+			let old = $("#old").text();
 
 			let adultCount = "성인:" + adult;
 			let teenCount = "청소년:" + teen;
 			let oldCount = "경로:" + old;
 
 			let totalCount = adultCount+"/" + teenCount+"/" + oldCount;
-
+			console.log()
 			$("#totalCount").val(totalCount)
 			$("#checkSeat").val(seats);
 

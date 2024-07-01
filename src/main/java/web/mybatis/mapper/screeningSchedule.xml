@@ -27,4 +27,13 @@
         select * from screening_schedule
         where ss_code = #{ss_code}
     </select>
+    
+    <select id="selectReservationInfo" parameterType="web.mybatis.vo.ScreeningScheduleVO" resultType="web.mybatis.vo.ScreeningScheduleVO">
+    	SELECT * FROM screening_schedule
+    	<where>
+    		AND t_name = #{t_name}
+    		AND ss_time = #{ss_time}
+    	</where>
+    </select>
+    
 </mapper>

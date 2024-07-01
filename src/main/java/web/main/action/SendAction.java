@@ -16,8 +16,8 @@ public class SendAction implements Action {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        //이메일을 보내기 전에 이메일이 중복되는지 확인
-        //이메일이 중복되면 이메일을 보내지 않고, return을 돌려서 경고창 띄움
+        //ajax틑 통해 받은 email을 가지고 smtp라이브러리르 활용하여 이메일 인증 구현
+
         String email = request.getParameter("email");
         System.out.println("email : " + email);
 
