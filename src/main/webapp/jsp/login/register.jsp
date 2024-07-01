@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -21,19 +22,35 @@
 
     window.onload = function () {
         <%
-            String id = (String) session.getAttribute("token") + (String) session.getAttribute("social_id");
+            String id = (String) session.getAttribute("social_id");
             String name = (String) session.getAttribute("social_name");
             String email = (String) session.getAttribute("social_email");
+            String birth_year = (String) request.getAttribute("birth_year");
+            String birth_month = (String) request.getAttribute("birth_month");
+            String birth_day = (String) request.getAttribute("birth_day");
+            String mobile = (String) request.getAttribute("mobile");
+            System.out.println(id);
+            System.out.println(name);
+            System.out.println(email);
+            System.out.println(birth_year);
+            System.out.println(birth_month);
+            System.out.println(birth_day);
+            System.out.println(mobile);
         %>
 
         var id= "<%=id%>";
         var name = "<%=name%>";
         var email = "<%=email%>";
+        var birth_year = "<%=birth_year%>";
+        var birth_month = "<%=birth_month%>";
+        var birth_day = "<%=birth_day%>";
+        var mobile = "<%=mobile%>";
+
 
         console.log(id);
         console.log(name);
         console.log(email);
-        
+
         //아이디 이름 이메일이 존재하고 널이 아닐떄만 뜨는 함수
         if (id && name && email && id != "null" && name != "null" && email != "null") {
             $('#id').val(id).prop('readonly', true);
@@ -58,6 +75,24 @@
             $('#email_1').css('background-color', '#f0f0f0');
             $('#email_2').css('background-color', '#f0f0f0');
             $('#email_3').css('background-color', '#f0f0f0');
+            $('#id_check').hide();
+        }
+
+        if (birth_year && birth_month && birth_day && birth_year != "null" && birth_month != "null" && birth_day != "null") {
+            $('#year').val(birth_year).prop('disabled', true);
+            $('#month').val(birth_month).prop('disabled', true);
+            $('#day').val(birth_day).prop('disabled', true);
+            mobile = mobile.split('-');
+            $('#phone_1').val(mobile[0]).prop('readonly', true);
+            $('#phone_2').val(mobile[1]).prop('readonly', true);
+            $('#phone_3').val(mobile[2]).prop('readonly', true);
+
+            $('#phone_1').css('background-color', '#f0f0f0');
+            $('#phone_2').css('background-color', '#f0f0f0');
+            $('#phone_3').css('background-color', '#f0f0f0');
+            $('#year').css('background-color', '#f0f0f0');
+            $('#month').css('background-color', '#f0f0f0');
+            $('#day').css('background-color', '#f0f0f0');
         }
     };
 </script>
@@ -92,23 +127,14 @@
                                     </select>
                                     <select class="frame-3" id="month" name="month">
                                         <option>::월::</option>
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                        <option>05</option>
-                                        <option>06</option>
-                                        <option>07</option>
-                                        <option>08</option>
-                                        <option>09</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
+                                        <c:forEach var="i" end="12" begin="1">
+                                            <option><fmt:formatNumber value="${i}" pattern="00"/></option>
+                                        </c:forEach>
                                     </select>
                                     <select class="frame-4" id="day" name="day">
                                         <option>::일::</option>
                                         <c:forEach var="i" begin="1" end="31">
-                                            <option>${i}</option>
+                                            <option><fmt:formatNumber value="${i}" pattern="00"/></option>
                                         </c:forEach>
                                     </select>
                                     <div class="text-wrapper-7">년</div>
@@ -226,7 +252,7 @@
                     </div>
                     <button type="button" class="button" id="submit" name="submit" onclick="regist()">가입</button>
                     <button type="button" class="button-2">
-                        <div class="text-wrapper-25">취소</div>
+                        <div class="text-wrapper-25"><a href="${pageContext.request.contextPath}/Controller">취소</a></div>
                     </button>
                 </div>
             </div>
@@ -255,17 +281,24 @@
             return;
         }
 
+
         // jQuery AJAX를 사용하여 서버에 이메일을 보냅니다.
         $.ajax({
             type: "POST",
             url: "${pageContext.request.contextPath}/Controller?type=send",
             data: {email: email},
-            success: function () {
-                alert("이메일이 성공적으로 전송되었습니다.");
+            success: function (data) {
+                data = data.trim();
+                if (data === "0") {
+                    alert("이메일이 성공적으로 전송되었습니다.");
 
-                setTimeout(function () {
-                    alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
-                }, 3 * 60 * 1000);
+                    setTimeout(function () {
+                        alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
+                    }, 3 * 60 * 1000);
+                }else if (data === "1") {
+                    alert("가입된 이메일입니다.");
+                    location.href = "${pageContext.request.contextPath}/jsp/login/login_1.jsp";
+                }
             }
         });
     }
@@ -405,28 +438,13 @@
         var u_social = "0";
         //session에 name과 id 토큰 이메일이 있을 때 u_social을 1로 바꿔준다.
         <%
-            if (session.getAttribute("token") != null && session.getAttribute("social_id") != null && session.getAttribute("social_name") != null && session.getAttribute("social_email") != null) {
+            if (session.getAttribute("social_id") != null && session.getAttribute("social_name") != null && session.getAttribute("social_email") != null) {
         %>
         u_social = "1";
         <%
             }
         %>
-        console.log(name);
-        console.log(year);
-        console.log(month);
-        console.log(day);
-        console.log(phone_1);
-        console.log(phone_2);
-        console.log(phone_3);
-        console.log(콜);
-        console.log(addr_1);
-        console.log(addr_2);
-        console.log(addr_num);
-        console.log(email_1);
-        console.log(email_2);
-        console.log(email_3);
 
-        console.log(u_social);
         var email = email_1 + '@' + email_2;
         if (email_2 == '직접입력') {
             email = email_1 + '@' + email_3;
@@ -444,6 +462,7 @@
         <%
             if (session.getAttribute("token") == null && session.getAttribute("social_id") == null && session.getAttribute("social_name") == null && session.getAttribute("social_email") == null) {
         %>
+
         if (id == "") {
             alert("아이디를 입력해주세요.");
             return;
@@ -537,7 +556,7 @@
                     //emailVerified를 삭제
                     sessionStorage.removeItem("emailVerified");
                     alert("회원가입이 완료되었습니다.");
-                    location.href = "/jsp/login/login_1.jsp";
+                    location.href = "${pageContext.request.contextPath}/jsp/login/login_1.jsp";
                 } else {
                     alert("회원가입에 실패하였습니다.");
                     //emailVerified를 삭제

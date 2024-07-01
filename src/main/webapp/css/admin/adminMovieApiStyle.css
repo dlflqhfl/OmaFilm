@@ -889,7 +889,7 @@
     border-collapse: collapse;
     font-family: "ABeeZee", Helvetica;
     position: absolute;
-    bottom: 663px;
+    bottom: 250px;
 }
 
 .DB table.movie-table th, .DB table.movie-table td {
@@ -907,7 +907,7 @@
 }
 
 /* 영화 제목 셀 최소 너비 설정 */
-.DB table.movie-table td:nth-child(3) { /* 영화 제목 셀은 두 번째 셀 */
+.DB table.movie-table td:nth-child(2) { /* 영화 제목 셀은 두 번째 셀 */
   min-width: 949px;
 }
 #searchForm {
