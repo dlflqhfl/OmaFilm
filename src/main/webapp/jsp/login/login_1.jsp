@@ -5,6 +5,9 @@
   Time: 오전 10:24
   To change this template use File | Settings | File Templates.
 --%>
+<%@page import="java.math.BigInteger"%>
+<%@page import="java.net.URLEncoder"%>
+<%@page import="java.security.SecureRandom"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -17,13 +20,14 @@
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
             charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>'
+    
 </head>
 <body>
 <%--/*네이버 로그인*/--%>
 <%
     String clientId = "prTymuieNCdwFguuzeIa";//애플리케이션 클라이언트 아이디값";
-    String redirectURI = URLEncoder.encode("http://localhost:9090/Omafilm/Controller?type=naver_login", "UTF-8");
+    String redirectURI = URLEncoder.encode("http://localhost:9090/OmaFilm/Controller?type=naver", "UTF-8");
     SecureRandom random = new SecureRandom();
     String state = new BigInteger(130, random).toString();
     String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
@@ -112,7 +116,7 @@
                         //만약 이 이메일과 연동된 db가 없으면 register.jsp로 이동
                         //만약 이 이메일과 연동된 db가 있으면 로그인 처리
                         $.ajax({
-                            url: "../../Controller?type=social_login",
+                            url: "${pageContext.request.contextPath}/Controller?type=kakao",
                             type: "post",
                             data: {
                                 id: id,
@@ -127,7 +131,7 @@
                                 if(data == 0){
                                     alert("가입하지 않은 이메일입니다")
                                     /*회원가입 페이지로 이동*/
-                                    window.location.href = "/jsp/login/register.jsp";
+                                    window.location.href = "${pageContext.request.contextPath}/jsp/login/register.jsp";
                                 }
                                 else if(data == 1){
                                     /*등록된 이메일 경고창*/
@@ -160,7 +164,7 @@
         console.log("네이버 로그인")
         var naverLogin = new naver.LoginWithNaverId({
             clientId: "prTymuieNCdwFguuzeIa",
-            callbackUrl: "http://localhost:9090/jsp/login/login_1.jsp",
+            callbackUrl: "http://localhost:9090/OmaFilm/jsp/login/login_1.jsp",
             isPopup: false,
             callbackHandle: true,
         });
