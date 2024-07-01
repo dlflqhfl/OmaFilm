@@ -39,18 +39,11 @@ public class MovieListDAO {
 		map.put("end", end);
 		if(movieNm != null)
 		map.put("movieNm", movieNm.trim());
-		System.out.println("DAO 출력");
-		System.out.println(begin);
-		System.out.println(end);
-		System.out.println(movieNm);
 		
 		List<MovieListVO> list = ss.selectList("movieList.list", map);
-		System.out.println("리스트 사이즈 출력"+list.size());
-		System.out.println(list);
 		
 		if(list != null && list.size() > 0) {
 			mar = new MovieListVO[list.size()];
-			System.out.println("MAR 길이"+mar.length);
 			list.toArray(mar); //list가 가지는 모든 요소들을 ar 배열에 복사
 		}
 		
