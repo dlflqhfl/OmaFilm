@@ -45,7 +45,6 @@ public class PayAction implements Action {
 		//상영 영화 코드, 상영관 코드, 날짜+시작 시간 -> 상영시간표VO(ssvo)->request 저장
 		ScreeningScheduleVO ssVO = PaymentDAO.getSsVO(movieVO.getMovieCd(), theaterVO.getT_name(),dateAndTime);
 		request.setAttribute("ssVO", ssVO);
-		System.out.println("ss_code 나와야함"+ ssVO);
 		/*
 		 * //선택 좌석 -> 상영관 좌석 VO list String[] seat = checkSeat.split(",");
 		 * TheaterSeatVO[] tsVO

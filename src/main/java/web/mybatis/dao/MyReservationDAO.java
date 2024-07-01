@@ -2,6 +2,7 @@ package web.mybatis.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import web.mybatis.service.FactoryService;
+import web.mybatis.vo.MovieListVO;
 import web.mybatis.vo.ReservationVO;
 import web.mybatis.vo.ReserverVO;
 
@@ -9,13 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.ibatis.session.SqlSession;
-
-import web.mybatis.service.FactoryService;
-import web.mybatis.vo.MovieListVO;
-import web.mybatis.vo.ReservationVO;
-import web.mybatis.vo.ReserverVO;
 
 public class MyReservationDAO {
 

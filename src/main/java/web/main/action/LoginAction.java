@@ -37,7 +37,7 @@ public class LoginAction implements Action{
                 request.getSession().setAttribute("remember_id", id);
             }
             System.out.println("로그인 성공");
-            return "/Controller?type=index";
+            return "${pageContext.request.contextPath}/Controller?type=index";
         }
 
         request.setAttribute("errorMessage", "아이디 또는 비밀번호가 일치하지 않습니다.");

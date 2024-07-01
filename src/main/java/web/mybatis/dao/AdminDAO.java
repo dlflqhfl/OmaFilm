@@ -62,7 +62,6 @@ public class AdminDAO {
 
 
 		List<MovieListVO> list = ss.selectList("movieList.selectMovie",map);
-		System.out.println("나오냐?" +list);
 		MovieListVO[] ar = null;
 		if( list != null && list.size() > 0) {
 			ar = new MovieListVO[list.size()];

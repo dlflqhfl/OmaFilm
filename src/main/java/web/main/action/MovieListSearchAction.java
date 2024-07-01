@@ -1,13 +1,12 @@
 package web.main.action;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import web.main.util.Paging;
 import web.mybatis.dao.MovieListDAO;
 import web.mybatis.vo.MovieListVO;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 public class MovieListSearchAction implements Action {
 
@@ -16,6 +15,7 @@ public class MovieListSearchAction implements Action {
 		
 		//페이징 처리를 위한 객체생성
 		Paging page = new Paging(20, 5);
+		
 		String cPage = request.getParameter("cPage");
 		String movieNm = request.getParameter("movieNm");
 		
@@ -23,6 +23,8 @@ public class MovieListSearchAction implements Action {
 		page.setTotalRecode(MovieListDAO.getsearchCount(movieNm));
 		
 		int cnt = MovieListDAO.getsearchCount(movieNm);
+		System.out.println("CNT 수"+cnt);
+		
 		
 		//현재페이지값 받기
 		if(cPage != null) {

@@ -30,30 +30,4 @@
 		FROM issued_coupon
 		WHERE u_code=#{u_code} and cp_status = 0
 	</select>
-	
-	<!-- 회원 코드를 받아서 모든 쿠폰을 가져오는 쿼리 -->
-	<resultMap type="web.mybatis.vo.IssuedCouponVO" id="c2">
-		<id property="ci_code" column="ci_code"/> 
-		<association property ="c_item" javaType="web.mybatis.vo.CouponItemVO"
-		select="couponItem.getCouponItem" column="ci_code"/>
-	</resultMap>
-	
-	<select id="getAllCoupon" parameterType="int" resultMap="c2">
-		SELECT *
-		FROM issued_coupon
-		WHERE u_code=#{u_code}
-	</select>
-	
-	<!-- 회원 코드를 받아서 쓴 쿠폰을 가져오는 쿼리 -->
-	<resultMap type="web.mybatis.vo.IssuedCouponVO" id="c3">
-		<id property="ci_code" column="ci_code"/> 
-		<association property ="c_item" javaType="web.mybatis.vo.CouponItemVO"
-		select="couponItem.getCouponItem" column="ci_code"/>
-	</resultMap>
-	
-	<select id="getUsedCoupon" parameterType="int" resultMap="c3">
-		SELECT *
-		FROM issued_coupon
-		WHERE u_code=#{u_code} and cp_status = 1
-	</select> 
 </mapper>

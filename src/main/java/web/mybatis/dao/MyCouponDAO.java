@@ -1,13 +1,11 @@
 package web.mybatis.dao;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
-
 import web.mybatis.service.FactoryService;
 import web.mybatis.vo.IssuedCouponVO;
 import web.mybatis.vo.MemberVO;
-import web.mybatis.vo.ReservationVO;
+
+import java.util.List;
 
 public class MyCouponDAO {
 	public static IssuedCouponVO[] getAllCoupon(MemberVO mvo) {
