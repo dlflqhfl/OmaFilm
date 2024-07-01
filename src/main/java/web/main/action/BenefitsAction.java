@@ -9,7 +9,7 @@ public class BenefitsAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
-		System.out.println("BenefitsAction execute()");
+		System.out.println("BenefitsAction ");
 		return "/jsp/event/benefits.jsp";
 	}
 
