@@ -558,8 +558,8 @@
   position: absolute;
   width: 77px;
   height: 18px;
-  top: 7px;
-  left: 69px;
+  top: 14px;
+  left: 66px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #000000;
@@ -602,7 +602,7 @@
   width: 194px;
   height: 21px;
   top: 0;
-  left: 12px;
+  left: 10px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #000000;
@@ -944,7 +944,7 @@
   width: 16px;
   height: 22px;
   top: 11px;
-  left: 816px;
+  left: 16px;
   font-family: "Noto Sans KR", Helvetica;
   font-weight: 500;
   color: #414141;
@@ -980,16 +980,17 @@
   line-height: 46px;
   white-space: nowrap;
 }
+/* 캘린더 */
 .calendar {
+    position: absolute;
+    top: 18px;
     background-color: white;
     border-radius: 10px;
     /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
     padding: 20px;
+    width: 795px;
     text-align: center;
-    position: absolute;
-    top: 47px;
-    left: 9px;
-    width: 828px;
+    left: 32px;
 }
 
 .month {
@@ -1011,25 +1012,20 @@
     display: block;
     font-size: 1.2em;
     margin-bottom: 5px;
-    
 }
 .now{
     position: absolute;
-    left: 25px;
+    left: 504px;
 }
 .day-name {
     font-size: 0.8em;
     color: gray;
-    position: relative;
-    top: -22px;
-    text-align: end;
-    left: -1px;
+    position: absolute;
+    top: 14px;
 }
 .date {
     position: absolute;
-    top: 33px;
-    border-radius: 50%;
-    padding: 5px;
+    top: 47px;
 }
 .selected .date {
     background-color: black;
@@ -1041,4 +1037,3 @@
 .day:nth-child(3) .date {
     color: red;
 }
-

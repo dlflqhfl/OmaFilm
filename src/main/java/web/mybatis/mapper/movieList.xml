@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="movieList">
 	<!-- 영화 이름 -> MovieListVO -->
 	<select id="getMovieVO" parameterType="String" resultType="web.mybatis.vo.MovieListVO">
@@ -159,6 +159,4 @@
 	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
 	</select>
 
-	
-	
 </mapper>

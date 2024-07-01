@@ -1,11 +1,20 @@
+<%@page import="web.mybatis.vo.SelectSeatVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	Object obj = request.getAttribute("svo");
+	SelectSeatVO[] svo = null;
+	if( obj != null){
+		svo = (SelectSeatVO[])obj;
+	}
+%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/reservation/reservationGlobals1.css" />
-    <link rel="stylesheet" href="css/reservation/reservationStyle1.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/reservationGlobals1.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/reservationStyle1.css" />
   </head>
   <body>
     <div class="selectseat">
@@ -210,7 +219,6 @@
           </div>
           <div class="seat-background"><div class="select-seat-text">인원 / 좌석 선택</div></div>
         </div>
-        
         <form id="goPayment" action="Controller?type=payment" method="post">
         	<input type="hidden" id="movieName" name="movieName" value="${param.movieName }">
         	<input type="hidden" id="text" name="text" value="${param.text }">
@@ -220,7 +228,6 @@
         	<input type="hidden" id="date" name="date" value="${param.date }">
         	<input type="hidden" id="totalPrice" name="totalPrice" value="">
         </form>
-        
       </div>
     </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -233,10 +240,34 @@
 	let time = '<%= request.getParameter("time") %>';
 	let date = '<%= request.getParameter("date") %>';
 	
+	
+	
+	//이미 예매된 좌석
+	let noSeat;
+    let selectedSeat = [];
+    <% if (svo != null) {
+        for (int i = 0; i < svo.length; i++) {
+            SelectSeatVO ss = svo[i]; 
+            String sr =  ss.getS_code();
+            String trimSeat = sr.substring(1);%>
+            selectedSeat.push("<%=trimSeat%>");
+    <% }
+    } %>
+    console.log(selectedSeat)
+    // 예매된 좌석에 대해 처리
+    selectedSeat.forEach(function(seatCode) {
+        let seatElement = $(".rectangle[value='" + seatCode + "']");
+        seatElement.css("background-color", "green");
+        seatElement.css("color", "white");
+        seatElement.off("hover");
+        seatElement.off("click");
+    });
+    
+    console.log()
 	console.log(text)
 	console.log(movieName)
 	console.log(time)
-	
+
 	let adult = parseInt($("#adult").text());
 	let teen = parseInt($("#teen").text());
 	let old = parseInt($("#old").text());
@@ -261,12 +292,12 @@
 		} else {
 			alert("인원을먼저 선택해줭~~")
 		}
-		
+
 		if( length == (num-1)){
 			checkClick(num)
 		}
 	})
-	
+
 	$('.rectangle').hover(function() {
         // 마우스가 올라갔을 때
         $(this).css('background-color', '#2CC7E9');
@@ -277,7 +308,7 @@
             }
         }
 	);
-	
+
 	//성인관객 수 +
 	$(".aPlus").click(function(){
 		if( adult < 8){
@@ -287,7 +318,7 @@
 		} else{
 			alert("최대 8명까지 가능합니다");
 		}
-		
+
 	})
 
 	//성인관객 수 -
@@ -300,7 +331,7 @@
 	        updatePrice()
 	    }
 	});
-	
+
 	//청소년관객 수 +
 	$(".tPlus").click(function(){
 		if( teen < 8){
@@ -311,7 +342,7 @@
 			alert("최대 8명까지 가능합니다")
 		}
 	})
-	
+
 	//청소년관객 수 -
 	$(".tMinus").click(function(){
 		teen = teen - 1;
@@ -322,7 +353,7 @@
 	        updatePrice()
 	    }
 	});
-	
+
 	//경로관객 수 +
 	$(".oPlus").click(function(){
 		if( old < 8){
@@ -333,7 +364,7 @@
 			alert("최대 8명까지 가능합니다")
 		}
 	})
-	
+
 	//경로관객 수 -
 	$(".oMinus").click(function(){
 	    old = old - 1;
@@ -347,59 +378,59 @@
 
 	function checkClick(num){
 		$(".text-wrapper-9").off("click");
-		
+
 		if( num != null){
-			
+
 			alert("최대"+(num-1) +"까지 선택할 수 있습니당")
 			location.reload()
 	   }
-		
+
 	}
-	
+
 	function updatePrice(){
 		let totalPrice = (adult * 13000) + (teen * 10000) + (old * 8000);
 		$(".total-price-text").text(totalPrice)
 		$("#totalPrice").val(totalPrice); // hidden input 필드 값 업데이트
 		console.log(totalPrice)
 	}
-	
+
     // 선택된 좌석 업데이트 함수
     function clickSeat() {
         seatArray = Array.from(checkSeat); // Set을 배열로 변환
         seats = seatArray.join(","); // 좌석 배열을 쉼표로 구분된 문자열로 변환
         console.log("Selected seats: " + seats); // 선택된 좌석 확인용 로그
     }
-	
-	
+
+
 	//결제하기로 넘기기
 	$(".pay-button").click(function(){
 		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?")
 		if( result ){
-			
+
 			let adult = $("#adult").text();
-			let teen = $("#adult").text();
-			let old = $("#adult").text();
-			
-			let adultCount = "성인" + adult;
-			let teenCount = "청소년" + teen;
-			let oldCount = "경로" + old;
-			
+			let teen = $("#teen").text();
+			let old = $("#old").text();
+
+			let adultCount = "성인:" + adult;
+			let teenCount = "청소년:" + teen;
+			let oldCount = "경로:" + old;
+
 			let totalCount = adultCount+"/" + teenCount+"/" + oldCount;
-        	
+			console.log()
 			$("#totalCount").val(totalCount)
 			$("#checkSeat").val(seats);
-			
+
        	 	$("#goPayment").submit();
 		} else {
 			location.reload()
 		}
 	})
-	
+
 	$(".a").click(function(){
-		
+
 		window.location.href = "Controller?type=selectTime";
 	})
-	
+
 	$('.a').hover(
 	    function() {
 	        // 마우스가 올라갔을 때

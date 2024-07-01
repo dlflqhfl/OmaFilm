@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/reservation/reservationGlobals2.css" />
-    <link rel="stylesheet" href="css/reservation/reservationStyle2.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/reservationGlobals2.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/reservationStyle2.css" />
   </head>
   <body>
     <div class="selectseat">
@@ -212,7 +213,6 @@
             </div>
           </div>
         </div>
-        
         <form id="goPayment" action="Controller?type=payment" method="post">
         	<input type="hidden" id="movieName" name="movieName" value="${param.movieName }">
         	<input type="hidden" id="text" name="text" value="${param.text }">
@@ -222,6 +222,9 @@
         	<input type="hidden" id="date" name="date" value="${param.date }">
         	<input type="hidden" id="totalPrice" name="totalPrice" value="">
         </form>
+         <c:forEach var="a" items="${svo }">
+	        ${a.s_code }
+        </c:forEach>
       </div>
     </div>
     
@@ -240,6 +243,8 @@
 	console.log(movieName)
 	console.log(time)
 	
+
+	
 	let adult = parseInt($("#adult").text());
 	let teen = parseInt($("#teen").text());
 	let old = parseInt($("#old").text());
@@ -251,7 +256,6 @@
 	let num = 0;
 	//좌석선택
 	$(".rectangle").click(function(){
-		
 		let length = adult + teen + old;
 		if(length > 0){
 			let value = $(this).attr("value")
@@ -383,12 +387,12 @@
 		if( result ){
 			
 			let adult = $("#adult").text();
-			let teen = $("#adult").text();
-			let old = $("#adult").text();
+			let teen = $("#teen").text();
+			let old = $("#old").text();
 			
-			let adultCount = "성인" + adult;
-			let teenCount = "청소년" + teen;
-			let oldCount = "경로" + old;
+			let adultCount = "성인:" + adult;
+			let teenCount = "청소년:" + teen;
+			let oldCount = "경로:" + old;
 			
 			totalCount = adultCount+"/" + teenCount+"/" + oldCount;
         	

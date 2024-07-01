@@ -22,6 +22,7 @@ public class ReserverVO {
 		this.non_email = non_email;
 	}
 
+
 	public int getRsvr_code() {
 		return rsvr_code;
 	}
@@ -77,8 +78,4 @@ public class ReserverVO {
 	public void setNon_email(String non_email) {
 		this.non_email = non_email;
 	}
-
-	
-	
-	
 }

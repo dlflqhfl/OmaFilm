@@ -1,14 +1,13 @@
 package web.main.action;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import web.main.util.Paging;
 import web.mybatis.dao.FaqDAO;
 import web.mybatis.dao.NoticeDAO;
 import web.mybatis.vo.NoticeVO;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 public class HomeAction implements Action {
 
@@ -47,5 +46,4 @@ public class HomeAction implements Action {
 		
 		return "/jsp/serviceCenter/home.jsp";
 	}
-
 }

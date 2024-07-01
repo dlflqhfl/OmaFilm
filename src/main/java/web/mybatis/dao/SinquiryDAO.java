@@ -1,13 +1,9 @@
 package web.mybatis.dao;
 
-import java.io.PrintWriter;
-import java.util.HashMap;
-
-
 import org.apache.ibatis.session.SqlSession;
-import javax.servlet.http.HttpServletResponse; 
-
 import web.mybatis.service.FactoryService;
+
+import java.util.HashMap;
 
 public class SinquiryDAO {
 	

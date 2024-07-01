@@ -1,13 +1,11 @@
 package web.main.action;
 
-import java.io.IOException;
-import java.util.List;
+import web.mybatis.dao.inquiryDAO;
+import web.mybatis.vo.InquiryVO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import web.mybatis.dao.inquiryDAO;
-import web.mybatis.vo.InquiryVO;
+import java.io.IOException;
 
 public class InquiryAction implements Action{
 

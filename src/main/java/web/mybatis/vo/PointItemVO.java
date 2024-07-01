@@ -14,29 +14,27 @@ public class PointItemVO {
 		this.pi_cotent = pi_cotent;
 	}
 
-	String getPi_code() {
+	public String getPi_code() {
 		return pi_code;
 	}
 
-	void setPi_code(String pi_code) {
+	public void setPi_code(String pi_code) {
 		this.pi_code = pi_code;
 	}
 
-	String getPi_amount() {
+	public String getPi_amount() {
 		return pi_amount;
 	}
 
-	void setPi_amount(String pi_amount) {
+	public void setPi_amount(String pi_amount) {
 		this.pi_amount = pi_amount;
 	}
 
-	String getPi_cotent() {
+	public String getPi_cotent() {
 		return pi_cotent;
 	}
 
-	void setPi_cotent(String pi_cotent) {
+	public void setPi_cotent(String pi_cotent) {
 		this.pi_cotent = pi_cotent;
 	}
-	
-	
 }
