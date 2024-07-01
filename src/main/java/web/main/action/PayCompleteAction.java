@@ -71,7 +71,6 @@ public class PayCompleteAction implements Action {
 			Map<String, String> map = new HashMap<>();
 			String ss_code = request.getParameter("ss_code");
 			String rs_count = request.getParameter("rs_count");
-			System.out.println("좌석번호"+ ss_code);
 
 			map.put("rsvr_code", String.valueOf(rsvr_code));
 			map.put("p_code", String.valueOf(p_code));
@@ -85,11 +84,10 @@ public class PayCompleteAction implements Action {
 
 		//선택 좌석 저장
 		if(rs_num>0) {
-			String ss_code = request.getParameter("ss_code");
 			Map<String, String> map = new HashMap<>();
 			map.put("rs_num", String.valueOf(rs_num));
 			map.put("p_code", String.valueOf(p_code));
-			map.put("ss_code", ss_code);
+
 
 			//String t_code = request.getParameter("t_code");
 			String checkSeat = request.getParameter("checkSeat");

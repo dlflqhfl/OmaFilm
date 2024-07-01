@@ -1,20 +1,11 @@
 package web.main.action;
 
-import java.util.HashMap;
-import java.util.Map;
+import web.mybatis.dao.PaymentDAO;
+import web.mybatis.vo.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import web.mybatis.dao.PaymentDAO;
-import web.mybatis.vo.AudienceVO;
-import web.mybatis.vo.IssuedCouponVO;
-import web.mybatis.vo.MemberVO;
-import web.mybatis.vo.MovieListVO;
-import web.mybatis.vo.ScreeningScheduleVO;
-import web.mybatis.vo.TheaterSeatVO;
-import web.mybatis.vo.TheaterVO;
 
 public class PayAction implements Action {
 

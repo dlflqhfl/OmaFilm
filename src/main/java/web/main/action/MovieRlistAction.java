@@ -1,13 +1,12 @@
 package web.main.action;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import web.main.util.Paging;
 import web.mybatis.dao.MovieListDAO;
 import web.mybatis.vo.MovieListVO;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 public class MovieRlistAction implements Action {
 

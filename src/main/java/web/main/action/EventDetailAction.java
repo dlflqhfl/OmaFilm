@@ -1,12 +1,11 @@
 package web.main.action;
 
-import java.io.IOException;
+import web.mybatis.dao.EventDAO;
+import web.mybatis.vo.NoticeVO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import web.mybatis.dao.EventDAO;
-import web.mybatis.vo.NoticeVO;
+import java.io.IOException;
 
 public class EventDetailAction implements Action {
 

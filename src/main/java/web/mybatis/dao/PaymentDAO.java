@@ -1,21 +1,13 @@
 package web.mybatis.dao;
 
+import org.apache.ibatis.session.SqlSession;
+import web.mybatis.service.FactoryService;
+import web.mybatis.vo.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.ibatis.session.SqlSession;
-
-import web.mybatis.service.FactoryService;
-import web.mybatis.vo.AudienceVO;
-import web.mybatis.vo.IssuedCouponVO;
-import web.mybatis.vo.MemberVO;
-import web.mybatis.vo.MovieListVO;
-import web.mybatis.vo.ScreeningScheduleVO;
-import web.mybatis.vo.SelectSeatVO;
-import web.mybatis.vo.TheaterSeatVO;
-import web.mybatis.vo.TheaterVO;
 
 public class PaymentDAO {
 

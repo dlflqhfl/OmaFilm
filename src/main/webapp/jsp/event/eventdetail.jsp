@@ -24,29 +24,29 @@
                 <img class="img" src="${pageContext.request.contextPath}/img/event/eventdetail/link.png" />
                 <img class="link-3" src="${pageContext.request.contextPath}/img/event/eventdetail/link-1.png" />
                 <img class="link-4" src="${pageContext.request.contextPath}/img/event/eventdetail/link-2.png" />
-               <a href="Controller?type=selectTime" target="_blank" rel="noopener noreferrer">
-               <div class="text-wrapper-4">예매</div></a>
-                <a href="Controller?type=movielist" target="_blank" rel="noopener noreferrer">
-                <div class="text-wrapper-5">영화</div></a>
-                <a href="Controller?type=event" target="_blank" rel="noopener noreferrer">
-                <div class="text-wrapper-6">이벤트</div></a>
-                <a href="Controller?type=benefits" target="_blank" rel="noopener noreferrer">
-                <div class="text-wrapper-7">혜택</div></a>
+                <div class="text-wrapper-4">예매</div>
+                <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
+                  ><div class="text-wrapper-5">영화</div></a
+                >
+                <div class="text-wrapper-6">이벤트</div>
+                <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
+                  ><div class="text-wrapper-7">혜택</div></a
+                >
                 <img class="heading-link" src="${pageContext.request.contextPath}/img/event/eventdetail/heading-1-link.png" />
                 <div class="link-5"></div>
               </div>
             </div>
+            <img class="footer" src="${pageContext.request.contextPath}/img/event/eventdetail/footer.png" />
             <div class="overlap-group-2">
               <div class="rectangle"></div>
-              <div class="text-wrapper-8">${evo.n_title }</div>
+              <div class="text-wrapper-8">제목 띄울거야</div>
+              <img class="line" src="${pageContext.request.contextPath}/img/event/eventdetail/line-2.svg" />
+            </div>
             <div class="rectangle-2"></div>
           </div>
-          <div class="element" style="background-image: none;">  <img src="${pageContext.request.contextPath}/img/event/eventdetail/${evo.n_img}.jpg" style="width: 100%; height: auto;"> </div>
-     		 <jsp:include page="/jsp/footer/footer.jsp"/>
-            </div>
+          <img class="element" src="${pageContext.request.contextPath}/img/event/eventdetail/1-1.png" />
         </div>
       </div>
     </div>
-    
   </body>
 </html>
