@@ -11,38 +11,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css" />
-    <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css"/>
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+            charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
-
-  <c:if test="${mvo != null && not empty mvo }">
-  	<script type="text/javascript">
-  		alert(${session.loginErrorMessage})
-  	</script>
-  </c:if>
-
+<%--/*네이버 로그인*/--%>
+<%
+    String clientId = "prTymuieNCdwFguuzeIa";//애플리케이션 클라이언트 아이디값";
+    String redirectURI = URLEncoder.encode("http://localhost:9090/Omafilm/Controller?type=naver_login", "UTF-8");
+    SecureRandom random = new SecureRandom();
+    String state = new BigInteger(130, random).toString();
+    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+    apiURL += "&client_id=" + clientId;
+    apiURL += "&redirect_uri=" + redirectURI;
+    apiURL += "&state=" + state;
+    session.setAttribute("state", state);
+%>
 <div class="container">
     <div class="div">로그인</div>
-    <jsp:include page="../header/header.jsp"/>
+    <jsp:include page="/jsp/header/header.jsp"/>
     <span class="button"><div class="text-wrapper-8">회원</div></span>
     <span class="button-2"><div class="text-wrapper-9"><a href="login_2.jsp">비회원</a></div></span>
     <div class="link-7">
         <div class="text-wrapper-10">회원가입</div>
         <div class="vertical-divider"></div>
     </div>
-  
     <c:if test="${not empty loginErrorMessage}">
     <script>
         alert("${loginErrorMessage}");
     </script>
-
+    <% session.removeAttribute("loginErrorMessage"); %>
 	</c:if>
-
     <div class="overlap">
         <form class="form" id="login_form" name="login_form" action="../../Controller?type=login" method="post">
             <label class="text-wrapper-13" for="login_id">ID :</label>
@@ -60,7 +64,7 @@
     <a href="javascript: naver_login()"><img class="image-2" src="https://c.animaapp.com/s5cVxUlg/img/image-6@2x.png" /></a>
 </div>
 
-<jsp:include page="/jsp/footer/footer.jsp"/>
+<%@ include file="../footer/footer.jsp" %>
 <script>
     /*로그인 버튼을 눌렀을때 폼객체를 컨트롤러로 보냄*/
     function login(){
@@ -108,7 +112,7 @@
                         //만약 이 이메일과 연동된 db가 없으면 register.jsp로 이동
                         //만약 이 이메일과 연동된 db가 있으면 로그인 처리
                         $.ajax({
-                            url: "${pageContext.request.contextPath}/Controller?type=social_login",
+                            url: "../../Controller?type=social_login",
                             type: "post",
                             data: {
                                 id: id,
@@ -123,7 +127,7 @@
                                 if(data == 0){
                                     alert("가입하지 않은 이메일입니다")
                                     /*회원가입 페이지로 이동*/
-                                    window.location.href = "${pageContext.request.contextPath}/jsp/login/register.jsp";
+                                    window.location.href = "/jsp/login/register.jsp";
                                 }
                                 else if(data == 1){
                                     /*등록된 이메일 경고창*/
@@ -156,7 +160,7 @@
         console.log("네이버 로그인")
         var naverLogin = new naver.LoginWithNaverId({
             clientId: "prTymuieNCdwFguuzeIa",
-            callbackUrl: "http://localhost:9090/OmaFilm/jsp/login/login_1.jsp",
+            callbackUrl: "http://localhost:9090/jsp/login/login_1.jsp",
             isPopup: false,
             callbackHandle: true,
         });
@@ -225,3 +229,4 @@
 </script>
 </body>
 </html>
+

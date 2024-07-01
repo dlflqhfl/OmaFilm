@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class SocialLoginAction implements Action{
+public class KakoLoginAction implements Action{
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //소셜 로그인 처리
