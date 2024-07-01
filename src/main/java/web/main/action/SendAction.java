@@ -16,8 +16,8 @@ public class SendAction implements Action {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        //이메일을 보내기 전에 이메일이 중복되는지 확인
-        //이메일이 중복되면 이메일을 보내지 않고, return을 돌려서 경고창 띄움
+        //ajax틑 통해 받은 email을 가지고 smtp라이브러리르 활용하여 이메일 인증 구현
+
         String email = request.getParameter("email");
         System.out.println("email : " + email);
 
@@ -45,12 +45,12 @@ public class SendAction implements Action {
 
             //이메일을 보내기 위한 smtp 설정
             Properties props = new Properties();
-            props.put("mail.smtp.host", "smtp.gmail.com");         // 구글 메일로 보냄 (보내는 메일은 구글메일만 가능)
-            props.put("mail.smtp.port", "587");               // 구글 메일로 보내는 포트 번호
-            props.put("mail.smtp.auth", "true");               // 인증된 메일
+            props.put("mail.smtp.host", "smtp.gmail.com");			// 구글 메일로 보냄 (보내는 메일은 구글메일만 가능)
+            props.put("mail.smtp.port", "587");					// 구글 메일로 보내는 포트 번호
+            props.put("mail.smtp.auth", "true");					// 인증된 메일
             props.put("mail.smtp.starttls.enable","true");      // 보안 설정
-            props.put("mail.smtp.ssl.trust", "smtp.gmail.com");   // 보안 설정
-            props.put("mail.smtp.ssl.protocols", "TLSv1.2");      // 보안 설정
+            props.put("mail.smtp.ssl.trust", "smtp.gmail.com");	// 보안 설정
+            props.put("mail.smtp.ssl.protocols", "TLSv1.2");		// 보안 설정
 
 
             //구글 서버와 ssl 통신이 되지 않을 경우 추가
