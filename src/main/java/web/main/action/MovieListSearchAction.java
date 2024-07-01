@@ -16,7 +16,6 @@ public class MovieListSearchAction implements Action {
 		
 		//페이징 처리를 위한 객체생성
 		Paging page = new Paging(20, 5);
-		
 		String cPage = request.getParameter("cPage");
 		String movieNm = request.getParameter("movieNm");
 		
@@ -24,8 +23,6 @@ public class MovieListSearchAction implements Action {
 		page.setTotalRecode(MovieListDAO.getsearchCount(movieNm));
 		
 		int cnt = MovieListDAO.getsearchCount(movieNm);
-		System.out.println("CNT 수"+cnt);
-		
 		
 		//현재페이지값 받기
 		if(cPage != null) {

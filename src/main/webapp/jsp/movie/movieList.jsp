@@ -61,7 +61,7 @@
               </div>
             </div>
             </c:forEach>
-          </div>
+         
           
         
           <div class="nav1 button-4">
@@ -101,6 +101,8 @@
 		              </ol>
 		          </div> 
           </button>
+          <img class="footer" src="${pageContext.request.contextPath}/img/movie/movieList/footer.png" />
+          </div>
           
           <div class="overlap">
             <div class="navbar">
@@ -125,7 +127,6 @@
               <div class="link-13"></div>
             </div>
           </div>
-          <img class="footer" src="${pageContext.request.contextPath}/img/movie/movieList/footer.png" />
         </div>
       </div>
     </div>
