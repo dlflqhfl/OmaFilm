@@ -1,6 +1,5 @@
 package web.main.action;
 
-
 import web.mybatis.dao.LoginDAO;
 
 import javax.mail.*;
@@ -10,25 +9,40 @@ import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
-public class SendAction implements Action {
-
+public class SendEmailAction implements Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        //이메일을 보내기 전에 이메일이 중복되는지 확인
-        //이메일이 중복되면 이메일을 보내지 않고, return을 돌려서 경고창 띄움
+        //이메일을 보내기 전에 이름 생년월일 이메일이 일치하는지 확인
+        //이메일이 일치하지 않으면 이메일을 보내지 않고, return을 돌려서 경고창 띄움
+        String name = request.getParameter("name");
+        String birth = request.getParameter("birth");
         String email = request.getParameter("email");
+        System.out.println("name : " + name);
+        System.out.println("birth : " + birth);
         System.out.println("email : " + email);
 
-        int cnt = LoginDAO.emailCheck(email);
+        //map에 넣기
+        Map<String, String> map = new HashMap<>();
+        map.put("name", name);
+        map.put("birth", birth);
+        map.put("email", email);
 
-        //ajax틑 통해 받은 email을 가지고 smtp라이브러리르 활용하여 이메일 인증 구현
+        //이메일이 일치하는지 확인
+        int cnt = LoginDAO.findId(map);
 
+        System.out.println("cnt1 : " + cnt);
         String result = "";
+
+        //cnt가 0일경우 등록된 이메일을 다시 입력하라고 경고창
         if (cnt == 0) {
+            result= "0";
+        }else {
+            result = "1";
             //이메일 인증을 위한 코드를 생성
-            result = "0";
             String possibleCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             StringBuilder code = new StringBuilder();
             for (int i = 0; i < 6; i++) {
@@ -66,22 +80,22 @@ public class SendAction implements Action {
             try {
                 //이메일을 보내기 위한 메시지 생성
                 Message message = new MimeMessage(session);
-                message.setFrom(new InternetAddress("dlflqhfl11@naver.com", "(주)OMAKASE", "UTF-8"));
+                message.setFrom(new InternetAddress("dlflqhfl@gmail.com", "(주)OMAKASE", "UTF-8"));
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
                 message.setSubject("오마카세 시네마 인증 요청 메일입니다");
                 message.setContent("인증번호는 <strong>" + code + "</strong>입니다.", "text/html; charset=UTF-8");
 
                 //이메일을 보내기
                 Transport.send(message);
+
             } catch (AddressException e) {
                 throw new RuntimeException(e);
             } catch (MessagingException e) {
                 throw new RuntimeException(e);
             }
-        }else {
-            result = "1";
         }
 
+        //이메일이 일치하지 않을 경우 경고창을 띄우기 위해 result를 반환
         request.setAttribute("result", result);
 
         return "/jsp/login/email_check.jsp";
