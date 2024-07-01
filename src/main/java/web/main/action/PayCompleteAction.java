@@ -60,9 +60,11 @@ public class PayCompleteAction implements Action {
 				map.put("cp_no", cp_no);
 			}
 			p_code = PaymentDAO.savePayment(map);
-			if(!cp_no.isEmpty())
+			if(!cp_no.isEmpty()) {
 				PaymentDAO.useCoupon(Integer.parseInt(cp_no));
-
+				String cp_content = PaymentDAO.getCouponContent(Integer.parseInt(cp_no));
+				request.setAttribute("cp_content", cp_content);
+			}
 		}
 
 		int rs_num =0;
