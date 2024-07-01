@@ -23,19 +23,40 @@
                 </div>
             </div>
             <div class="div-con-wrap">
-                <div class="nav">
-                    <div class="strong"><div class="text-wrapper-5">1</div></div>
-                    <div class="link"><div class="text-wrapper-6">2</div></div>
-                    <div class="link-2"><div class="text-wrapper-6">3</div></div>
-                    <div class="link-3"><div class="text-wrapper-6">4</div></div>
-                    <div class="link-4"><div class="text-wrapper-6">5</div></div>
-                    <div class="link-5"><div class="text-wrapper-6">6</div></div>
-                    <div class="link-6"><div class="text-wrapper-6">7</div></div>
-                    <div class="link-7"><div class="text-wrapper-6">8</div></div>
-                    <div class="link-8"><div class="text-wrapper-6">9</div></div>
-                    <div class="link-9"><div class="text-wrapper-7">10</div></div>
-                    <div class="link-10"></div>
-                    <div class="link-11"></div>
+		 			<div class="nav1">
+                    <ol class="paging">
+
+                        <c:set var="page" value="${requestScope.page}"/>
+
+                        <c:if test="${page.startPage < page.pagePerBlock }">
+                            <li class="disable">&lt;</li>
+                        </c:if>
+
+                        <c:if test="${page.startPage >= page.pagePerBlock }">
+
+                            <li><a href="Controller?type=adminMovieApi&cPage=${page.nowPage-page.pagePerBlock }">&lt;</a></li>
+                        </c:if>
+
+                        <c:forEach begin="${page.startPage }" end="${page.endPage }" varStatus="vs">
+                            <c:if test="${vs.index eq page.nowPage }">
+                                <li class="now">${vs.index}</li>
+                            </c:if>
+                            <c:if test="${vs.index ne page.nowPage }">
+                                <li><a href="Controller?type=adminMovieApi&cPage=${vs.index}">${vs.index}</a></li>
+                            </c:if>
+                        </c:forEach>
+
+
+                        <c:if test="${page.endPage < page.totalPage }">
+
+                            <li><a href="Controller?type=adminMovieApi&cPage=${page.nowPage+page.pagePerBlock}">&gt;</a></li>
+                        </c:if>
+
+                        <c:if test="${page.endPage >= page.totalPage }">
+                            <li class="disable">&gt;</li>
+                        </c:if>
+
+                    </ol>
                 </div>
                 <button class="button">
                     <div class="container"><div class="text-wrapper-8">구분</div></div>

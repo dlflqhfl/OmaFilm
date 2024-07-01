@@ -46,17 +46,17 @@
                   </div>
                   <div class="border-wrapper">
                     <div class="border">
-                      <p class="list-2">
+                       <label for="content" class="placeholder-label list-2">
                         - 문의내용에 개인정보(이름,연락처,카드번호 등)가 포함되지 않도록 유의하시기 바랍니다.<br />-
                         회원로그인 후 문의작성시 나의 문의내역을 통해 답변을 확인하실 수 있습니다.
-                      </p>
+                      </label>
                       <textarea name="content" class="textarea" cols="50" data-str="내용" 
 							id="content" rows="8"></textarea>
                       <div class="container-2"><div class="text-wrapper-5">0 / 2000</div></div>
                     </div>
                   </div>
                 </div>
-                <button class="button" onclick="sendData()"><div class="text-wrapper-6">등록</div></button>
+                <button type="button" class="button" onclick="sendData()"><div class="text-wrapper-6">등록</div></button>
               </div>
             </div>
           </div>
@@ -124,16 +124,30 @@
 		      alert(element.dataset.str + "을 입력하세요");
 		      element.focus();
 		      isValid = false;
-		      return; // 수행 중단
 		    }
 		  }
 		}    
 
-		if (isValid) {
-		    document.forms[0].submit(); // 유효성 검사 통과 시 폼 제출
+		if (!isValid) {
+			location.href = "Controller?type=sinquiry";
+		  }else {
+			  document.forms[0].submit();
 		  }
 	}
    	
+   	const textarea = document.getElementById('content');
+   	const placeholderLabel = textarea.previousElementSibling;
+
+   	textarea.addEventListener('focus', () => {
+   	  placeholderLabel.style.display = 'none';
+   	  textarea.setSelectionRange(0, 0);
+   	});
+
+   	textarea.addEventListener('blur', () => {
+   	  if (textarea.value === '') {
+   	    placeholderLabel.style.display = 'block';
+   	  }
+   	});
    </script>
     
   </body>

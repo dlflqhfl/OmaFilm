@@ -24,22 +24,47 @@ public class MyReservationAction implements Action {
 			return "index.jsp";
 		}
 		
-		String month = request.getParameter("month");
-		
-		if(month!=null) { //월 입력값이 있을 때
-			//당월 예매 내역 조회 -> list로 띄우기
-			ReservationVO[] rvo = MyReservationDAO.getReservationList(mvo.getU_code(), month); 
-			request.setAttribute("rvo", rvo);
+		String searchKey = request.getParameter("searchKey");
+		if(searchKey!=null && searchKey.trim().length()<1) {
+			searchKey=null;
+			System.out.println("searchKey:"+searchKey);
+		}
 			
+		String selectedMonth = request.getParameter("selectedMonth");
+		if(selectedMonth!=null && selectedMonth.length()<1) {
+			selectedMonth=null;
+			System.out.println("selectedMonth:"+selectedMonth);
+		}
+		
+		String cancelMonth = request.getParameter("cancelMonth");
+		if(cancelMonth!=null && cancelMonth.trim().length()<1) {
+			cancelMonth=null;
+		}
+		
+		
+		if(cancelMonth!=null) {
 			//당월 예매 취소 내역 -> list로 띄우기
-			ReservationVO[] rvo_cancel = MyReservationDAO.getCancelList(mvo.getU_code(), month); 
+			ReservationVO[] rvo_cancel = MyReservationDAO.getCancelList(mvo.getU_code(), cancelMonth); 
+			if(rvo_cancel !=null)
+				System.out.println(rvo_cancel.length);
 			request.setAttribute("rvo_cancel", rvo_cancel);
-		}else { //월 입력값이 없을 때 -> 모든 값
+		}
+		else if(searchKey==null && selectedMonth==null) { //월 입력값이 없을 때 -> 모든 값
+			
 			ReservationVO[] rvo = MyReservationDAO.getAllList(mvo.getU_code()); 
 			request.setAttribute("rvo", rvo);
 			
 			ReservationVO[] rvo_cancel = MyReservationDAO.getAllCancel(mvo.getU_code()); 
 			request.setAttribute("rvo_cancel", rvo_cancel);
+			
+		}else { //입력값이 있을 때
+			
+			//당월 예매 내역 조회 -> list로 띄우기
+			ReservationVO[] rvo = MyReservationDAO.getReservationList(mvo.getU_code(), searchKey, selectedMonth); 
+			if(rvo !=null)
+				System.out.println(rvo.length);
+			request.setAttribute("rvo", rvo);
+			
 		}
 		
 		//예매 취소하기

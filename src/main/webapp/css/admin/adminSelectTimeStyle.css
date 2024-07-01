@@ -70,6 +70,21 @@
   background-color: #888888;
 }
 
+.screen .text-wrapper-2 {
+  position: absolute;
+  width: 22px;
+  height: 14px;
+  top: 11px;
+  left: 34px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 12.4px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  line-height: 14.3px;
+  white-space: nowrap;
+}
 
 .screen .button-2 {
   position: absolute;
@@ -964,4 +979,61 @@
   letter-spacing: -0.5px;
   line-height: 46px;
   white-space: nowrap;
+}
+/* 캘린더 */
+.calendar {
+    position: absolute;
+    top: 18px;
+    background-color: white;
+    border-radius: 10px;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    padding: 20px;
+    width: 795px;
+    text-align: center;
+    left: 32px;
+}
+
+.month {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.days {
+    display: flex;
+    justify-content: space-between;
+}
+
+.day {
+    width: 30px;
+    text-align: center;
+}
+
+.date {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+.now{
+    position: absolute;
+    left: 504px;
+}
+.day-name {
+    font-size: 0.8em;
+    color: gray;
+    position: absolute;
+    top: 14px;
+}
+.date {
+    position: absolute;
+    top: 47px;
+}
+.selected .date {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.day:nth-child(3) .date {
+    color: red;
 }
