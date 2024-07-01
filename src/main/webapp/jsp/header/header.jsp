@@ -25,11 +25,11 @@
         <img class="link-26" src="${pageContext.request.contextPath}/img/main_img/link-1.png" />
         <img class="link-27" src="${pageContext.request.contextPath}/img/main_img/link-2.png" />
 
-
         <a href="Controller?type=selectTime"><div class="text-wrapper-29">예매</div></a>
         <a href="Controller?type=movielist"><div class="text-wrapper-30">영화</div></a>
         <a href="Controller?type=event"><div class="text-wrapper-31">이벤트</div></a>
         <a href="Controller?type=benefits"><div class="text-wrapper-32">혜택</div></a>
+
         <img class="heading-link" src="${pageContext.request.contextPath}/img/main_img/heading-1-link.png" />
         <div class="m_all"></div>
 

@@ -240,7 +240,20 @@
 	let time = '<%= request.getParameter("time") %>';
 	let date = '<%= request.getParameter("date") %>';
 	
-	
+	function hoverEvent() {
+	    $('.rectangle').not('[style*="background-color: black"]').hover(
+	        function() {
+	            // 마우스가 올라갔을 때
+	            $(this).css('background-color', '#2CC7E9');
+	        },
+	        function() {
+	            if (!checkSeat.has($(this).attr("value"))) {
+	                $(this).css('background-color', '#999999');
+	            }
+	        }
+	    );
+	}
+
 	
 	//이미 예매된 좌석
 	let noSeat;
@@ -257,10 +270,11 @@
     // 예매된 좌석에 대해 처리
     selectedSeat.forEach(function(seatCode) {
         let seatElement = $(".rectangle[value='" + seatCode + "']");
-        seatElement.css("background-color", "green");
-        seatElement.css("color", "white");
-        seatElement.off("hover");
-        seatElement.off("click");
+        seatElement.css("background-color", "black");
+        seatElement.click(function(){
+        	alert("이미 예매된 좌석입니다.")
+        })
+        
     });
     
     console.log()
@@ -276,13 +290,14 @@
 	let seats = "";
 	let num = 0;
 	//좌석선택
-	$(".rectangle").click(function(){
+	 $('.rectangle').not('[style*="background-color: black"]').click(function(){
 		let length = adult + teen + old;
 		if(length > 0){
 			let value = $(this).attr("value")
 			if( checkSeat.has(value)){
 				alert("이미 선택한 좌석입니다")
 			} else {
+				hoverEvent()
 				checkSeat.add(value)
 				clickSeat()
 				console.log(value)
@@ -297,18 +312,7 @@
 			checkClick(num)
 		}
 	})
-
-	$('.rectangle').hover(function() {
-        // 마우스가 올라갔을 때
-        $(this).css('background-color', '#2CC7E9');
-        },
-        function() {
-            if (!checkSeat.has($(this).attr("value"))) {
-                $(this).css('background-color', '#999999');
-            }
-        }
-	);
-
+	
 	//성인관객 수 +
 	$(".aPlus").click(function(){
 		if( adult < 8){

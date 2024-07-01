@@ -7,13 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class SocialLoginAction implements Action{
+public class KakaoLoginAction implements Action{
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //소셜 로그인 처리
         //소셜 로그인 성공시 세션에 아이디를 저장
         //소셜 로그인 실패시 회원가입 창으로 이동
         //소셜 로그인 성공시 메인 페이지로 이동
+    	
+    	System.out.println("야");
 
         String email = request.getParameter("email");
         String name = request.getParameter("name");
@@ -23,6 +25,8 @@ public class SocialLoginAction implements Action{
 
         int cnt = LoginDAO.emailCheck(email);
         String result;
+        
+        System.out.println(cnt);
 
         // cnt가 0이면 email이 db에 없는 것이므로 회원가입 창으로 이동
         if (cnt == 0) {
