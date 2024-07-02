@@ -517,7 +517,7 @@
 			let teenCount = "청소년:" + teen;
 			let oldCount = "경로:" + old;
 
-			let totalCount = adultCount+ "/" + teenCount+"/" + oldCount;
+			let totalCount = adultCount+"/" + teenCount+"/" + oldCount;
 			console.log()
 			$("#totalCount").val(totalCount)
 			$("#checkSeat").val(seats);

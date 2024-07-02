@@ -16,7 +16,9 @@ public class PayCancelAction implements Action{
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response)  {
         String rs_num = request.getParameter("rs_num"); //status = 1 수정
+        System.out.println(rs_num);
         String p_code = request.getParameter("p_code"); //status = 1 수정
+        System.out.println(p_code);
 
         MyReservationDAO.cancelReservation(rs_num, p_code);
 

@@ -8,46 +8,26 @@
 	<select id="getCouponList" parameterType="int" resultType="web.mybatis.vo.IssuedCouponVO">
 		SELECT * 
 		FROM issued_coupon
-		WHERE u_code = #{u_code} and cp_status = 0
+		WHERE u_code = #{u_code} and status = 0
 	</select>
 	
 	<!-- 예매 결제 후에 쿠폰 status를 1로 바꾸는 쿼리 -->
 	<update id="useCoupon" parameterType="int">
     	UPDATE issued_coupon
-    	SET cp_status = 1, cp_use = now()
+    	SET status = 1
     	WHERE cp_no = #{cp_no}
 	</update>
 
 	<!-- 회원 코드를 받아서 사용 가능한 쿠폰을 가져오는 쿼리 -->
 	<resultMap type="web.mybatis.vo.IssuedCouponVO" id="c1">
-		<id property="ci_code" column="ci_code" />
-		<association property="c_item" javaType="web.mybatis.vo.CouponItemVO"
-			select="couponItem.getCouponItem" column="ci_code" />
+		<id property="ci_code" column="ci_code"/> 
+		<association property ="c_item" javaType="web.mybatis.vo.CouponItemVO"
+		select="couponItem.getCouponItem" column="ci_code"/>
 	</resultMap>
 	
-	<select id="getAllCoupon" parameterType="int" resultMap="c1">
-		SELECT *
-		FROM issued_coupon
-		WHERE u_code=#{u_code}
-	</select>
-	
-	<select id="getUsableCoupon" parameterType="int" resultMap="c1">
+	<select id="getCouponArr" parameterType="int" resultMap="c1">
 		SELECT *
 		FROM issued_coupon
 		WHERE u_code=#{u_code} and cp_status = 0
-	</select>
-	
-	<select id="getUsedCoupon" parameterType="int" resultMap="c1">
-		SELECT *
-		FROM issued_coupon
-		WHERE u_code=#{u_code} and cp_status = 1
-	</select> 
-	
-	<!-- cp_no를 받아서 coupon_item과 조인하여 ci_content를 반환하는 쿼리-->
-	<select id="getCouponContent" parameterType="int" resultType="String">
-		SELECT ci_content
-		FROM coupon_item
-	    INNER JOIN issued_coupon on coupon_item.ci_code = issued_coupon.ci_code
-		WHERE cp_no = #{cp_no}
 	</select>
 </mapper>

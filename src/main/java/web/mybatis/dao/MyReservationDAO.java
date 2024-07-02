@@ -128,12 +128,41 @@ public class MyReservationDAO {
 	}
 	
 	public static ReservationVO[] getCancelList(int u_code, String selectedMonth) {
+		
+		/*
+		 * SqlSession ss = FactoryService.getFactory().openSession();
+		 * 
+		 * Map<String, String> map = new HashMap<String, String>(); map.put("u_code",
+		 * String.valueOf(u_code)); map.put("yearAndMonth", selectedMonth);
+		 * map.put("searchKey", searchKey);
+		 * 
+		 * //예약자 찾기(u_code & rsvr_time -> rsvr_code) List<ReserverVO> list =
+		 * ss.selectList("reserver.getMonthRsvrList", map);
+		 * 
+		 * //rsvr_code -> reservationVO List<ReservationVO> rvo_list = new
+		 * ArrayList<ReservationVO>();
+		 * 
+		 * //movieCd 찾기 String movieCd = ss.selectOne("movieList.searchMovie",
+		 * searchKey);
+		 * 
+		 * Map<String, String> map2 = new HashMap<>();
+		 * 
+		 * for(ReserverVO rvo_temp : list) { map2.put("movieCd", movieCd);
+		 * map2.put("rsvr_code", String.valueOf(rvo_temp.getRsvr_code()));
+		 * 
+		 * ReservationVO tmp = ss.selectOne("reservation.searchCancel", map2); if(tmp !=
+		 * null) rvo_list.add(tmp); } rvo = new ReservationVO[rvo_list.size()];
+		 * rvo_list.toArray(rvo);
+		 * 
+		 * ss.close();
+		 */
+		
 		ReservationVO[] rvo = null;
 		SqlSession ss = FactoryService.getFactory().openSession();
 		
 		List<ReservationVO> rvo_list = new ArrayList<ReservationVO>();
-		
 		Map<String, String> map2 = new HashMap<>();
+		
 		
 		List<ReserverVO> list; //예약자 리스트
 		
@@ -152,14 +181,17 @@ public class MyReservationDAO {
 	
 		for(ReserverVO rvo_temp : list) {
 			String temp = String.valueOf(rvo_temp.getRsvr_code());
+			System.out.println(temp);
 			
 			map2.put("rsvr_code", temp);
-			
+			System.out.println(map2.size());
 			ReservationVO tmp = ss.selectOne("reservation.searchCancel", map2);
 			if(tmp != null) {
 				rvo_list.add(tmp);
 			}
+				
 		}
+		
 		
 		rvo = new ReservationVO[rvo_list.size()];
 		rvo_list.toArray(rvo);
