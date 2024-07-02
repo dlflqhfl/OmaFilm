@@ -13,7 +13,7 @@ import java.util.Map;
 
 
 public class AdminDAO {
-	public int insertDailyMovie(DailyBoxOfficeVO daily, List<DailyBoxOfficeVO> dailyList) {
+	public static int insertDailyMovie(DailyBoxOfficeVO daily, List<DailyBoxOfficeVO> dailyList) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		System.out.println("시작 DB저장 테스트");
 		int result = 0;

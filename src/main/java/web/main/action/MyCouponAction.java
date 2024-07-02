@@ -20,21 +20,28 @@ public class MyCouponAction implements Action {
 		String type = request.getParameter("selectedType");
 		
 		if(mvo!=null) {
-			if(type.equals("all")) { //모두 보여주기
-				//회원 정보 -> 쿠폰 검색 -> request에 저장
-				IssuedCouponVO[] cvo = MyCouponDAO.getAllCoupon(mvo);
-				request.setAttribute("cvo", cvo);
-				
-			}else if(type == null || type.trim().length()<1 || type == "usable") {
+			if(type == null || type.trim().length()<1) {
 				//회원 정보 -> 쿠폰 검색 -> request에 저장
 				IssuedCouponVO[] cvo = MyCouponDAO.getUsableCoupon(mvo);
 				request.setAttribute("cvo", cvo);
 				
-			}else if(type.equals("used")) {
-				//회원 정보 -> 쿠폰 검색 -> request에 저장
-				IssuedCouponVO[] cvo = MyCouponDAO.getUsedCoupon(mvo);
-				request.setAttribute("cvo", cvo);
-				
+			} else {
+				if(type.equals("all")) { //모두 보여주기
+					//회원 정보 -> 쿠폰 검색 -> request에 저장
+					IssuedCouponVO[] cvo = MyCouponDAO.getAllCoupon(mvo);
+					request.setAttribute("cvo", cvo);
+					
+				}else if(type.equals("usable")) {
+					//회원 정보 -> 쿠폰 검색 -> request에 저장
+					IssuedCouponVO[] cvo = MyCouponDAO.getUsableCoupon(mvo);
+					request.setAttribute("cvo", cvo);
+					
+				}else if(type.equals("used")) {
+					//회원 정보 -> 쿠폰 검색 -> request에 저장
+					IssuedCouponVO[] cvo = MyCouponDAO.getUsedCoupon(mvo);
+					request.setAttribute("cvo", cvo);
+					
+				}
 			}
 		}
 		

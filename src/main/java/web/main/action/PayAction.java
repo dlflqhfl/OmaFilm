@@ -11,7 +11,7 @@ public class PayAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-
+		System.out.println("PayAction 진입");
 		//임시로 회원 정보 가져오기
 		//MemberVO mvo = PaymentDAO.getMvo("test1");
 		//request.setAttribute("mvo", mvo);
@@ -37,13 +37,15 @@ public class PayAction implements Action {
 		//movieName -> 상영 영화 VO
 		MovieListVO movieVO = PaymentDAO.getMovieVO(movieName); //필요
 		request.setAttribute("movieVO", movieVO);
+		System.out.println("movieVO 나와야함"+ movieVO.getMovieCd());
 
 		//상영관 이름 -> 상영관 VO
 		TheaterVO theaterVO = PaymentDAO.getTheaterVO(theater);
 		request.setAttribute("theaterVO", theaterVO);
+		System.out.println("theaterVO 나와야함"+ theaterVO.getT_name());
 
 		//상영 영화 코드, 상영관 코드, 날짜+시작 시간 -> 상영시간표VO(ssvo)->request 저장
-		ScreeningScheduleVO ssVO = PaymentDAO.getSsVO(movieVO.getMovieCd(), theaterVO.getT_name(),dateAndTime);
+		ScreeningScheduleVO ssVO = PaymentDAO.getSsVO(movieVO.getMovieCd(), theaterVO.getT_name(), dateAndTime);
 		request.setAttribute("ssVO", ssVO);
 		System.out.println("ss_code 나와야함"+ ssVO);
 		/*
@@ -72,20 +74,19 @@ public class PayAction implements Action {
 			String[] temp = people[i].split(":");
 			int count = Integer.parseInt(temp[1]);
 			if(count != 0) { //수량이 유효하면
-
 				switch(temp[0]) {
 					case "성인":
-						content += temp[0] +" × "+count+" = "+ (13000*count)+"\n";
+						content += temp[0] +" × "+count+" = "+ (13000*count)+"   ";
 						dbContent += temp[0] +"("+count+") ";
 						totalPrice+=(13000*count);
 						break;
 					case "청소년":
-						content += temp[0] +" × "+ count+" = "+(10000*count)+"\n";
+						content += temp[0] +" × "+ count+" = "+(10000*count)+"   ";
 						dbContent += temp[0] +"("+count+") ";
 						totalPrice+=(10000*count);
 						break;
 					case "경로":
-						content += temp[0] +" × "+ count+" = "+(8000*count)+"\n";
+						content += temp[0] +" × "+ count+" = "+(8000*count)+"   ";
 						dbContent += temp[0] +"("+count+") ";
 						totalPrice+=(8000*count);
 						break;
