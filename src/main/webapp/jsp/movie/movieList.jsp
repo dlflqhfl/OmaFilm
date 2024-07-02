@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>   
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -61,7 +59,7 @@
               </div>
             </div>
             </c:forEach>
-          </div>
+         
           
         
           <div class="nav1 button-4">
@@ -101,6 +99,8 @@
 		              </ol>
 		          </div> 
           </button>
+          <img class="footer" src="${pageContext.request.contextPath}/img/movie/movieList/footer.png" />
+          </div>
           
           <div class="overlap">
             <div class="navbar">
@@ -125,7 +125,6 @@
               <div class="link-13"></div>
             </div>
           </div>
-          <img class="footer" src="${pageContext.request.contextPath}/img/movie/movieList/footer.png" />
         </div>
       </div>
     </div>

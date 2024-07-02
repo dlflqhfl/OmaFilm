@@ -33,7 +33,7 @@ public class LoginAction implements Action{
         if(mvo != null){
             request.getSession().setAttribute("mvo", mvo);
             if(remember_id != null){
-            	request.getSession().setMaxInactiveInterval(0);
+                request.getSession().setMaxInactiveInterval(0);
                 request.getSession().setAttribute("remember_id", id);
             }
             System.out.println("로그인 성공");

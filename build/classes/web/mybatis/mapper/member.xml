@@ -24,17 +24,17 @@
 
     <!--이메일 중복확인-->
     <select id="email_check" parameterType="String" resultType="int">
-        SELECT COUNT(*) FROM member WHERE u_email = #{email}
+        SELECT COUNT(*) FROM member WHERE u_email = #{email} OR u_id = #{email}
     </select>
 
     <!-- 소셜 로그인 할때 이메일이 존재하면 해당 mvo를 다 가져오는 sql문 -->
     <select id="get_member" parameterType="String" resultType="web.mybatis.vo.MemberVO">
-        SELECT * FROM member WHERE u_email = #{email}
+        SELECT * FROM member WHERE u_email = #{email} or u_id = #{email}
     </select>
 
     <!-- 소셜 로그인인지 확인하는 sql문장 -->
     <select id="social_login_check" parameterType="String" resultType="int">
-        SELECT u_social FROM member WHERE u_email = #{email}
+        SELECT u_social FROM member WHERE u_email = #{email} or u_id = #{email}
     </select>
 
     <select id="idToMvo" resultType="String">
@@ -45,4 +45,13 @@
 		SELECT * FROM member WHERE u_authority = 0
 	</select>
 
+    <!-- 이름 생년월일 이메일을 통해서 몇개나 일치하는지 확인하는 함수-->
+    <select id="find_id" parameterType="map" resultType="int">
+        SELECT COUNT(*) FROM member WHERE u_name = #{name} AND u_birth = #{birth} AND u_email = #{email}
+    </select>
+
+    <!-- 이름 생년월일 이메일을 통해서 아이디와 가입날짜 찾는 함수-->
+    <select id="find_id_date" parameterType="map" resultType="web.mybatis.vo.MemberVO">
+        SELECT u_id, u_join_date FROM member WHERE u_name = #{name} AND u_birth = #{birth} AND u_email = #{email}
+    </select>
 </mapper>

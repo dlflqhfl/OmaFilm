@@ -1031,12 +1031,12 @@
 .div-wrapper .button-4 {
   all: unset;
   box-sizing: border-box;
-  position: absolute;
   width: 1164px;
   height: 40px;
   top: 2218px;
   left: 406px;
   border-color: #eaeaea;
+  margin-top: 50px;
 }
 
 .div-wrapper .text-wrapper-32 {
@@ -1265,12 +1265,12 @@
 }
 
 .div-wrapper .footer {
-  position: absolute;
   width: 1920px;
   height: 200px;
   top: 2321px;
   left: -4px;
   object-fit: cover;
+  margin-top: 50px;
 }
 .nav1 {
     position: relative;

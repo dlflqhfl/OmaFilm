@@ -33,7 +33,7 @@ public class AdminMovieApiAction implements Action{
 		DailyBoxOfficeVO[] daily_list = new DailyBoxOfficeVO[0]; //다음을 위해서 daily_list 배열 선언
 		DailyBoxOfficeVO daily = null;   //출력용 테스트를 위해 try안이 아닌 밖에서 만듬
 		try {
-			String path = "https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.xml?key=f5eef3421c602c6cb7ea224104795888&targetDt=";
+			String path = "https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.xml?key=0a2ce772f649e25bd781abec17bf6279&targetDt=";
 			// 경로 지정 API경로+어제날짜는 안 넣었음
 			StringBuilder sb = new StringBuilder();
 			sb.append(path);
@@ -133,7 +133,7 @@ public class AdminMovieApiAction implements Action{
 		System.out.println(openEndDt);
 		try {
 
-			String path ="https://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.xml?key=f5eef3421c602c6cb7ea224104795888";
+			String path ="https://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.xml?key=0a2ce772f649e25bd781abec17bf6279";
 
 			if ( openStartDt != null) {
 				path += "&openStartDt=" + openStartDt;

@@ -25,7 +25,7 @@ public class AdminAddMovieAction implements Action {
 
 		 try {
 		    	
-			    String path="https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.xml?key=f5eef3421c602c6cb7ea224104795888&movieCd=";
+			    String path="https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.xml?key=0a2ce772f649e25bd781abec17bf6279&movieCd=";
 			    	//여기서 위에서 한 것에서 movieCd를 받아야 한다. 그것도 하나씩 받아서 하기 때문에 for문으로 돌려야 한다.
 			    StringBuilder sb=new StringBuilder();
 			    sb.append(path);
