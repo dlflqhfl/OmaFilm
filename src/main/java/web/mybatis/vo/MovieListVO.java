@@ -33,7 +33,6 @@ public class MovieListVO {
 	private ReviewVO rvo;
 	
 	
-	
 	public int getReviewCount() {
 		return reviewCount;
 	}
