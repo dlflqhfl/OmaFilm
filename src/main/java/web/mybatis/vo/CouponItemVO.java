@@ -4,7 +4,10 @@ public class CouponItemVO {
 	private String ci_code// 쿠폰코드
 	, ci_discount// 할인내용
 	, ci_content//쿠폰내용
-	, ci_date; //만료일자
+	, ci_time //만료일자
+	, ci_regi_time //등록일자
+	, ci_status //쿠폰상태
+	, ci_summary; //쿠폰설명
 	
 	public CouponItemVO() {}
 
@@ -39,13 +42,37 @@ public class CouponItemVO {
 		this.ci_content = ci_content;
 	}
 
-	public String getCi_date() {
-		return ci_date;
+	public String getCi_time() {
+		return ci_time;
 	}
 
-	public void setCi_date(String ci_date) {
-		this.ci_date = ci_date;
+	public void setCi_time(String ci_time) {
+		this.ci_time = ci_time;
 	}
 
+	public String getCi_regi_time() {
+		return ci_regi_time;
+	}
+
+	public void setCi_regi_time(String ci_regi_time) {
+		this.ci_regi_time = ci_regi_time;
+	}
+
+	public String getCi_status() {
+		return ci_status;
+	}
+
+	public void setCi_status(String ci_status) {
+		this.ci_status = ci_status;
+	}
+
+	public String getCi_summary() {
+		return ci_summary;
+	}
+
+	public void setCi_summary(String ci_summary) {
+		this.ci_summary = ci_summary;
+	}
+	
 	
 }

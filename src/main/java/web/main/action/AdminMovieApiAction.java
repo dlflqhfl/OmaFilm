@@ -131,6 +131,7 @@ public class AdminMovieApiAction implements Action{
 		System.out.println(openStartDt);
 		String openEndDt = request.getParameter("openEndDt");
 		System.out.println(openEndDt);
+		String search = request.getParameter("searchData");
 		try {
 
 			String path ="https://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.xml?key=f5eef3421c602c6cb7ea224104795888";
@@ -142,6 +143,9 @@ public class AdminMovieApiAction implements Action{
 			// URL에 openEndDt 추가
 			if (openEndDt != null) {
 				path += "&openEndDt=" + openEndDt;
+			}
+			if( search != null) {
+				path += "&movieNm=" + search;
 			}
 			System.out.println(path);
 			StringBuilder sb = new StringBuilder();

@@ -18,7 +18,7 @@ public class BenefitDetailAction implements Action {
 		
 		request.setAttribute("bvo", bvo);
 		
-		return "/jsp/event/benefitdetail.jsp";
+		return "jsp/event/benefitdetail.jsp";
 
 	}
 

@@ -39,7 +39,6 @@ public class SendEmailAction implements Action {
         //이메일이 일치하는지 확인
         int cnt = LoginDAO.findId(map);
 
-        System.out.println("cnt1 : " + cnt);
         String result = null;
 
         //cnt가 0일경우 등록된 이메일을 다시 입력하라고 경고창
@@ -71,7 +70,6 @@ public class SendEmailAction implements Action {
             props.put("mail.smtp.ssl.trust", "smtp.gmail.com");	// 보안 설정
             props.put("mail.smtp.ssl.protocols", "TLSv1.2");		// 보안 설정
 
-            System.out.println("props : " + props);
 
             //이메일을 보내기 위한 세션 생성
             Session session = Session.getInstance(props, new Authenticator() {
@@ -91,7 +89,6 @@ public class SendEmailAction implements Action {
 
                 //이메일을 보내기
                 Transport.send(message);
-                System.out.println("message : " + message);
 
             } catch (AddressException e) {
                 throw new RuntimeException(e);
@@ -99,7 +96,6 @@ public class SendEmailAction implements Action {
                 throw new RuntimeException(e);
             }
         }
-        System.out.println("result : " + result);
 
         //이메일이 일치하지 않을 경우 경고창을 띄우기 위해 result를 반환
         request.setAttribute("result", result);

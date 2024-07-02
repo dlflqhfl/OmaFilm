@@ -34,6 +34,7 @@
         SELECT *
         FROM reservation
         WHERE rsvr_code = #{rsvr_code} and rs_status = 0
+
     </select>
 
     <select id="getCancel" parameterType="int" resultMap="getSsvoAndgetPvo">
@@ -44,7 +45,36 @@
 
     <update id="cancelReservation" parameterType="String">
         UPDATE reservation
-        SET rs_status = 1
+        SET rs_status = 1, rs_cancel_time = now()
         WHERE rs_num = ${rs_num} AND rs_status = 0;
     </update>
+
+    <resultMap type="web.mybatis.vo.ReservationVO" id="seacrhMap" >
+        <id property="ss_code" column="ss_code"/>
+
+        <association property="ssvo" javaType="web.mybatis.vo.ScreeningScheduleVO"
+                     select="screeningSchedule.getSSVO" column="ss_code">
+        </association>
+    </resultMap>
+
+    <select id="searchReservation" parameterType="Map" resultMap="getSsvoAndgetPvo">
+        SELECT *
+        FROM reservation r
+        JOIN screening_schedule s ON r.ss_code = s.ss_code
+        <where>
+            r.rsvr_code = #{rsvr_code} AND r.rs_status=0
+            <if test="movieCd != null">
+                AND s.movieCd = #{movieCd}
+            </if>
+        </where>
+    </select>
+
+    <select id="searchCancel" parameterType="Map" resultMap="getSsvoAndgetPvo">
+        SELECT *
+        FROM reservation r
+        JOIN screening_schedule s ON r.ss_code = s.ss_code
+        WHERE r.rsvr_code = #{rsvr_code} AND r.rs_status=1
+        ORDER BY r.rs_cancel_time DESC
+    </select>
+
 </mapper>

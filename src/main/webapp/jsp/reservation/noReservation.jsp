@@ -1,0 +1,55 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <div class="background">
+      <div class="modal_overlap-group-wrapper">
+          <div class="modal_container">
+            <div class="modal_frame"><div class="modal_text-wrapper">비회원 로그인</div></div>
+          </div>
+          <div class="form">
+            <button class="button"><div class="div" onclick="noReservation()">확인</div></button>
+            <div class="form-2">
+              <div class="row-2">
+                <div class="cell"><div class="label-2">인증번호</div></div>
+                <div class="data">
+                  <button class="button-2"><div class="text-wrapper-6">인증확인</div></button>
+                  <div class="background-border">
+                    <div class="input-3"></div>
+                    <div class="text-wrapper-7">3:00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row-3">
+                <div class="label-wrapper"><div class="label-3">이메일</div></div>
+                <div class="data-2">
+                  <input class="input-4" placeholder="이메일을 입력해주세요" type="email" id="email" name="email">
+                  <button class="button-3"><div class="text-wrapper-8">인증요청</div></button>
+                </div>
+              </div>
+              <div class="row-4">
+                <div class="label-wrapper"><div class="label-4">생년월일</div></div>
+                <div class="data-2">
+                  <input type="text" id="birth" name="birth" class="input-5" placeholder="생년월일 앞 6자리">
+                </div>
+              </div>
+              <div class="row-5">
+                <div class="label-wrapper"><div class="label-5">이름</div></div>
+                <div class="data-2">
+                  <input type="text" id="name" name="name" class="input-5" placeholder="이름을 입력해주세요">
+                </div>
+              </div>
+              <div class="row-6">
+                <div class="label-wrapper"><div class="label-4">비밀번호</div></div>
+                <div class="data-2">
+                  <input type="password" id="pw" name="pw" placeholder="비밀번호를 입력해주세요" class="input-5">
+                </div>
+              </div>
+              <div class="row-7">
+                <div class="label-wrapper"><div class="label-4">비밀번호 확인</div></div>
+                <div class="data-2">
+                  <input type="password" id="pw2" name="pw2" placeholder="비밀번호를 다시 입력해주세요" class="input-5">
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>

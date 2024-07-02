@@ -5,8 +5,8 @@
 <mapper namespace="reserver">
 
     <insert id="insertNonMem" parameterType="Map">
-        insert into reserver (non_name, non_phone, non_address, non_postal_code, non_email, rsvr_time)
-        values (#{non_name}, #{non_phone}, #{non_address}, #{non_postal_code}, #{non_email}, now())
+        insert into reserver (non_name, non_email, non_pw, rsvr_time)
+        values (#{non_name}, #{non_email}, #{non_pw}, now())
     </insert>
 
     <select id="getNonMemRsvrCode" parameterType="Map" resultType="int">
@@ -29,9 +29,11 @@
     </insert>
 
     <select id="getMonthRsvrList" parameterType="Map" resultType="web.mybatis.vo.ReserverVO">
-        select *
-        from reserver
-        where u_code = ${u_code} and rsvr_time = ${yearAndMonth}
+        SELECT *
+        FROM reserver
+        WHERE u_code = #{u_code}
+        AND rsvr_time &gt;= CONCAT(#{yearAndMonth}, '-01')
+        AND rsvr_time &lt;= LAST_DAY(CONCAT(#{yearAndMonth}, '-01') )
     </select>
 
     <select id="getAllRsvrList" parameterType="int" resultType="web.mybatis.vo.ReserverVO">

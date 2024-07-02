@@ -58,16 +58,11 @@
 
                     </ol>
                 </div>
-                <button class="button">
-                    <div class="container"><div class="text-wrapper-8">구분</div></div>
-                    <img class="image" src="img/admin/image.png" />
-                </button>
-                <div class="border">
-                    <div class="input">
-                        <div class="container-2"><div class="text-wrapper-9">검색어를 입력해 주세요.</div></div>
-                    </div>
+                	<form action="Controller?type=adminMovieApi" method="post">
+	                    <input class="border" id="searchData" name="searchData" placeholder="영화제목을 입력하세요">
+		                <button class="button">검색</button>
+                	</form>
                     <div class="button-2"></div>
-                </div>
                 <div class="cell"><div class="text-wrapper-10">삭제</div></div>
                 <div class="cell-2"><div class="text-wrapper-11">시간 추가</div></div>
                 <div class="frame">
@@ -83,7 +78,7 @@
                     </div>
                 </div>
                 <div class="heading">영화관리</div>
-                <form id="searchForm" action="Controller?type=adminMovie" method="post">
+                <form id="searchForm" action="Controller?type=adminMovieApi" method="post">
                     시작 년도: <input type="text" name="openStartDt" required> &nbsp;
                     종료 년도: <input type="text" name="openEndDt" required> &nbsp;
                     <button type="submit">조회</button>
