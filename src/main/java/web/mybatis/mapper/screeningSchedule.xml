@@ -11,15 +11,15 @@
     </select>
 
     <insert id="insertScreen" parameterType="web.mybatis.vo.ScreeningScheduleVO">
-        INSERT INTO screening_schedule(movieCd, t_name, ss_time, ss_date)
-        VALUES(#{movieCd}, #{t_name}, #{ss_time}, #{ss_date})
+        INSERT INTO screening_schedule(movieCd, t_name, ss_time)
+        VALUES(#{movieCd}, #{t_name}, #{ss_time})
     </insert>
 
 
     <resultMap type ="web.mybatis.vo.ScreeningScheduleVO" id="m2">
         <id property="movieCd" column="movieCd"/>
         <association property="mvo" javaType="web.mybatis.vo.MovieListVO"
-                     select="movieList.getMVO" column="movieCd">
+              select="movieList.getMVO" column="movieCd">
         </association>
     </resultMap>
 

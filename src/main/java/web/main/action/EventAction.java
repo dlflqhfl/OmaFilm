@@ -22,7 +22,7 @@ public class EventAction implements Action {
 		request.setAttribute("ear", ear);
 		request.setAttribute("cnt", cnt);
 		
-		return "/jsp/event/event.jsp";
+		return "jsp/event/event.jsp";
 
 	}
 

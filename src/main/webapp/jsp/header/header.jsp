@@ -12,7 +12,7 @@
             </c:when>
             <c:otherwise>
         <div class="link-21"><div class="text-wrapper-26"><a href="${pageContext.request.contextPath}/jsp/login/register.jsp">회원가입</a></div></div>
-        <div class="link-23"><div class="text-wrapper-27">관리자</div></div>
+        <div class="link-23"><div class="text-wrapper-27"><a href="${pageContext.request.contextPath}/Controller?type=adminMovieApi">관리자</a></div></div>
         <div class="text-wrapper-28"><a href="${pageContext.request.contextPath}/jsp/login/login_1.jsp">로그인</a></div>
 
             </c:otherwise>
@@ -30,7 +30,7 @@
         <a href="Controller?type=event"><div class="text-wrapper-31">이벤트</div></a>
         <a href="Controller?type=benefits"><div class="text-wrapper-32">혜택</div></a>
 
-        <img class="heading-link" src="${pageContext.request.contextPath}/img/main_img/heading-1-link.png" />
+        <a href="${pageContext.request.contextPath}/Controller?type=index"><img class="heading-link" src="${pageContext.request.contextPath}/img/main_img/heading-1-link.png" /></a>
         <div class="m_all"></div>
 
         <%-- 예매 섹션에 마우스를 올렸을 때 보여지는 메뉴 --%>

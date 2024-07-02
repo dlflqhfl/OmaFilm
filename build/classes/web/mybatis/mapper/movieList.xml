@@ -30,14 +30,14 @@
         SELECT * FROM(
         SELECT @RN:=@RN+1 AS rnum, a.* FROM(
         SELECT * FROM movie_list
+		<where>
+			<if test="searchValue != null">
+				AND movieNm LIKE CONCAT('%', #{searchValue}, '%')
+			</if>
+		</where>        
         ) a, (SELECT @RN:=0) b
         ) c WHERE c.rnum between #{begin} AND #{end}
     </select>
-
-    <insert id="insertScreen" parameterType="web.mybatis.vo.ScreeningScheduleVO">
-        INSERT INTO screening_schedule(movieCd, ss_time, ss_date, t_name)
-        VALUES(#{movieCd}, #{ss_time}, #{ss_date}, #{t_name})
-    </insert>
 
 	<select id="searchMovie" parameterType="String" resultType="web.mybatis.vo.MovieListVO">
 		SELECT *

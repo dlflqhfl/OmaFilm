@@ -53,13 +53,13 @@ public class AdminDAO {
 		ss.close();
 		return res;
 	}
-	public static MovieListVO[] selectMovieList(int begin, int end) {
+	public static MovieListVO[] selectMovieList(int begin, int end, String searchValue) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 
 		Map<String, String> map = new HashMap<>();
 		map.put("begin", String.valueOf(begin));
 		map.put("end", String.valueOf(end));
-
+		map.put("searchValue", searchValue);
 
 		List<MovieListVO> list = ss.selectList("movieList.selectMovie",map);
 		System.out.println("나오냐?" +list);
@@ -74,7 +74,7 @@ public class AdminDAO {
 	public static int insertScreen(ScreeningScheduleVO sc) {
 		SqlSession ss= FactoryService.getFactory().openSession();
 
-		int res = ss.insert("movieList.insertScreen",sc);
+		int res = ss.insert("screeningSchedule.insertScreen",sc);
 		if( res > 0) {
 			ss.commit();
 		} else {
