@@ -20,6 +20,8 @@ public class AdminAddMovieAction implements Action {
 		String movieCd = request.getParameter("movieCd");
         String content = request.getParameter("contentData");
         String file = request.getParameter("fileData");
+        
+        String viewPath = null;
         System.out.println(content);
         System.out.println(file);
 
@@ -143,9 +145,16 @@ public class AdminAddMovieAction implements Action {
 		            movie.setM_plot(content);
 			        movie.setM_file(file);
 		            System.out.println("총영화 목록" + movie);
-		            
+		            viewPath = "/jsp/admin/adminAddMovie.jsp";
 		            if (request.getParameter("submit") != null) {
 		            	int res = AdminDAO.insertMovieList(movie);
+		            	if( res > 0) {
+		            		viewPath = "/jsp/admin/adminMovieDB.jsp";
+		            		return viewPath;
+		            	} else {
+		            		viewPath = "/jsp/admin/adminMovieApi.jsp";
+		            		return viewPath;
+		            	}
 		            	
 		            }
 		            
@@ -153,7 +162,7 @@ public class AdminAddMovieAction implements Action {
 		            e.printStackTrace();
 		        }
 
-		return "jsp/admin/adminAddMovie.jsp";
+		return viewPath;
 		
 	}
 

@@ -46,7 +46,7 @@ public class NoticeAction implements Action {
 				request.setAttribute("cnt", cnt);
 				
 				
-				return "/jsp/serviceCenter/notice.jsp";
+				return "jsp/serviceCenter/notice.jsp";
 			}
 	}
 

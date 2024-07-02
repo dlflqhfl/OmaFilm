@@ -5,8 +5,8 @@
 <mapper namespace="reserver">
 
     <insert id="insertNonMem" parameterType="Map">
-        insert into reserver (non_name, non_phone, non_address, non_postal_code, non_email, rsvr_time)
-        values (#{non_name}, #{non_phone}, #{non_address}, #{non_postal_code}, #{non_email}, now())
+        insert into reserver (non_name, non_email, non_pw, rsvr_time)
+        values (#{non_name}, #{non_email}, #{non_pw}, now())
     </insert>
 
     <select id="getNonMemRsvrCode" parameterType="Map" resultType="int">

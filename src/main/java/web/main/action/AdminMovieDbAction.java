@@ -18,6 +18,8 @@ public class AdminMovieDbAction implements Action{
 
 		String cPage = request.getParameter("cPage");
 		
+		String searchValue = request.getParameter("searchData");
+		System.out.println("검색어" + searchValue);
 		//전체페이지 수를 구하기
 		page.setTotalRecode(AdminDAO.getCount());
 		
@@ -31,7 +33,8 @@ public class AdminMovieDbAction implements Action{
 		System.out.println("끝"+page.getEnd());
 		System.out.println("총"+page.getTotalRecode());
 		
-		MovieListVO[] ar = AdminDAO.selectMovieList(page.getBegin(),page.getEnd());
+		
+		MovieListVO[] ar = AdminDAO.selectMovieList(page.getBegin(),page.getEnd(),searchValue);
 		System.out.println(ar);
 
 		request.setAttribute("page", page);
@@ -43,10 +46,15 @@ public class AdminMovieDbAction implements Action{
 		String time = request.getParameter("timeData");
 
 		ScreeningScheduleVO sc = new ScreeningScheduleVO();
+		StringBuffer sb = new StringBuffer();
+		sb.append(date);
+		sb.append(" ");
+		sb.append(time);
+		
+		System.out.println("날짜 "+sb.toString());
 		sc.setMovieCd(movieCd);
-		sc.setSs_date(date);
-		sc.setSs_time(time);
 		sc.setT_name(name);
+		sc.setSs_time(sb.toString());
 
 		if( movieCd != null) {
 			int res = AdminDAO.insertScreen(sc);
