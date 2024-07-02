@@ -50,4 +50,15 @@
 	    INNER JOIN issued_coupon on coupon_item.ci_code = issued_coupon.ci_code
 		WHERE cp_no = #{cp_no}
 	</select>
+	
+	<select id="getU_code" parameterType="String" resultType="String">
+		SELECT u_code
+		FROM issued_coupon
+		WHERE ci_code = #{ci_code} and cp_status = 0
+	</select>
+	
+	<insert id="insertU_code" parameterType="Map">
+		insert into issued_coupon (ci_code, u_code, cp_date, cp_status)
+		values (#{ci_code}, #{u_code}, now(), 0)
+	</insert>
 </mapper>

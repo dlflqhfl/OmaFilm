@@ -41,4 +41,8 @@
         SELECT * FROM member WHERE u_id = #{id}
     </select>
 
+	<select id="getMemList" resultType="web.mybatis.vo.MemberVO">
+		SELECT * FROM member WHERE u_authority = 0
+	</select>
+
 </mapper>
