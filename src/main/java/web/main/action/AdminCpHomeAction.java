@@ -13,14 +13,23 @@ public class AdminCpHomeAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		String ci_code=request.getParameter("delCode");
-		if (ci_code != null) {
-			AdminCpDAO.delCouponItem(ci_code);
+		CouponItemVO[] arr;
+		String delCode=request.getParameter("delCode");
+		String searchType = request.getParameter("searchType");
+		if (delCode != null) {
+			AdminCpDAO.delCouponItem(delCode);
+			arr = AdminCpDAO.getCouponItem();
+			request.setAttribute("cpItemArr", arr);
 		}
-		
-		CouponItemVO[] arr = AdminCpDAO.getCouponItem();
-		
-		request.setAttribute("cpItemArr", arr);
+		else if(searchType != null) {
+			String searchValue = request.getParameter("searchValue");
+			arr = AdminCpDAO.searchCouponItem(searchType, searchValue);
+			request.setAttribute("cpItemArr", arr);
+		}
+		else {
+			arr = AdminCpDAO.getCouponItem();
+			request.setAttribute("cpItemArr", arr);
+		}
 		
 		return "jsp/adminCoupon/adminCpHome.jsp";
 	}

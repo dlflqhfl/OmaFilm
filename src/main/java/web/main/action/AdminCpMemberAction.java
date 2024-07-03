@@ -13,7 +13,7 @@ public class AdminCpMemberAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
+		MemberVO[] memlist;
 		if(request.getParameter("insertU_code[]") != null) {
             String[] u_code = request.getParameterValues("insertU_code[]");
             String ci_code = request.getParameter("ci_code");
@@ -22,13 +22,21 @@ public class AdminCpMemberAction implements Action {
             	System.out.println("u_code : " + u_code[i]);
                 AdminCpDAO.insertU_code(ci_code, u_code[i]);
             }
+            memlist = AdminCpDAO.getMemList();
+    		
+    		request.setAttribute("memlist", memlist);
+        }else if(request.getParameter("searchType")!=null) {
+        	String searchType = request.getParameter("searchType");
+        	String searchValue = request.getParameter("searchValue");
+        	memlist = AdminCpDAO.searchMemItem(searchType, searchValue);
+			request.setAttribute("memlist", memlist);
         }
-		
-		
-		//회원 정보 찾기
-		MemberVO[] memlsit = AdminCpDAO.getMemList();
-		
-		request.setAttribute("memlist", memlsit);
+        else {
+        	//회원 정보 찾기
+        	memlist = AdminCpDAO.getMemList();
+    		
+    		request.setAttribute("memlist", memlist);
+        }
 		
 		String ci_code = request.getParameter("ci_code");
 		

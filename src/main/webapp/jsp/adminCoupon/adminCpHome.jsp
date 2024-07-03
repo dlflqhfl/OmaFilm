@@ -26,7 +26,42 @@
               </div>
             </div>
             <div class="overlap-group">
-            <table>
+            
+            <table class="table">
+            	<thead class="thead">
+					<tr class="">
+						<th class="th-0">선택</th>
+						<th class="th-1">쿠폰코드</th>
+						<th class="th-2">쿠폰명</th>
+						<th class="th-3">할인율</th>
+						<th class="th-4">발급일</th>
+						<th class="th-5">만료일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="item" items="${cpItemArr }"  varStatus="i">
+	                	<tr>
+	                		<td class="rectangle"><input type="radio" name="option" value="${item.ci_code }"/></td>
+		                    <td class="data">${item.ci_code }</td>
+		                    <td class="data-3">${item.ci_content }</td>
+		                    <td class="data-2">${item.ci_discount }%</td>
+		                    <td class="data-4">${item.ci_regi_time.split(" ")[0] }</td>
+		                    <td class="data-5">${item.ci_time.split(" ")[0] }</td>
+	                	</tr>
+	                	<!-- <c:forEach var="item" items="${cpItemArr }"  varStatus="i">
+	                	<div class="td-${i.index+1}">
+		                    <div class="data"><div class="text-wrapper-6">${item.ci_code }</div></div>
+		                    <div class="rectangle-wrapper"><input type="radio" name="option" value="${item.ci_code }" class="rectangle"/></div>
+		                    <div class="data-2"><div class="text-wrapper-22">${item.ci_discount }%</div></div>
+		                    <div class="data-3"><div class="text-wrapper-7">${item.ci_content }</div></div>
+		                    <div class="data-4"><div class="text-wrapper-8">${item.ci_regi_time.split(" ")[0] }</div></div>
+		                    <div class="data-5"><div class="text-wrapper-9">${item.ci_time.split(" ")[0] }</div></div>
+	                	</div>
+	                </c:forEach> -->
+	                </c:forEach>
+				</tbody>
+			</table>
+            <%-- <table>
               <div class="table">
                 <div class="thead">
                   <div class="overlap-group-2">
@@ -34,26 +69,17 @@
                     <div class="div-wrapper"><div class="text-wrapper-3">선택</div></div>
                   </div>
                   <div class="th-2"><div class="text-wrapper-4">쿠폰명</div></div>
-                  <div class="th-3"><div class="text-wrapper-4">할인율</div></div>
+                  <div class="th-3"><div class="text-wrapper-22">할인율</div></div>
                   <div class="th-4"><div class="text-wrapper-5">발급일</div></div>
-                  <div class="th-5"><div class="text-wrapper-4">만료일</div></div>
+                  <div class="th-5"><div class="text-wrapper-23">만료일</div></div>
                 </div>
                 <div class="tbody">
                 
-	                <c:forEach var="item" items="${cpItemArr }"  varStatus="i">
-	                	<div class="td-${i.index+1}">
-		                    <div class="data"><div class="text-wrapper-6">${item.ci_code }</div></div>
-		                    <div class="rectangle-wrapper"><input type="radio" name="option" value="${item.ci_code }" class="rectangle"/></div>
-		                    <div class="data-2"><div class="text-wrapper-22">${item.ci_discount }%</div></div>
-		                    <div class="data-3"><div class="text-wrapper-7">${item.ci_content }</div></div>
-		                    <div class="data-4"><div class="text-wrapper-8">${item.ci_regi_time }</div></div>
-		                    <div class="data-5"><div class="text-wrapper-9">${item.ci_time }</div></div>
-	                	</div>
-	                </c:forEach>
+	                
 	                
                 </div>
               </div>
-              </table>
+              </table> --%>
               <div class="nav">
                 <div class="strong"><div class="text-wrapper-10">1</div></div>
                 <div class="link-2"><div class="text-wrapper-11">2</div></div>
@@ -69,15 +95,18 @@
                 <div class="link-12"></div>
               </div>
             </div>
-            <button class="button">
-              <div class="container"><div class="text-wrapper-13">구분</div></div>
-              <img class="image" src="img/image.png" />
-            </button>
+            
+           	<select id="select" class=" button">
+			  <option value="ci_code">쿠폰 코드</option>
+			  <option value="ci_content">쿠폰명</option>
+			  <option value="ci_discount">할인율</option>
+			  <option value="ci_regi_time">등록일</option>
+			  <option value="ci_time">만료일</option>
+			</select>
+			
             <div class="border">
-              <div class="input">
-                <div class="container-2"><div class="text-wrapper-14">검색어를 입력해 주세요.</div></div>
-              </div>
-              <div class="button-2"></div>
+              <input type="text" class="input" placeholder="검색어를 입력해 주세요." />
+              <button class="button-2">검색</button>
             </div>
             <div class="cell"><div class="text-wrapper-15">추가</div></div>
             <div class="cell-2"><div class="text-wrapper-15">삭제</div></div>
@@ -124,6 +153,13 @@
 	  	    } else {// 선택된 쿠폰이 없을 때의 처리
 	  	    	alert("적용할 쿠폰을 선택해주세요.");
 	  	    }
+	  	});
+	  	$(".button-2").click(function(){ //검색 버튼 클릭
+	  		var value = $(".input").val().trim();
+	  	    var searchType = $("#select").val();
+	  	    console.log("검색어:", value);
+	  	    console.log("검색타입:", searchType);
+	  	  	location.href="Controller?type=adminCpHome&searchValue="+value+"&searchType="+searchType;
 	  	});
 	  	
   });

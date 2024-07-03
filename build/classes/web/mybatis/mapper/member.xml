@@ -54,4 +54,28 @@
     <select id="find_id_date" parameterType="map" resultType="web.mybatis.vo.MemberVO">
         SELECT u_id, u_join_date FROM member WHERE u_name = #{name} AND u_birth = #{birth} AND u_email = #{email}
     </select>
+    
+    <select id="searchMem" parameterType="map" resultType="web.mybatis.vo.MemberVO">
+    	select * from member
+    	<where>
+	        u_authority = 0 and u_status = 0
+	        <if test="searchValue != null"> 
+		        <if test="searchType == 'u_code'"> 
+		            AND u_code LIKE CONCAT('%', #{searchValue}, '%') 
+		        </if>
+		        <if test="searchType == 'u_id'">  
+		        	AND u_id LIKE CONCAT('%', #{searchValue}, '%') 
+		        </if>
+		        <if test="searchType == 'u_name'">
+		            AND u_name LIKE CONCAT('%', #{searchValue}, '%') 
+		        </if>
+		        <if test="searchType == 'u_birth'">
+		            AND u_birth LIKE CONCAT('%', #{searchValue}, '%') 
+		        </if>
+		        <if test="searchType == 'u_email'">
+		            AND u_email LIKE CONCAT('%', #{searchValue}, '%') 
+		        </if>
+		     </if>
+    	</where>
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
     
 <!DOCTYPE html>
@@ -41,6 +42,15 @@
               <div class="link-11"></div>
               <div class="link-12"></div>
             </div>
+            
+            <select id="select" class="button-2">
+			  <option value="u_code">회원 코드</option>
+			  <option value="u_id">아이디</option>
+			  <option value="u_name">이름</option>
+			  <option value="u_birth">생년월일</option>
+			  <option value="u_email">이메일</option>
+			</select>
+			
             <div class="heading">쿠폰 적용 회원</div>
             <div class="horizontal-border">
               <div class="table">
@@ -77,18 +87,13 @@
               <div class="frame-3"><div class="text-wrapper-13">취소</div></div>
             </div>
             <div class="border">
-              <div class="input">
-                <div class="container"><div class="text-wrapper-14">검색어를 입력해 주세요.</div></div>
-              </div>
-              <div class="button"></div>
+              <input type="text" class="input" placeholder="검색어를 입력해 주세요." />
+              <button class="button-3">검색</button>
             </div>
             <div class="cell-7"><div class="text-wrapper-15">전체선택</div></div>
             <div class="text-wrapper-16">총</div>
-            <p class="element"><span class="span">10</span> <span class="text-wrapper-17"> 명</span></p>
-            <button class="button-2">
-              <div class="container-2"><div class="text-wrapper-18">구분</div></div>
-              <img class="image" src="img/image.png" />
-            </button>
+            <p class="element"><span class="span">${fn:length(memlist) }</span> <span class="text-wrapper-17"> 명</span></p>
+            
           </div>
           <div class="div-sidebar">
             <img class="img" src="img/1.png" />
@@ -106,6 +111,15 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	  <script>
 	  $(function(){
+		  $(".button-3").click(function(){ //검색 버튼 클릭
+		  		var value = $(".input").val().trim();
+		  	    var searchType = $("#select").val();
+		  	    console.log("검색어:", value);
+		  	    console.log("검색타입:", searchType);
+		  	  	location.href="Controller?type=adminCpMember&searchValue="+value+"&searchType="+searchType+"&ci_code=${param.ci_code}";
+		  	});
+		  
+		  
 			//tbody에 있는 모든 checkbox들 검색
 			$('#all-check').click(function() {
 				if ($('#all-check').is(':checked')) {
