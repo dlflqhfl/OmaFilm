@@ -27,14 +27,14 @@
         insert into reserver (u_code, rsvr_time)
         values (#{u_code}, now())
     </insert>
-    
-   <select id="getMonthRsvrList" parameterType="Map" resultType="web.mybatis.vo.ReserverVO">
-	    SELECT *
-	    FROM reserver
-	    WHERE u_code = #{u_code} 
-	    AND rsvr_time &gt;= CONCAT(#{yearAndMonth}, '-01') 
-	    AND rsvr_time &lt;= LAST_DAY(CONCAT(#{yearAndMonth}, '-01') )
-	</select>
+
+    <select id="getMonthRsvrList" parameterType="Map" resultType="web.mybatis.vo.ReserverVO">
+        SELECT *
+        FROM reserver
+        WHERE u_code = #{u_code}
+        AND rsvr_time &gt;= CONCAT(#{yearAndMonth}, '-01')
+        AND rsvr_time &lt;= LAST_DAY(CONCAT(#{yearAndMonth}, '-01') )
+    </select>
 
     <select id="getAllRsvrList" parameterType="int" resultType="web.mybatis.vo.ReserverVO">
         select *

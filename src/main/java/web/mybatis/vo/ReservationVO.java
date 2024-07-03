@@ -8,31 +8,24 @@ public class ReservationVO {
 	
 	private String ss_code, rs_num //예매번호
 	, s_code // 상영시간표 코드
-	, rs_time
-	, rs_cancel_time; //예매시간
+	, rs_time; //예매시간
 	
 	private PaymentVO pvo;
 	private ScreeningScheduleVO ssvo;
 	
 	public ReservationVO() {}
 
-	public ReservationVO(int p_code, int rsvr_code, int rs_count, int rs_status, String ss_code, String rs_num,
-			String s_code, String rs_time, String rs_cancel_time, PaymentVO pvo, ScreeningScheduleVO ssvo) {
+	public ReservationVO(int p_code, int rsvr_code, int rs_count, int rs_status, String rs_num, String s_code,
+			String rs_time) {
 		super();
 		this.p_code = p_code;
 		this.rsvr_code = rsvr_code;
 		this.rs_count = rs_count;
 		this.rs_status = rs_status;
-		this.ss_code = ss_code;
 		this.rs_num = rs_num;
 		this.s_code = s_code;
 		this.rs_time = rs_time;
-		this.rs_cancel_time = rs_cancel_time;
-		this.pvo = pvo;
-		this.ssvo = ssvo;
 	}
-
-
 
 	public int getP_code() {
 		return p_code;
@@ -114,12 +107,6 @@ public class ReservationVO {
 		this.ss_code = ss_code;
 	}
 
-	public String getRs_cancel_time() {
-		return rs_cancel_time;
-	}
-
-	public void setRs_cancel_time(String rs_cancel_time) {
-		this.rs_cancel_time = rs_cancel_time;
-	}
+	
 	
 }

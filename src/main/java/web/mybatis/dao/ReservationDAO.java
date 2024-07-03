@@ -1,12 +1,10 @@
 package web.mybatis.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import web.mybatis.service.FactoryService;
-import web.mybatis.vo.ReservationVO;
 import web.mybatis.vo.ScreeningScheduleVO;
 import web.mybatis.vo.SelectSeatVO;
 
@@ -31,5 +29,6 @@ public class ReservationDAO {
 		}
 		ss.close();
 		return ar;
+
 	}
 }

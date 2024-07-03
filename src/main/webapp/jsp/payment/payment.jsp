@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <html>
 <%
+
 	String totalPrice = request.getParameter("totalPrice");
 	String nTotalPrice = request.getParameter("nTotalPrice");
 	System.out.println("나와줘" + nTotalPrice);
@@ -129,6 +130,7 @@
         <div class="date-text">일시</div>
         <div class="theater-text">영화관</div>
         <div class="peo-num-text">인원</div>
+
         <p class="watch-date">
         	<c:if test="${param.date != null && param.time != null}">
 	        	${param.date } ${param.time }
@@ -153,6 +155,7 @@
 				${param.nTotalCount.replace(":", " ").replace("/", " / ") }
 			</c:if>
         </div>
+
       </div>
       <div class="pay-meth-frame">
         <div class="point-pay-method">
@@ -417,7 +420,6 @@
     finalPrice = discountedPrice;
 
     //finalPrice = discountedPrice.toFixed(2); // 소수점 두 자리까지 표시
-
     // 표시되는 가격 업데이트
     $('.dis-price').text(originalPrice - finalPrice);
     $('.total-price').text(finalPrice);

@@ -168,7 +168,7 @@
                         var minutes = Math.floor(time / 60);
                         var seconds = time % 60;
                         $(".text-wrapper-9").text(minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
-                        if (time < 0) {
+                        if (time <= 0) {
                             clearInterval(timer);
                             alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
                             $(".input-3").prop("readonly", true);
@@ -220,9 +220,10 @@
                     $(".button").css("background-color", "#0e2128");
                     $(".button").css("color", "#ffffff");
                     $(".button").prop("disabled", false);
-                    alert("인증번호가 일치합니다.");
+                    alert("인증이 완료되었습니다.");
                     $(".background-border").css("background-color", "#f2f2f2");
                     $(".input-3").prop("readonly", true);
+                    $(".input-3").attr("placeholder", "인증이 완료되었습니다");
                     $(".input-3").css("background-color", "#f2f2f2");
                     $(".text-wrapper-9").css("display", "none");
                     clearInterval(timer);
@@ -299,6 +300,7 @@
             $(".button-3").prop("disabled", true);
         }
     });
+
 </script>
 </body>
 </html>

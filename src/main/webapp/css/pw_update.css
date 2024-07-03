@@ -131,7 +131,6 @@
 }
 
 .frame .button {
-  all: unset;
   box-sizing: border-box;
   position: relative;
   width: 200px;
@@ -140,6 +139,11 @@
   left: 187px;
   background-color: #e0e0e0;
   border-radius: 4px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 46px;
+  font-family: "NanumBarunGothic-Regular", Helvetica;
+  font-weight: 400;
 }
 
 .frame .text-wrapper-4 {
