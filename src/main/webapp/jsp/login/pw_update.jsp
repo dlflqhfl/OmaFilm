@@ -16,8 +16,8 @@
 <body>
 <div class="frame">
     <div class="background-wrapper">
-        <div class="background">
-            <div class="heading"><img class="link" src="https://c.animaapp.com/rgkaVLXU/img/link@2x.png" /></div>
+        <a class="background">
+            <a href="${pageContext.request.contextPath}/Controller" class="heading"> <img class="link" src="https://c.animaapp.com/rgkaVLXU/img/link@2x.png" /></a>
             <div class="container">
                 <div class="text-wrapper">비밀번호 재설정</div>
                 <p class="div">보안인증이 완료되었습니다. 새로 사용하실 비밀번호를 입력해주세요.</p>
@@ -29,7 +29,7 @@
                     생년월일, 휴대폰번호 등 개인정보와 관련된 숫자, 연속된 숫자와 같이 쉬운 비밀번호는 사용을 자제해 주세요
                 </p>
                 <div class="horizontal-border">
-                    <button class="button"><div class="text-wrapper-4">확인</div></button>
+                    <button type="button" class="button">확인</button>
                 </div>
                 <div class="table-body-wrapper">
                     <div class="table-body">

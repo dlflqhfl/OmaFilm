@@ -15,8 +15,29 @@
     <div class="screen">
       <div class="container-wrapper">
         <div class="container">
-          <jsp:include page="/jsp/header/header.jsp"/>
-           <jsp:include page="/jsp/footer/footer.jsp"/>
+          <img class="footer" src="${pageContext.request.contextPath}/img/serviceCenter/home/footer.png" />
+          <div class="frame">
+            <div class="navbar">
+              <div class="link"><div class="text-wrapper">회원가입</div></div>
+              <div class="div-wrapper"><div class="text-wrapper">고객센터</div></div>
+              <div class="div"><div class="text-wrapper-2">관리자</div></div>
+              <div class="text-wrapper-3">로그인</div>
+              <div class="link-2"><div class="text-wrapper">빠른예매</div></div>
+              <img class="img" src="${pageContext.request.contextPath}/img/serviceCenter/home/link.png" />
+              <img class="link-3" src="${pageContext.request.contextPath}/img/serviceCenter/home/link-1.png" />
+              <img class="link-4" src="${pageContext.request.contextPath}/img/serviceCenter/home/link-2.png" />
+              <div class="text-wrapper-4">예매</div>
+              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
+                ><div class="text-wrapper-5">영화</div></a
+              >
+              <div class="text-wrapper-6">이벤트</div>
+              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
+                ><div class="text-wrapper-7">혜택</div></a
+              >
+              <img class="heading-link" src="${pageContext.request.contextPath}/img/serviceCenter/home/heading-1-link.png" />
+              <div class="link-5"></div>
+            </div>
+          </div>
           <div class="heading">고객센터 홈</div>
           <div class="frame-2">
             <div class="background">
