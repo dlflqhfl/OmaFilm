@@ -20,7 +20,7 @@ public class NaverLoginAction implements Action {
         String clientSecret = "YVXiKA204q";//애플리케이션 클라이언트 시크릿값";
         String code = request.getParameter("code");
         String state = request.getParameter("state");
-        String redirectURI = URLEncoder.encode("http://localhost:9090/Omafilm/Controller?type=naver_login", "UTF-8");
+        String redirectURI = URLEncoder.encode("http://localhost:9090/OmaFilm/Controller?type=naver", "UTF-8");
         String apiURL = "https://nid.naver.com/oauth2.0/token?grant_type=authorization_code"
                 + "&client_id=" + clientId
                 + "&client_secret=" + clientSecret

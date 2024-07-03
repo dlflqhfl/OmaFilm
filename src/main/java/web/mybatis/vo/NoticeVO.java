@@ -6,27 +6,8 @@ public class NoticeVO {
 	n_title, //제목
 	n_content, //내용
 	n_imgString, //이미지경로
-	n_time, //작성시간 
-	n_banner, //배너 이미지
-	n_img; //상세 이미지
+	n_time; //작성시간 
 	
-	
-	public String getN_banner() {
-		return n_banner;
-	}
-
-	public void setN_banner(String n_banner) {
-		this.n_banner = n_banner;
-	}
-
-	public String getN_img() {
-		return n_img;
-	}
-
-	public void setN_img(String n_img) {
-		this.n_img = n_img;
-	}
-
 	public NoticeVO() {}
 
 	public NoticeVO(int n_idx, int n_status, String nt_ct_code, String n_title, String n_content, String n_imgString) {

@@ -13,12 +13,12 @@ public class ReservationAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		
+
 		String text = request.getParameter("text");
 		String time = request.getParameter("time");
 		String date = request.getParameter("date");
 		System.out.println("영화제목"+text);
-		
+
 		ScreeningScheduleVO sc = new ScreeningScheduleVO();
 		sc.setT_name(text);
 		StringBuffer sb = new StringBuffer();
@@ -27,10 +27,10 @@ public class ReservationAction implements Action{
 		sb.append(time);
 		sc.setSs_time(sb.toString());
 		System.out.println(sb.toString());
-		
+
 		ScreeningScheduleVO ssvo = ReservationDAO.selectScreen(sc);
 		System.out.println("ssvo" + ssvo);
-		
+
 		SelectSeatVO[] svo = null;
 		if( ssvo != null) {
 			svo = ReservationDAO.ticketing(ssvo);
@@ -41,11 +41,11 @@ public class ReservationAction implements Action{
 				}
 			}
 		}
-		
+
 		String path = "";
 
 		if(text.equals("쌍용 1관")) {
-			 path = "jsp/reservation/reservation.jsp";
+			path = "jsp/reservation/reservation.jsp";
 		} else if(text.equals("쌍용 2관")) {
 			path = "jsp/reservation/reservation1.jsp";
 		} else if(text.equals("쌍용 3관")) {

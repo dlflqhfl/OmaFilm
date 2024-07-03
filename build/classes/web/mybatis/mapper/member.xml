@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 
     <!--받아온 id가 이메일 또는 아이디와 일치하는지 그리고 비밀번호가 db에 있는 비밀번호와 일치하는지 셀렉트문-->
@@ -17,9 +17,9 @@
     <!--회원가입-->
     <insert id="regist" parameterType="web.mybatis.vo.MemberVO">
         INSERT INTO member(u_id, u_pw, u_authority, u_social, u_name, u_phone,
-    u_postcode, u_address, u_email, u_email_rcv, u_birth, u_status, u_join_date, u_none)
+        u_postcode, u_address, u_email, u_email_rcv, u_birth, u_status, u_join_date, u_none)
         VALUES(#{u_id}, #{u_pw}, #{u_authority}, #{u_social}, #{u_name}, #{u_phone}, #{u_postcode},
-    #{u_address}, #{u_email}, #{u_email_rcv}, #{u_birth}, #{u_status}, #{u_join_date}, #{u_none})
+        #{u_address}, #{u_email}, #{u_email_rcv}, #{u_birth}, #{u_status}, #{u_join_date}, #{u_none})
     </insert>
 
     <!--이메일 중복확인-->
@@ -41,17 +41,35 @@
         SELECT * FROM member WHERE u_id = #{id}
     </select>
 
-	<select id="getMemList" resultType="web.mybatis.vo.MemberVO">
-		SELECT * FROM member WHERE u_authority = 0
-	</select>
-
     <!-- 이름 생년월일 이메일을 통해서 몇개나 일치하는지 확인하는 함수-->
     <select id="find_id" parameterType="map" resultType="int">
-        SELECT COUNT(*) FROM member WHERE u_name = #{name} AND u_birth = #{birth} AND u_email = #{email}
+        SELECT COUNT(*) FROM member WHERE u_name = #{name} AND u_email = #{email}
+        <if test="id != null">
+            AND u_id = #{id}
+        </if>
+        <if test="id == null">
+            AND u_birth = #{birth}
+        </if>
     </select>
 
     <!-- 이름 생년월일 이메일을 통해서 아이디와 가입날짜 찾는 함수-->
     <select id="find_id_date" parameterType="map" resultType="web.mybatis.vo.MemberVO">
-        SELECT u_id, u_join_date FROM member WHERE u_name = #{name} AND u_birth = #{birth} AND u_email = #{email}
+        SELECT * FROM member
+        WHERE u_name = #{name} AND u_email = #{email}
+        <if test="id != null">
+            AND u_id = #{id}
+        </if>
+        <if test="id == null">
+            AND u_birth = #{birth}
+        </if>
+    </select>
+
+    <!--비밀번호 변경 쿼리-->
+    <update id="change_pw" parameterType="map">
+        UPDATE member SET u_pw = #{pw} WHERE u_id = #{id} and u_pw = #{old_pw}
+    </update>
+
+    <select id="getMemList" resultType="web.mybatis.vo.MemberVO">
+        SELECT * FROM member WHERE u_authority = 0
     </select>
 </mapper>
