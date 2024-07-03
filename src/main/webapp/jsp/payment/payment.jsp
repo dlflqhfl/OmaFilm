@@ -13,10 +13,18 @@
 <!DOCTYPE html>
 <html>
 <%
+	boolean login = false;
+	Object obj = request.getSession().getAttribute("mvo");
+	MemberVO mvo = null;
+	if (obj != null) {
+	    mvo = (MemberVO) obj;
+	    login = true;
+	}
 
 	String totalPrice = request.getParameter("totalPrice");
 	String nTotalPrice = request.getParameter("nTotalPrice");
 	System.out.println("나와줘" + nTotalPrice);
+	System.out.println("나와줘" + totalPrice);
 	int originalPrice = 0;
 	int saleAmount = 0;
 	int finalPrice = 0;
@@ -260,11 +268,12 @@
 <script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
 <script>
   let selectedPay;
+  let login = <%= login %>;
   $(function(){
     let originalPrice = <%= originalPrice %>;
     let saleAmount = <%= saleAmount %>;
     let finalPrice = <%= finalPrice %>;
-
+    
     $('#OriginalPrice').val(originalPrice);
     $('#Discount').val(saleAmount);
     $('#FinalPrice').val(finalPrice);
@@ -334,7 +343,8 @@
 
   function pay_info(rsp){
     //예매자 저장 내용
-    if(sessionStorage.getItem('mvo') === null){ //비회원일 때
+    if(!login){ //비회원일 때
+    	console.log("비회원")
       input_info('non_name', '${rvo.non_name}');
       input_info('non_email',  '${rvo.non_email}');
       input_info('non_pw', '${rvo.non_pw}');
@@ -371,12 +381,13 @@
       form.submit();
       
     } else {
+    	console.log("회원")
     	 //결제 내역 저장 내용
         var coupon_no = $('#coupon_id').val()
         input_info('cp_no', coupon_no); //쿠폰 발급 번호
         input_info('p_method', rsp.pay_method);
-        input_info('p_content', '${dbContent}'); //DB 저장 내용
-        input_info('p_ex_price', '${param.totalPrice}'); //할인 전 금액
+        input_info('np_content', "안녕"); //DB 저장 내용
+        input_info('np_ex_price', 1); //할인 전 금액
         input_info('p_tt_price', rsp.paid_amount);
         input_info('merchant_uid', rsp.merchant_uid);
 
