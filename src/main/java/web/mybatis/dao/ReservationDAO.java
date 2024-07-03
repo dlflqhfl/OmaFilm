@@ -17,7 +17,7 @@ public class ReservationDAO {
 		
 		ScreeningScheduleVO ar = ss.selectOne("screeningSchedule.selectReservationInfo", sc);
 		
-		
+		ss.close();
 		return ar;
 	}
 	
@@ -29,6 +29,7 @@ public class ReservationDAO {
 			ar = new SelectSeatVO[list.size()];
 			list.toArray(ar);
 		}
+		ss.close();
 		return ar;
 	}
 }
