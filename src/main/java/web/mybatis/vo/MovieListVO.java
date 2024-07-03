@@ -27,7 +27,6 @@ public class MovieListVO {
 	m_plot, //줄거리
 	audiAcc,//누적관람객수
 	m_file; //파일명
-	
 	public MovieListVO() {}
 
 	@Override
