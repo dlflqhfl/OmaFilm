@@ -16,8 +16,8 @@ public class SendAction implements Action {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        //ajax틑 통해 받은 email을 가지고 smtp라이브러리르 활용하여 이메일 인증 구현
-
+        //이메일을 보내기 전에 이메일이 중복되는지 확인
+        //이메일이 중복되면 이메일을 보내지 않고, return을 돌려서 경고창 띄움
         String email = request.getParameter("email");
         System.out.println("email : " + email);
 
@@ -25,7 +25,7 @@ public class SendAction implements Action {
 
         //ajax틑 통해 받은 email을 가지고 smtp라이브러리르 활용하여 이메일 인증 구현
 
-        String result = "";
+        String result = null;
         if (cnt == 0) {
             //이메일 인증을 위한 코드를 생성
             result = "0";
@@ -66,7 +66,7 @@ public class SendAction implements Action {
             try {
                 //이메일을 보내기 위한 메시지 생성
                 Message message = new MimeMessage(session);
-                message.setFrom(new InternetAddress("dlflqhfl11@naver.com", "(주)OMAKASE", "UTF-8"));
+                message.setFrom(new InternetAddress("dlflqhfl@gmail.com", "(주)OMAKASE", "UTF-8"));
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
                 message.setSubject("오마카세 시네마 인증 요청 메일입니다");
                 message.setContent("인증번호는 <strong>" + code + "</strong>입니다.", "text/html; charset=UTF-8");

@@ -37,7 +37,7 @@ public class AdminDAO {
 		SqlSession ss = FactoryService.getFactory().openSession();
 
 		int res = ss.selectOne("dailyBoxOffice.check",movieCd);
-
+		ss.close();
 		return res;
 	}
 
@@ -68,6 +68,7 @@ public class AdminDAO {
 			ar = new MovieListVO[list.size()];
 			list.toArray(ar);
 		}
+		ss.close();
 		return ar;
 	}
 
@@ -80,6 +81,7 @@ public class AdminDAO {
 		} else {
 			ss.rollback();
 		}
+		ss.close();
 		return res;
 	}
 
@@ -106,7 +108,7 @@ public class AdminDAO {
 		SqlSession ss = FactoryService.getFactory().openSession();
 
 		int res = ss.selectOne("movieList.count");
-
+		ss.close();
 		return res;
 	}
 }

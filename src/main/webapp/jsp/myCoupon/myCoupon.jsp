@@ -71,6 +71,7 @@
           <div class="bar">
             <div>
               <select class="select" id="searchType">
+	              
 	              <option class="item" value="usable">사용 가능</option>
 	              <option class="item" value="used">사용 완료</option>
 	              <option class="item" value="all">전체</option>
@@ -83,7 +84,7 @@
           </div>
           <div class="overlap-2">
             <div ></div>
-            <p class="element"><span class="text-wrapper-19">총</span><span class="span">${fn:length(cvo)}</span> <span class="text-wrapper-20"> 매</span></p>
+            <p class="element"><span class="text-wrapper-19">총</span><span class="span">3</span> <span class="text-wrapper-20"> 매</span></p>
           </div>
           <div class="frame">
             <div class="navbar">
@@ -116,18 +117,22 @@
     <script>
     $(function(){
     	$('#search-bt').click(function(){
-    		
+    		console.log("바보야");
     		let selectedType = $("#searchType").val();
-    		
-    		$("#searchType option").prop("selected", false);
-    		$(this).find("option[value='" + selectedType + "']").prop("selected", true); // 선택된 값의 옵션 선택
     		
     		var form = document.createElement('form');
             var objs;
             objs = document.createElement('input');
             objs.setAttribute('type', 'hidden');
             objs.setAttribute('name', 'selectedType');
-            objs.setAttribute('value', selectedType);
+            
+    		if(selectedType == "usable"){ //사용 가능한 쿠폰 조회
+    			objs.setAttribute('value', 'usable');
+    		}else if(selectedType == "used"){ //사용 불가능한 쿠폰 조회
+    			objs.setAttribute('value', 'used');
+    		}else{
+    			objs.setAttribute('value', 'all');
+    		}
     		
     		form.appendChild(objs);
             form.setAttribute('method', 'post');

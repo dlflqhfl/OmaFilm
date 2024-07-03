@@ -148,7 +148,7 @@
                 
                 <c:forEach var="item" items="${rvo_cancel}" varStatus="status">
 					  <div class="tr-${status.index + 11}">
-					    <div class="data-7"><div class="text-wrapper-27">${item.rs_cancel_time.split(" ")[0]}</div></div>
+					    <div class="data-7"><div class="text-wrapper-27">${item.rs_time.split(" ")[0]}</div></div>
 					    <div class="data-8"><div class="text-wrapper-27">${item.rs_num}</div></div>
 					    <c:if test="${item.ssvo != null}">
 					      <div class="data-9"><div class="text-wrapper-26">${item.ssvo.t_name}</div></div>
@@ -159,7 +159,7 @@
 					      <div class="data-12"><div class="text-wrapper-27">${item.pvo.p_tt_price}</div></div>
 					    </c:if>
 					  </div>
-				</c:forEach>
+					</c:forEach>
                 
                     <div class="nav-2">
                       <div class="strong"><div class="text-wrapper-29">1</div></div>
@@ -179,24 +179,42 @@
                 </div>
               </div>
               <div class="heading-2">예매 취소 내역</div>
+              
+              
+              <!-- 
+              
+              div class="label-wrapper"><div class="label-2">기간</div></div>
+               
+				
+				<select class="text-wrapper-16" id="reservationValue">
+				    <option value=""> ::선택하세요:: </option>
+				    <% for(int i = 0; i < 12; i++) { %>
+				        <% String formattedDate = sdf.format(cal.getTime()); %>
+            			<option value="<%=formattedDate%>"><%=formattedDate%></option>
+            			<%
+                		cal.add(java.util.Calendar.MONTH, -1);
+           				 } %>
+				</select>
+				
+               -->
                <div class="overlap-2">
              
-	              <div class="label-wrapper"><div class="label-2">기간</div></div>
-	               		<%
-					    java.util.Calendar cal2 = java.util.Calendar.getInstance();
-					%>
-					<select class="text-wrapper-16" id="cancelMonth">
-					    <option value=""> ::선택하세요:: </option>
-					    <% for(int i = 0; i < 12; i++) { %>
-					        <% String formattedDate = sdf.format(cal2.getTime()); %>
-	            			<option value="<%=formattedDate%>"><%=formattedDate%></option>
-	            			<%
-	                		cal2.add(java.util.Calendar.MONTH, -1);
-	           				 } %>
-					</select>
-	              <button class="link-10" id="cancelSearch">조회</button>
-	            </div>
-          	</div>
+              <div class="label-wrapper"><div class="label-2">기간</div></div>
+               		<%
+				    java.util.Calendar cal2 = java.util.Calendar.getInstance();
+				%>
+				<select class="text-wrapper-16" id="cancelMonth">
+				    <option value=""> ::선택하세요:: </option>
+				    <% for(int i = 0; i < 12; i++) { %>
+				        <% String formattedDate = sdf.format(cal2.getTime()); %>
+            			<option value="<%=formattedDate%>"><%=formattedDate%></option>
+            			<%
+                		cal2.add(java.util.Calendar.MONTH, -1);
+           				 } %>
+				</select>
+              <button class="link-10" id="cancelSearch">조회</button>
+            </div>
+          </div>
           <img class="line" src="https://c.animaapp.com/G7hSAD2g/img/line-1.svg" />
         </div>
       </div>
