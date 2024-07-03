@@ -69,5 +69,12 @@ public class MovieListDAO {
 		return mar;
 	}
 
+	public static MovieListVO getMovieVO(String movieCd) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		MovieListVO vo = ss.selectOne("movieList.getMVO", movieCd);
+		ss.close();
+
+		return vo;
+	}
 
 }
