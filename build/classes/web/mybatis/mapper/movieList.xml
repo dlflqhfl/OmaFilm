@@ -117,8 +117,10 @@
                 GROUP BY movieCd
             ) r ON m.movieCd = r.movieCd,
             (SELECT @RN := 0) b
-        ORDER BY
-            cast(coalesce(d.rank, '9999') AS UNSIGNED) ASC
+        ORDER BY        
+            IF(d.rank IS NULL, 1, 0) ASC,  
+       		d.rank ASC,
+       		m.openDt DESC
 	    ) c
 	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
 		</select>
@@ -164,7 +166,9 @@
 	            ) r ON m.movieCd = r.movieCd,
 	            (SELECT @RN := 0) b
 	        ORDER BY
-	            COALESCE(r.review_count, 0) DESC 
+	            IF(r.review_count IS NULL, 1, 0) ASC,  
+       			 r.review_count DESC, 
+        		CAST(COALESCE(d.rank, '9999') AS UNSIGNED) ASC 
 	    ) c
 	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
 	</select>

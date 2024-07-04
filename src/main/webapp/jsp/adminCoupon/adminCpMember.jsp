@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!DOCTYPE html>
-<html>
+<html> 
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/adminCoupon/mem_globals.css" />

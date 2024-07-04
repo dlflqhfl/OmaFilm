@@ -10,7 +10,7 @@
 	} 
 %>
 <!DOCTYPE html>
-<html>
+<html> 
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/reservationGlobals3.css" />

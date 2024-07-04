@@ -1461,15 +1461,17 @@ input:focus {
 }
 
 .MovieHover .MovieHover_text {
-  width: 207px;
-  height: 201px;
+  width: 200px;
+  height: 280px;
   color: white;
   font-size: 15px;
   font-family: Roboto;
   font-style: italic;
   font-weight: 300;
   line-height: 25px;
-  word-wrap: break-word
+  word-wrap: break-word;
+  overflow: hidden;
+  margin-top: 25px;
 }
 
 

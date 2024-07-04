@@ -141,7 +141,7 @@
                         	<c:if test="${vs.index < 4}">
 					            <div class="item">
 					              <div class="link-15">
-					                <div class="overlap-group-2" style="background-image: url('${pageContext.request.contextPath}/img/movie/movieList/${mar.movieNm}.png'); background-size: cover; background-repeat: no-repeat; background-position: center;"> 
+					                <div class="overlap-group-2" style="background-image: url('${mar.m_file}'); background-size: cover; background-repeat: no-repeat; background-position: center;"> 
 					                  <%-- 이미지 호버 --%>
 					                  <div class="MovieHover">
 						                <a href="Controller?type=moviedetail&movieCd=${mar.movieCd}">
@@ -208,6 +208,13 @@
         element.parentElement.addEventListener('mouseout', function () {
             element.style.display = 'none';
         });
+    });
+    
+    var moviePlot = document.querySelectorAll('.MovieHover_text');
+    moviePlot.forEach(function (element) {
+       if(element.innerText.length > 150){
+          element.innerText = element.innerText.substring(0, 150) + '...';
+       }
     });
 </script>
 </body>

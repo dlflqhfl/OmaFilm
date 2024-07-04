@@ -158,4 +158,22 @@ public class LoginDAO {
 
         return mvo;
     }
+
+    public static int changePw(Map map) {
+        SqlSession ss = FactoryService.getFactory().openSession();
+        System.out.println("changePw");
+
+        int cnt = ss.update("member.change_pw", map);
+        System.out.println("cnt : " + cnt);
+
+        if (cnt > 0){
+            ss.commit();
+        } else {
+            ss.rollback();
+        }
+
+        ss.close();
+
+        return cnt;
+    }
 }

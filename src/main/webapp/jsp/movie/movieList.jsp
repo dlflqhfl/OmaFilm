@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -48,14 +47,21 @@
 	               	 <div class="MovieHover_text">${mar.m_plot}</div><%-- 줄거리 --%>
 	                </a>
                  </div>
-                  <div class="text-wrapper-5">${mar.dvo.rank}</div>
+                  <div class="text-wrapper-5">
+			            <c:if test="${requestScope.type eq 'movierlist'}">
+			                ${mar.rvo.review_count} <%-- MovieRlistAction에서 넘어온 경우 --%>
+			            </c:if>
+			            <c:if test="${requestScope.type ne 'movierlist'}">
+			                ${mar.dvo.rank} <%-- 다른 Action에서 넘어온 경우 --%>
+			            </c:if>
+                  </div>
                 </div>
               </div>
               <div class="container-3"><div class="text-wrapper-6">${mar.movieNm}</div>
               <div class="image" style="background-image: url('${pageContext.request.contextPath}/img/movie/movieList/${mar.watchGradeNm}.png'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
               </div>
               <div class="container-4">
-                <div class="text-wrapper-7">예매율 <fmt:formatNumber value="${mar.dvo.salesShare}" type="percent"/></div>
+                <div class="text-wrapper-7">예매율 <fmt:formatNumber value="${mar.dvo.salesShare}"/>%</div>
                 <div class="vertical-divider-2"></div>
                 <div class="text-wrapper-8">개봉일 
                 <fmt:parseDate value="${mar.openDt}" pattern="yyyyMMdd" var="parsedDate"/>
@@ -123,6 +129,14 @@
             element.style.display = 'none';
         });
     });
+    
+    var moviePlot = document.querySelectorAll('.MovieHover_text');
+    moviePlot.forEach(function (element) {
+       if(element.innerText.length > 150){
+          element.innerText = element.innerText.substring(0, 150) + '...';
+       }
+    });
+    
 </script>
 </body>
 </html>

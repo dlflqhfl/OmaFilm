@@ -20,7 +20,7 @@
 	    mvo = (MemberVO) obj;
 	    login = true;
 	}
-
+	
 	String totalPrice = request.getParameter("totalPrice");
 	String nTotalPrice = request.getParameter("nTotalPrice");
 	System.out.println("나와줘" + nTotalPrice);
