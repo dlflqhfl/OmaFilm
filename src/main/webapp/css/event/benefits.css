@@ -30,14 +30,14 @@
   position: absolute;
   width: 284px;
   height: 58px;
-  top: 300px;
+  top: 240px;
   left: 217px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #222222;
-  font-size: 40px;
+  font-size: 50px;
   letter-spacing: -1px;
-  line-height: 30.8px;
+  line-height: 58px;
 }
 
 .screen .overlap-group {
@@ -60,8 +60,8 @@
   position: absolute;
   width: 150px;
   height: 29px;
-  top: -104px;
-  left: -10px;
+  top: -140px;
+  left: -28px;
   font-family: "Inter", Helvetica;
   font-weight: 700;
   color: transparent;
@@ -83,13 +83,13 @@
   position: absolute;
   width: 1547px;
   height: 1743px;
-  top: 0;
-  left: 0;
+  top: -50px;
+  left: -8px;
 }
 
 .screen .list {
   width: 1547px;
-  height: 1743px;
+  height: auto;
   display: flex; /* Flexbox 레이아웃 적용 */
   flex-wrap: wrap; /* 줄바꿈 허용 */
   justify-content: space-between; /* 아이템 간 간격 균등 분배 */
@@ -104,7 +104,8 @@
   border: 1px solid;
   border-color: #e4e4e4;
   position: static; /* absolute 속성 제거 */
-  margin: 10px
+  margin: 10px;
+  margin-bottom: 100px;
 }
 
 
@@ -121,7 +122,7 @@
 
 .screen .div {
   position: relative;
-  width: 439px;
+  width: 438px;
   height: 243px;
   background-image: url(../../img/event/benefits/fouilyt7jncmcboni66dljpyxxy7zra7-jpg.png);
   background-size: cover;

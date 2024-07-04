@@ -26,7 +26,6 @@ public class AdminAddMovieAction implements Action {
 		System.out.println(file);
 
 		try {
-
 			String path="https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.xml?key=0a2ce772f649e25bd781abec17bf6279&movieCd=";
 			//여기서 위에서 한 것에서 movieCd를 받아야 한다. 그것도 하나씩 받아서 하기 때문에 for문으로 돌려야 한다.
 			StringBuilder sb=new StringBuilder();
@@ -64,6 +63,7 @@ public class AdminAddMovieAction implements Action {
 
 			Element actors = movieInfo.getChild("actors");
 			List<Element> actor_list = actors.getChildren("actor");
+
 			//movieInfo안에 있는 actors안에 있는 actor들
 			Element showTypes = movieInfo.getChild("showTypes");
 			List<Element> showType_list = showTypes.getChildren("showType");
@@ -80,6 +80,7 @@ public class AdminAddMovieAction implements Action {
 			movie.setPrdtYear(movieInfo.getChildText("prdtYear"));
 			movie.setOpenDt(movieInfo.getChildText("openDt"));
 			movie.setTypeNm(movieInfo.getChildText("typeNm"));
+
 
 			if( nation != null) {
 				movie.setNationNm(nation.getChildText("nationNm"));
@@ -102,7 +103,6 @@ public class AdminAddMovieAction implements Action {
 				movie.setShowTypeGroupNm(e.getChildText("showTypeGroupNm"));
 				movie.setShowTypeNm(e.getChildText("showTypeNm"));
 			}
-
 
 			if (actors != null) {
 				int i = 0;
@@ -146,9 +146,13 @@ public class AdminAddMovieAction implements Action {
 			movie.setM_file(file);
 			System.out.println("총영화 목록" + movie);
 			viewPath = "/jsp/admin/adminAddMovie.jsp";
+			
 			if (request.getParameter("submit") != null) {
+				String fileData = request.getParameter("fileData");
+				movie.setM_file(fileData);
+				System.out.println("파일이름" + fileData);
 				int res = AdminDAO.insertMovieList(movie);
-				if( res > 0) {
+				if (res > 0) {
 					viewPath = "/jsp/admin/adminMovieDB.jsp";
 					return viewPath;
 				} else {
@@ -166,5 +170,5 @@ public class AdminAddMovieAction implements Action {
 
 	}
 
-
 }
+

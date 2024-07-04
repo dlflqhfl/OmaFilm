@@ -17,14 +17,6 @@
   height: 1720px;
 }
 
-.screen .footer {
-  position: absolute;
-  width: 1920px;
-  height: 223px;
-  top: 1497px;
-  left: 0;
-  object-fit: cover;
-}
 
 .screen .heading {
   position: absolute;
@@ -59,8 +51,7 @@
   left: 609px;
   position: absolute;
   height: 547px;
-  top: 416px;
-  position: relative;
+  top: 410px;
 }
 
 .screen .img {

@@ -1,9 +1,10 @@
 .footer {
-    position: relative;
+    position: absolute;
     margin: auto;
     width: 1920px;
     height: 200px;
     background-color: #f8f8fa;
+    bottom: 0;
 }
 
 .footer .footer_wrapper {

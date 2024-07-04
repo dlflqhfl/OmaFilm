@@ -9,7 +9,7 @@
         values (#{non_name}, #{non_email}, #{non_pw}, now())
     </insert>
 
-    <select id="getNonMemRsvrCode" parameterType="Map" resultType="int">
+    <select id="getNonMemRsvrCode" parameterType="String" resultType="int">
         SELECT rsvr_code FROM reserver
         WHERE non_name = #{non_name}
         ORDER BY rsvr_time DESC

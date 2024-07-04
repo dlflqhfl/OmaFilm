@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
   <head>
     <meta charset="utf-8" />
@@ -14,29 +14,11 @@
     <div class="div-wrapper">
       <div class="container-wrapper">
         <div class="container">
-          <img class="footer" src="${pageContext.request.contextPath}/img/serviceCenter/noticedetail/footer.png" />
-          <div class="frame">
-            <div class="navbar">
-              <div class="link"><div class="text-wrapper">회원가입</div></div>
-              <div class="div"><div class="text-wrapper">고객센터</div></div>
-              <div class="link-2"><div class="text-wrapper-2">관리자</div></div>
-              <div class="text-wrapper-3">로그인</div>
-              <div class="link-3"><div class="text-wrapper">빠른예매</div></div>
-              <img class="img" src="${pageContext.request.contextPath}/img/serviceCenter/noticedetail/link.png" />
-              <img class="link-4" src="${pageContext.request.contextPath}/img/serviceCenter/noticedetail/link-1.png" />
-              <img class="link-5" src="${pageContext.request.contextPath}/img/serviceCenter/noticedetail/link-2.png" />
-              <div class="text-wrapper-4">예매</div>
-              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                ><div class="text-wrapper-5">영화</div></a
-              >
-              <div class="text-wrapper-6">이벤트</div>
-              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                ><div class="text-wrapper-7">혜택</div></a
-              >
-              <img class="heading-link" src="${pageContext.request.contextPath}/img/serviceCenter/noticedetail/heading-1-link.png" />
-              <div class="link-6"></div>
+          <jsp:include page="/jsp/footer/footer.jsp"/>
+          <div class="overlap-group">
+              <img class="overlay" src="${pageContext.request.contextPath}/img/serviceCenter/noticedetail/overlay.svg" />
+             <jsp:include page="/jsp/header/header.jsp"/>
             </div>
-          </div>
           <div class="heading">공지사항 상세보기</div>
           <div class="background">
             <div class="overlap">
@@ -83,7 +65,7 @@
                   </div>
                 </div>
               </div>
-              <button class="button"><div class="text-wrapper-16"><a href="Controller?type=notice">목록</a></div></button>
+              <button class="button"><div class="text-wrapper-16"><a href="Controller?type=notice&cPage=${requestScope.page.nowPage}">목록</a></div></button>
             </div>
           </div>
         </div>

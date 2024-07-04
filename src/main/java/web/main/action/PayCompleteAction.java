@@ -13,6 +13,7 @@ public class PayCompleteAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("컴플리트");
 
 		// 세션 객체 가져오기
 		HttpSession session = request.getSession();
@@ -40,18 +41,32 @@ public class PayCompleteAction implements Action {
 			Map<String, String> map = new HashMap<>();
 			String cp_no = request.getParameter("cp_no"); //쿠폰
 			String p_method = request.getParameter("p_method");
+			String np_content = request.getParameter("np_content");
 			String p_content = request.getParameter("p_content");
 			String p_ex_price = request.getParameter("p_ex_price");
+			String np_ex_price = request.getParameter("np_ex_price");
+			System.out.println("금액 =" + np_ex_price);
 			String p_tt_price = request.getParameter("p_tt_price");
 			String merchant_uid = request.getParameter("merchant_uid");
 
 			map.put("rsvr_code", String.valueOf(rsvr_code));
 
 			map.put("p_method", p_method);
-			map.put("p_content", p_content);
-			map.put("p_ex_price", p_ex_price);
+			if( np_content != null) {
+				map.put("p_content", np_content);
+			}
+			if( p_content != null) {
+				map.put("p_content", p_content);
+			}
+			if( p_ex_price != null) {
+				map.put("p_ex_price", p_ex_price);
+			}
+			if( np_ex_price != null) {
+				map.put("p_ex_price", np_ex_price);
+			}
 			map.put("p_tt_price", p_tt_price);
 			map.put("merchant_uid", merchant_uid);
+			System.out.println("나와야함" + map);
 			if(!cp_no.isEmpty()) {
 				map.put("cp_no", cp_no);
 			}

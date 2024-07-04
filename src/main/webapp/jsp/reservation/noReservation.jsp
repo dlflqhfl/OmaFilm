@@ -49,6 +49,21 @@
                   <input type="password" id="pw2" name="pw2" placeholder="비밀번호를 다시 입력해주세요" class="input-5">
                 </div>
               </div>
+              
+			<form id="nonReserver" action="Controller?type=payment" method="post">
+				<input type="hidden" id="movieName" name="movieName" value="${param.movieName }">
+			 	<input type="hidden" id="nText" name="nText" value="${param.text }">
+            	<input type="hidden" id="nTime" name="nTime" value="${param.time }">
+            	<input type="hidden" id="nDate" name="nDate" value="${param.date }">
+				<input type="hidden" id="nTotalCount" name="nTotalCount" value="">
+				<input type="hidden" id="nCheckSeat" name="nCheckSeat" value="">
+				<input type="hidden" id="nTotalPrice" name="nTotalPrice" value="">
+				<input type="hidden" id="non_name" name="non_name" value="">
+				<input type="hidden" id="non_email" name="non_email" value="">
+				<input type="hidden" id="non_pw" name="non_pw" value="">
+			</form>
+        
+              
             </div>
           </div>
       </div>

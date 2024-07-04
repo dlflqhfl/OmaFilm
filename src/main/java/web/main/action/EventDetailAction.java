@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import web.mybatis.dao.EventDAO;
 import web.mybatis.vo.NoticeVO;
 
-public class EventAction implements Action {
+public class EventDetailAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {

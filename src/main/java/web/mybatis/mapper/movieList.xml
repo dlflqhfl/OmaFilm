@@ -20,10 +20,10 @@
     <insert id="insertMovie" parameterType="web.mybatis.vo.MovieListVO">
         INSERT INTO movie_list(movieCd, movieNm,movieNmEn,prdtYear,showTm,openDt,typeNm,
         nationNm,genreNm,directors,peopleNm,peopleNmEn,actors,cast,castEn,showTypeGroupNm,
-        showTypeNm,watchGradeNm,m_plot)
+        showTypeNm,watchGradeNm,m_plot, m_file)
         VALUES(#{movieCd}, #{movieNm},#{movieNmEn},#{prdtYear},#{showTm},#{openDt},#{typeNm},
         #{nationNm},#{genreNm},#{directors},#{peopleNm},#{peopleNmEn},#{actors},#{cast},#{castEn},#{showTypeGroupNm},
-        #{showTypeNm},#{watchGradeNm},#{m_plot} )
+        #{showTypeNm},#{watchGradeNm},#{m_plot}, #{m_file} )
     </insert>
 
     <select id="selectMovie" resultType="web.mybatis.vo.MovieListVO" parameterType="Map">

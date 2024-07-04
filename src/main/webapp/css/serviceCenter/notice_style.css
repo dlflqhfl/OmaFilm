@@ -17,15 +17,6 @@
   height: 1720px;
 }
 
-.screen .footer {
-  position: absolute;
-  width: 1920px;
-  height: 220px;
-  top: 1500px;
-  left: 0;
-  object-fit: cover;
-}
-
 .screen .frame {
   position: absolute;
   width: 1920px;
@@ -275,7 +266,7 @@
   position: absolute;
   width: 230px;
   height: 36px;
-  top: 409px;
+  top: 367px;
   left: 1320px;
   border-radius: 3px;
   border: 1px solid;
@@ -333,7 +324,7 @@ input:focus {
   width: 940px; 
   border-collapse: collapse; /* 테이블 경계선 병합 */
   position : relative;
-  top: 500px;
+  top: 200px;
   left: 615px;
 }
 

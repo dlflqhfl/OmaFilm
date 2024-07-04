@@ -10,7 +10,7 @@
 	boolean isLogin = (mvo != null);
 
 	Object obj = request.getAttribute("svo");
-	SelectSeatVO[] svo = null;
+	SelectSeatVO[] svo = null; 
 	if( obj != null){
 		svo = (SelectSeatVO[])obj;
 	}
@@ -328,18 +328,6 @@
             <input type="hidden" id="totalPrice" name="totalPrice" value="">
         </form>
         
-        <form id="nonReserver" action="Controller?type=payment" method="post">
-        	<input type="hidden" id="movieName" name="movieName" value="${param.movieName }">
-            <input type="hidden" id="text" name="text" value="${param.text }">
-            <input type="hidden" id="time" name="time" value="${param.time }">
-            <input type="hidden" id="totalCount" name="totalCount" value="">
-            <input type="hidden" id="checkSeat" name="checkSeat" value="">
-            <input type="hidden" id="date" name="date" value="${param.date }">
-            <input type="hidden" id="totalPrice" name="totalPrice" value="">
-            <input type="hidden" id="non_name" name="non_name" value="">
-            <input type="hidden" id="non_email" name="non_email" value="">
-            <input type="hidden" id="non_pw" name="non_pw" value="">
-        </form>
         <div>
        <c:if test="${mvo == null}">
 		  <div id="modal" class="modal">
@@ -363,6 +351,8 @@
 	let date = '<%= request.getParameter("date") %>';
 	let login = <%=isLogin %>;
 	let modal = $("#modal");
+	let totalCount;
+	let totalPrice;
 	
 	function hoverEvent() {
 	    $('.rectangle').not('[style*="background-color: black"]').hover(
@@ -390,15 +380,15 @@
 		let adultCount = "성인:" + adult;
 		let teenCount = "청소년:" + teen;
 		let oldCount = "경로:" + old;
-		
-		let totalCount = adultCount+"/" + teenCount+"/" + oldCount;
-		
+
+		totalCount = adultCount+"/" + teenCount+"/" + oldCount;
+		console.log()
+		$("#nTotalCount").val(totalCount);
+		$("#nCheckSeat").val(seats);
+
 		$("#non_name").val(name)
 		$("#non_email").val(email)
 		$("#non_pw").val(pw)
-
-		$("#totalCount").val(totalCount)
-		$("#checkSeat").val(seats);
 		
 		$("#nonReserver").submit()
 	}
@@ -412,9 +402,9 @@
 		let teenCount = "청소년:" + teen;
 		let oldCount = "경로:" + old;
 
-		let totalCount = adultCount+"/" + teenCount+"/" + oldCount;
+		totalCount = adultCount+"/" + teenCount+"/" + oldCount;
 		console.log()
-		$("#totalCount").val(totalCount)
+		$("#totalCount").val(totalCount);
 		$("#checkSeat").val(seats);
 		$("#goPayment").submit();
 	}
@@ -471,7 +461,7 @@
 				$(this).css('background-color', '#2CC7E9');
 			}
 		} else {
-			alert("인원을먼저 선택해줭~~")
+			alert("인원을먼저 선택해주세요")
 		}
 
 		if( length == (num-1)){
@@ -558,9 +548,10 @@
 	}
 
 	function updatePrice(){
-		let totalPrice = (adult * 13000) + (teen * 10000) + (old * 8000);
+		totalPrice = (adult * 13000) + (teen * 10000) + (old * 8000);
 		$(".total-price-text").text(totalPrice)
 		$("#totalPrice").val(totalPrice); // hidden input 필드 값 업데이트
+		$("#nTotalPrice").val(totalPrice);
 		console.log(totalPrice)
 	}
 

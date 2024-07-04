@@ -10,16 +10,49 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <%
-  int originalPrice = Integer.parseInt(request.getParameter("totalPrice"));
-  int saleAmount = 0;
-  int finalPrice = originalPrice;
+	boolean login = false;
+	Object obj = request.getSession().getAttribute("mvo");
+	MemberVO mvo = null;
+	if (obj != null) {
+	    mvo = (MemberVO) obj;
+	    login = true;
+	}
+
+	String totalPrice = request.getParameter("totalPrice");
+	String nTotalPrice = request.getParameter("nTotalPrice");
+	System.out.println("나와줘" + nTotalPrice);
+	System.out.println("나와줘" + totalPrice);
+	int originalPrice = 0;
+	int saleAmount = 0;
+	int finalPrice = 0;
+	
+	if( totalPrice != null){
+		originalPrice = Integer.parseInt(totalPrice);
+	  	finalPrice = originalPrice;
+	}
+	
+	if( nTotalPrice != null){
+		originalPrice = Integer.parseInt(nTotalPrice);
+		finalPrice = originalPrice;
+	}
 
   String checkSeat = request.getParameter("checkSeat");
-  String seat[] = checkSeat.split(",");
-  int seatLength = seat.length;
+  String nCheckSeat = request.getParameter("nCheckSeat");
+  String seat[];
+  int seatLength = 0;
+  if( checkSeat != null){
+	   seat = checkSeat.split(",");
+	  seatLength = seat.length;
+	  
+  }
+  if( nCheckSeat != null){
+		seat = nCheckSeat.split(",");
+	  seatLength = seat.length;
+	  
+  }
 %>
 <head>
   <meta charset="utf-8" />
@@ -79,7 +112,14 @@
       <div class="infor-frame">
         <div class="seat-frame">
           <div class="seat-text">좌석</div>
-          <div class="seat-num">${param.checkSeat.replace(",", ", ") }</div>
+          <div class="seat-num">
+          	<c:if test="${param.checkSeat != null}">
+	          	${param.checkSeat.replace(",", ", ") }
+          	</c:if>
+          	<c:if test="${param.nCheckSeat != null}">
+	          	${param.nCheckSeat.replace(",", ", ") }
+          	</c:if>
+          </div>
         </div>
         <div class="movie-image"></div>
         <c:if test="${requestScope.movieVO.watchGradeNm == '전체관람가' }">
@@ -98,9 +138,32 @@
         <div class="date-text">일시</div>
         <div class="theater-text">영화관</div>
         <div class="peo-num-text">인원</div>
-        <p class="watch-date">${param.date } ${param.time }</p>
-        <div class="theater-num">${param.text}</div>
-        <div class="people-num">${param.totalCount.replace(":", " ").replace("/", " / ") }</div>
+
+        <p class="watch-date">
+        	<c:if test="${param.date != null && param.time != null}">
+	        	${param.date } ${param.time }
+        	</c:if>
+        	<c:if test="${param.nDate != null && param.nTime != null}">
+	        	${param.nDate } ${param.nTime }
+        	</c:if>
+        </p>
+        <div class="theater-num">
+        	<c:if test="${param.text != null}">
+	        	${param.text}
+        	</c:if>
+        	<c:if test="${param.nText != null}">
+	        	${param.nText}
+        	</c:if>
+        </div>
+        <div class="people-num">
+	        <c:if test="${param.totalCount != null }">
+		        ${param.totalCount.replace(":", " ").replace("/", " / ") }
+	        </c:if>
+			<c:if test="${param.nTotalCount != null }">
+				${param.nTotalCount.replace(":", " ").replace("/", " / ") }
+			</c:if>
+        </div>
+
       </div>
       <div class="pay-meth-frame">
         <div class="point-pay-method">
@@ -205,11 +268,12 @@
 <script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
 <script>
   let selectedPay;
+  let login = <%= login %>;
   $(function(){
     let originalPrice = <%= originalPrice %>;
     let saleAmount = <%= saleAmount %>;
     let finalPrice = <%= finalPrice %>;
-
+    
     $('#OriginalPrice').val(originalPrice);
     $('#Discount').val(saleAmount);
     $('#FinalPrice').val(finalPrice);
@@ -279,45 +343,77 @@
 
   function pay_info(rsp){
     //예매자 저장 내용
-    if(sessionStorage.getItem('mvo') === null){ //비회원일 때
-      input_info('non_name', rsp.buyer_name);
-      input_info('non_phone',  rsp.buyer_tel);
-      input_info('non_address', rsp.buyer_addr);
-      input_info('non_postal_code', rsp.buyer_postcode);
-      input_info('non_email', rsp.buyer_email);
+    if(!login){ //비회원일 때
+    	console.log("비회원")
+      input_info('non_name', '${rvo.non_name}');
+      input_info('non_email',  '${rvo.non_email}');
+      input_info('non_pw', '${rvo.non_pw}');
+      //결제 내역 저장 내용
+      var coupon_no = $('#coupon_id').val()
+      input_info('cp_no', coupon_no); //쿠폰 발급 번호
+      input_info('p_method', rsp.pay_method);
+      input_info('p_content', '${nDbContent}'); //DB 저장 내용
+      input_info('p_ex_price', '${param.nTotalPrice}'); //할인 전 금액
+      input_info('p_tt_price', rsp.paid_amount);
+      input_info('merchant_uid', rsp.merchant_uid);
+
+      //예매 내역 저장 내용
+      input_info('ss_code', '${ssVO1.ss_code}'); //상영시간표 코드
+      input_info('rs_count', '<%=seatLength%>'); //선택 좌석 개수
+
+      //선택 좌석
+      input_info('s_code', '${nCheckSeat}'); //좌석코드 문자열로
+      input_info('a_code', '${nTotalCount}'); //관객 내용 문자열로
+      input_info('t_name', '${thea.t_name}'); //상영관 코드
+
+      input_info('checkSeat', '${param.nCheckSeat}'); //관객 내용 문자열로
+      input_info('totalCount', '${param.nTotalCount}'); //관객 내용 문자열로
+
+      input_info('date', '${param.nDate }');
+      input_info('time', ' ${param.nTime }');
+
+      var saleprice = $('#Discount').val()
+      input_info('saleprice', saleprice);
+
+      form.setAttribute('method', 'post');
+      form.setAttribute('action', 'Controller?type=paycomplete');
+      document.body.appendChild(form);
+      form.submit();
+      
+    } else {
+    	console.log("회원")
+    	 //결제 내역 저장 내용
+        var coupon_no = $('#coupon_id').val()
+        input_info('cp_no', coupon_no); //쿠폰 발급 번호
+        input_info('p_method', rsp.pay_method);
+        input_info('np_content', "안녕"); //DB 저장 내용
+        input_info('np_ex_price', 1); //할인 전 금액
+        input_info('p_tt_price', rsp.paid_amount);
+        input_info('merchant_uid', rsp.merchant_uid);
+
+        //예매 내역 저장 내용
+        input_info('ss_code', '${ssVO.ss_code}'); //상영시간표 코드
+        input_info('rs_count', '<%=seatLength%>'); //선택 좌석 개수
+
+        //선택 좌석
+        input_info('s_code', '${checkSeat}'); //좌석코드 문자열로
+        input_info('a_code', '${totalCount}'); //관객 내용 문자열로
+        input_info('t_name', '${theaterVO.t_name}'); //상영관 코드
+
+        input_info('checkSeat', '${param.checkSeat}'); //관객 내용 문자열로
+        input_info('totalCount', '${param.totalCount}'); //관객 내용 문자열로
+
+        input_info('date', '${param.date }');
+        input_info('time', ' ${param.time }');
+
+        var saleprice = $('#Discount').val()
+        input_info('saleprice', saleprice);
+
+        form.setAttribute('method', 'post');
+        form.setAttribute('action', 'Controller?type=paycomplete');
+        document.body.appendChild(form);
+        form.submit();
     }
-
-    //결제 내역 저장 내용
-    var coupon_no = $('#coupon_id').val()
-    input_info('cp_no', coupon_no); //쿠폰 발급 번호
-    input_info('p_method', rsp.pay_method);
-    input_info('p_content', '${dbContent}'); //DB 저장 내용
-    input_info('p_ex_price', '${param.totalPrice}'); //할인 전 금액
-    input_info('p_tt_price', rsp.paid_amount);
-    input_info('merchant_uid', rsp.merchant_uid);
-
-    //예매 내역 저장 내용
-    input_info('ss_code', '${ssVO.ss_code}'); //상영시간표 코드
-    input_info('rs_count', '<%=seatLength%>'); //선택 좌석 개수
-
-    //선택 좌석
-    input_info('s_code', '${checkSeat}'); //좌석코드 문자열로
-    input_info('a_code', '${totalCount}'); //관객 내용 문자열로
-    input_info('t_name', '${theaterVO.t_name}'); //상영관 코드
-
-    input_info('checkSeat', '${param.checkSeat}'); //관객 내용 문자열로
-    input_info('totalCount', '${param.totalCount}'); //관객 내용 문자열로
-
-    input_info('date', '${param.date }');
-    input_info('time', ' ${param.time }');
-
-    var saleprice = $('#Discount').val()
-    input_info('saleprice', saleprice);
-
-    form.setAttribute('method', 'post');
-    form.setAttribute('action', 'Controller?type=paycomplete');
-    document.body.appendChild(form);
-    form.submit();
   }
 
   //----------------- 쿠폰 선택 시 금액 바꾸고 쿠폰 no 저장 -----------------
@@ -335,7 +431,6 @@
     finalPrice = discountedPrice;
 
     //finalPrice = discountedPrice.toFixed(2); // 소수점 두 자리까지 표시
-
     // 표시되는 가격 업데이트
     $('.dis-price').text(originalPrice - finalPrice);
     $('.total-price').text(finalPrice);

@@ -8,6 +8,8 @@ public class ReviewVO {
 	r_date,// 리뷰날짜
 	r_recomm;// 추천
 	
+	private int review_count;
+	
 	public ReviewVO() {}
 
 	public ReviewVO(int r_idx, int r_status, String u_code, String r_grade, String r_content, String r_date,
@@ -76,5 +78,12 @@ public class ReviewVO {
 
 	public void setR_recomm(String r_recomm) {
 		this.r_recomm = r_recomm;
+	}
+	public int getReview_count() {
+		return review_count;
+	}
+
+	public void setReview_count(int review_count) {
+		this.review_count = review_count;
 	}
 }
