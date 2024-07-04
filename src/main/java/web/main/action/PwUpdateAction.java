@@ -42,7 +42,7 @@ public class PwUpdateAction implements Action{
 
         request.setAttribute("result", result);
 
-        return "/jsp/login/email_check.jsp";
+        return "jsp/login/email_check.jsp";
 
     }
 }
