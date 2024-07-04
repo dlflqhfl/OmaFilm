@@ -37,7 +37,6 @@ public class MovieListAction implements Action {
 			page.setNowPage(1);
 		
 		MovieListVO[] mar = MovieListDAO.getList(page.getBegin(), page.getEnd(), null);
-		
 		//위의 배열 ar을 jsp에서 표현하기 위해 request에 저장하자
 		request.setAttribute("mar", mar);
 		request.setAttribute("page", page);

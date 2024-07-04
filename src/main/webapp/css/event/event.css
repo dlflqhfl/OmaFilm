@@ -57,15 +57,10 @@
 
 .screen .element {
   position: absolute;
-  width: 137px;
+  width: 150px;
   height: 29px;
-<<<<<<< HEAD
   top: -140px;
   left: -10px;
-=======
-  top: -104px;
-  left: -223px;
->>>>>>> d07de9b5a7a2e6d3ffcc063c339a61acb3b6b7d7
   font-family: "Inter", Helvetica;
   font-weight: 700;
   color: transparent;
@@ -87,81 +82,73 @@
   position: absolute;
   width: 1547px;
   height: 1743px;
-<<<<<<< HEAD
   top: -50px;
   left: -8px;
-=======
-  top: 0;
-  left: 0;
-  overflow: hidden;
->>>>>>> d07de9b5a7a2e6d3ffcc063c339a61acb3b6b7d7
 }
 
 .screen .list {
-  position: relative;
-  width: 1644px;
+  width: 1547px;
   height: 1743px;
-  left: -43px;
+  display: flex; /* Flexbox 레이아웃 적용 */
+  flex-wrap: wrap; /* 줄바꿈 허용 */
+  justify-content: space-between; /* 아이템 간 간격 균등 분배 */
 }
 
 .screen .item-link {
-  position: absolute;
   width: 439px;
   height: 350px;
   top: 2px;
-  left: 45px;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid;
   border-color: #e4e4e4;
+  position: static; /* absolute 속성 제거 */
+  margin: 10px
 }
 
+
 .screen .background {
-  left: -10px;
   position: absolute;
-  width: 448px;
+  width: 439px;
   height: 244px;
-  top: 1px;
   background-color: #eeeeee;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #e4e4e4;
+  border-radius: 10px 0px;
 }
 
 .screen .div {
   position: relative;
-<<<<<<< HEAD
   width: 438px;
-=======
-  width: 435px;
->>>>>>> d07de9b5a7a2e6d3ffcc063c339a61acb3b6b7d7
   height: 243px;
-  left: 11px;
-  background-image: url(../../img/event/event/fouilyt7jncmcboni66dljpyxxy7zra7-jpg.png);
   background-size: cover;
   background-position: 50% 50%;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .screen .div-wrapper {
-  position: absolute;
+  position: relative;
   width: 448px;
   height: 79px;
   top: 245px;
   left: -10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .screen .p {
   width: 390px;
-  height: 39px;
-  top: 19px;
-  left: 17px;
+  height: 45px;
+  top: 25px;
+  left: 20px;
   font-weight: 700;
   color: #222222;
   position: absolute;
   font-family: "Inter", Helvetica;
-  font-size: 15px;
+  font-size: 20px;
   letter-spacing: 0;
-  line-height: 19.5px;
+  line-height: 20px;
 }
 
 .screen .item-link-2 {
@@ -1593,4 +1580,16 @@
   left: 0;
   object-fit: cover;
 }
-
+.date {
+  position: absolute;
+  width: 179px;
+  height: 20px;
+  top: 25px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #666666;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}

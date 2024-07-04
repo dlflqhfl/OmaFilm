@@ -38,7 +38,6 @@
             <div class="table-body">
               <div class="row">
                 <div class="cell">
-
                   <p class="label"><span class="span">제목 </span> <span class="text-wrapper-14">*</span></p>
                 </div>
                 <div class="input-wrapper"><div class="input">${nvo.n_title}</div></div>
