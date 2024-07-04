@@ -18,7 +18,7 @@ public class IndexAction implements Action{
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		//페이징 처리를 위한 객체생성
-		Paging page = new Paging(5, 3);
+		Paging page = new Paging(20, 3);
 		
 		String cPage = request.getParameter("cPage");
 		

@@ -21,7 +21,7 @@
 .div-wrapper .div {
   position: absolute;
   width: 1300px;
-  height: 36px;
+  height: 40px;
   top: 154px;
   left: 370px;
   overflow: hidden;
@@ -30,7 +30,7 @@
 .div-wrapper .border {
   position: absolute;
   width: 230px;
-  height: 36px;
+  height: 40px;
   top: 0;
   left: 1070px;
   border-radius: 3px;
@@ -41,7 +41,7 @@
 .div-wrapper .input {
   position: absolute;
   width: 197px;
-  height: 34px;
+  height: 38px;
   left: 1px;
   background-color: #ffffff;
 }
@@ -49,7 +49,7 @@
 .div-wrapper .container-2 {
   position: relative;
   width: 177px;
-  height: 17px;
+  height: 38px;
   top: 8px;
   left: 10px;
 }
@@ -57,7 +57,7 @@
 .div-wrapper .text-wrapper {
   position: absolute;
   width: 197px;
-  height: 34px;
+  height: 38px;
   top: -8px;
   left: -11px;
   font-family: "Inter", Helvetica;
@@ -73,7 +73,7 @@
 .div-wrapper .button {
   position: absolute;
   width: 30px;
-  height: 34px;
+  height: 38px;
   left: 187px;
   top:-8px;
   background-image: url(../../img/movie/movieList/button.png);
@@ -1323,8 +1323,8 @@ ol.paging li a:hover {
 }
 
 .MovieHover .MovieHover_text {
-  width: 230px;
-  height: 331px;
+  width: 190px;
+  height: 269px;
   color: white;
   font-size: 15px;
   font-family: Roboto;
@@ -1333,5 +1333,8 @@ ol.paging li a:hover {
   line-height: 25px;
   word-wrap: break-word;
   overflow: hidden;
-  
+  margin-top: 20px;
+}
+input:focus {
+  outline: none;
 }

@@ -52,11 +52,18 @@ public class NoticeDAO {
 		
 		SqlSession ss = FactoryService.getFactory().openSession();
 		
-		HashMap<String, String> map = new HashMap<>();
-		map.put("begin", String.valueOf(begin));
-		map.put("end", String.valueOf(end));
-		map.put("n_title", n_title);
-		map.put("n_idx", String.valueOf(n_idx));
+		HashMap<String, Object> map = new HashMap<>();
+		
+		if (n_idx != 0) { 
+	        map.put("n_idx", n_idx); 
+	    } else { // n_idx가 0인 경우 (목록 페이지)
+	        map.put("begin", begin);
+	        map.put("end", end);
+	        if (n_title != null && !n_title.isEmpty()) { // 검색어가 있을 경우 추가
+	            map.put("n_title", n_title);
+	        }
+
+	    }
 		
 		nvo = ss.selectOne("notice.view", map);
 		

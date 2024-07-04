@@ -118,9 +118,7 @@
             ) r ON m.movieCd = r.movieCd,
             (SELECT @RN := 0) b
         ORDER BY
-            CAST(REPLACE(REPLACE(COALESCE(d.salesShare, '0'), ',', ''), '%', '') AS DECIMAL) DESC,
-            COALESCE(d.salesShare, '0') DESC,
-            COALESCE(r.review_count, 0) DESC
+            CAST(d.rank AS DECIMAL(10,0)) ASC
 	    ) c
 	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
 		</select>
@@ -166,7 +164,9 @@
 	            ) r ON m.movieCd = r.movieCd,
 	            (SELECT @RN := 0) b
 	        ORDER BY
-	            COALESCE(r.review_count, 0) DESC 
+	            IF(r.review_count IS NULL, 1, 0) ASC,  
+       			 r.review_count DESC, 
+        		CAST(COALESCE(d.rank, '9999') AS UNSIGNED) ASC 
 	    ) c
 	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
 	</select>
