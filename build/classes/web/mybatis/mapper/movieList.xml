@@ -94,7 +94,7 @@
         SELECT 
             (@RN := @RN + 1) AS rnum1,
             m.movieCd, 
-            m.movieNm, 
+            m.movieNm,  
             m.openDt, 
             m.watchGradeNm, 
             m.m_plot, 
@@ -118,9 +118,7 @@
             ) r ON m.movieCd = r.movieCd,
             (SELECT @RN := 0) b
         ORDER BY
-            CAST(REPLACE(REPLACE(COALESCE(d.salesShare, '0'), ',', ''), '%', '') AS DECIMAL) DESC,
-            COALESCE(d.salesShare, '0') DESC,
-            COALESCE(r.review_count, 0) DESC
+            cast(coalesce(d.rank, '9999') AS UNSIGNED) ASC
 	    ) c
 	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
 		</select>

@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
-    
 <!DOCTYPE html>
 <html>
   <head>
@@ -91,7 +90,7 @@
               <button class="button-3">검색</button>
             </div>
             <div class="cell-7"><div class="text-wrapper-15">전체선택</div></div>
-            <div class="text-wrapper-16">총</div>
+            <div class="text-wrapper-16">총</div> 
             <p class="element"><span class="span">${fn:length(memlist) }</span> <span class="text-wrapper-17"> 명</span></p>
             
           </div>

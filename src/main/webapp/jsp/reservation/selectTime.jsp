@@ -3,13 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-  <head>
+  <head> 
     <meta charset="utf-8" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/selectTimeGlobals.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/selectTimeStyle.css" />
   </head>
   <body>
-
+ 
     <div class="select-movie">
       <div class="div">
         <div class="list">

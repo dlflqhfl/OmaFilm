@@ -44,7 +44,7 @@
         <div class="vertical-divider"></div>
     </div>
     <div class="overlap">
-        <form class="form" id="login_form" name="login_form" action="../../Controller?type=login" method="post">
+        <form class="form" id="login_form" name="login_form" action="${pageContext.request.contextPath}/Controller?type=login" method="post">
             <label class="text-wrapper-13" for="login_id">ID :</label>
             <input type="text" class="input" id="login_id" name="login_id" placeholder="아이디 또는 이메일을 입력해주세요"/>
             <div class="text-wrapper-14" for="login_pw">PW :</div>
