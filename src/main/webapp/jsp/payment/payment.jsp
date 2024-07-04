@@ -386,8 +386,8 @@
         var coupon_no = $('#coupon_id').val()
         input_info('cp_no', coupon_no); //쿠폰 발급 번호
         input_info('p_method', rsp.pay_method);
-        input_info('np_content', "안녕"); //DB 저장 내용
-        input_info('np_ex_price', 1); //할인 전 금액
+        input_info('p_content', '${dbContent}'); //DB 저장 내용
+        input_info('p_ex_price', '${param.totalPrice}'); //할인 전 금액
         input_info('p_tt_price', rsp.paid_amount);
         input_info('merchant_uid', rsp.merchant_uid);
 

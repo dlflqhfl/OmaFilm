@@ -8,7 +8,7 @@
     <select id="getMovieVO" parameterType="String" resultType="web.mybatis.vo.MovieListVO">
         SELECT *
         FROM movie_list
-        WHERE movieNm = #{movieNm}
+        WHERE movieNm = #{movieNm} 
     </select>
 
     <select id="getMVO" parameterType="String" resultType="web.mybatis.vo.MovieListVO">
