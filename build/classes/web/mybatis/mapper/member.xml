@@ -67,7 +67,6 @@
             AND u_birth = #{birth}
         </if>
     </select>
-<<<<<<< HEAD
     
     <select id="searchMem" parameterType="map" resultType="web.mybatis.vo.MemberVO">
     	select * from member
@@ -92,11 +91,9 @@
 		     </if>
     	</where>
     </select>
-=======
-
+    
     <!--비밀번호 변경 쿼리-->
     <update id="change_pw" parameterType="map">
         UPDATE member SET u_pw = #{pw} WHERE u_id = #{id} and u_pw = #{old_pw}
     </update>
->>>>>>> a06690d37e3766d5c2df81e8faec6ccf63179e9b
 </mapper>
