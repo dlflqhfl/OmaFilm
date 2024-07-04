@@ -28,13 +28,13 @@
         WHERE n_status = 0 AND nt_ct_code = 4
         AND n_title LIKE CONCAT('%',#{n_title},'%')
     </select>
-    
+
     <!--  해당 게시물의 전체게시물 수를 반환(이벤트)  -->
     <select id="ecount" resultType="int">
         SELECT COUNT(*) FROM notice
         WHERE n_status = 0 AND nt_ct_code = 2
     </select>
-    
+
     <!--  해당 게시물의 전체게시물 수를 반환(혜택)  -->
     <select id="bcount" resultType="int">
         SELECT COUNT(*) FROM notice
@@ -108,7 +108,7 @@
         ) a, (SELECT @RN:=0) b
         ) c WHERE c.rnum between #{begin} AND #{end};
     </select>
-    
+
     <!--  이벤트 -->
     <select id="elist" resultMap="map1">
         SELECT * FROM notice
@@ -121,7 +121,7 @@
         WHERE n_status = 0 AND nt_ct_code = 2
         AND n_idx = #{n_idx}
     </select>
-    
+
     <!--  혜택 -->
     <select id="blist" resultMap="map1">
         SELECT * FROM notice
@@ -134,5 +134,5 @@
         WHERE n_status = 0 AND nt_ct_code = 3
         AND n_idx = #{n_idx}
     </select>
-    
+
 </mapper>

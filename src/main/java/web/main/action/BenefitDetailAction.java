@@ -1,12 +1,11 @@
 package web.main.action;
 
-import java.io.IOException;
+import web.mybatis.dao.BenefitsDAO;
+import web.mybatis.vo.NoticeVO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import web.mybatis.dao.BenefitsDAO;
-import web.mybatis.vo.NoticeVO;
+import java.io.IOException;
 
 public class BenefitDetailAction implements Action {
 
@@ -19,7 +18,7 @@ public class BenefitDetailAction implements Action {
 		
 		request.setAttribute("bvo", bvo);
 		
-		return "/jsp/event/benefitdetail.jsp";
+		return "jsp/event/benefitdetail.jsp";
 
 	}
 

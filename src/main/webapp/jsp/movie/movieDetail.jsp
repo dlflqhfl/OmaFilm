@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,10 +16,10 @@
         <div class="container">
           <div class="overlap">
             <div class="overlap-group">
-              <div class="strong">드라이브</div>
+              <div class="strong">${mvo.movieNm }</div>
               <div class="item">
                 <img class="image" src="${pageContext.request.contextPath}/img/movie/movieDetail/image.svg" />
-                <div class="text-wrapper">89</div>
+                <div class="text-wrapper">${mvo.showTm }</div>
                 <div class="text-wrapper-2">분</div>
                 <div class="vertical-divider"></div>
               </div>
@@ -28,28 +30,25 @@
             </div>
             <div class="overlap-group-wrapper">
               <div class="overlap-group-2">
-                <div class="text-wrapper-3">2024.06.12</div>
+                <div class="text-wrapper-3">
+                	<fmt:parseDate value="20240612" pattern="yyyyMMdd" var="parsedDate"/>
+					<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd"/>
+                </div>
                 <div class="text-wrapper-4">개봉</div>
               </div>
             </div>
             <div class="item-2">
               <div class="overlap-2">
-                <div class="text-wrapper-5">15</div>
-                <div class="text-wrapper-6">세이상관람가</div>
+                <div class="text-wrapper-6">${mvo.watchGradeNm}</div>
               </div>
               <div class="vertical-divider"></div>
             </div>
-            <div class="item-3">
-              <div class="text-wrapper-7">2.0</div>
-              <div class="vertical-divider"></div>
-              <div class="text-wrapper-8">만명</div>
-            </div>
+            
           </div>
           <div class="paragraph-background">
-            <p class="element">제한 시간 1시간,<br />달리는 차 안, 인기 유튜버의 목숨을 건 트렁크 생방송이 시작된다!</p>
             <div class="link"><div class="text-wrapper-9">예매하기</div></div>
           </div>
-          <div class="element-jpg"></div>
+          <div class="element-jpg"><img src="${mvo.m_file }" width="316px"></div>
         </div>
         <div class="background">
           <div class="overlap-3">
@@ -58,18 +57,18 @@
               <div class="list-2">
                 <div class="item-4">
                   <div class="emphasis">장르</div>
-                  <div class="text-wrapper-10">스릴러 / 한국</div>
+                  <div class="text-wrapper-10">${mvo.genreNm }</div>
                   <div class="background-2"></div>
                 </div>
                 <div class="item-5">
                   <div class="emphasis">감독</div>
-                  <div class="div-wrapper"><div class="text-wrapper-11">박동희</div></div>
+                  <div class="div-wrapper"><div class="text-wrapper-11">${mvo.directors }</div></div>
                   <div class="background-2"></div>
                 </div>
                 <div class="item-6">
                   <div class="emphasis-2">출연</div>
-                  <div class="link-2"><div class="text-wrapper-11">박주현</div></div>
-                  <div class="overlap-group-3">
+                  <div class="link-2"><div class="text-wrapper-11">${mvo.actors}</div></div>
+                  <!-- <div class="overlap-group-3">
                     <div class="text-wrapper-12">,</div>
                     <div class="link-3"><div class="text-wrapper-11">김여진</div></div>
                   </div>
@@ -81,13 +80,12 @@
                     <div class="text-wrapper-12">,</div>
                     <div class="link-3"><div class="text-wrapper-11">정웅인</div></div>
                   </div>
-                  <div class="background-3"></div>
+                  <div class="background-3"></div> -->
                 </div>
               </div>
             </div>
             <p class="p">
-              화제를 모으는 콘텐츠로 인기를 끌고 있는 유명 유튜버 &#39;유나&#39;.<br />거액의 계약을 제안받고 행복에
-              부풀어 있던 중,<br />영문도 모른 채 자신의 자동차 트렁크 안에서 눈을 뜬다.
+              ${mvo.m_plot }
             </p>
           </div>
         </div>
@@ -105,7 +103,7 @@
           <div class="overlap-wrapper">
             <div class="overlap-9">
               <div class="text-wrapper-15">트레일러</div>
-              <div class="emphasis-3"><div class="text-wrapper-16">(5)</div></div>
+              <div class="emphasis-3"><div class="text-wrapper-16">(<span id="trailerLength"></span>)</div></div>
             </div>
           </div>
           <div class="container-3">
@@ -113,28 +111,23 @@
               <div class="div-2">
                 <div class="overlap-group-4">
                   <div class="div-2">
-                    <div class="emphasis-4"></div>
-                    <div class="strong-2">티저 예고편</div>
+                  <iframe id="myIframe1" class="emphasis-4" allowfullscreen></iframe>
+                    
                   </div>
-                  <img class="img" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-1.png" />
-                </div>
+                  </div>
               </div>
               <div class="container-5">
                 <div class="overlap-group-4">
                   <div class="div-2">
-                    <div class="emphasis-5"></div>
-                    <div class="strong-2">메인 예고편</div>
+                    <iframe id="myIframe2" class="emphasis-5" allowfullscreen></iframe>
                   </div>
-                  <img class="img" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-2.png" />
-                </div>
+                  </div>
               </div>
               <div class="container-6">
                 <div class="overlap-group-4">
                   <div class="div-2">
-                    <div class="emphasis-6"></div>
-                    <div class="strong-3">30초 예고편</div>
+                    <iframe id="myIframe3" class="emphasis-6" allowfullscreen></iframe>
                   </div>
-                  <img class="img" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-3.png" />
                 </div>
               </div>
             </div>
@@ -249,5 +242,67 @@
         </div>
       </div>
     </div>
+    
+    
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+	var movieId;
+	const settings = {
+			  async: true,
+			  crossDomain: true,
+			  url: 'https://api.themoviedb.org/3/search/movie?query=${mvo.movieNm}&include_adult=false&language=ko-KR&page=1',
+			  method: 'GET',
+			  headers: {
+			    accept: 'application/json',
+			    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzYzMjcxODhhNjViZTE5YTc4MjhjNzY4Y2NhNzg3NCIsIm5iZiI6MTcxOTg4NjExNC4yNjk4NzEsInN1YiI6IjY2ODM1ZWZmOTg4NzA5NzNhZTJiZWQ2YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.T8d6wDtewcUbAw4oecS_48QB4EolWbMIODHZ_GxvLXI'
+			  }
+			};
+	
+			$.ajax(settings).done(function (response) {
+			  
+			  var results = response.results;
+			  
+			  movieId = results[0].id;
+			  
+			  getMovieVideos(movieId);
+			});
+
+	function getMovieVideos(movieId) {
+		const settings2 = {
+			  async: true,
+			  crossDomain: true,
+			  url: 'https://api.themoviedb.org/3/movie/'+movieId+'/videos?language=ko-KR',
+			  method: 'GET',
+			  headers: {
+			    accept: 'application/json',
+			    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzYzMjcxODhhNjViZTE5YTc4MjhjNzY4Y2NhNzg3NCIsIm5iZiI6MTcxOTg4NjExNC4yNjk4NzEsInN1YiI6IjY2ODM1ZWZmOTg4NzA5NzNhZTJiZWQ2YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.T8d6wDtewcUbAw4oecS_48QB4EolWbMIODHZ_GxvLXI'
+			  }
+			};
+	
+			$.ajax(settings2).done(function (response) {
+				var results = response.results;
+				
+				if(results.length > 3) 
+                    size = 3;
+				else	
+					size = results.length;
+
+			for (var i = 0; i < size; i++) {
+				var key = results[i].key;
+				var youtubeUrl = "https://www.youtube.com/embed/" + key;
+
+				const iframe = document.getElementById("myIframe" + (i + 1));
+
+				// 선택한 iframe의 src 속성 변경
+				if (iframe) {
+					iframe.src = youtubeUrl;
+				}
+			}
+			
+			$("#trailerLength").text(size);
+			
+		});
+	}
+</script>
   </body>
 </html>

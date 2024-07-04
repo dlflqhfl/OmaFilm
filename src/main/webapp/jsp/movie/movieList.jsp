@@ -41,7 +41,7 @@
           <c:forEach items="${mar}" var="mar" varStatus="vs">
             <div class="item-3">
               <div class="background">
-                <div class="overlap-group" style="background-image: url('${pageContext.request.contextPath}/img/movie/movieList/${mar.movieNm}.png'); background-size: cover; background-repeat: no-repeat; background-position: center;"> 
+                <div class="overlap-group" style="background-image: url('${mar.m_file}'); background-size: cover; background-repeat: no-repeat; background-position: center;"> 
                   <%-- 이미지 호버 --%>
                   <div class="MovieHover">
 	                <a href="Controller?type=moviedetail&movieCd=${mar.movieCd}">

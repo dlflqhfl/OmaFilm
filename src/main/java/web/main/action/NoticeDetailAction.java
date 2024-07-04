@@ -42,7 +42,7 @@ public class NoticeDetailAction implements Action {
 		request.setAttribute("nvo", nvo);
 		request.setAttribute("page", page);
 		
-		return "/jsp/serviceCenter/noticedetail.jsp";
+		return "jsp/serviceCenter/noticedetail.jsp";
 
 	}
 

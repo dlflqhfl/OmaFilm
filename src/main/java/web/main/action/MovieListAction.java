@@ -44,7 +44,7 @@ public class MovieListAction implements Action {
 		request.setAttribute("cnt", cnt);
 
 		
-		return "jsp/movie/movieList.jsp";
+		return "/jsp/movie/movieList.jsp";
 	}
 
 }

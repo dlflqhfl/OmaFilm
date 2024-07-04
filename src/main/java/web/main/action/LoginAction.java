@@ -31,6 +31,10 @@ public class LoginAction implements Action{
         /*System.out.println("여기까지는 왔다");*/
 
         if(mvo != null){
+        	if(Integer.parseInt(mvo.getU_authority()) == 1) {
+        		System.out.println("관리자 로그인");
+        		return "Controller?type=adminMovieApi";
+        	}
             request.getSession().setAttribute("mvo", mvo);
             if(remember_id != null){
                 request.getSession().setMaxInactiveInterval(0);
@@ -41,7 +45,8 @@ public class LoginAction implements Action{
         }
 
         request.setAttribute("errorMessage", "아이디 또는 비밀번호가 일치하지 않습니다.");
-        
-        return "/jsp/login/login_1.jsp";
+
+        return "jsp/login/login_1.jsp";
+
     }
 }

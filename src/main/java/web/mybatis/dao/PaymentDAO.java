@@ -22,7 +22,7 @@ public class PaymentDAO {
 	//회원 객체를 넣어 보유 쿠폰 리스트 가져오는 함수
 	public static IssuedCouponVO[] getCouponArr(MemberVO mvo) {
 		SqlSession ss = FactoryService.getFactory().openSession();
-		List<IssuedCouponVO> list = ss.selectList("issuedCoupon.getCouponArr", mvo.getU_code());
+		List<IssuedCouponVO> list = ss.selectList("issuedCoupon.getUsableCoupon", mvo.getU_code());
 		IssuedCouponVO[] cvo = new IssuedCouponVO[list.size()];
 		list.toArray(cvo);
 		ss.close();
@@ -43,6 +43,13 @@ public class PaymentDAO {
 		ss.close();
 		return theaterVO;
 	}
+	//상영관 이름 -> 상영관 VO
+	public static TheaterVO getNoTheaterVO(String theater) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		TheaterVO theaterVO = ss.selectOne("theater.getTheaterVO", theater);
+		ss.close();
+		return theaterVO;
+	}
 
 	//상영 영화 코드, 상영관 코드, 날짜+시작 시간 -> 상영시간표VO(ssvo)
 	public static ScreeningScheduleVO getSsVO(String movieCd, String t_name, String dateAndTime) {
@@ -52,6 +59,20 @@ public class PaymentDAO {
 		map.put("movieCd", movieCd);
 		map.put("t_name", t_name);
 		map.put("dateAndTime", dateAndTime);
+
+		ScreeningScheduleVO ssvo = ss.selectOne("screeningSchedule.getSsVO", map);
+		ss.close();
+		return ssvo;
+	}
+	
+	public static ScreeningScheduleVO getSsVO1(String movieCd, String t_name, String nDateAndnTime) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+
+		Map<String, String> map = new HashMap<>();
+		map.put("movieCd", movieCd);
+		map.put("t_name", t_name);
+		map.put("dateAndTime", nDateAndnTime);
+		System.out.println("얍" + map);
 
 		ScreeningScheduleVO ssvo = ss.selectOne("screeningSchedule.getSsVO", map);
 		ss.close();
@@ -105,6 +126,7 @@ public class PaymentDAO {
 	public static int saveNonMem(Map<String, String> map) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		int cnt = ss.insert("reserver.insertNonMem", map);
+		System.out.println("왜 반응도없냐" + cnt);
 		int rsvr_code = 0;
 		if(cnt>0) {
 			rsvr_code = ss.selectOne("reserver.getNonMemRsvrCode", map);
@@ -205,5 +227,13 @@ public class PaymentDAO {
 		ss.close();
 
 	}
+	//쿠폰 코드를 받아서 쿠폰 내용 가져오는 함수
+	public static String getCouponContent(int cp_no) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		String content = ss.selectOne("issuedCoupon.getCouponContent", cp_no);
+		ss.close();
+		return content;
+	}
+
 
 }

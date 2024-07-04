@@ -25,13 +25,10 @@
             </div>
           </div>
           <div class="div-con-wrap">
-            <button class="button">
-              <div class="container"><div class="text-wrapper-8">구분</div></div>
-              <img class="image" src="img/adminMovie/image.png" />
-            </button>
+            <button class="button" onclick="search()">검색</button>
             <div class="border">
               <div class="input">
-                <div class="container-2"><div class="text-wrapper-9">검색어를 입력해 주세요.</div></div>
+                <div class="container-2"><input type="text" id="search" name="search" class="text-wrapper-9" placeholder="영화제목을 입력해주세요"></div>
               </div>
               <div class="button-2"></div>
             </div>
@@ -58,6 +55,7 @@
                     <a href="Controller?type=adminMovieDb"><div class="view-2"><div class="text-wrapper-15">DB</div></div></a>
                 </div>
             </div>
+            <div class="heading">영화관리</div>
             
                   <div class="nav1">
                     <ol class="paging">
@@ -117,9 +115,13 @@
             </table>
             <form id="screenAdd" action="Controller?type=adminMovieDb" method="post">
                 <input type="hidden" id="nameData" name="nameData" value="">
-                <input type="hidden" id="dateData" name="nameData" value="">
+                <input type="hidden" id="dateData" name="dateData" value="">
                 <input type="hidden" id="timeData" name="timeData" value="">
                 <input type="hidden" id="movieCd" name="movieCd" value="">
+            </form>
+            
+            <form id="searchDb" action="Controller?type=adminMovieDb" method="post">
+            	<input type="hidden" id="searchData" name="searchData" value="">
             </form>
         </div>
     </div>
@@ -151,7 +153,16 @@
 
     let daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
     let monthNames = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
-
+	
+    
+    
+    function search(){
+    	let search = $("#search").val()
+    	
+    	$("#searchData").val(search);
+    	$("#searchDb").submit();
+    }
+    
     //모달창 열기
     function dialog() {
         $("#myModal").css("display", "block");

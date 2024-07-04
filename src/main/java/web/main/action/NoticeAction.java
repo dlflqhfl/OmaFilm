@@ -12,7 +12,6 @@ public class NoticeAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
 	
 				//페이징 처리를 위한 객체생성
 				Paging page = new Paging(5, 3);
@@ -50,6 +49,5 @@ public class NoticeAction implements Action {
 				
 				return "/jsp/serviceCenter/notice.jsp";
 			}
-	}
 
-
+}

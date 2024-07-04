@@ -351,17 +351,18 @@
 }
 
 .DB .button {
-  all: unset;
-  box-sizing: border-box;
-  position: absolute;
-  width: 118px;
-  height: 35px;
-  top: 440px;
-  left: 975px;
-  background-color: #ffffff;
-  border-radius: 4px;
-  border: 1px solid;
-  border-color: #666666;
+    all: unset;
+    box-sizing: border-box;
+    position: absolute;
+    width: 118px;
+    height: 35px;
+    top: 440px;
+    left: 1345px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #666666;
+    text-align: center;
 }
 
 .DB .container {
@@ -396,14 +397,14 @@
 }
 
 .DB .border {
-  position: absolute;
-  width: 360px;
-  height: 36px;
-  top: 439px;
-  left: 1102px;
-  border-radius: 3px;
-  border: 1px solid;
-  border-color: #d8d9db;
+    position: absolute;
+    width: 360px;
+    height: 36px;
+    top: 439px;
+    left: 977px;
+    border-radius: 3px;
+    border: 1px solid;
+    border-color: #d8d9db;
 }
 
 .DB .input {
@@ -617,7 +618,7 @@
 .DB .view {
   top: 1px;
   left: 637px;
-  border-color: #cccccc;
+  border-color: #000000;
   position: absolute;
   width: 638px;
   height: 50px;
@@ -634,7 +635,7 @@
   left: 227px;
   font-family: "Noto Sans KR", Helvetica;
   font-weight: 300;
-  color: #7f7f7f;
+  color: #000000;
   font-size: 25px;
   text-align: center;
   letter-spacing: 0;
@@ -645,7 +646,7 @@
 .DB .view-2 {
   top: 0;
   left: 0;
-  border-color: #000000;
+  border-color: #cccccc;
   position: absolute;
   width: 638px;
   height: 50px;
@@ -662,7 +663,7 @@
   left: 257px;
   font-family: "Noto Sans KR", Helvetica;
   font-weight: 300;
-  color: #000000;
+  color: #7f7f7f;
   font-size: 25px;
   text-align: center;
   letter-spacing: 0;

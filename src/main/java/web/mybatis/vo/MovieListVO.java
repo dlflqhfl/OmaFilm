@@ -27,37 +27,9 @@ public class MovieListVO {
 	m_plot, //줄거리
 	audiAcc,//누적관람객수
 	m_file; //파일명
-	
 	private int reviewCount;
 	private DailyBoxOfficeVO dvo;
 	private ReviewVO rvo;
-	
-	
-	
-	public int getReviewCount() {
-		return reviewCount;
-	}
-
-	public void setReviewCount(int reviewCount) {
-		this.reviewCount = reviewCount;
-	}
-
-	public DailyBoxOfficeVO getDvo() {
-		return dvo;
-	}
-
-	public void setDvo(DailyBoxOfficeVO dvo) {
-		this.dvo = dvo;
-	}
-
-	public ReviewVO getRvo() {
-		return rvo;
-	}
-
-	public void setRvo(ReviewVO rvo) {
-		this.rvo = rvo;
-	}
-
 	public MovieListVO() {}
 
 	@Override
@@ -304,10 +276,29 @@ public class MovieListVO {
 		this.m_file = m_file;
 	}
 	
+	public int getReviewCount() {
+		return reviewCount;
+	}
 
-	
-	
-	
-	
+	public void setReviewCount(int reviewCount) {
+		this.reviewCount = reviewCount;
+	}
+
+	public DailyBoxOfficeVO getDvo() {
+		return dvo;
+	}
+
+	public void setDvo(DailyBoxOfficeVO dvo) {
+		this.dvo = dvo;
+	}
+
+	public ReviewVO getRvo() {
+		return rvo;
+	}
+
+	public void setRvo(ReviewVO rvo) {
+		this.rvo = rvo;
+	}
+
 	
 }
