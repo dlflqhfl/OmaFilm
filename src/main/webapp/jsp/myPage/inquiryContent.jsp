@@ -5,14 +5,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../css/globals.css" />
-    <link rel="stylesheet" href="../../css/myPage/inquiryContent.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/myPage/inquiryContent.css" />
   </head>
   <body>
     <div class="screen">
       <div class="container-wrapper">
         <div class="container">
-          <img class="footer" src="img/inquiryContent/footer.png" />
+          <img class="footer" src="${pageContext.request.contextPath}/img/inquiryContent/footer.png" />
           <div class="frame">
             <div class="navbar">
               <div class="link"><div class="text-wrapper">회원가입</div></div>
@@ -20,9 +20,9 @@
               <div class="div"><div class="text-wrapper-2">관리자</div></div>
               <div class="text-wrapper-3">로그인</div>
               <div class="link-2"><div class="text-wrapper">빠른예매</div></div>
-              <img class="img" src="../../img/myPage/inquiryContent/link.png" />
-              <img class="link-3" src="../../img/myPage/inquiryContent/link-1.png" />
-              <img class="link-4" src="../../img/myPage/inquiryContent/link-2.png" />
+              <img class="img" src="${pageContext.request.contextPath}/img/myPage/inquiryContent/link.png" />
+              <img class="link-3" src="${pageContext.request.contextPath}/img/myPage/inquiryContent/link-1.png" />
+              <img class="link-4" src="${pageContext.request.contextPath}/img/myPage/inquiryContent/link-2.png" />
               <div class="text-wrapper-4">예매</div>
               <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
                 ><div class="text-wrapper-5">영화</div></a
@@ -31,7 +31,7 @@
               <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
                 ><div class="text-wrapper-7">혜택</div></a
               >
-              <img class="heading-link" src="../../img/myPage/inquiryContent/heading-1-link.png" />
+              <img class="heading-link" src="${pageContext.request.contextPath}/img/myPage/inquiryContent/heading-1-link.png" />
               <div class="link-5"></div>
             </div>
           </div>
@@ -57,19 +57,19 @@
               <div class="cell">
                 <p class="label"><span class="span">등록일 </span> <span class="text-wrapper-16">*</span></p>
               </div>
-              <div class="data"><div class="input"></div></div>
+              <div class="data"><div class="input">${ivo.iq_time}</div></div>
             </div>
             <div class="label-wrapper">
               <p class="p"><span class="span">제목 </span> <span class="text-wrapper-16">*</span></p>
             </div>
-            <div class="input-wrapper"><div class="input-2"></div></div>
+            <div class="input-wrapper"><div class="input-2">${ivo.iq_title}</div></div>
             <div class="cell-2">
               <p class="label-2"><span class="span">내용 </span> <span class="text-wrapper-16">*</span></p>
             </div>
             <div class="border-wrapper">
               <div class="border">
                 <div class="textarea">
-                  <div class="container-2"><div class="text-wrapper-17">0 / 2000</div></div>
+                	${ivo.iq_content}
                 </div>
               </div>
             </div>
@@ -79,11 +79,11 @@
             <div class="data-2">
               <div class="border">
                 <div class="textarea">
-                  <div class="container-2"><div class="text-wrapper-17">0 / 2000</div></div>
+				    ${comment.comm_content}
                 </div>
               </div>
             </div>
-            <button class="button"><div class="text-wrapper-19">목록</div></button>
+            <a href="Controller?type=inquiry"><button class="button"><div class="text-wrapper-19">목록</div></button></a>
           </div>
         </div>
       </div>

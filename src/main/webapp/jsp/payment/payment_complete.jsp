@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/payment/complete_globals.css" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/payment/complete_style.css" />
 </head>
-<%
+<% 
   String name = request.getParameter("buyer_name");
   System.out.println(name);%>
 <body>

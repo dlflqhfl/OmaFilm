@@ -61,4 +61,21 @@
 		insert into issued_coupon (ci_code, u_code, cp_date, cp_status)
 		values (#{ci_code}, #{u_code}, now(), 0)
 	</insert>
+	
+	<!-- 마이페이지 전체 쿠폰 개수 조회 -->
+	<select id="getCouponCount" parameterType="int" resultType="int">
+		SELECT count(*) FROM issued_coupon 
+		WHERE u_code=#{u_code}
+	</select>
+	
+	<!-- 마이페이지 당월 소멸 쿠폰 개수 조회 -->
+	 <select id="delCouponCount" resultType="int" parameterType="int">
+         <![CDATA[
+        SELECT COUNT(*)
+        FROM issued_coupon
+        WHERE DATE_FORMAT(cp_date, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m')
+        AND cp_date <= LAST_DAY(NOW())
+        AND u_code = #{u_code}
+         ]]>
+    </select>
 </mapper>

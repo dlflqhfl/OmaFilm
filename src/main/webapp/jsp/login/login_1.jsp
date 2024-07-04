@@ -38,7 +38,7 @@
     <div class="div">로그인</div>
     <jsp:include page="../header/header.jsp"/>
     <span class="button"><div class="text-wrapper-8">회원</div></span>
-    <span class="button-2"><div class="text-wrapper-9"><a href="Controller?type=noReservation">비회원 예매</a></div></span>
+    <span class="button-2"><div class="text-wrapper-9"><a href="login_2.jsp">비회원</a></div></span>
     <div class="link-7">
         <div class="text-wrapper-10"><a href="${pageContext.request.contextPath}/jsp/login/register.jsp">회원가입</a></div>
         <div class="vertical-divider"></div>
@@ -65,6 +65,36 @@
 
 <%@ include file="../footer/footer.jsp" %>
 <script>
+    window.onload = function() {
+        //requset에 저장된 result값을 가져온다.
+        var result = '<%=request.getAttribute("result")%>';
+        //result값에 따라서 분기처리
+        //result값이 0이고 null이 아닐때
+        if (result == "0" && result != null) {
+            //회원가입 창으로 이동
+            alert("회원가입이 필요합니다.");
+            location.href = "${pageContext.request.contextPath}/jsp/login/register.jsp";
+        }else if(result == "1"){
+            alert("이미 가입된 회원입니다.");
+        }else if(result == "2"){
+            alert("로그인 성공");
+            location.href = "${pageContext.request.contextPath}/Controller?type=index";
+        }
+
+        <c:if test="${not empty errorMessage}">
+        alert("${errorMessage}");
+        $("#login_id").focus();
+        </c:if>
+
+        var remember_id = "${sessionScope.remember_id}";
+        console.log('remember_id' + remember_id)
+
+
+        if (remember_id != null || remember_id != "") {
+            $("#login_id").val(remember_id);
+            $("#remember_id").prop("checked", true);
+        }
+    }
     /*로그인 버튼을 눌렀을때 폼객체를 컨트롤러로 보냄*/
     function login() {
         var id = $("#login_id").val();
@@ -84,11 +114,6 @@
         $("#login_form").submit();
     }
 
-    window.onload = function () {<c:if test="${not empty errorMessage}">
-        alert("${errorMessage}");
-        $("#login_id").focus();
-        </c:if>
-    }
     /*=========================================================================*/
     /*카카오톡 이미지 클릭시 kakao()함수 호출하고 카카오 로그인 실행*/
     window.Kakao.init('54deeff9c26a36a95bf1373bd36aaddd');
@@ -166,22 +191,6 @@
         }
     });
 
-    window.onload = function() {
-        //requset에 저장된 result값을 가져온다.
-        var result = '<%=request.getAttribute("result")%>';
-        //result값에 따라서 분기처리
-        //result값이 0이고 null이 아닐때
-        if (result == "0" && result != null) {
-            //회원가입 창으로 이동
-            alert("회원가입이 필요합니다.");
-            location.href = "${pageContext.request.contextPath}/jsp/login/register.jsp";
-        }else if(result == "1"){
-            alert("이미 가입된 회원입니다.");
-        }else if(result == "2"){
-            alert("로그인 성공");
-            location.href = "${pageContext.request.contextPath}/Controller?type=index";
-        }
-    }
 </script>
 </body>
 </html>

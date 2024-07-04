@@ -118,6 +118,20 @@
   width: 252px;
   height: 39px;
 }
+.screen .link-wrapper:hover {
+	text-decoration: underline;
+	
+}
+
+.link-wrapper a {
+  color: #333; /* 링크 기본 색상 */
+  text-decoration: none; /* 밑줄 제거 */
+  transition: color 0.3s ease; /* 색상 변경 트랜지션 */
+}
+
+.link-wrapper a:hover {
+  color: #007bff; /* hover 시 색상 변경 */
+}
 
 .screen .text-wrapper-3 {
   position: absolute;
@@ -823,6 +837,55 @@
   line-height: 34px;
   white-space: nowrap;
 }
+
+ol.paging {
+	list-style:none;
+	display: flex; /* flexbox 사용 */
+	justify-content: center; /* 가운데 정렬 */
+}
+	
+ol.paging li {
+	float:left;
+	margin: 0 8px;
+	min-width: 20px;
+}
+	
+ol.paging li a {
+	display:FLEX;
+	padding:3px 7px;
+	border:1px solid #00B3DC;
+	color:#2f313e;
+	font-weight:bold;
+	align-items: center;
+	justify-content:center;
+}
+	
+ol.paging li a:hover {
+	background:#00B3DC;
+	color:white;
+	font-weight:bold;
+}
+	
+.disable {
+	padding:3px 7px;
+	border:1px solid silver;
+	color:silver;
+}
+	
+.now {
+	padding:3px 7px;
+	border:1px solid #01738b;
+	background:#01738b;
+	color:white;
+	font-weight:bold;
+}
+
+.nav1 {
+    position: relative;
+    top: 1000px;
+    LEFT: 50px;
+}
+
 
 .text-wrapper-5 a,.text-wrapper-2 a,.text-wrapper-6 a,.text-wrapper-4 a,.text-wrapper-3 a
  { /* .item-link 안의 모든 a 태그에 적용 */
