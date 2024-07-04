@@ -30,14 +30,13 @@
   position: absolute;
   width: 284px;
   height: 58px;
-  top: 300px;
+  top: 240px;
   left: 217px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #222222;
-  font-size: 40px;
-  letter-spacing: -1px;
-  line-height: 30.8px;
+  font-size: 50px;
+  line-height: 58px;
 }
 
 .screen .overlap-group {
@@ -60,7 +59,7 @@
   position: absolute;
   width: 150px;
   height: 29px;
-  top: -104px;
+  top: -140px;
   left: -10px;
   font-family: "Inter", Helvetica;
   font-weight: 700;
@@ -83,8 +82,8 @@
   position: absolute;
   width: 1547px;
   height: 1743px;
-  top: 0;
-  left: 0;
+  top: -50px;
+  left: -8px;
 }
 
 .screen .list {
@@ -121,7 +120,7 @@
 
 .screen .div {
   position: relative;
-  width: 439px;
+  width: 438px;
   height: 243px;
   background-image: url(../../img/event/event/fouilyt7jncmcboni66dljpyxxy7zra7-jpg.png);
   background-size: cover;

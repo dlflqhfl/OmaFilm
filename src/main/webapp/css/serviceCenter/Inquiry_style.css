@@ -17,14 +17,6 @@
   height: 1720px;
 }
 
-.element .footer {
-  position: absolute;
-  width: 1920px;
-  height: 220px;
-  top: 1500px;
-  left: 0;
-  object-fit: cover;
-}
 
 .element .overlap {
   position: absolute;
@@ -365,15 +357,6 @@ textarea:not(:placeholder-shown) + .placeholder-label {
   left: 0;
   background-image: url(../../img/serviceCenter/Inquiry/overlay.svg);
   background-size: 100% 100%;
-}
-
-.element .navbar {
-  position: relative;
-  height: 98px;
-  background-color: #00000080;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-color: #ffffff33;
 }
 
 .element .link {

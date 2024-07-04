@@ -52,7 +52,7 @@
     <% session.removeAttribute("loginErrorMessage"); %>
 	</c:if>
     <div class="overlap">
-        <form class="form" id="login_form" name="login_form" action="../../Controller?type=login" method="post">
+        <form class="form" id="login_form" name="login_form" action="${pageContext.request.contextPath}/Controller?type=login" method="post">
             <label class="text-wrapper-13" for="login_id">ID :</label>
             <input type="text" class="input" id="login_id" name="login_id" placeholder="아이디 또는 이메일을 입력해주세요"/>
             <div class="text-wrapper-14" for="login_pw">PW :</div>
@@ -140,7 +140,7 @@
                                 else if(data == 2){
                                     /*로그인 성공*/
                                     alert("로그인 성공");
-                                    location.href = "/Controller?type=index";
+                                    location.href = "${pageContext.request.contextPath}/Controller?type=index";
                                 }
                             },
                             fail: function(error) {

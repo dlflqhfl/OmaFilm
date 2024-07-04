@@ -35,31 +35,8 @@
                 </div>
               </div>
             </div>
-            <div class="overlap-2">
-              <img class="overlay" src="${pageContext.request.contextPath}/img/event/event/overlay.svg" />
-              <div class="navbar">
-                <div class="link"><div class="text-wrapper-9">회원가입</div></div>
-                <div class="link-2"><div class="text-wrapper-9">고객센터</div></div>
-                <div class="link-3"><div class="text-wrapper-10">관리자</div></div>
-                <div class="text-wrapper-11">로그인</div>
-                <div class="link-4"><div class="text-wrapper-9">빠른예매</div></div>
-                <img class="img" src="${pageContext.request.contextPath}/img/event/event/link.png" />
-                <img class="link-5" src="${pageContext.request.contextPath}/img/event/event/link-1.png" />
-                <img class="link-6" src="${pageContext.request.contextPath}/img/event/event/link-2.png" />
-                <div class="text-wrapper-12">예매</div>
-                <a href="Controller?type=movielist" target="_blank" rel="noopener noreferrer"
-                  ><div class="text-wrapper-13">영화</div></a
-                >
-                <a href="Controller?type=event" target="_blank" rel="noopener noreferrer"
-                  ><div class="text-wrapper-14">이벤트</div></a>
-                <a href="Controller?type=benefits" target="_blank" rel="noopener noreferrer"
-                  ><div class="text-wrapper-15">혜택</div></a
-                >
-                <img class="heading-link" src="${pageContext.request.contextPath}/img/event/event/heading-1-link.png" />
-                <div class="link-7"></div>
-              </div>
-            </div>
-            <img class="footer" src="${pageContext.request.contextPath}/img/event/event/footer.png" />
+            <jsp:include page="/jsp/header/header.jsp"/>
+            <jsp:include page="/jsp/footer/footer.jsp"/>
           </div>
         </div>
       </div>

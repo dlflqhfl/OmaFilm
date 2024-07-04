@@ -18,6 +18,7 @@ public class NoticeSearchAction implements Action {
 		
 		String cPage = request.getParameter("cPage");
 		String n_title = request.getParameter("n_title");
+		String type=request.getParameter("type");
 		
 		//전체페이지 수를 구하기
 		page.setTotalRecode(NoticeDAO.getsearchCount(n_title));
@@ -37,11 +38,15 @@ public class NoticeSearchAction implements Action {
 			page.setNowPage(1);
 		
 		NoticeVO[] nar = NoticeDAO.getList(page.getBegin(), page.getEnd(), n_title);
+		System.out.println(nar.length);
 		
 		//위의 배열 ar을 jsp에서 표현하기 위해 request에 저장하자
 		request.setAttribute("nar", nar);
 		request.setAttribute("page", page);
 		request.setAttribute("cnt", cnt);
+		request.setAttribute("type", type);
+		request.setAttribute("n_title", n_title);
+		
 		
 		
 		return "/jsp/serviceCenter/notice.jsp";

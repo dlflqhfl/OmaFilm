@@ -46,7 +46,7 @@ public class MovieListDAO {
 			mar = new MovieListVO[list.size()];
 			list.toArray(mar); //list가 가지는 모든 요소들을 ar 배열에 복사
 		}
-		
+		ss.close();
 		return mar;
 	}
 	
@@ -65,7 +65,7 @@ public class MovieListDAO {
 			mar = new MovieListVO[list.size()];
 			list.toArray(mar); //list가 가지는 모든 요소들을 ar 배열에 복사
 		}
-		
+		ss.close();
 		return mar;
 	}
 
