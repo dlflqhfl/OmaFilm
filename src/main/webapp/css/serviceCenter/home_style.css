@@ -17,15 +17,6 @@
   height: 1720px;
 }
 
-.screen .footer {
-  position: absolute;
-  width: 1920px;
-  height: 220px;
-  top: 1500px;
-  left: 0;
-  object-fit: cover;
-}
-
 .screen .frame {
   position: absolute;
   width: 1920px;
@@ -249,9 +240,9 @@
 
 .screen .background {
   position: absolute;
-  width: 280px;
-  height: 170px;
-  top: 246px;
+  width: 300px;
+  height: 180px;
+  top: 232px;
   left: 0;
   background-image: url(../../img/serviceCenter/home/background.png);
   background-size: cover;

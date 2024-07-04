@@ -10,7 +10,7 @@
 	boolean isLogin = (mvo != null);
 
 	Object obj = request.getAttribute("svo");
-	SelectSeatVO[] svo = null;
+	SelectSeatVO[] svo = null; 
 	if( obj != null){
 		svo = (SelectSeatVO[])obj;
 	}
