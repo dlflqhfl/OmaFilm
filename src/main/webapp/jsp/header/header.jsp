@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css" />
 
@@ -20,10 +20,10 @@
         <div class="link-22">
             <a href="Controller?type=home">
                 <div class="text-wrapper-26">고객센터</div></a>
-        </div>
+        </div> 
         <div class="link-24"><div class="text-wrapper-26">빠른예매</div></div>
         <img class="link-26" src="${pageContext.request.contextPath}/img/main_img/link-1.png" />
-        <img class="link-27" src="${pageContext.request.contextPath}/img/main_img/link-2.png" />
+        <a href="Controller?type=myHome"><img class="link-27" src="${pageContext.request.contextPath}/img/main_img/link-2.png" /></a>
 
         <a href="Controller?type=selectTime"><div class="text-wrapper-29">예매</div></a>
         <a href="Controller?type=movielist"><div class="text-wrapper-30">영화</div></a>

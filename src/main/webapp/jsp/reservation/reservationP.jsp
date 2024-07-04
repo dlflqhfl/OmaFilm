@@ -9,7 +9,7 @@
 		svo = (SelectSeatVO[])obj;
 	}
 %>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
   <head>
     <meta charset="utf-8" />
