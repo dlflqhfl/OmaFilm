@@ -194,7 +194,103 @@
   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
   crossorigin="anonymous"></script>
 <script type="text/javascript">
+function sendEmail() {
+    var email = $('#email').val();
 
+    //유효성 검사
+    if (email == "") {
+        alert("이메일을 입력해주세요.");
+        return;
+    }
+
+    // jQuery AJAX를 사용하여 서버에 이메일을 보냅니다.
+    $.ajax({
+        type: "POST",
+        url: "${pageContext.request.contextPath}/Controller?type=send",
+        data: {email: email},
+        success: function (data) {
+            data = data.trim();
+            if (data === "0") {
+                alert("이메일이 성공적으로 전송되었습니다.");
+                var time = 180;
+                timer = setInterval(function () {
+                    var minutes = Math.floor(time / 60);
+                    var seconds = time % 60;
+                    $("#timer").text(minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
+                    if (time <= 0) {
+                        clearInterval(timer);
+                        alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
+                        $(".input-3").prop("readonly", true);
+                        $(".background-border").css("background-color", "#f2f2f2");
+                        $(".input-3").val("");
+                        $(".input-3").css("background-color", "#f2f2f2");
+                        $(".text-wrapper-9").css("display", "none");
+                    }
+                    time--;
+                }, 1000);
+
+                setTimeout(function () {
+                    alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
+                }, 3 * 60 * 1000);
+            }else if (data === "1") {
+                alert("가입된 이메일입니다.");
+                location.href = "${pageContext.request.contextPath}/jsp/login/login_1.jsp";
+            }
+        }
+    });
+}
+
+//인증번호 확인 버튼을 눌렀을때 인증번호 검증 함수
+$("#checkButton").on("click", function () {
+    //만약 인증번호 칸이 막혔을때 버튼을 누르면 이메일을 입력하라는 경고창
+    if ($("#email").prop("readonly") === true) {
+        alert("이메일을 입력해주세요.");
+        $(".input-2").focus();
+        return;
+    } else {
+        if ($("#emailCheck").val() === "") {
+            alert("인증번호를 입력해주세요.");
+            $("#emailCheck").focus();
+            return;
+        }
+    }
+    var code = $("#emailCheck").val();
+    console.log(code);
+    $.ajax({
+        type: "POST",
+        url: "${pageContext.request.contextPath}/Controller?type=check",
+        data: {code_user: code},
+        success: function (data) {
+            var success = data.success;
+            if (success === "1") {
+                $("#checkButton").css("background-color", "#0e2128");
+                $("#checkButton").css("color", "#ffffff");
+                $("#checkButton").prop("disabled", false);
+                alert("인증이 완료되었습니다.");
+                $("#checkButton").prop("readonly", true);
+                $("#checkButton").attr("placeholder", "인증이 완료되었습니다");
+                $("#checkButton").css("background-color", "#f2f2f2");
+                clearInterval(timer);
+                sessionStorage.setItem("emailVerified", "true");
+            } else if (success === "0") {
+                alert("인증번호가 유효하지 않습니다");
+                $(".input-3").val("");
+                $(".input-3").focus();
+            }
+        }
+    });
+});
+
+//비밀번호 확인
+$('#pw1').keyup(function () {
+    var pw = $('#pw').val();
+    var pw_check = $('#pw1').val();
+    if (pw == pw_check) {
+        $('.checkPw').text('일치함').css('color', 'blue').show();
+    } else {
+        $('.checkPw').text('일치하지 않음').css('color', 'red').show();
+    }
+});
 	let text = '<%= request.getParameter("text") %>';
 	let movieName = '<%= request.getParameter("movieName") %>';
 	let time = '<%= request.getParameter("time") %>';
