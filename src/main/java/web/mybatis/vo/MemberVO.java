@@ -35,12 +35,6 @@ public class MemberVO {
 		this.u_none = u_none;
 	}
 
-	public MemberVO(int u_code2, String u_id2, String u_pw2, String string, String u_social2, String u_name2,
-			String u_phone2, String u_postcode2, String u_address2, String u_email2, String u_email_rcv2,
-			String u_birth2, String string2, String u_join_date2, Object object) {
-		// TODO Auto-generated constructor stub
-	}
-
 	public int getU_code() {
 		return u_code;
 	}

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
-<html> 
+<html>
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminAddMovieGlobals.css" />
@@ -331,19 +331,19 @@ const settings = {
 
 	$.ajax(settings).done(function (response) {
 	  console.log(response);
-	  
+
 	  var results = response.results;
-	  
+
 	  var posterPath = "https://image.tmdb.org/t/p/w500/" + results[0].poster_path;
-	  
+
 	  var overview = results[0].overview;
 	  console.log(posterPath);
 	  console.log(overview);
-	  
+
 	  $(".input").val(posterPath);
 	  $("#area").val(overview);
 	});
-	
+
     
 </script>
   </body>

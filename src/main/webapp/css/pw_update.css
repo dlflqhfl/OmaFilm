@@ -144,6 +144,7 @@
   line-height: 46px;
   font-family: "NanumBarunGothic-Regular", Helvetica;
   font-weight: 400;
+  border: none;
 }
 
 .frame .text-wrapper-4 {
@@ -225,13 +226,36 @@
   border-color: #d1d5dd;
 }
 
-.frame .input {
+.frame .id {
   position: relative;
   width: 278px;
   height: 32px;
   top: 9px;
   left: 15px;
   background-color: #ffffff;
+  border-color: #d8d9db;
+  color: #000000;
+  font-size: 18px;
+  letter-spacing: 0;
+  font-family: "NanumBarunGothic-Regular", Helvetica;
+  font-weight: 400;
+  padding: 5px;
+  padding-left: 15px;
+}
+
+.frame .input {
+  position: relative;
+  width: 278px;
+  height: 32px;
+  top: 9px;
+  left: 15px;
+  color: #000000;
+  font-size: 18px;
+  letter-spacing: 0;
+  font-family: "NanumBarunGothic-Regular", Helvetica;
+  font-weight: 400;
+  padding: 5px;
+  padding-left: 15px;
   border: 1px solid;
   border-color: #d8d9db;
 }
@@ -242,6 +266,13 @@
   height: 17px;
   top: 8px;
   left: 11px;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  font-family: "NanumBarunGothic-Regular", Helvetica;
+  font-weight: 400;
+  padding: 5px;
+  padding-left: 15px;
 }
 
 .frame .text-wrapper-5 {
@@ -249,7 +280,7 @@
   height: 17px;
   top: -1px;
   left: 0;
-  color: #888888;
+  color: #000000;
   font-size: 15px;
   letter-spacing: 0;
   line-height: normal;
@@ -329,6 +360,13 @@
   background-color: #ffffff;
   border: 1px solid;
   border-color: #d8d9db;
+  font-size: 18px;
+    letter-spacing: 0;
+    font-family: "NanumBarunGothic-Regular", Helvetica;
+    font-weight: 400;
+    padding: 5px;
+    padding-left: 15px;
+
 }
 
 
@@ -345,4 +383,5 @@
   position: absolute;
   font-family: "NanumBarunGothic-Regular", Helvetica;
   font-weight: 400;
+  display: none;
 }
