@@ -1,43 +1,50 @@
 @charset "UTF-8";
+body {
+  display: flex; /* bodyë¥¼ flexbox ì»¨í…Œì´ë„ˆë¡œ ì„¤ì • */
+  flex-direction: column; /* ì„¸ë¡œ ë°©í–¥ìœ¼ë¡œ ë°°ì¹˜ */
+  position: relative;
+}
 .screen {
   background-color: #ffffff;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    flex-grow: 1; /* .screenì´ ë‚¨ì€ ê³µê°„ì„ ëª¨ë‘ ì°¨ì§€í•˜ë„ë¡ ì„¤ì • */
+    padding-bottom: 200px; /* í‘¸í„° ë†’ì´ë§Œí¼ íŒ¨ë”© ì¶”ê°€ */
 }
 
 .screen .overlap-wrapper {
   background-color: #ffffff;
-  width: 1920px;
-  height: 2515px;
+    width: 1920px;
+    height: auto; 
 }
 
 .screen .overlap {
-  position: relative;
-  height: 2515px;
+   position: relative;
+    height: auto;
 }
 
 .screen .container {
-  position: absolute;
-  width: 1920px;
-  height: 2515px;
-  top: 0;
-  left: 0;
+    width: 1920px;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .screen .heading {
   position: absolute;
-  width: 284px;
+  width: 350px;
   height: 58px;
-  top: 249px;
+  top: 240px;
   left: 220px;
   font-family: "Inter", Helvetica;
-  font-weight: 400;
+  font-weight: 500;
   color: #222222;
-  font-size: 40px;
+  font-size: 45px;
   letter-spacing: -1px;
-  line-height: 30.8px;
+  line-height: 58px;
 }
 
 .screen .overlap-group {
@@ -247,15 +254,6 @@
   background-size: 100% 100%;
 }
 
-.screen .footer {
-  position: absolute;
-  width: 1920px;
-  height: 223px;
-  top: 2292px;
-  left: 0;
-  object-fit: cover;
-}
-
 .screen .overlap-group-2 {
   position: absolute;
   width: 1500px;
@@ -265,26 +263,26 @@
 }
 
 .screen .rectangle {
-  width: 750px;
+  width: 1500px;
   height: 80px;
-  top: 1px;
   left: 0;
   position: absolute;
-  background-color: #d9d9d9;
+  background-color: #ffffff;
 }
 
 .screen .text-wrapper-8 {
-  width: 750px;
+  width: 1500px;
   height: 80px;
   top: 0;
   font-family: "Inter", Helvetica;
   font-weight: 700;
   color: #000000;
-  font-size: 15px;
+  font-size: 35px;
   position: absolute;
   left: 0;
   letter-spacing: 0;
-  line-height: 19.5px;
+  line-height: 40px;
+  border-bottom: 3px solid black;
 }
 
 .screen .line {
@@ -298,17 +296,29 @@
 
 .screen .rectangle-2 {
   width: 1500px;
-  height: 1500px;
+  height: auto; /* ë†’ì´ ìžë™ìœ¼ë¡œ ì¡°ì ˆ */
   top: 540px;
   left: 220px;
   position: absolute;
-  background-color: #d9d9d9;
+  background-color: #ffffff;
 }
 
 .screen .element {
-  position: absolute;
-  width: 1500px;
-  height: 1499px;
-  top: 541px;
-  left: 220px;
+  position: static;
+  width: auto;
+  height: auto;
+  top: 1000px;
+  left: 360px;
+  flex-grow: 1;
+  overflow-y: hidden; /* ë‚´ë¶€ ìŠ¤í¬ë¡¤ ì œê±° */
+  margin-top: 550px;
+  margin-left: 300px;
+  margin-bottom: 100px;
+  margin-right: 300px;
 }
+
+.screen {
+    /* ... (ê¸°ì¡´ ìŠ¤íƒ€ì¼ ìœ ì§€) ... */
+    flex: 1; /* .screenì´ ì»¨í…ì¸  ì˜ì—­ì„ ìµœëŒ€í•œ ì°¨ì§€í•˜ë„ë¡ ì„¤ì • */
+}
+

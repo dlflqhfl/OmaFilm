@@ -64,6 +64,7 @@
 	        <input type="hidden" id="nameData" name="nameData" value="">
 	        <input type="hidden" id="timeData" name="timeData" value="">
 	        <input type="hidden" id="dateData" name="dateData" value="">
+	        <input type="hidden" id="fileData" name="fileData" value="">
 	        <input type="hidden" id="contentData" name="contentData" value="">
 	        <input type="hidden" id="submit" name="submit" value="submit">
 	        <input type="hidden" id="movieCd" name="movieCd" value="${movie.movieCd }">
@@ -115,8 +116,6 @@ $(function() {
             closeDialog();
         }
     });
-
-
 
     $(".guan").click(function() {
         name = $(this).text();
@@ -319,7 +318,32 @@ function closeDialog() {
 }
 
 
-	
+const settings = {
+	  async: true,
+	  crossDomain: true,
+	  url: 'https://api.themoviedb.org/3/search/movie?query=${movie.movieNm}&include_adult=false&language=ko-KR&page=1',
+	  method: 'GET',
+	  headers: {
+	    accept: 'application/json',
+	    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzYzMjcxODhhNjViZTE5YTc4MjhjNzY4Y2NhNzg3NCIsIm5iZiI6MTcxOTg4NjExNC4yNjk4NzEsInN1YiI6IjY2ODM1ZWZmOTg4NzA5NzNhZTJiZWQ2YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.T8d6wDtewcUbAw4oecS_48QB4EolWbMIODHZ_GxvLXI'
+	  }
+	};
+
+	$.ajax(settings).done(function (response) {
+	  console.log(response);
+
+	  var results = response.results;
+
+	  var posterPath = "https://image.tmdb.org/t/p/w500/" + results[0].poster_path;
+
+	  var overview = results[0].overview;
+	  console.log(posterPath);
+	  console.log(overview);
+
+	  $(".input").val(posterPath);
+	  $("#area").val(overview);
+	});
+
     
 </script>
   </body>

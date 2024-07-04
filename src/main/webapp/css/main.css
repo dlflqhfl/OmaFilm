@@ -53,6 +53,9 @@
   height: 344px;
   top: 76px;
   left: 293px;
+  display: flex; /* Flexbox 적용 */
+  flex-wrap: wrap; /* 여러 줄로 배치 */
+  gap: 20px; /* 링크 요소 간 간격 */
 }
 
 .omakase-cinema .heading {
@@ -71,11 +74,9 @@
 }
 
 .omakase-cinema .link {
-  position: absolute;
+  position: relative;
   width: 310px;
   height: 273px;
-  top: 71px;
-  left: 120px;
 }
 
 .omakase-cinema .strong {
@@ -503,13 +504,12 @@
   position: absolute;
   width: 121px;
   height: 121px;
-  top: 77px;
-  left: 757px;
   border-radius: 10px;
   box-shadow: 5px 5px 10px #00000033;
   background-image: url(../img/main_img/link-6.png);
   background-size: cover;
   background-position: 50% 50%;
+  display: inline;
 }
 
 .omakase-cinema .link-8 {
@@ -826,15 +826,17 @@
 }
 
 .omakase-cinema .ordered-list {
-  position: absolute;
+  position: relative;
   width: 1100px;
   height: 398px;
   top: 249px;
   left: 1px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .omakase-cinema .item {
-  position: absolute;
+  position: relative;
   width: 245px;
   height: 398px;
   top: 0;
@@ -878,7 +880,6 @@
   height: 150px;
   top: 0;
   left: 0;
-  background-image: url(../img/main_img/background.png);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -904,7 +905,7 @@
   position: absolute;
   width: 245px;
   height: 36px;
-  top: 362px;
+  top: 370px;
   left: 0;
 }
 
@@ -913,17 +914,15 @@
   width: 160px;
   height: 36px;
   top: 0;
-  left: 85px;
+  left: 45px;
   background-color: #296e91cc;
   border-radius: 4px;
 }
 
 .omakase-cinema .text-wrapper-16 {
   position: absolute;
-  width: 27px;
+  width: 160px;
   height: 36px;
-  top: -2px;
-  left: 65px;
   -webkit-text-stroke: 1px #ffffff33;
   font-family: "Dotum-Regular", Helvetica;
   font-weight: 400;
@@ -1060,7 +1059,7 @@
   width: 160px;
   height: 36px;
   top: 0;
-  left: 85px;
+  left: 45px;
   background-color: #316986;
   border-radius: 4px;
 }
@@ -1241,10 +1240,10 @@
 
 .omakase-cinema .horizontal-border-2 {
   position: absolute;
-  width: 200px;
-  height: 30px;
-  top: 23px;
-  left: 38px;
+  width: 300px;
+  height: 35px;
+  top: 20px;
+  left: 50px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #423e3e;
@@ -1252,25 +1251,26 @@
 
 .omakase-cinema .input {
   position: absolute;
-  width: 170px;
-  height: 29px;
+  width: 230px;
+  height: 30px;
   top: 0;
   left: 0;
 }
 
+input:focus {
+  outline: none;
+}
+
 .omakase-cinema .container-6 {
   position: relative;
-  width: 150px;
-  height: 17px;
-  top: 6px;
-  left: 10px;
+  width: 230px;
+  height: 30px;
 }
 
 .omakase-cinema .text-wrapper-22 {
   position: absolute;
-  width: 141px;
-  height: 17px;
-  top: -1px;
+  width: 230px;
+  height: 30px;
   left: 0;
   color: white;
   background-color: #534e4e;
@@ -1284,13 +1284,15 @@
 
 .omakase-cinema .button-4 {
   position: absolute;
-  width: 18px;
-  height: 18px;
-  top: 5px;
-  left: 176px;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 260px;
   background-image: url(../img/main_img/button.png);
   background-size: cover;
   background-position: 50% 50%;
+  background-color: #00000033;
+  cursor: pointer;
 }
 
 .omakase-cinema .vertical-border {
@@ -1339,10 +1341,10 @@
 }
 
 .omakase-cinema .link-wrapper {
-  left: 588px;
+  left: 400px;
   position: absolute;
-  width: 238px;
-  height: 30px;
+  width: 300px;
+  height: 35px;
   top: 0;
   border-left-width: 1px;
   border-left-style: solid;
@@ -1351,17 +1353,17 @@
 
 .omakase-cinema .link-19 {
   position: relative;
-  width: 101px;
-  height: 30px;
-  top: -1px;
+  width: 200px;
+  height: 37px;
   left: 68px;
+  top: -1px;
 }
 
 .omakase-cinema .image-14 {
-  width: 26px;
-  height: 24px;
-  top: 3px;
-  left: 0;
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  left: 24px;
   background-image: url(../img/main_img/image-16.png);
   position: absolute;
   background-size: cover;
@@ -1370,14 +1372,14 @@
 
 .omakase-cinema .text-wrapper-24 {
   position: absolute;
-  width: 70px;
+  width: 100px;
   height: 30px;
-  top: -1px;
-  left: 31px;
+  top: 5px;
+  left: 70px;
   font-family: "Dotum-Regular", Helvetica;
   font-weight: 400;
   color: #ffffff33;
-  font-size: 13.1px;
+  font-size: 20px;
   text-align: center;
   letter-spacing: 0;
   line-height: 30px;
@@ -1385,10 +1387,10 @@
 }
 
 .omakase-cinema .vertical-border-2 {
-  left: 862px;
+  left: 750px;
   position: absolute;
-  width: 238px;
-  height: 30px;
+  width: 300px;
+  height: 35px;
   top: 0;
   border-left-width: 1px;
   border-left-style: solid;
@@ -1399,15 +1401,15 @@
   position: relative;
   width: 91px;
   height: 30px;
-  top: -1px;
+  top: -2px;
   left: 74px;
 }
 
 .omakase-cinema .image-15 {
-  width: 29px;
-  height: 25px;
-  top: 2px;
-  left: 0;
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  left: 20px;
   background-image: url(../img/main_img/image-17.png);
   position: absolute;
   background-size: cover;
@@ -1416,14 +1418,14 @@
 
 .omakase-cinema .text-wrapper-25 {
   position: absolute;
-  width: 57px;
+  width: 100px;
   height: 30px;
-  top: -1px;
-  left: 34px;
+  top: 5px;
+  left: 60px;
   font-family: "Dotum-Regular", Helvetica;
   font-weight: 400;
   color: #ffffff33;
-  font-size: 13.1px;
+  font-size: 20px;
   text-align: center;
   letter-spacing: 0;
   line-height: 30px;
@@ -1530,5 +1532,42 @@
   line-height: 22.50px;
   letter-spacing: 2px;
   word-wrap: break-word;
+}
+.omakase-cinema .event-list {
+  position: absolute;
+  width: 1100px; /* 또는 원하는 너비 */
+  top: 71px; /* .view 기준으로 위치 조정 */
+  left: 120px; /* .view 기준으로 위치 조정 */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.omakase-cinema .border .notice-list {
+    position: absolute; /* 위치 조정 */
+    top: 72px; /* 원하는 위치로 조정 */
+    left: 45px; /* 원하는 위치로 조정 */
+    display: flex;
+    justify-content:space-between;
+    flex-direction: column;
+    width: 298px;
+}
+
+.omakase-cinema .border .benefits-list {
+    position: absolute; /* 위치 조정 */
+    top: 72px; /* 원하는 위치로 조정 */
+    left: 426px; /* 원하는 위치로 조정 */ 
+    width: 500px; /* 혜택 리스트 너비 설정 */
+    display: flex;
+    justify-content:space-between;
+}
+
+.omakase-cinema .border .OMAKASE {
+    width: 286px; /* 각 공지사항 너비 설정 */
+    display: contents;
+    position: relative; 
+}
+.notice-list a {
+	margin-bottom: 10px;
 }
 

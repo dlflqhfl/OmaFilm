@@ -6,12 +6,13 @@ public class ReserverVO {
 	non_phone, //비회원 전화번호
 	non_address, //비회원 주소
 	non_postal_code, //비회원 우편번호
-	non_email; //비회원 이메일
+	non_email, //비회원 이메일
+	non_pw;
 	
 	public ReserverVO() {}
 
 	public ReserverVO(int rsvr_code, int u_code, String non_name, String non_phone, String non_address,
-			String non_postal_code, String non_email) {
+			String non_postal_code, String non_email, String non_pw) {
 		super();
 		this.rsvr_code = rsvr_code;
 		this.u_code = u_code;
@@ -20,8 +21,8 @@ public class ReserverVO {
 		this.non_address = non_address;
 		this.non_postal_code = non_postal_code;
 		this.non_email = non_email;
+		this.non_pw = non_pw;
 	}
-
 
 	public int getRsvr_code() {
 		return rsvr_code;
@@ -78,4 +79,14 @@ public class ReserverVO {
 	public void setNon_email(String non_email) {
 		this.non_email = non_email;
 	}
+
+	public String getNon_pw() {
+		return non_pw;
+	}
+
+	public void setNon_pw(String non_pw) {
+		this.non_pw = non_pw;
+	}
+
+	
 }

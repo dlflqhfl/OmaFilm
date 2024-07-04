@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.math.BigInteger" %>
+<%@ page import="java.security.SecureRandom" %>
+<%@ page import="java.net.URLEncoder" %><%--
   Created by IntelliJ IDEA.
   User: dlflq
   Date: 2024-06-22
@@ -11,40 +13,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css" />
-    <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css"/>
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+            charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
-
-  <c:if test="${mvo != null && not empty mvo }">
-  	<script type="text/javascript">
-  		alert(${session.loginErrorMessage})
-  	</script>
-  </c:if>
-
+<%--/*네이버 로그인*/--%>
+<%
+    String clientId = "prTymuieNCdwFguuzeIa";//애플리케이션 클라이언트 아이디값";
+    String redirectURI = URLEncoder.encode("http://localhost:9090/OmaFilm/Controller?type=naver", "UTF-8");
+    SecureRandom random = new SecureRandom();
+    String state = new BigInteger(130, random).toString();
+    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+    apiURL += "&client_id=" + clientId;
+    apiURL += "&redirect_uri=" + redirectURI;
+    apiURL += "&state=" + state;
+    session.setAttribute("state", state);
+%>
 <div class="container">
     <div class="div">로그인</div>
     <jsp:include page="../header/header.jsp"/>
     <span class="button"><div class="text-wrapper-8">회원</div></span>
     <span class="button-2"><div class="text-wrapper-9"><a href="login_2.jsp">비회원</a></div></span>
     <div class="link-7">
-        <div class="text-wrapper-10">회원가입</div>
+        <div class="text-wrapper-10"><a href="${pageContext.request.contextPath}/jsp/login/register.jsp">회원가입</a></div>
         <div class="vertical-divider"></div>
     </div>
-  
-    <c:if test="${not empty loginErrorMessage}">
-    <script>
-        alert("${loginErrorMessage}");
-    </script>
-
-	</c:if>
-
     <div class="overlap">
-        <form class="form" id="login_form" name="login_form" action="../../Controller?type=login" method="post">
+        <form class="form" id="login_form" name="login_form" action="${pageContext.request.contextPath}/Controller?type=login" method="post">
             <label class="text-wrapper-13" for="login_id">ID :</label>
             <input type="text" class="input" id="login_id" name="login_id" placeholder="아이디 또는 이메일을 입력해주세요"/>
             <div class="text-wrapper-14" for="login_pw">PW :</div>
@@ -55,24 +55,57 @@
             <button class="button-3" onclick="login()">로그인</button>
         </form>
     </div>
-    <div class="link-8"><div class="text-wrapper-16">ID/PW 찾기</div></div>
-    <a href="javascript:kakao_login()"><img class="image" src="https://c.animaapp.com/s5cVxUlg/img/image-5@2x.png" id="kakao_login"/></a>
-    <a href="javascript: naver_login()"><img class="image-2" src="https://c.animaapp.com/s5cVxUlg/img/image-6@2x.png" /></a>
+    <div class="link-8">
+        <div class="text-wrapper-16"><a href="${pageContext.request.contextPath}/jsp/login/id_search.jsp">ID/PW 찾기</a></div>
+    </div>
+    <a href="javascript:kakao_login()"><img class="image" src="https://c.animaapp.com/s5cVxUlg/img/image-5@2x.png"
+                                            id="kakao_login"/></a>
+    <a href="<%=apiURL%>" id="naver_login"><img class="image-2" src="https://c.animaapp.com/s5cVxUlg/img/image-6@2x.png"/></a>
 </div>
 
-<jsp:include page="/jsp/footer/footer.jsp"/>
+<%@ include file="../footer/footer.jsp" %>
 <script>
+    window.onload = function() {
+        //requset에 저장된 result값을 가져온다.
+        var result = '<%=request.getAttribute("result")%>';
+        //result값에 따라서 분기처리
+        //result값이 0이고 null이 아닐때
+        if (result == "0" && result != null) {
+            //회원가입 창으로 이동
+            alert("회원가입이 필요합니다.");
+            location.href = "${pageContext.request.contextPath}/jsp/login/register.jsp";
+        }else if(result == "1"){
+            alert("이미 가입된 회원입니다.");
+        }else if(result == "2"){
+            alert("로그인 성공");
+            location.href = "${pageContext.request.contextPath}/Controller?type=index";
+        }
+
+        <c:if test="${not empty errorMessage}">
+        alert("${errorMessage}");
+        $("#login_id").focus();
+        </c:if>
+
+        var remember_id = "${sessionScope.remember_id}";
+        console.log('remember_id' + remember_id)
+
+
+        if (remember_id != null || remember_id != "") {
+            $("#login_id").val(remember_id);
+            $("#remember_id").prop("checked", true);
+        }
+    }
     /*로그인 버튼을 눌렀을때 폼객체를 컨트롤러로 보냄*/
-    function login(){
+    function login() {
         var id = $("#login_id").val();
         var pw = $("#login_pw").val();
 
-        if(id == ""){
+        if (id == "") {
             alert("아이디를 입력해주세요");
             $("#login_id").focus();
             return;
         }
-        if(pw == ""){
+        if (pw == "") {
             alert("비밀번호를 입력해주세요");
             $("#login_pw").focus();
             return;
@@ -81,22 +114,19 @@
         $("#login_form").submit();
     }
 
-    window.onload = function(){<c:if test="${not empty errorMessage}">
-        alert("${errorMessage}");
-        $("#login_id").focus();
-        </c:if>}
     /*=========================================================================*/
     /*카카오톡 이미지 클릭시 kakao()함수 호출하고 카카오 로그인 실행*/
     window.Kakao.init('54deeff9c26a36a95bf1373bd36aaddd');
     window.Kakao.isInitialized();
+
     /*카카오 로그인*/
     function kakao_login() {
         console.log("카카오 로그인")
         Kakao.Auth.login({
-            success: function(authObj) {
+            success: function (authObj) {
                 Kakao.API.request({
                     url: '/v2/user/me',
-                    success: function(response) {
+                    success: function (response) {
                         var access_token = authObj.access_token;
                         var id = response.id;
                         var name = response.properties.nickname;
@@ -108,7 +138,7 @@
                         //만약 이 이메일과 연동된 db가 없으면 register.jsp로 이동
                         //만약 이 이메일과 연동된 db가 있으면 로그인 처리
                         $.ajax({
-                            url: "${pageContext.request.contextPath}/Controller?type=social_login",
+                            url: "${pageContext.request.contextPath}/Controller?type=kakao",
                             type: "post",
                             data: {
                                 id: id,
@@ -118,110 +148,49 @@
                                 thumbnail_image: thumbnail_image,
                                 token: access_token,
                             },
-                            success: function(data) {
+                            success: function (data) {
                                 console.log(data);
-                                if(data == 0){
-                                    alert("가입하지 않은 이메일입니다")
+                                if (data == 0) {
+                                    alert("회원가입이 필요합니다")
                                     /*회원가입 페이지로 이동*/
                                     window.location.href = "${pageContext.request.contextPath}/jsp/login/register.jsp";
-                                }
-                                else if(data == 1){
+                                } else if (data == 1) {
                                     /*등록된 이메일 경고창*/
-                                    alert("이미 등록된 이메일입니다.");
-                                }
-                                else if(data == 2){
+                                    alert("이미 등록된 계정입니다.");
+                                } else if (data == 2) {
                                     /*로그인 성공*/
                                     alert("로그인 성공");
-                                    location.href = "/Controller?type=index";
+                                    location.href = "${pageContext.request.contextPath}/Controller?type=index";
                                 }
                             },
-                            fail: function(error) {
+                            fail: function (error) {
                                 console.log(error);
                             },
                         });
                     },
-                    fail: function(error) {
+                    fail: function (error) {
                         console.log(error);
                     },
                 });
             },
-            fail: function(err) {
+            fail: function (err) {
                 console.log(err);
             },
         });
     }
+
     /*=========================================================================*/
-    /*네이버 로그인*/
-    function naver_login() {
-        console.log("네이버 로그인")
-        var naverLogin = new naver.LoginWithNaverId({
-            clientId: "prTymuieNCdwFguuzeIa",
-            callbackUrl: "http://localhost:9090/OmaFilm/jsp/login/login_1.jsp",
-            isPopup: false,
-            callbackHandle: true,
-        });
 
-        naverLogin.init();
 
-        naverLogin.getLoginStatus(function(status){
-            console.log(status)
-            if (status) {
-                var email = naverLogin.user.getEmail();
-                var name = naverLogin.user.getName();
-                var id = naverLogin.user.getId();
-                var profile_image = naverLogin.user.getProfileImage();
-                var thumbnail_image = naverLogin.user.getProfileImage();
-                var token = naverLogin.accessToken.accessToken;
-                //휴대폰 번호 생일 등 추가 정보 가져옴
-                var mobile = naverLogin.user.getMobile();
-                var birthday = naverLogin.user.getBirthday();
-                console.log(email);
-                console.log(name);
-                console.log(id);
-                console.log(profile_image);
-                console.log(thumbnail_image);
-                console.log(token);
-                console.log(mobile);
-                console.log(birthday);
+    $(document).ready(function () {
+        var result = "${result}";
+        if (result == "1") {
+            alert("소셜 로그인이 아닙니다. 로그인을 다시 시도해주세요.");
+        }else if(result == "2"){
+            alert("로그인 실패");
+        }
+    });
 
-                //만약 이 이메일과 연동된 db가 없으면 register.jsp로 이동
-                //만약 이 이메일과 연동된 db가 있으면 로그인 처리
-                /*$.ajax({
-                    url: "../../Controller?type=social_login",
-                    type: "post",
-                    data: {
-                        id: id,
-                        email: email,
-                        name: name,
-                        profile_image: profile_image,
-                        thumbnail_image: thumbnail_image,
-                        token: token,
-                    },
-                    success: function(data) {
-                        console.log(data);
-                        if(data == 0){
-                            alert("가입하지 않은 이메일입니다")
-                            /!*회원가입 페이지로 이동*!/
-                            window.location.href = "/jsp/login/register.jsp";
-                        }
-                        else if(data == 1)
-                            /!*등록된 이메일 경고창*!/
-                            alert("이미 등록된 이메일입니다.");
-                        else if(data == 2){
-                            /!*로그인 성공*!/
-                            alert("로그인 성공");
-                            location.href = "/Controller?type=index";
-                        }
-                    },
-                    fail: function(error) {
-                        console.log(error);
-                    },
-                });*/
-            } else {
-                console.log("로그인 실패");
-            }
-        });
-    }
 </script>
 </body>
 </html>

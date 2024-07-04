@@ -1,12 +1,10 @@
 package web.mybatis.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import web.mybatis.service.FactoryService;
-import web.mybatis.vo.ReservationVO;
 import web.mybatis.vo.ScreeningScheduleVO;
 import web.mybatis.vo.SelectSeatVO;
 
@@ -17,7 +15,7 @@ public class ReservationDAO {
 		
 		ScreeningScheduleVO ar = ss.selectOne("screeningSchedule.selectReservationInfo", sc);
 		
-		
+		ss.close();
 		return ar;
 	}
 	
@@ -29,6 +27,8 @@ public class ReservationDAO {
 			ar = new SelectSeatVO[list.size()];
 			list.toArray(ar);
 		}
+		ss.close();
 		return ar;
+
 	}
 }

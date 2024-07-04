@@ -80,6 +80,7 @@
   background-size: cover;
   background-position: 50% 50%;
   border: none;
+  cursor: pointer;
 }
 
 .div-wrapper .list {
@@ -129,6 +130,7 @@
   height: 16px;
   top: 0;
   left: 14px;
+  cursor: pointer;
 }
 
 .div-wrapper .text-wrapper-3 {
@@ -345,10 +347,8 @@
 
 .div-wrapper .text-wrapper-9 {
   position: absolute;
-  width: 27px;
-  height: 36px;
-  top: -2px;
-  left: 52px;
+  width: 130px;
+  height: 35px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #ffffff;
@@ -1031,12 +1031,12 @@
 .div-wrapper .button-4 {
   all: unset;
   box-sizing: border-box;
-  position: absolute;
   width: 1164px;
   height: 40px;
   top: 2218px;
   left: 406px;
   border-color: #eaeaea;
+  margin-top: 50px;
 }
 
 .div-wrapper .text-wrapper-32 {
@@ -1074,15 +1074,6 @@
   left: -1px;
   background-image: url(../../img/movie/movieList/overlay.svg);
   background-size: 100% 100%;
-}
-
-.div-wrapper .navbar {
-  position: relative;
-  height: 90px;
-  background-color: #00000080;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-color: #ffffff33;
 }
 
 .div-wrapper .link-7 {
@@ -1264,14 +1255,6 @@
   background-size: 100% 100%;
 }
 
-.div-wrapper .footer {
-  position: absolute;
-  width: 1920px;
-  height: 200px;
-  top: 2321px;
-  left: -4px;
-  object-fit: cover;
-}
 .nav1 {
     position: relative;
     top: 1000px;
@@ -1348,5 +1331,7 @@ ol.paging li a:hover {
   font-style: italic;
   font-weight: 300;
   line-height: 25px;
-  word-wrap: break-word
+  word-wrap: break-word;
+  overflow: hidden;
+  
 }

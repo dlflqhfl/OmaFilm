@@ -59,7 +59,7 @@
   width: 73px;
   height: 24px;
   top: 51px;
-  left: 149px;
+  left: 143px;
 }
 
 .www-lottecinema-co .image {
@@ -90,7 +90,7 @@
   width: 14px;
   height: 20px;
   top: 2px;
-  left: 60px;
+  left: 71px;
   font-family: "Noto Sans KR", Helvetica;
   font-weight: 300;
   color: #000000;
@@ -211,10 +211,10 @@
 
 .www-lottecinema-co .text-wrapper-6 {
   position: absolute;
-  width: 98px;
+  width: 120px;
   height: 20px;
   top: 1px;
-  left: 22px;
+  left: 1px;
   font-family: "Noto Sans KR", Helvetica;
   font-weight: 300;
   color: #dd7430;
@@ -270,7 +270,6 @@
   left: 363px;
   background-color: #ffffff;
   overflow: hidden;
-  overflow-y: scroll;
 }
 
 .www-lottecinema-co .element {
@@ -321,7 +320,6 @@
   top: -3px;
   left: 0;
   border-radius: 20px;
-  background-image: url(../../img/movie/movieDetail/21152-103-1-jpg.png);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -436,9 +434,6 @@
   height: 32px;
   top: 0;
   left: 58px;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-color: #181818;
 }
 
 .www-lottecinema-co .text-wrapper-11 {
@@ -485,9 +480,6 @@
   height: 32px;
   top: 0;
   left: 63px;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-color: #181818;
 }
 
 .www-lottecinema-co .overlap-group-3 {
@@ -552,9 +544,9 @@
 
 .www-lottecinema-co .p {
   position: absolute;
-  width: 440px;
-  height: 86px;
-  top: 268px;
+  width: 970px;
+  height: 160px;
+  top: 230px;
   left: 10px;
   font-family: "Noto Sans KR", Helvetica;
   font-weight: 300;
@@ -740,9 +732,6 @@
   top: 0;
   left: 0;
   border-radius: 8px;
-  background-image: url(../../img/movie/movieDetail/emphasis-21152-109-1-jpg.png);
-  background-size: cover;
-  background-position: 50% 50%;
 }
 
 .www-lottecinema-co .strong-2 {
@@ -783,9 +772,6 @@
   top: 0;
   left: 0;
   border-radius: 8px;
-  background-image: url(../../img/movie/movieDetail/emphasis-21152-109-2-jpg.png);
-  background-size: cover;
-  background-position: 50% 50%;
 }
 
 .www-lottecinema-co .container-6 {
@@ -803,9 +789,6 @@
   top: 0;
   left: 0;
   border-radius: 8px;
-  background-image: url(../../img/movie/movieDetail/emphasis-21152-109-3-jpg.png);
-  background-size: cover;
-  background-position: 50% 50%;
 }
 
 .www-lottecinema-co .strong-3 {
