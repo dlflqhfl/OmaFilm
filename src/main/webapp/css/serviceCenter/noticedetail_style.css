@@ -17,15 +17,6 @@
   height: 1720px;
 }
 
-.div-wrapper .footer {
-  position: absolute;
-  width: 1920px;
-  height: 220px;
-  top: 1500px;
-  left: 0;
-  object-fit: cover;
-}
-
 .div-wrapper .frame {
   position: absolute;
   width: 1920px;

@@ -11,33 +11,15 @@
     <div class="screen">
       <div class="container-wrapper">
         <div class="container">
-          <img class="footer" src="${pageContext.request.contextPath}/img/serviceCenter/directions/footer.png" />
+          <div class="overlap-group">
+              <img class="overlay" src="${pageContext.request.contextPath}/img/serviceCenter/directions/overlay.svg" />
+             <jsp:include page="/jsp/header/header.jsp"/>
+            </div>
+          <jsp:include page="/jsp/footer/footer.jsp"/>
           <div class="heading">오시는 길</div>
           <p class="text-wrapper">주소 : 서울 강남구 테헤란로 132 한독약품빌딩 8층 (우)06235</p>
           <div id="map"></div>
           <img class="img" src="${pageContext.request.contextPath}/img/serviceCenter/directions/image8.png" />
-          <div class="frame">
-            <div class="navbar">
-              <div class="link"><div class="div">회원가입</div></div>
-              <div class="div-wrapper"><div class="div">고객센터</div></div>
-              <div class="link-2"><div class="text-wrapper-2">관리자</div></div>
-              <div class="text-wrapper-3">로그인</div>
-              <div class="link-3"><div class="div">빠른예매</div></div>
-              <img class="link-4" src="${pageContext.request.contextPath}/img/serviceCenter/directions/link.png" />
-              <img class="link-5" src="${pageContext.request.contextPath}/img/serviceCenter/directions/link-1.png" />
-              <img class="link-6" src="${pageContext.request.contextPath}/img/serviceCenter/directions/link-2.png" />
-              <div class="text-wrapper-4">예매</div>
-              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                ><div class="text-wrapper-5">영화</div></a
-              >
-              <div class="text-wrapper-6">이벤트</div>
-              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                ><div class="text-wrapper-7">혜택</div></a
-              >
-              <img class="heading-link" src="${pageContext.request.contextPath}/img/serviceCenter/directions/heading-1-link.png" />
-              <div class="link-7"></div>
-            </div>
-          </div>
           <div class="background">
             <div class="overlap">
               <div class="link-8"><div class="text-wrapper-8">고객센터</div></div>

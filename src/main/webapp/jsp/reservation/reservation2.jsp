@@ -8,10 +8,10 @@
 	if( obj != null){
 		svo = (SelectSeatVO[])obj;
 	}
-%>
+%> 
 <!DOCTYPE html>
 <html>
-  <head>
+  <head> 
     <meta charset="utf-8" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/reservationGlobals2.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/reservationStyle2.css" />

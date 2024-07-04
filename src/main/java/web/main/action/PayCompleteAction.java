@@ -1,20 +1,19 @@
 package web.main.action;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import web.mybatis.dao.PaymentDAO;
+import web.mybatis.vo.MemberVO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import web.mybatis.dao.PaymentDAO;
-import web.mybatis.vo.MemberVO;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PayCompleteAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("컴플리트");
 
 		// 세션 객체 가져오기
 		HttpSession session = request.getSession();
@@ -27,15 +26,11 @@ public class PayCompleteAction implements Action {
 		}else { //예매자가 비회원일 때
 			Map<String, String> map = new HashMap<>();
 			String non_name = request.getParameter("non_name");
-			String non_phone = request.getParameter("non_phone");
-			String non_address = request.getParameter("non_address");
-			String non_postal_code = request.getParameter("non_postal_code");
 			String non_email = request.getParameter("non_email");
+			String non_pw = request.getParameter("non_pw");
 			map.put("non_name", non_name);
-			map.put("non_phone", non_phone);
-			map.put("non_address", non_address);
-			map.put("non_postal_code", non_postal_code);
 			map.put("non_email", non_email);
+			map.put("non_pw", non_pw);
 
 			rsvr_code = PaymentDAO.saveNonMem(map);
 		}
@@ -46,25 +41,41 @@ public class PayCompleteAction implements Action {
 			Map<String, String> map = new HashMap<>();
 			String cp_no = request.getParameter("cp_no"); //쿠폰
 			String p_method = request.getParameter("p_method");
+			String np_content = request.getParameter("np_content");
 			String p_content = request.getParameter("p_content");
 			String p_ex_price = request.getParameter("p_ex_price");
+			String np_ex_price = request.getParameter("np_ex_price");
+			System.out.println("금액 =" + np_ex_price);
 			String p_tt_price = request.getParameter("p_tt_price");
 			String merchant_uid = request.getParameter("merchant_uid");
 
 			map.put("rsvr_code", String.valueOf(rsvr_code));
 
 			map.put("p_method", p_method);
-			map.put("p_content", p_content);
-			map.put("p_ex_price", p_ex_price);
+			if( np_content != null) {
+				map.put("p_content", np_content);
+			}
+			if( p_content != null) {
+				map.put("p_content", p_content);
+			}
+			if( p_ex_price != null) {
+				map.put("p_ex_price", p_ex_price);
+			}
+			if( np_ex_price != null) {
+				map.put("p_ex_price", np_ex_price);
+			}
 			map.put("p_tt_price", p_tt_price);
 			map.put("merchant_uid", merchant_uid);
+			System.out.println("나와야함" + map);
 			if(!cp_no.isEmpty()) {
 				map.put("cp_no", cp_no);
 			}
 			p_code = PaymentDAO.savePayment(map);
-			if(!cp_no.isEmpty())
+			if(!cp_no.isEmpty()) {
 				PaymentDAO.useCoupon(Integer.parseInt(cp_no));
-
+				String cp_content = PaymentDAO.getCouponContent(Integer.parseInt(cp_no));
+				request.setAttribute("cp_content", cp_content);
+			}
 		}
 
 		int rs_num =0;
@@ -73,6 +84,7 @@ public class PayCompleteAction implements Action {
 			Map<String, String> map = new HashMap<>();
 			String ss_code = request.getParameter("ss_code");
 			String rs_count = request.getParameter("rs_count");
+			System.out.println("좌석번호"+ ss_code);
 
 			map.put("rsvr_code", String.valueOf(rsvr_code));
 			map.put("p_code", String.valueOf(p_code));
@@ -86,10 +98,11 @@ public class PayCompleteAction implements Action {
 
 		//선택 좌석 저장
 		if(rs_num>0) {
+			String ss_code = request.getParameter("ss_code");
 			Map<String, String> map = new HashMap<>();
 			map.put("rs_num", String.valueOf(rs_num));
 			map.put("p_code", String.valueOf(p_code));
-
+			map.put("ss_code", ss_code);
 
 			//String t_code = request.getParameter("t_code");
 			String checkSeat = request.getParameter("checkSeat");

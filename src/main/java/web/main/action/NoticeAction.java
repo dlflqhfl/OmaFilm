@@ -1,24 +1,23 @@
 package web.main.action;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import web.main.util.Paging;
 import web.mybatis.dao.NoticeDAO;
 import web.mybatis.vo.NoticeVO;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 public class NoticeAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
 	
 				//페이징 처리를 위한 객체생성
 				Paging page = new Paging(5, 3);
 				
 				String cPage = request.getParameter("cPage");
+				String type=request.getParameter("type");
 				
 				//전체페이지 수를 구하기
 				page.setTotalRecode(NoticeDAO.getCount());
@@ -45,10 +44,10 @@ public class NoticeAction implements Action {
 				request.setAttribute("nar", nar);
 				request.setAttribute("page", page);
 				request.setAttribute("cnt", cnt);
+				request.setAttribute("type", type);
 				
 				
 				return "/jsp/serviceCenter/notice.jsp";
 			}
-	}
 
-
+}

@@ -4,8 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html> 
+<html> 
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
@@ -15,29 +15,11 @@
     <div class="screen">
       <div class="container-wrapper">
         <div class="container">
-          <img class="footer" src="${pageContext.request.contextPath}/img/serviceCenter/notice/footer.png" />
-          <div class="frame">
-            <div class="navbar">
-              <div class="link"><div class="text-wrapper">회원가입</div></div>
-              <div class="div-wrapper"><div class="text-wrapper">고객센터</div></div>
-              <div class="div"><div class="text-wrapper-2">관리자</div></div>
-              <div class="text-wrapper-3">로그인</div>
-              <div class="link-2"><div class="text-wrapper">빠른예매</div></div>
-              <img class="img" src="${pageContext.request.contextPath}/img/serviceCenter/notice/link.png" />
-              <img class="link-3" src="${pageContext.request.contextPath}/img/serviceCenter/notice/link-1.png" />
-              <img class="link-4" src="${pageContext.request.contextPath}/img/serviceCenter/notice/link-2.png" />
-              <div class="text-wrapper-4">예매</div>
-              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                ><div class="text-wrapper-5">영화</div></a
-              >
-              <div class="text-wrapper-6">이벤트</div>
-              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                ><div class="text-wrapper-7">혜택</div></a
-              >
-              <img class="heading-link" src="${pageContext.request.contextPath}/img/serviceCenter/notice/heading-1-link.png" />
-              <div class="link-5"></div>
+          <jsp:include page="/jsp/footer/footer.jsp"/>
+          <div class="overlap-group">
+              <img class="overlay" src="${pageContext.request.contextPath}/img/serviceCenter/notice/overlay.svg" />
+             <jsp:include page="/jsp/header/header.jsp"/>
             </div>
-          </div>
           <div class="heading">공지사항</div>
           <div class="strong">
             <p class="element">
@@ -74,7 +56,7 @@
 			
 				<c:if test="${page.startPage >= page.pagePerBlock }">
 				
-				<li><a href="Controller?type=notice&cPage=${page.nowPage-page.pagePerBlock }">&lt;</a></li>
+				<li><a href="Controller?type=${requestScope.type}&cPage=${page.nowPage-page.pagePerBlock }">&lt;</a></li>
 				</c:if>
 			
 				<c:forEach begin="${page.startPage }" end="${page.endPage }" varStatus="vs">
@@ -82,14 +64,14 @@
 				<li class="now">${vs.index}</li>
 			    </c:if> 
 			    <c:if test="${vs.index ne page.nowPage }">
-				<li><a href="Controller?type=notice&cPage=${vs.index}">${vs.index}</a></li>
+				<li><a href="Controller?type=${requestScope.type}&cPage=${vs.index}&n_title=${n_title}">${vs.index}</a></li>
 				</c:if>
 				</c:forEach>
 			
 			
 				<c:if test="${page.endPage < page.totalPage }">
 					
-					<li><a href="Controller?type=notice&cPage=${page.nowPage+page.pagePerBlock}">&gt;</a></li>
+					<li><a href="Controller?type=${requestScope.type}&cPage=${page.startPage+page.pagePerBlock}">&gt;</a></li>
 				</c:if>
 				
 				<c:if test="${page.endPage > page.totalPage }">	

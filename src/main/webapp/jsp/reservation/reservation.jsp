@@ -1,3 +1,4 @@
+<%@page import="web.mybatis.vo.MemberVO"%>
 <%@page import="web.mybatis.vo.SelectSeatVO"%>
 <%@page import="web.mybatis.vo.ScreeningScheduleVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,18 +6,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
+	Object mvo = request.getSession().getAttribute("mvo");
+	boolean isLogin = (mvo != null);
+
 	Object obj = request.getAttribute("svo");
-	SelectSeatVO[] svo = null;
+	SelectSeatVO[] svo = null; 
 	if( obj != null){
 		svo = (SelectSeatVO[])obj;
 	}
-%>
+%> 
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="css/reservation/reservationGlobals.css"/>
-    <link rel="stylesheet" href="css/reservation/reservationStyle.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/reservationGlobals.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/reservationStyle.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/noReservationGlobals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/noReservationStyle.css" />
 </head>
 <body>
 <div class="selectseat">
@@ -320,10 +327,15 @@
             <input type="hidden" id="date" name="date" value="${param.date }">
             <input type="hidden" id="totalPrice" name="totalPrice" value="">
         </form>
-        <c:forEach var="a" items="${svo }">
-	        ${a.s_code }
-        </c:forEach>
+        
         <div>
+       <c:if test="${mvo == null}">
+		  <div id="modal" class="modal">
+		    <div class="modal-content">
+              	<%@ include file="/jsp/reservation/noReservation.jsp" %>
+		    </div>
+		  </div>
+		</c:if>
         </div>
     </div>
 </div>
@@ -337,6 +349,10 @@
 	let movieName = '<%= request.getParameter("movieName") %>';
 	let time = '<%= request.getParameter("time") %>';
 	let date = '<%= request.getParameter("date") %>';
+	let login = <%=isLogin %>;
+	let modal = $("#modal");
+	let totalCount;
+	let totalPrice;
 	
 	function hoverEvent() {
 	    $('.rectangle').not('[style*="background-color: black"]').hover(
@@ -351,6 +367,47 @@
 	        }
 	    );
 	}
+	
+	function noReservation(){
+		let name = $("#name").val()
+		let email = $("#email").val()
+		let pw = $("#pw").val()
+		
+		let adult = $("#adult").text();
+		let teen = $("#teen").text();
+		let old = $("#old").text();
+
+		let adultCount = "성인:" + adult;
+		let teenCount = "청소년:" + teen;
+		let oldCount = "경로:" + old;
+
+		totalCount = adultCount+"/" + teenCount+"/" + oldCount;
+		console.log()
+		$("#nTotalCount").val(totalCount);
+		$("#nCheckSeat").val(seats);
+
+		$("#non_name").val(name)
+		$("#non_email").val(email)
+		$("#non_pw").val(pw)
+		
+		$("#nonReserver").submit()
+	}
+	
+	function paymentData(){
+		let adult = $("#adult").text();
+		let teen = $("#teen").text();
+		let old = $("#old").text();
+
+		let adultCount = "성인:" + adult;
+		let teenCount = "청소년:" + teen;
+		let oldCount = "경로:" + old;
+
+		totalCount = adultCount+"/" + teenCount+"/" + oldCount;
+		console.log()
+		$("#totalCount").val(totalCount);
+		$("#checkSeat").val(seats);
+		$("#goPayment").submit();
+	}
 
 	
 	//이미 예매된 좌석
@@ -360,7 +417,8 @@
         for (int i = 0; i < svo.length; i++) {
             SelectSeatVO ss = svo[i]; 
             String sr =  ss.getS_code();
-            String trimSeat = sr.substring(1);%>
+            String trimSeat = sr.substring(1);
+     %>
             selectedSeat.push("<%=trimSeat%>");
     <% }
     } %>
@@ -403,7 +461,7 @@
 				$(this).css('background-color', '#2CC7E9');
 			}
 		} else {
-			alert("인원을먼저 선택해줭~~")
+			alert("인원을먼저 선택해주세요")
 		}
 
 		if( length == (num-1)){
@@ -490,9 +548,10 @@
 	}
 
 	function updatePrice(){
-		let totalPrice = (adult * 13000) + (teen * 10000) + (old * 8000);
+		totalPrice = (adult * 13000) + (teen * 10000) + (old * 8000);
 		$(".total-price-text").text(totalPrice)
 		$("#totalPrice").val(totalPrice); // hidden input 필드 값 업데이트
+		$("#nTotalPrice").val(totalPrice);
 		console.log(totalPrice)
 	}
 
@@ -506,25 +565,15 @@
 
 	//결제하기로 넘기기
 	$(".pay-button").click(function(){
-		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?")
+		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?     (비회원 예매시 취소버튼 클릭!)")
 		if( result ){
-
-			let adult = $("#adult").text();
-			let teen = $("#teen").text();
-			let old = $("#old").text();
-
-			let adultCount = "성인:" + adult;
-			let teenCount = "청소년:" + teen;
-			let oldCount = "경로:" + old;
-
-			let totalCount = adultCount+"/" + teenCount+"/" + oldCount;
-			console.log()
-			$("#totalCount").val(totalCount)
-			$("#checkSeat").val(seats);
-
-       	 	$("#goPayment").submit();
+			paymentData()
 		} else {
-			location.reload()
+			if( login){
+				paymentData()
+			} else{
+				modal.css("display", "block")
+			}
 		}
 	})
 
@@ -533,18 +582,35 @@
 		window.location.href = "Controller?type=selectTime";
 	})
 
-	$('.a').hover(
-	    function() {
-	        // 마우스가 올라갔을 때
-	        $(this).css('background-color', '#3D4D55');
-	        $(".text").css('color', 'white');
-	    },
-	    function() {
-	        // 마우스가 내려갔을 때
-	        $(this).css('background-color', 'white');
-	        $(".text").css('color', '#666666'); // 원래 색상으로 되돌리기
+$('.a').hover(
+    function() {
+        // 마우스가 올라갔을 때
+        $(this).css('background-color', '#3D4D55');
+        $(".text").css('color', 'white');
+    },
+    function() {
+        // 마우스가 내려갔을 때
+        $(this).css('background-color', 'white');
+        $(".text").css('color', '#666666'); // 원래 색상으로 되돌리기
+    }
+);
+$(function(){
+	  
+	  // 페이지 로드 시 모달 표시
+	  modal.css("display", "none")
+	  
+	  // 닫기 버튼 클릭 시 모달 숨기기
+	  $(".div").click(function() {
+	    modal.hide();
+	  });
+	  
+	  // 모달 외부 클릭 시 모달 숨기기
+	  $(window).click(function(event) {
+	    if ($(event.target).is(modal)) {
+	      modal.hide();
 	    }
-	);
+	  });
+});
 </script>
 </body>
 </html>

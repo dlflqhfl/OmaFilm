@@ -17,7 +17,6 @@ public class MemberVO {
 	u_join_date,// 가입일
 	u_none;
 
-	public MemberVO() {}
 
 	public MemberVO( String u_id, String u_pw, String u_authority, String u_social, String u_name, String u_phone, String u_postcode, String u_address, String u_email, String u_email_rcv, String u_birth, String u_status, String u_join_date, String u_none) {
 		this.u_id = u_id;

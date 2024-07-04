@@ -1,11 +1,10 @@
 package web.mybatis.dao;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
-
 import web.mybatis.service.FactoryService;
 import web.mybatis.vo.NoticeVO;
+
+import java.util.List;
 
 public class BenefitsDAO {
 	
@@ -28,7 +27,7 @@ public class BenefitsDAO {
 			bar = new NoticeVO[list.size()];
 			list.toArray(bar); //list가 가지는 모든 요소들을 ar 배열에 복사
 		}
-		
+		ss.close();
 		return bar;
 	}
 	
@@ -38,7 +37,7 @@ public class BenefitsDAO {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		
 		bvo = ss.selectOne("notice.bview", n_idx);
-		
+		ss.close();
 		return bvo;
 	}
 

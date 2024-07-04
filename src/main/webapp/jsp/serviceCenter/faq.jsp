@@ -4,12 +4,16 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>        
 <!DOCTYPE html>
 <html>
-  <head>
+  <head> 
     <meta charset="utf-8" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/serviceCenter/faq_style.css" />
   </head>
   <body>
+      <div class="overlap-header">
+        <img class="overlay" src="${pageContext.request.contextPath}/img/serviceCenter/home/overlay.svg" />
+       <jsp:include page="/jsp/header/header.jsp"/>
+      </div>
     <div class="screen">
       <div class="overlap-wrapper">
         <div class="overlap">
@@ -17,7 +21,7 @@
             <div class="overlap-group">
               <div class="div">
                 <div class="overlap-2">
-                  <img class="footer" src="${pageContext.request.contextPath}/img/serviceCenter/faq/footer.png" />
+                  <jsp:include page="/jsp/footer/footer.jsp"/>
                   <div class="list">
                     <c:forEach items="${far}" var="faq" varStatus="vs">
 					    <div class="item">
@@ -109,28 +113,6 @@
                 </div>
               </div>
             </div>
-            <header class="header">
-              <div class="navbar">
-                <div class="link-6"><div class="text-wrapper-24">회원가입</div></div>
-                <div class="link-7"><div class="text-wrapper-24">고객센터</div></div>
-                <div class="link-8"><div class="text-wrapper-25">관리자</div></div>
-                <div class="text-wrapper-26">로그인</div>
-                <div class="link-9"><div class="text-wrapper-24">빠른예매</div></div>
-                <img class="img" src="${pageContext.request.contextPath}/img/serviceCenter/faq/link.png" />
-                <img class="link-10" src="${pageContext.request.contextPath}/img/serviceCenter/faq/link-1.png" />
-                <img class="link-11" src="${pageContext.request.contextPath}/img/serviceCenter/faq/link-2.png" />
-                <div class="text-wrapper-27">예매</div>
-                <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                  ><div class="text-wrapper-28">영화</div></a
-                >
-                <div class="text-wrapper-29">이벤트</div>
-                <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                  ><div class="text-wrapper-30">혜택</div></a
-                >
-                <img class="heading-link" src="${pageContext.request.contextPath}/img/serviceCenter/faq/heading-1-link.png" />
-                <div class="link-12"></div>
-              </div>
-            </header>
           </div>
 
         </div>

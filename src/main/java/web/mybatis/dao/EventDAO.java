@@ -1,11 +1,10 @@
 package web.mybatis.dao;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
-
 import web.mybatis.service.FactoryService;
 import web.mybatis.vo.NoticeVO;
+
+import java.util.List;
 
 public class EventDAO {
 	
@@ -29,6 +28,7 @@ public class EventDAO {
 			list.toArray(ear); //list가 가지는 모든 요소들을 ar 배열에 복사
 		}
 		
+		ss.close();
 		return ear;
 	}
 	
@@ -38,6 +38,9 @@ public class EventDAO {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		
 		nvo = ss.selectOne("notice.eview", n_idx);
+		
+		
+		ss.close();
 		
 		return nvo;
 	}

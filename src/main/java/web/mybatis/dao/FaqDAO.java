@@ -43,6 +43,7 @@ public class FaqDAO {
 			list.toArray(far); //list가 가지는 모든 요소들을 ar 배열에 복사
 		}
 		
+		ss.close();
 		return far;
 	}
 	

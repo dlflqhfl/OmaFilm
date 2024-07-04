@@ -1,30 +1,22 @@
 package web.main.action;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.URL;
-import java.util.Map;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import web.mybatis.dao.MyReservationDAO;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
-import web.mybatis.dao.MyReservationDAO;
+import java.io.*;
+import java.net.URL;
+import java.util.Map;
 
 public class PayCancelAction implements Action{
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response)  {
         String rs_num = request.getParameter("rs_num"); //status = 1 수정
-        System.out.println(rs_num);
         String p_code = request.getParameter("p_code"); //status = 1 수정
-        System.out.println(p_code);
 
         MyReservationDAO.cancelReservation(rs_num, p_code);
 

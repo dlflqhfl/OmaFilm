@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
-<html>
+<html>  
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
@@ -12,7 +12,7 @@
     <div class="element">
       <div class="container-wrapper">
         <div class="container">
-          <img class="footer" src="${pageContext.request.contextPath}/img/serviceCenter/Inquiry/footer.png" />
+          <jsp:include page="/jsp/footer/footer.jsp"/>
           <div class="overlap">
             <div class="list">
               <div class="item">
@@ -63,28 +63,10 @@
          </form>
 
           <div class="heading">1:1 문의</div>
-          <div class="frame">
-            <div class="navbar">
-              <div class="link"><div class="text-wrapper-7">회원가입</div></div>
-              <div class="link-2"><div class="text-wrapper-7">고객센터</div></div>
-              <div class="link-3"><div class="text-wrapper-8">관리자</div></div>
-              <div class="text-wrapper-9">로그인</div>
-              <div class="link-4"><div class="text-wrapper-7">빠른예매</div></div>
-              <img class="img" src="${pageContext.request.contextPath}/img/serviceCenter/Inquiry/link.png" />
-              <img class="link-5" src="${pageContext.request.contextPath}/img/serviceCenter/Inquiry/link-1.png" />
-              <img class="link-6" src="${pageContext.request.contextPath}/img/serviceCenter/Inquiry/link-2.png" />
-              <div class="text-wrapper-10">예매</div>
-              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                ><div class="text-wrapper-11">영화</div></a
-              >
-              <div class="text-wrapper-12">이벤트</div>
-              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                ><div class="text-wrapper-13">혜택</div></a
-              >
-              <img class="heading-link" src="${pageContext.request.contextPath}/img/serviceCenter/Inquiry/heading-1-link.png" />
-              <div class="link-7"></div>
+          <div class="overlap-group">
+              <img class="overlay" src="${pageContext.request.contextPath}/img/serviceCenter/Inquiry/overlay.svg" />
+             <jsp:include page="/jsp/header/header.jsp"/>
             </div>
-          </div>
           <div class="overlap-wrapper">
             <div class="overlap-2">
               <div class="link-8"><div class="text-wrapper-14">고객센터</div></div>

@@ -1,7 +1,6 @@
 package web.main.action;
 
 
-import com.google.gson.internal.bind.DefaultDateTypeAdapter;
 import web.mybatis.dao.LoginDAO;
 import web.mybatis.vo.MemberVO;
 

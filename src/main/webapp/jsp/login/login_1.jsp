@@ -22,7 +22,6 @@
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
-
 <%--/*네이버 로그인*/--%>
 <%
     String clientId = "prTymuieNCdwFguuzeIa";//애플리케이션 클라이언트 아이디값";
@@ -191,7 +190,6 @@
             alert("로그인 실패");
         }
     });
-
 
 </script>
 </body>

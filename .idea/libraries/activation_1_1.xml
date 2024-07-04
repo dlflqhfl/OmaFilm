@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="activation-1.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../lib/activation-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/cos.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/gson-2.10.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/javax.mail-1.6.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/jdom-2.0.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/json-20240303.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/jstl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/mybatis-3.5.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/mysql-connector-j-8.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/standard.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../lib/javax.json-api-1.1.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

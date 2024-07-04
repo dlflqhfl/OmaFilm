@@ -30,14 +30,13 @@
   position: absolute;
   width: 284px;
   height: 58px;
-  top: 280px;
+  top: 240px;
   left: 217px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #222222;
-  font-size: 40px;
-  letter-spacing: -1px;
-  line-height: 30.8px;
+  font-size: 50px;
+  line-height: 58px;
 }
 
 .screen .overlap-group {
@@ -60,8 +59,13 @@
   position: absolute;
   width: 137px;
   height: 29px;
+<<<<<<< HEAD
+  top: -140px;
+  left: -10px;
+=======
   top: -104px;
   left: -223px;
+>>>>>>> d07de9b5a7a2e6d3ffcc063c339a61acb3b6b7d7
   font-family: "Inter", Helvetica;
   font-weight: 700;
   color: transparent;
@@ -83,9 +87,14 @@
   position: absolute;
   width: 1547px;
   height: 1743px;
+<<<<<<< HEAD
+  top: -50px;
+  left: -8px;
+=======
   top: 0;
   left: 0;
   overflow: hidden;
+>>>>>>> d07de9b5a7a2e6d3ffcc063c339a61acb3b6b7d7
 }
 
 .screen .list {
@@ -121,7 +130,11 @@
 
 .screen .div {
   position: relative;
+<<<<<<< HEAD
+  width: 438px;
+=======
   width: 435px;
+>>>>>>> d07de9b5a7a2e6d3ffcc063c339a61acb3b6b7d7
   height: 243px;
   left: 11px;
   background-image: url(../../img/event/event/fouilyt7jncmcboni66dljpyxxy7zra7-jpg.png);

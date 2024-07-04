@@ -1,12 +1,11 @@
 package web.mybatis.dao;
 
-import java.util.HashMap;
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
-
 import web.mybatis.service.FactoryService;
 import web.mybatis.vo.MovieListVO;
+
+import java.util.HashMap;
+import java.util.List;
 
 
 public class MovieListDAO {
@@ -46,7 +45,7 @@ public class MovieListDAO {
 			mar = new MovieListVO[list.size()];
 			list.toArray(mar); //list가 가지는 모든 요소들을 ar 배열에 복사
 		}
-		
+		ss.close();
 		return mar;
 	}
 	
@@ -65,9 +64,16 @@ public class MovieListDAO {
 			mar = new MovieListVO[list.size()];
 			list.toArray(mar); //list가 가지는 모든 요소들을 ar 배열에 복사
 		}
-		
+		ss.close();
 		return mar;
 	}
 
+	public static MovieListVO getMovieVO(String movieCd) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		MovieListVO vo = ss.selectOne("movieList.getMVO", movieCd);
+		ss.close();
+
+		return vo;
+	}
 
 }

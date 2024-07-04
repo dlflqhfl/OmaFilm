@@ -1,13 +1,12 @@
 package web.main.action;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import web.main.util.Paging;
 import web.mybatis.dao.NoticeDAO;
 import web.mybatis.vo.NoticeVO;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 public class NoticeDetailAction implements Action {
 
@@ -43,7 +42,8 @@ public class NoticeDetailAction implements Action {
 		request.setAttribute("nvo", nvo);
 		request.setAttribute("page", page);
 		
-		return "/jsp/serviceCenter/noticedetail.jsp";
+		return "jsp/serviceCenter/noticedetail.jsp";
+
 	}
 
 }

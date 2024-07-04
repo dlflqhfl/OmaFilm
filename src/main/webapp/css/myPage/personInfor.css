@@ -511,13 +511,28 @@
   border-color: #303030;
 }
 
+.screen .emailallframe{
+  position: absolute;
+  width: 1064px;
+  height: 161px;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #303030;
+}
+	
+
 .screen .frame-3 {
   position: relative;
   width: 224px;
   top: 23px;
   left: 249px;
   height: 32px;
-  background-color: #ffffff;
+  background-color: #bfbfbf;
   border-radius: 3px;
   overflow: hidden;
   border: 1px solid;
@@ -553,6 +568,21 @@
   border-color: #303030;
 }
 
+.screen .div-wrapper-email{
+  position: absolute;
+  width: 228px;
+  height: 161px;
+  top: 0;
+  left: 0;
+  background-color: #f2f4f5;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #303030;
+}
+
+
 .screen .text-wrapper-17 {
   position: absolute;
   width: 99px;
@@ -577,91 +607,61 @@
 }
 
 .screen .frame-4 {
-  position: absolute;
-  width: 95px;
-  top: 22px;
-  left: 249px;
-  height: 32px;
-  background-color: #ffffff;
-  border-radius: 3px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #666666;
+ 	position: absolute;
+ 	width: 95px;
+ 	top: 22px;
+ 	left: 249px;
+ 	height: 32px;
+ 	background-color: #ffffff;
+ 	border-radius: 3px;
+ 	overflow: hidden;
+ 	border: 1px solid;
+ 	border-color: #666666;
+ 	text-align: center;
+ 	font-weight: 400;
+ 	font-size: 16px;
+ 	letter-spacing: -1px;
+ 	line-height: 30.8px;
+ 	/* display:none; */
 }
 
-.screen .text-wrapper-18 {
-  position: absolute;
-  width: 89px;
-  height: 32px;
-  top: -1px;
-  left: 3px;
-  font-family: "Inter", Helvetica;
-  font-weight: 400;
-  color: #000000;
-  font-size: 20px;
-  text-align: center;
-  letter-spacing: -1px;
-  line-height: 30.8px;
-  white-space: nowrap;
-}
 
 .screen .frame-5 {
-  position: absolute;
-  width: 63px;
-  height: 32px;
-  top: 22px;
-  left: 387px;
-  background-color: #ffffff;
-  border-radius: 3px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #666666;
-}
-
-.screen .text-wrapper-19 {
-  width: 48px;
-  height: 32px;
-  top: -1px;
-  left: 7px;
-  color: #000000;
-  font-size: 20px;
-  text-align: center;
-  letter-spacing: -1px;
-  line-height: 30.8px;
-  position: absolute;
-  font-family: "Inter", Helvetica;
-  font-weight: 400;
-  white-space: nowrap;
+ 	position: absolute;
+ 	width: 74px;
+ 	height: 32px;
+ 	top: 22px;
+ 	left: 387px;
+ 	background-color: #ffffff;
+ 	border-radius: 3px;
+ 	overflow: hidden;
+ 	border: 1px solid;
+ 	border-color: #666666;
+ 	text-align: center;
+ 	font-weight: 400;
+ 	font-size: 16px;
+ 	letter-spacing: -1px;
+ 	line-height: 30.8px;
 }
 
 .screen .frame-6 {
-  position: absolute;
-  width: 63px;
-  height: 32px;
-  top: 22px;
-  left: 494px;
-  background-color: #ffffff;
-  border-radius: 3px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #666666;
+	position: absolute;
+	width: 73px;
+	height: 32px;
+	top: 22px;
+	left: 498px;
+	background-color: #ffffff;
+	border-radius: 3px;
+	overflow: hidden;
+	border: 1px solid;
+	border-color: #666666;
+	text-align: center;
+	font-weight: 400;
+	font-size: 16px;
+	letter-spacing: -1px;
+	line-height: 30.8px;
 }
 
-.screen .text-wrapper-20 {
-  width: 45px;
-  height: 32px;
-  top: -1px;
-  left: 9px;
-  color: #000000;
-  font-size: 20px;
-  text-align: center;
-  letter-spacing: -1px;
-  line-height: 30.8px;
-  position: absolute;
-  font-family: "Inter", Helvetica;
-  font-weight: 400;
-  white-space: nowrap;
-}
 
 .screen .text-wrapper-21 {
   position: absolute;
@@ -683,7 +683,7 @@
   width: 33px;
   height: 27px;
   top: 24px;
-  left: 461px;
+  left: 468px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #000000;
@@ -698,7 +698,7 @@
   width: 33px;
   height: 27px;
   top: 24px;
-  left: 567px;
+  left: 576px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #000000;
@@ -720,13 +720,15 @@
   position: absolute;
   width: 95px;
   top: 23px;
-  left: 397px;
+  left: 375px;
   height: 32px;
   background-color: #ffffff;
   border-radius: 3px;
   overflow: hidden;
   border: 1px solid;
   border-color: #666666;
+  text-align: center;
+  font-size: 16px;
 }
 
 .screen .text-wrapper-24 {
@@ -748,7 +750,7 @@
 .screen .frame-8 {
   width: 95px;
   top: 23px;
-  left: 520px;
+  left: 519px;
   position: absolute;
   height: 32px;
   background-color: #ffffff;
@@ -756,14 +758,16 @@
   overflow: hidden;
   border: 1px solid;
   border-color: #666666;
+  text-align: center;
+  font-size: 16px;
 }
 
 .screen .text-wrapper-25 {
   position: absolute;
   width: 20px;
   height: 27px;
-  top: 26px;
-  left: 496px;
+  top: 19px;
+  left: 487px;
   font-family: "Inter", Helvetica;
   font-weight: 200;
   color: #000000;
@@ -777,8 +781,8 @@
   position: absolute;
   width: 19px;
   height: 27px;
-  top: 26px;
-  left: 374px;
+  top: 19px;
+  left: 344px;
   font-family: "Inter", Helvetica;
   font-weight: 200;
   color: #000000;
@@ -790,32 +794,34 @@
 
 .screen .button {
   all: unset;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   position: absolute;
-  width: 121px;
-  height: 32px;
+  /* width: 121px; */
+  /* height: 32px; */
   top: 23px;
   left: 249px;
-  background-color: #ffffff;
-  border-radius: 4px;
-  border: 1px solid;
-  border-color: #666666;
+  /* background-color: #ffffff; */
+  /* border-radius: 4px; */
+  /* border: 1px solid; */
+  /* border-color: #666666; */
 }
 
 .screen .text-wrapper-27 {
-  width: 76px;
-  height: 19px;
-  top: 6px;
-  left: 14px;
-  color: #00000080;
-  font-size: 15px;
-  letter-spacing: -0.5px;
-  line-height: 34px;
-  position: absolute;
-  font-family: "Inter", Helvetica;
-  font-weight: 400;
-  white-space: nowrap;
+    position: absolute;
+    width: 79px;
+    top: -1px;
+    left: -1px;
+    height: 32px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color:#666666;
+    text-align: center;
+    font-size: 16px;
 }
+
+   
 
 .screen .image {
   position: absolute;
@@ -835,24 +841,17 @@
 
 .screen .input-checked-wrapper {
   position: absolute;
-  width: 17px;
-  height: 19px;
   top: 28px;
   left: 253px;
-  background-color: #ffffff;
-  border-radius: 50px;
-  border: 1px solid;
-  border-color: #767676;
 }
 
 .screen .input-checked {
-  position: relative;
-  width: 10px;
-  height: 10px;
-  top: 4px;
-  left: 3px;
-  background-color: #0075ff;
-  border-radius: 50px;
+ 	position: relative;
+    width: 10px;
+    height: 10px;
+    top: 28px;
+    left: 322px;
+    border-radius: 50px;
 }
 
 .screen .overlap-2 {
@@ -894,8 +893,8 @@
   position: absolute;
   width: 74px;
   height: 27px;
-  top: 24px;
-  left: 356px;
+  top: 28px;
+  left: 329px;
   font-family: "ABeeZee", Helvetica;
   font-weight: 400;
   color: #444444;
@@ -931,14 +930,16 @@
 .screen .frame-9 {
   position: absolute;
   width: 128px;
-  top: 22px;
+  top: 31px;
   left: 249px;
-  height: 32px;
+  height: 33px;
   background-color: #ffffff;
   border-radius: 3px;
   overflow: hidden;
   border: 1px solid;
   border-color: #666666;
+  text-align: center;
+  font-size: 16px;
 }
 
 .screen .text-wrapper-29 {
@@ -958,17 +959,17 @@
 }
 
 .screen .button-2 {
-  all: unset;
-  box-sizing: border-box;
+  /* all: unset; */
+  /* box-sizing: border-box; */
   position: absolute;
-  width: 129px;
-  height: 32px;
+  /* width: 129px; */
+  /* height: 32px; */
   top: 22px;
   left: 417px;
-  background-color: #ffffff;
-  border-radius: 4px;
-  border: 1px solid;
-  border-color: #666666;
+  /* background-color: #ffffff; */
+  /* border-radius: 4px; */
+  /* border: 1px solid; */
+  /* border-color: #666666; */
 }
 
 .screen .image-2 {
@@ -983,8 +984,8 @@
   position: absolute;
   width: 26px;
   height: 30px;
-  top: 24px;
-  left: 391px;
+  top: 30px;
+  left: 389px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #000000;
@@ -1013,9 +1014,9 @@
 .screen .adress-2 {
   position: absolute;
   width: 1064px;
-  height: 169px;
-  top: 0;
-  left: 0;
+  height: 170px;
+  top: 699px;
+  left: -1px;
   background-color: #ffffff;
   border-top-width: 1px;
   border-top-style: solid;
@@ -1023,6 +1024,19 @@
   border-bottom-style: solid;
   border-color: #303030;
 }
+
+.screen .adressframe{
+	position: relative;
+    top: 84px;
+	
+}
+
+.screen .emailcheckframe{
+	top: 83px;
+    position: relative;
+}
+
+
 
 .screen .frame-10 {
   position: absolute;
@@ -1138,13 +1152,13 @@
 .screen .adress-name {
   position: absolute;
   width: 228px;
-  height: 169px;
-  top: 0;
+  height: 168px;
+  top: 0px;
   left: 0;
   background-color: #f2f4f5;
-  border-top-width: 1px;
+  /* border-top-width: 1px; */
   border-top-style: solid;
-  border-bottom-width: 2px;
+  border-bottom-width: 1.5px;
   border-bottom-style: solid;
   border-color: #303030;
 }
@@ -1227,7 +1241,7 @@
   top: 23px;
   left: 249px;
   height: 32px;
-  background-color: #ffffff;
+  background-color: #bfbfbf;
   border-radius: 3px;
   overflow: hidden;
   border: 1px solid;
@@ -1307,7 +1321,7 @@
   border: none; /* 기존 테두리 제거 */
   transition: background-color 0.3s ease; /* 호버 효과 추가 */
   position: relative;
-  top: 1230px;
+  top: 1309px;
   left: 1015px;
   width: 130px;
   height: 50px;
@@ -1323,7 +1337,7 @@
   border: 1px solid #595959;
   transition: background-color 0.3s ease, color 0.3s ease;
   position: relative;
-  top: 1180px;
+  top: 1259px;
   left: 1160px;
   width: 130px;
   height: 50px; /* 호버 효과 추가 */
@@ -1340,13 +1354,19 @@
   /* border: none; */ /* 기존 테두리 제거 */
   transition: background-color 0.3s ease; /* 호버 효과 추가 */
   position: relative;
-  top: 1100px;
-  left: 1560px;
-  height:45px;
+  top: 1180px;
+  left: 1574px;
+  height: 15px;
+  width: 99px;
 }
 
 .btn-withdrawal:hover {
   background-color: #ffffff; /* 호버 시 더 어두운 빨간색 */
+}
+
+.btn-withdrawal .text-wrapper-39 {
+	position: relative;
+	top: -7px;
 }
 
 /* 공통 버튼 스타일 */
@@ -1360,9 +1380,115 @@
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 버튼 그림자 */
+  /* position: relative; */
+  /* top: 192px; */
 }
 .text-wrapper-9 a,.text-wrapper-10 a,.text-wrapper-11 a,.text-wrapper-12 a,.text-wrapper-13 a
  { /* .item-link 안의 모든 a 태그에 적용 */
   color: #b58863;
   text-decoration: none; /* 밑줄 제거 */
 }
+
+.screen .selfframe {
+    position: absolute;
+    width: 136px;
+    top: 9px;
+    left: -1px;
+    height: 34px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #666666;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -1px;
+    line-height: 30.8px;
+    display:none;
+}
+
+.email-check .text_2 {
+    position: absolute;
+    width: 303px;
+    height: 32px;
+    top: 96px;
+    left: 249px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    border: 1px solid;
+    border-color: #666666;
+    font-family: "Inter", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 20px;
+    letter-spacing: -1px;
+    line-height: 30.8px;
+    padding: 5px;
+    padding-left: 15px;
+}
+.email-check .button_2 {
+    all: unset;
+    box-sizing: border-box;
+    position: absolute;
+    width: 80px;
+    height: 32px;
+    top: 96px;
+    left: 560px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #666666;
+    font-family: "Inter", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.email-check .div_2 {
+    position: absolute;
+    width: 59px;
+    height: 20px;
+    top: 98px;
+    left: 657px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    color: #1665ff;
+    font-size: 15px;
+    letter-spacing: -1px;
+    line-height: 30.8px;
+    white-space: nowrap;
+}
+
+
+.emailallframe .submitbutton{
+	 all: unset;
+	 box-sizing: border-box;
+	 position: absolute;
+	 width: 101px;
+	 height: 32px;
+	 top: 10px;
+	 left: 142px;
+	 background-color: #ffffff;
+	 border-radius: 3px;
+	 overflow: hidden;
+	 border: 1px solid;
+	 border-color: #666666;
+	 font-size: 16px;
+	 text-align: center;
+	 cursor: pointer;
+}
+
+.emailallframe .text-wrapper-277{
+	width: 123px;
+	height: 32px;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 16px;
+	top: 10px;
+	position: relative;
+}
+ 

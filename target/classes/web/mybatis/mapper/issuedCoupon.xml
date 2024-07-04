@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="issuedCoupon">
+
+	<!-- Session에 저장된 MemberVO로 가지고 있는 쿠폰을 List로 가져오는 쿼리-->
+	<select id="getCouponList" parameterType="int" resultType="web.mybatis.vo.IssuedCouponVO">
+		SELECT * 
+		FROM issued_coupon
+		WHERE u_code = #{u_code} and status = 0
+	</select>
+	
+	<!-- 예매 결제 후에 쿠폰 status를 1로 바꾸는 쿼리 -->
+	<update id="useCoupon" parameterType="int">
+    	UPDATE issued_coupon
+    	SET status = 1
+    	WHERE cp_no = #{cp_no}
+	</update>
+
+	<!-- 회원 코드를 받아서 사용 가능한 쿠폰을 가져오는 쿼리 -->
+	<resultMap type="web.mybatis.vo.IssuedCouponVO" id="c1">
+		<id property="ci_code" column="ci_code"/> 
+		<association property ="c_item" javaType="web.mybatis.vo.CouponItemVO"
+		select="couponItem.getCouponItem" column="ci_code"/>
+	</resultMap>
+	
+	<select id="getCouponArr" parameterType="int" resultMap="c1">
+		SELECT *
+		FROM issued_coupon
+		WHERE u_code=#{u_code} and cp_status = 0
+	</select>
+</mapper>
