@@ -42,11 +42,19 @@
                 <div class="text-5"></div>
             </div>
         </div>
-        <div class="submit"><div class="text-wrapper-15">로그인</div></div>
+        <div class="submit" id="noReserverLogin"><div class="text-wrapper-15">로그인</div></div>
     </div>
     <div class="link-7"><div class="text-wrapper-16"><a href="register.jsp">회원가입</a></div></div>
 </div>
 <%@ include file="/jsp/footer/footer.jsp"%>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+$(function(){
+	
+})
+</script>
 </body>
 </html>
 
