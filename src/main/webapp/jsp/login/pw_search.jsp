@@ -223,6 +223,7 @@
                     $(".button").attr("disabled", false);
                     $(".button").css("background-color", "#0e2128");
                     $(".button").css("color", "#ffffff");
+                    sessionStorage.setItem("emailVerified", "true");
                 } else if (success === "0") {
                     alert("인증번호가 유효하지 않습니다.");
                     $(".input-2").val("");
@@ -247,10 +248,9 @@
                     var id = data.id;
                     var pw = data.pw;
                     /*가져온 id와 비밀번호를 어트리뷰트에 저장후 pw_update 페이지로 이동*/
-                    console.log(id);
-                    console.log(pw);
                     sessionStorage.setItem("id", id);
                     sessionStorage.setItem("pw", pw);
+                    sessionStorage.removeItem("emailVerified")
                     location.href = "${pageContext.request.contextPath}/jsp/login/pw_update.jsp";
                 }
             });
