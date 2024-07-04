@@ -42,4 +42,26 @@
         where u_code = ${u_code}
         ORDER BY rsvr_time DESC
     </select>
+    
+    <select id="selectNoReserver" parameterType="Map" resultType="int">
+    	SELECT count(*) FROM reserver
+		<where>
+			AND non_name = #{name}
+			AND non_email = #{email}
+			AND non_pw = #{password}
+			AND u_code IS NULL
+		</where>
+    </select>
+    
+    <select id="selectInfo" resultType="web.mybatis.vo.ReserverVO" parameterType="Map">
+    	SELECT * FROM reserver r
+    	INNER JOIN reservation r2
+    	ON r.rsvr_code = r2.rsvr_code
+		<where>
+			AND non_name = #{name}
+			AND non_email = #{email}
+			AND non_pw = #{password}
+			AND u_code IS NULL
+		</where>
+    </select>
 </mapper>

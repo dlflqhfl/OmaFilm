@@ -1,10 +1,12 @@
 package web.mybatis.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
 import web.mybatis.service.FactoryService;
+import web.mybatis.vo.ReserverVO;
 import web.mybatis.vo.ScreeningScheduleVO;
 import web.mybatis.vo.SelectSeatVO;
 
@@ -30,5 +32,25 @@ public class ReservationDAO {
 		ss.close();
 		return ar;
 
+	}
+
+	public static int loginNoReserver(Map<String, String> map) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int res = ss.selectOne("reserver.selectNoReserver",map);
+		
+		return res;
+	}
+
+	public static ReserverVO[] selectReserver(Map<String, String> userInfo) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		List<ReserverVO> list = ss.selectList("reserver.selectInfo",userInfo);
+		ReserverVO[] ar = null;
+		if( list != null && list.size() > 0) {
+			ar = new ReserverVO[list.size()];
+			list.toArray(ar);
+		}
+		ss.close();
+				
+		return ar;
 	}
 }

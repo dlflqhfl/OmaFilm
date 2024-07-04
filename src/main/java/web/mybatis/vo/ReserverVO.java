@@ -11,6 +11,13 @@ public class ReserverVO {
 	
 	public ReserverVO() {}
 
+	@Override
+	public String toString() {
+		return "ReserverVO [rsvr_code=" + rsvr_code + ", u_code=" + u_code + ", non_name=" + non_name + ", non_phone="
+				+ non_phone + ", non_address=" + non_address + ", non_postal_code=" + non_postal_code + ", non_email="
+				+ non_email + ", non_pw=" + non_pw + "]";
+	}
+
 	public ReserverVO(int rsvr_code, int u_code, String non_name, String non_phone, String non_address,
 			String non_postal_code, String non_email, String non_pw) {
 		super();
