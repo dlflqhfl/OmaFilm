@@ -11,9 +11,9 @@
               <div class="row-2">
                 <div class="cell"><div class="label-2">인증번호</div></div>
                 <div class="data">
-                  <button class="button-2"><div class="text-wrapper-6">인증확인</div></button>
+                  <button class="button-2 checkButton"><div class="text-wrapper-6">인증확인</div></button>
                   <div class="background-border">
-                    <div class="input-3"></div>
+                    <input type="text" id="emailCheck" name="emailCheck" class="input-3">
                     <div class="text-wrapper-7">3:00</div>
                   </div>
                 </div>
@@ -22,7 +22,7 @@
                 <div class="label-wrapper"><div class="label-3">이메일</div></div>
                 <div class="data-2">
                   <input class="input-4" placeholder="이메일을 입력해주세요" type="email" id="email" name="email">
-                  <button class="button-3"><div class="text-wrapper-8">인증요청</div></button>
+                  <button class="button-3" onclick="sendEmail()"><div class="text-wrapper-8">인증요청</div></button>
                 </div>
               </div>
               <div class="row-4">
