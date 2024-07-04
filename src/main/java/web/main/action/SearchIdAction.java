@@ -56,6 +56,7 @@ public class SearchIdAction implements Action{
 
         out.flush();
 
+        System.out.println("json : " + json.toString());
         return null;
     }
 }
