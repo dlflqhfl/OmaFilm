@@ -14,7 +14,7 @@
 	if( obj != null){
 		svo = (SelectSeatVO[])obj;
 	}
-%>
+%> 
 
 <!DOCTYPE html>
 <html>
@@ -362,6 +362,22 @@ function sendEmail() {
             data = data.trim();
             if (data === "0") {
                 alert("이메일이 성공적으로 전송되었습니다.");
+                var time = 180;
+                timer = setInterval(function () {
+                    var minutes = Math.floor(time / 60);
+                    var seconds = time % 60;
+                    $("#timer").text(minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
+                    if (time <= 0) {
+                        clearInterval(timer);
+                        alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
+                        $(".input-3").prop("readonly", true);
+                        $(".background-border").css("background-color", "#f2f2f2");
+                        $(".input-3").val("");
+                        $(".input-3").css("background-color", "#f2f2f2");
+                        $(".text-wrapper-9").css("display", "none");
+                    }
+                    time--;
+                }, 1000);
 
                 setTimeout(function () {
                     alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
@@ -375,20 +391,20 @@ function sendEmail() {
 }
 
 //인증번호 확인 버튼을 눌렀을때 인증번호 검증 함수
-$(".checkButton").on("click", function () {
+$("#checkButton").on("click", function () {
     //만약 인증번호 칸이 막혔을때 버튼을 누르면 이메일을 입력하라는 경고창
-    if ($(".input-3").prop("readonly") === true) {
+    if ($("#email").prop("readonly") === true) {
         alert("이메일을 입력해주세요.");
         $(".input-2").focus();
         return;
     } else {
-        if ($(".input-3").val() === "") {
+        if ($("#emailCheck").val() === "") {
             alert("인증번호를 입력해주세요.");
-            $(".input-3").focus();
+            $("#emailCheck").focus();
             return;
         }
     }
-    var code = $(".input-3").val();
+    var code = $("#emailCheck").val();
     console.log(code);
     $.ajax({
         type: "POST",
@@ -397,15 +413,13 @@ $(".checkButton").on("click", function () {
         success: function (data) {
             var success = data.success;
             if (success === "1") {
-                $(".button").css("background-color", "#0e2128");
-                $(".button").css("color", "#ffffff");
-                $(".button").prop("disabled", false);
+                $("#checkButton").css("background-color", "#0e2128");
+                $("#checkButton").css("color", "#ffffff");
+                $("#checkButton").prop("disabled", false);
                 alert("인증이 완료되었습니다.");
-                $(".background-border").css("background-color", "#f2f2f2");
-                $(".input-3").prop("readonly", true);
-                $(".input-3").attr("placeholder", "인증이 완료되었습니다");
-                $(".input-3").css("background-color", "#f2f2f2");
-                $(".text-wrapper-9").css("display", "none");
+                $("#checkButton").prop("readonly", true);
+                $("#checkButton").attr("placeholder", "인증이 완료되었습니다");
+                $("#checkButton").css("background-color", "#f2f2f2");
                 clearInterval(timer);
                 sessionStorage.setItem("emailVerified", "true");
             } else if (success === "0") {

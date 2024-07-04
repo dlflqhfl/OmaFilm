@@ -58,17 +58,17 @@
             <img class="heading-link" src="${pageContext.request.contextPath}/img/myPage/inquiry/heading-1-link.png" />
             <div class="link-8"></div>
           </div>
-          <div class="link-9"><button type="button" class="btn-9">1:1 문의하기</button></div>
+          <div class="link-9"><a href="Controller?type=sinquiry"><button type="button" class="btn-9">1:1 문의하기</button></a></div>
           <p class="element">
             <span class="span">전체 </span>
-            <span class="text-wrapper-15">${countTitle}</span>
+            <span class="text-wrapper-15">${cnt}</span>
             <span class="span">건</span>
           </p>
           <div class="border">
-          <form action="Controller?type=inquiry" method="post">
+          <form action="Controller?type=inquirySearch" method="post">
            <input type="hidden" name="type" value="inquiry">
            <div class="input">
-			  <input type="text" class="text-wrapper-17" name="inquiryTitle" value="${param.inquiryTitle}" placeholder="제목을 입력해주세요."/>
+			  <input type="text" class="text-wrapper-17" id="inquiryTitle" name="inquiryTitle" value="${param.inquiryTitle}" placeholder="제목을 입력해주세요."/>
 	            <button type="submit" class="button-2">
 				  <img src="${pageContext.request.contextPath}/img/myPage/inquiry/link.png" alt="버튼 이미지"> 
 				</button>
@@ -83,14 +83,48 @@
               <th class="cell-3"><div class="text-wrapper-32">등록일</div></th>
             </tr>
           </thead>
+           <div class="nav1">
+            <ol class="paging">
+				<c:set var="page" value="${requestScope.page}"/>
+				
+				<c:if test="${page.startPage < page.pagePerBlock }">
+					<li class="disable">&lt;</li>
+				</c:if>
+			
+				<c:if test="${page.startPage >= page.pagePerBlock }">
+				
+				<li><a href="Controller?type=inquiry&cPage=${page.nowPage-page.pagePerBlock }">&lt;</a></li>
+				</c:if>
+			
+				<c:forEach begin="${page.startPage }" end="${page.endPage }" varStatus="vs">
+				<c:if test="${vs.index eq page.nowPage }">
+				<li class="now">${vs.index}</li>
+			    </c:if> 
+			    <c:if test="${vs.index ne page.nowPage }">
+				<li><a href="Controller?type=inquiry&cPage=${vs.index}">${vs.index}</a></li>
+				</c:if>
+				</c:forEach>
+			
+			
+				<c:if test="${page.endPage < page.totalPage }">
+					
+					<li><a href="Controller?type=inquiry&cPage=${page.nowPage+page.pagePerBlock}">&gt;</a></li>
+				</c:if>
+				
+				<c:if test="${page.endPage > page.totalPage }">	
+					<li class="disable">&gt;</li>
+				</c:if>	
+
+              </ol>
+          </div>
           <tbody>
-			 <c:forEach items="${ivo}" var="vo"> 
+			 <c:forEach items="${ivo}" var="vo" varStatus="vs"> 
             <tr>
-              <td class="data"><div class="text-wrapper-33">${vo.iq_idx }</div></td>
-              <td class="link-wrapper">${vo.iq_title }</td>
+              <td class="data"><div class="text-wrapper-33">${requestScope.page.totalRecode - ((requestScope.page.nowPage -1) * requestScope.page.numPerPage + vs.index)}</div></td> 
+              <td class="link-wrapper"><a href="Controller?type=inquiryView&iq_idx=${vo.iq_idx}&iq_title=${vo.iq_title}&cPage=${requestScope.page.nowPage}">${vo.iq_title }</a></td>
               <td class="data-2"><div class="text-wrapper-34">${vo.iq_time }</div></td>
             </tr> 
-            </c:forEach>  
+            </c:forEach>   
           </tbody>
         </table>   
           <img class="footer" src="${pageContext.request.contextPath}/img/myPage/inquiry/footer.png" />

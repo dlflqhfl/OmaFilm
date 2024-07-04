@@ -17,7 +17,6 @@ public class MemberVO {
 	u_join_date,// 가입일
 	u_none;
 
-	public MemberVO() {}
 
 	public MemberVO( String u_id, String u_pw, String u_authority, String u_social, String u_name, String u_phone, String u_postcode, String u_address, String u_email, String u_email_rcv, String u_birth, String u_status, String u_join_date, String u_none) {
 		this.u_id = u_id;
@@ -34,6 +33,12 @@ public class MemberVO {
 		this.u_status = u_status;
 		this.u_join_date = u_join_date;
 		this.u_none = u_none;
+	}
+
+	public MemberVO(int u_code2, String u_id2, String u_pw2, String string, String u_social2, String u_name2,
+			String u_phone2, String u_postcode2, String u_address2, String u_email2, String u_email_rcv2,
+			String u_birth2, String string2, String u_join_date2, Object object) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getU_code() {

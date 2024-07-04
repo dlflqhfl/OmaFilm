@@ -11,10 +11,10 @@
               <div class="row-2">
                 <div class="cell"><div class="label-2">인증번호</div></div>
                 <div class="data">
-                  <button class="button-2 checkButton"><div class="text-wrapper-6">인증확인</div></button>
+                  <button class="button-2" id="checkButton"><div class="text-wrapper-6">인증확인</div></button>
                   <div class="background-border">
                     <input type="text" id="emailCheck" name="emailCheck" class="input-3">
-                    <div class="text-wrapper-7">3:00</div>
+                    <div class="text-wrapper-7" id="timer">3:00</div>
                   </div>
                 </div>
               </div>
