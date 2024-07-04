@@ -1,16 +1,18 @@
 package web.mybatis.dao;
 
-import org.apache.ibatis.session.SqlSession;
-import org.json.JSONObject;
-import web.mybatis.service.FactoryService;
-import web.mybatis.vo.MemberVO;
-
-import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.session.SqlSession;
+import org.json.JSONObject;
+
+import web.mybatis.service.FactoryService;
+import web.mybatis.vo.MemberVO;
 
 public class LoginDAO {
 
@@ -113,7 +115,7 @@ public class LoginDAO {
             if (responseCode == 200) {
                 JSONObject json = new JSONObject(res.toString());
                 JSONObject response = json.getJSONObject("response");
-
+ 
                 // 사용자 정보 추출
                 String id = response.getString("id");
                 String email = response.getString("email");
