@@ -12,21 +12,19 @@ public class NtCategoryVO {
 		this.nt_ct_name = nt_ct_name;
 	}
 
-	int getNt_ct_code() {
+	public int getNt_ct_code() {
 		return nt_ct_code;
 	}
 
-	void setNt_ct_code(int nt_ct_code) {
+	public void setNt_ct_code(int nt_ct_code) {
 		this.nt_ct_code = nt_ct_code;
 	}
 
-	String getNt_ct_name() {
+	public String getNt_ct_name() {
 		return nt_ct_name;
 	}
 
-	void setNt_ct_name(String nt_ct_name) {
+	public void setNt_ct_name(String nt_ct_name) {
 		this.nt_ct_name = nt_ct_name;
 	}
-	
-	
 }

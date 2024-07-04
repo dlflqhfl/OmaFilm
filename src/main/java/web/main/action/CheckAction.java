@@ -8,7 +8,7 @@ public class CheckAction implements Action{
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //session에 저장된 인증번호와 사용자가 입력한 인증번호를 비교하는 코드
-        //seddion에 저장된 인증번호를 가져온다.
+        //session에 저장된 인증번호를 가져온다.
         Object obj = request.getSession().getAttribute("code");
         Object timeObj = request.getSession().getAttribute("codeTime");
 
