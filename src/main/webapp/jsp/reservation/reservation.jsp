@@ -431,6 +431,17 @@ $("#checkButton").on("click", function () {
     });
 });
 
+//비밀번호 확인
+$('#pw1').keyup(function () {
+    var pw = $('#pw').val();
+    var pw_check = $('#pw1').val();
+    if (pw == pw_check) {
+        $('.checkPw').text('일치함').css('color', 'blue').show();
+    } else {
+        $('.checkPw').text('일치하지 않음').css('color', 'red').show();
+    }
+});
+
 	let text = '<%= request.getParameter("text") %>';
 	let movieName = '<%= request.getParameter("movieName") %>';
 	let time = '<%= request.getParameter("time") %>';

@@ -117,8 +117,10 @@
                 GROUP BY movieCd
             ) r ON m.movieCd = r.movieCd,
             (SELECT @RN := 0) b
-        ORDER BY
-            CAST(d.rank AS DECIMAL(10,0)) ASC
+        ORDER BY        
+            IF(d.rank IS NULL, 1, 0) ASC,  
+       		d.rank ASC,
+       		m.openDt DESC
 	    ) c
 	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
 		</select>
