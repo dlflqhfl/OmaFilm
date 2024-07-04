@@ -64,7 +64,8 @@
         </if>
         ORDER BY n_idx DESC
         ) a, (SELECT @RN:=0) b
-        ) c WHERE c.rnum between #{begin} AND #{end};
+        ) c 
+        WHERE c.rnum between #{begin} AND #{end};
     </select>
 
     <select id="view" resultMap="map1" parameterType="Map">

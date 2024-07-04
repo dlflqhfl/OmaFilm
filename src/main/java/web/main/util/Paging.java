@@ -4,7 +4,7 @@ public class Paging {
 	int nowPage = 1; //현재페이지 이걸로 startPage랑 endPage가 정해진다.
 	int numPerPage = 10; // 한 페이지당 표현할 게시물 수
 	int totalRecode; //총 게시물 수
-	int pagePerBlock = 5; // 페이지 묶음(한 블럭당 보여질 페이지 수)
+	int pagePerBlock = 3; // 페이지 묶음(한 블럭당 보여질 페이지 수)
 	
 	int totalPage;// 총 페이지 수
 	int begin; //현재 페이지 값에 따라 bbs_t테이블에서 가져올

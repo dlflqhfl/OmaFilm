@@ -42,7 +42,7 @@ public class NoticeDAO {
 			nar = new NoticeVO[list.size()];
 			list.toArray(nar); //list가 가지는 모든 요소들을 ar 배열에 복사
 		}
-		
+		ss.close();
 		return nar;
 	}
 	
@@ -60,7 +60,9 @@ public class NoticeDAO {
 		
 		nvo = ss.selectOne("notice.view", map);
 		
+		ss.close();
 		return nvo;
 	}
+
 	
 }

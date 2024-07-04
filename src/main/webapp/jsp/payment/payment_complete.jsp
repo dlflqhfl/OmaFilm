@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head> <!-- !1정보전략1! -->
@@ -100,16 +100,44 @@
             <div class="movie-image"></div>
             <div class="date-text">상영일시</div>
             <div class="peo-num-text">관람인원</div>
-            <p class="watch-date">${param.date } ${param.time } </p>
-            <div class="people-num">${param.totalCount.replace(":", " ") }</div>
+            <p class="watch-date">
+            <c:if test="${param.date != null && param.time != null }">
+            	${param.date } ${param.time } 
+            </c:if>
+            <c:if test="${param.nDate != null && param.nTime != null }">
+            	${param.nDate } ${param.nTime } 
+            </c:if>
+            </p>
+            <div class="people-num">
+            <c:if test="${param.totalCount != null}">
+            	${param.totalCount.replace(":", " ") }
+            </c:if>
+            <c:if test="${param.nTotalCount != null}">
+            	${param.nTotalCount.replace(":", " ") }
+            </c:if>
+            </div>
             <div class="theaters">
               <div class="theater-text">상영관</div>
-              <div class="theater-num">${theaterVO.t_name}</div>
+              <div class="theater-num">
+              <c:if test="${theaterVO != null}">
+              	${theaterVO.t_name}
+              </c:if>
+              <c:if test="${thea != null}">
+              	${thea.t_name}
+              </c:if>
+              </div>
             </div>
             <img class="line" src="img/payment/line-1.svg" />
             <img class="img" src="img/payment/line-2.svg" />
             <div class="seat-text">좌석</div>
-            <div class="seat-num">${param.checkSeat.replace(",", ", ")}</div>
+            <div class="seat-num">
+            <c:if test="${param.checkSeat != null }">
+            	${param.checkSeat.replace(",", ", ")}
+            </c:if>
+            <c:if test="${param.nCheckSeat != null }">
+            	${param.checkSeat.replace(",", ", ")}
+            </c:if>
+            </div>
             <div class="minus">
               <div class="overlap-group">
                 <img class="line-2" src="img/payment/line-4.svg" />

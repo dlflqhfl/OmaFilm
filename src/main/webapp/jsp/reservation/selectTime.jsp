@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/selectTimeStyle.css" />
   </head>
   <body>
-
+ 
     <div class="select-movie">
       <div class="div">
         <div class="list">

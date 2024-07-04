@@ -45,6 +45,8 @@ public class LoginAction implements Action{
         }
 
         request.setAttribute("errorMessage", "아이디 또는 비밀번호가 일치하지 않습니다.");
+
         return "jsp/login/login_1.jsp";
+
     }
 }

@@ -43,6 +43,7 @@ public class NoticeDetailAction implements Action {
 		request.setAttribute("page", page);
 		
 		return "jsp/serviceCenter/noticedetail.jsp";
+
 	}
 
 }

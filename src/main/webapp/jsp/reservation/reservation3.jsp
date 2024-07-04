@@ -7,7 +7,7 @@
 	SelectSeatVO[] svo = null;
 	if( obj != null){
 		svo = (SelectSeatVO[])obj;
-	}
+	} 
 %>
 <!DOCTYPE html>
 <html> 

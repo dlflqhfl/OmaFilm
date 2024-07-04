@@ -8,7 +8,7 @@
 	if( obj != null){
 		svo = (SelectSeatVO[])obj;
 	}
-%>
+%> 
 <!DOCTYPE html>
 <html>
   <head> 

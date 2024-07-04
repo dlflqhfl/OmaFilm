@@ -12,25 +12,24 @@
             </c:when>
             <c:otherwise>
         <div class="link-21"><div class="text-wrapper-26"><a href="${pageContext.request.contextPath}/jsp/login/register.jsp">회원가입</a></div></div>
-        <div class="link-23"><div class="text-wrapper-27"><a href="${pageContext.request.contextPath}/Controller?type=adminMovieApi">관리자</a></div></div>
-        <div class="text-wrapper-28"><a href="${pageContext.request.contextPath}/jsp/login/login_1.jsp">로그인</a></div>
-
+        <div class="link-23"><div class="text-wrapper-27"><a href="${pageContext.request.contextPath}/jsp/login/login_1.jsp">로그인</a></div></div>
+        
             </c:otherwise>
         </c:choose>
         <div class="link-22">
-            <a href="Controller?type=home">
+            <a href="${pageContext.request.contextPath}/Controller?type=home">
                 <div class="text-wrapper-26">고객센터</div></a>
-        </div> 
-        <div class="link-24"><div class="text-wrapper-26">빠른예매</div></div>
-        <img class="link-26" src="${pageContext.request.contextPath}/img/main_img/link-1.png" />
-        <a href="Controller?type=myHome"><img class="link-27" src="${pageContext.request.contextPath}/img/main_img/link-2.png" /></a>
+        </div>
+        <a href="${pageContext.request.contextPath}/Controller?type=selectTime"><div class="link-24"><div class="text-wrapper-26">빠른예매</div></div></a>
+        <a href="${pageContext.request.contextPath}/Controller?type=selectTime"><img class="link-26" src="${pageContext.request.contextPath}/img/main_img/link-1.png" /></a>
+        <a href="${pageContext.request.contextPath}/Controller?type=myHome"><img class="link-27" src="${pageContext.request.contextPath}/img/main_img/link-2.png" /></a>
 
-        <a href="Controller?type=selectTime"><div class="text-wrapper-29">예매</div></a>
-        <a href="Controller?type=movielist"><div class="text-wrapper-30">영화</div></a>
-        <a href="Controller?type=event"><div class="text-wrapper-31">이벤트</div></a>
-        <a href="Controller?type=benefits"><div class="text-wrapper-32">혜택</div></a>
+        <a href="${pageContext.request.contextPath}/Controller?type=selectTime"><div class="text-wrapper-29">예매</div></a>
+        <a href="${pageContext.request.contextPath}/Controller?type=movielist"><div class="text-wrapper-30">영화</div></a>
+        <a href="${pageContext.request.contextPath}/Controller?type=event"><div class="text-wrapper-31">이벤트</div></a>
+        <a href="${pageContext.request.contextPath}/Controller?type=benefits"><div class="text-wrapper-32">혜택</div></a>
 
-        <a href="${pageContext.request.contextPath}/Controller?type=index"><img class="heading-link" src="${pageContext.request.contextPath}/img/main_img/heading-1-link.png" /></a>
+       <a href="${pageContext.request.contextPath}/Controller?type=index"><img class="heading-link" src="${pageContext.request.contextPath}/img/main_img/heading-1-link.png" /></a>
         <div class="m_all"></div>
 
         <%-- 예매 섹션에 마우스를 올렸을 때 보여지는 메뉴 --%>
@@ -66,34 +65,64 @@
                 <div style="width: 161px; height: 58px; left: 0px; top: 1px; position: absolute; border-top: 1px #7B7B7B solid; border-bottom: 1px #7B7B7B solid"></div>
                 <div style="width: 86px; height: 29px; left: 38px; top: 15px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">이벤트</div>
             </div>
+            <c:if test="${mvo != null }">
             <div style="width: 161px; height: 59px; left: 1113px; top: 84px; position: absolute">
                 <div style="width: 161px; height: 58px; left: 0px; top: 1px; position: absolute; border-top: 1px #7B7B7B solid; border-bottom: 1px #7B7B7B solid"></div>
                 <div style="width: 161px; height: 29px; left: 0px; top: 15px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">마이페이지</div>
             </div>
+            </c:if>
             <div style="width: 161px; height: 59px; left: 411px; top: 328px; position: absolute">
                 <div style="width: 161px; height: 58px; left: 0px; top: 1px; position: absolute; border-top: 1px #7B7B7B solid; border-bottom: 1px #7B7B7B solid"></div>
-                <div style="width: 161px; height: 29px; left: 0px; top: 15px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">헤택</div>
+                <div style="width: 161px; height: 29px; left: 0px; top: 15px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">혜택</div>
             </div>
             <div style="width: 161px; height: 59px; left: 645px; top: 328px; position: absolute">
                 <div style="width: 161px; height: 58px; left: 0px; top: 1px; position: absolute; border-top: 1px #7B7B7B solid; border-bottom: 1px #7B7B7B solid"></div>
                 <div style="width: 161px; height: 29px; left: 0px; top: 15px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">고객센터</div>
             </div>
+            <a href="${pageContext.request.contextPath}/Controller?type=movielist">
             <div style="width: 161px; height: 32px; left: 411px; top: 184px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">전체 영화</div>
-            <div style="width: 161px; height: 32px; left: 408px; top: 428px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">전체해택</div>
-            <div style="width: 161px; height: 32px; left: 645px; top: 425px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">고객센터</div>
-            <div style="width: 181px; height: 32px; left: 635px; top: 490px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">자주는 묻는 질문</div>
+            </a>
+            <a href="${pageContext.request.contextPath}/Controller?type=benefits">
+            <div style="width: 161px; height: 32px; left: 408px; top: 428px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">전체 혜택</div>
+            </a>
+            <a href="${pageContext.request.contextPath}/Controller?type=home">
+            <div style="width: 161px; height: 32px; left: 645px; top: 425px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">고객센터 홈</div>
+            </a>
+            <a href="${pageContext.request.contextPath}/Controller?type=faq">
+            <div style="width: 181px; height: 32px; left: 635px; top: 490px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">자주 묻는 질문</div>
+            </a>
+            <a href="${pageContext.request.contextPath}/Controller?type=notice">
             <div style="width: 181px; height: 32px; left: 635px; top: 555px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">공지사항</div>
+           </a>
+            <a href="${pageContext.request.contextPath}/Controller?type=sinquiry">
             <div style="width: 181px; height: 32px; left: 636px; top: 620px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">1:1문의 </div>
-            <div style="width: 181px; height: 32px; left: 635px; top: 685px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">분실물 문의</div>
-            <div style="width: 181px; height: 32px; left: 636px; top: 750px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">오시는 길</div>
+            </a>
+            <a href="${pageContext.request.contextPath}/Controller?type=directions">
+            <div style="width: 181px; height: 32px; left: 636px; top: 685px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">오시는 길</div>
+            </a>
+            <a href="${pageContext.request.contextPath}/Controller?type=selectTime">
             <div style="width: 161px; height: 32px; left: 645px; top: 184px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">빠른예매</div>
-            <div style="width: 161px; height: 32px; left: 879px; top: 184px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">진행중 이벤트</div>
+           </a>
+            <a href="${pageContext.request.contextPath}/Controller?type=event">
+            <div style="width: 161px; height: 32px; left: 879px; top: 184px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">전체 이벤트</div>
+            </a>
+            <c:if test="${mvo != null }">
+            <a href="${pageContext.request.contextPath}/Controller?type=myHome">
             <div style="width: 191px; height: 32px; left: 1095px; top: 184px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">마이페이지 홈</div>
-            <div style="width: 167px; height: 32px; left: 1107px; top: 401px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">회원 정보 수정</div>
+            </a>
+            <a href="${pageContext.request.contextPath}/Controller?type=inquiry">
+            <div style="width: 167px; height: 32px; left: 1107px; top: 401px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">나의 문의 내역</div>
+            </a>
+            <a href="${pageContext.request.contextPath}/Controller?type=myReservation">
             <div style="width: 216px; height: 32px; left: 1086px; top: 255px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">나의 예매 내역 조회</div>
+           	</a>
+            <a href="${pageContext.request.contextPath}/Controller?type=myCoupon">
             <div style="width: 167px; height: 32px; left: 1107px; top: 328px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">나의 쿠폰 조회</div>
-            <div style="width: 161px; height: 32px; left: 879px; top: 249px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">지난 이벤트</div>
-            <div style="width: 161px; height: 32px; left: 645px; top: 249px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">상영시간표</div>
+       		</a>
+       		<a href="${pageContext.request.contextPath}/Controller?type=personInfor">
+            <div style="width: 167px; height: 32px; left: 1107px; top: 474px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">개인 정보 수정</div>
+            </a>
+            </c:if>
         </div>
     </div>
 </header>
