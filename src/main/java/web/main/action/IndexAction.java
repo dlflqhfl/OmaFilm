@@ -39,6 +39,7 @@ public class IndexAction implements Action{
 			page.setNowPage(1);
 		
 		MovieListVO[] mar = MovieListDAO.getList(page.getBegin(), page.getEnd(), null);
+		System.out.println(mar[3].getMovieNm());
 		NoticeVO[] ear = EventDAO.getElist();		
 		NoticeVO[] nar = NoticeDAO.getList(page.getBegin(), page.getEnd(), null);	
 		NoticeVO[] bar = BenefitsDAO.getBlist();	

@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	Object obj = request.getAttribute("svo");
+	Object obj = request.getAttribute("svo"); 
 	SelectSeatVO[] svo = null;
 	if( obj != null){
 		svo = (SelectSeatVO[])obj;

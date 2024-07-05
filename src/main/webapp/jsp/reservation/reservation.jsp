@@ -2,7 +2,7 @@
 <%@page import="web.mybatis.vo.SelectSeatVO"%>
 <%@page import="web.mybatis.vo.ScreeningScheduleVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+         pageEncoding="UTF-8" %> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
@@ -344,6 +344,9 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous"></script>
 <script type="text/javascript">
+
+timer = null;
+
 function sendEmail() {
     var email = $('#email').val();
 
@@ -362,7 +365,7 @@ function sendEmail() {
             data = data.trim();
             if (data === "0") {
                 alert("이메일이 성공적으로 전송되었습니다.");
-                var time = 180;
+                time = 180;
                 timer = setInterval(function () {
                     var minutes = Math.floor(time / 60);
                     var seconds = time % 60;
