@@ -16,11 +16,12 @@
             <div class="overlap">
               <div class="ul">
                 <div class="overlap-group">
-                  <div class="li"><div class="text-wrapper"><a href="../../jsp/myPage/personInfor.jsp">개인 정보 수정</a></div></div>
+                  <div class="li-2"><div class="text-wrapper"><a href="Controller?type=personInfor">개인 정보 수정</a></div></div>
                   <div class="div-wrapper"><div class="div"><a href="Controller?type=myReservation">나의 예매 내역 조회</a></div></div>
-                  <div class="li-2"><div class="text-wrapper-2"><a href="../../jsp/myPage/inquiry.jsp">나의 문의 내역</a></div></div>
-                  <div class="li-3"><div class="text-wrapper-3"><a href="../../jsp/myPage/couponList.jsp">나의 쿠폰 조회</a></div></div>
-                  <div class="li-5"><div class="text-wrapper-5"><a href="../../jsp/myPage/myhome.jsp">마이페이지 홈</a></div></div>
+                  <div class="li"><div class="text-wrapper-2"><a href="Controller?type=inquiry">나의 문의 내역</a></div></div>
+                  <div class="li-4"><div class="text-wrapper-3"><a href="Controller?type=myCoupon">나의 쿠폰 조회</a></div></div>
+                  <div class="li-3"><div class="text-wrapper-4"><a href="Controller?type=myCancelReservation">나의 예매 취소 내역 조회</a></div></div>
+                  <div class="li-5"><div class="text-wrapper-5"><a href="Controller?type=myHome">마이페이지 홈</a></div></div>
                 </div>
               </div>
               <div class="div-2"><div class="text-wrapper-6">마이페이지</div></div>
@@ -83,7 +84,7 @@
           </div>
           <div class="overlap-2">
             <div ></div>
-            <p class="element"><span class="text-wrapper-19">총</span><span class="span">3</span> <span class="text-wrapper-20"> 매</span></p>
+            <p class="element"><span class="text-wrapper-19">총</span><span class="span">${fn:length(cvo) }</span> <span class="text-wrapper-20"> 매</span></p>
           </div>
           <div class="frame">
             <div class="navbar">

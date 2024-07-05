@@ -124,4 +124,9 @@
         WHERE u_code = #{u_code}
     </select>
 
+	<select id="getMemList" resultType="web.mybatis.vo.MemberVO">
+		SELECT * FROM member
+		where u_authority = 0 and u_status = 0
+	</select>
+
 </mapper>

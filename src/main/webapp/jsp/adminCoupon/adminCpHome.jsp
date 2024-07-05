@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html> 
 <html>
   <head> 
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/adminCoupon/home_globals.css" />
+    <link rel="stylesheet" href="css/globals.css" /> 
     <link rel="stylesheet" href="css/adminCoupon/home_style.css" />
   </head>
   <body>
@@ -39,48 +40,29 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="item" items="${cpItemArr }"  varStatus="i">
+					<c:set var="len" value="${fn:length(cpItemArr)}" />
+	                <c:if test="${page.end<=len}">
+	                	<c:set var="end" value="${page.end}"/>
+	                </c:if>
+					<c:if test="${page.end>len}">
+						<c:set var="end" value="${len}" />
+					</c:if>
+						
+					<c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
 	                	<tr>
-	                		<td class="rectangle"><input type="radio" name="option" value="${item.ci_code }"/></td>
-		                    <td class="data">${item.ci_code }</td>
-		                    <td class="data-3">${item.ci_content }</td>
-		                    <td class="data-2">${item.ci_discount }%</td>
-		                    <td class="data-4">${item.ci_regi_time.split(" ")[0] }</td>
-		                    <td class="data-5">${item.ci_time.split(" ")[0] }</td>
+	                		<td class="rectangle"><input type="radio" name="option" value="${cpItemArr[i-1].ci_code }"/></td>
+		                    <td class="data">${cpItemArr[i-1].ci_code }</td>
+		                    <td class="data-3">${cpItemArr[i-1].ci_content }</td>
+		                    <td class="data-2">${cpItemArr[i-1].ci_discount }%</td>
+		                    <td class="data-4">${cpItemArr[i-1].ci_regi_time.split(" ")[0] }</td>
+		                    <td class="data-5">${cpItemArr[i-1].ci_time.split(" ")[0] }</td>
 	                	</tr>
-	                	<!-- <c:forEach var="item" items="${cpItemArr }"  varStatus="i">
-	                	<div class="td-${i.index+1}">
-		                    <div class="data"><div class="text-wrapper-6">${item.ci_code }</div></div>
-		                    <div class="rectangle-wrapper"><input type="radio" name="option" value="${item.ci_code }" class="rectangle"/></div>
-		                    <div class="data-2"><div class="text-wrapper-22">${item.ci_discount }%</div></div>
-		                    <div class="data-3"><div class="text-wrapper-7">${item.ci_content }</div></div>
-		                    <div class="data-4"><div class="text-wrapper-8">${item.ci_regi_time.split(" ")[0] }</div></div>
-		                    <div class="data-5"><div class="text-wrapper-9">${item.ci_time.split(" ")[0] }</div></div>
-	                	</div>
-	                </c:forEach> -->
 	                </c:forEach>
 				</tbody>
 			</table>
-            <%-- <table>
-              <div class="table">
-                <div class="thead">
-                  <div class="overlap-group-2">
-                    <div class="th"><div class="text-wrapper-2">쿠폰코드</div></div>
-                    <div class="div-wrapper"><div class="text-wrapper-3">선택</div></div>
-                  </div>
-                  <div class="th-2"><div class="text-wrapper-4">쿠폰명</div></div>
-                  <div class="th-3"><div class="text-wrapper-22">할인율</div></div>
-                  <div class="th-4"><div class="text-wrapper-5">발급일</div></div>
-                  <div class="th-5"><div class="text-wrapper-23">만료일</div></div>
-                </div>
-                <div class="tbody">
-                
-	                
-	                
-                </div>
-              </div>
-              </table> --%>
-              <div class="nav">
+			
+			
+              <!-- <div class="nav">
                 <div class="strong"><div class="text-wrapper-10">1</div></div>
                 <div class="link-2"><div class="text-wrapper-11">2</div></div>
                 <div class="link-3"><div class="text-wrapper-11">3</div></div>
@@ -93,7 +75,43 @@
                 <div class="link-10"><div class="text-wrapper-12">10</div></div>
                 <div class="link-11"></div>
                 <div class="link-12"></div>
-              </div>
+              </div> -->
+              
+            
+              <div class="nav">   <!-- 페이징 시작 -->
+				<div>
+					<ol class="paging">
+						<c:if test="${page.startPage < page.pagePerBlock}">
+							<li class="disable">&lt;</li>
+						</c:if>
+						<c:if test="${page.startPage >= page.pagePerBlock}">
+							<li class=""><a
+								href="Controller?type=adminCpHome&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+						</c:if>
+						<!-- <div class="nav"> -->
+						<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+							<c:if test="${i == page.nowPage}">
+								<li class="now">${i}</li>
+							</c:if>
+							<c:if test="${i != page.nowPage}">
+								<li class=" "><a
+									href="Controller?type=adminCpHome&cPage=${i}">${i}</a></li>
+							</c:if>
+						</c:forEach>
+
+
+						<c:if test="${page.endPage < page.totalPage}">
+							<li class=""><a
+								href="Controller?type=adminCpHome&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+						</c:if>
+						<c:if test="${page.endPage >= page.totalPage}">
+							<li class=" disable">&gt;</li>
+						</c:if>
+
+					</ol>
+				</div>
+			</div>   <!-- 페이징 끝 -->
+              
             </div>
             
            	<select id="select" class=" button">

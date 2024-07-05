@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import web.main.util.Paging;
 import web.mybatis.dao.AdminCpDAO;
 import web.mybatis.vo.CouponItemVO;
 
@@ -30,6 +31,19 @@ public class AdminCpHomeAction implements Action {
 			arr = AdminCpDAO.getCouponItem();
 			request.setAttribute("cpItemArr", arr);
 		}
+		
+		//rvo 페이징 처리
+		Paging page = new Paging(10,5);
+		
+		String cPage = request.getParameter("cPage");
+		if(arr !=null)
+			page.setTotalRecode(arr.length);
+		if(cPage !=null)
+			page.setNowPage(Integer.parseInt(cPage));
+		else
+			page.setNowPage(1);
+		request.setAttribute("page", page);
+		
 		
 		return "jsp/adminCoupon/adminCpHome.jsp";
 	}
