@@ -15,16 +15,26 @@ public class ReservationVO {
 	
 	public ReservationVO() {}
 
-	public ReservationVO(int p_code, int rsvr_code, int rs_count, int rs_status, String rs_num, String s_code,
-			String rs_time) {
+	public ReservationVO(int p_code, int rsvr_code, int rs_count, int rs_status, String ss_code, String rs_num,
+			String s_code, String rs_time, PaymentVO pvo, ScreeningScheduleVO ssvo) {
 		super();
 		this.p_code = p_code;
 		this.rsvr_code = rsvr_code;
 		this.rs_count = rs_count;
 		this.rs_status = rs_status;
+		this.ss_code = ss_code;
 		this.rs_num = rs_num;
 		this.s_code = s_code;
 		this.rs_time = rs_time;
+		this.pvo = pvo;
+		this.ssvo = ssvo;
+	}
+
+	@Override
+	public String toString() {
+		return "ReservationVO [p_code=" + p_code + ", rsvr_code=" + rsvr_code + ", rs_count=" + rs_count
+				+ ", rs_status=" + rs_status + ", ss_code=" + ss_code + ", rs_num=" + rs_num + ", s_code=" + s_code
+				+ ", rs_time=" + rs_time + ", pvo=" + pvo + ", ssvo=" + ssvo + "]";
 	}
 
 	public int getP_code() {
@@ -57,6 +67,14 @@ public class ReservationVO {
 
 	public void setRs_status(int rs_status) {
 		this.rs_status = rs_status;
+	}
+
+	public String getSs_code() {
+		return ss_code;
+	}
+
+	public void setSs_code(String ss_code) {
+		this.ss_code = ss_code;
 	}
 
 	public String getRs_num() {
@@ -99,14 +117,8 @@ public class ReservationVO {
 		this.ssvo = ssvo;
 	}
 
-	public String getSs_code() {
-		return ss_code;
-	}
-
-	public void setSs_code(String ss_code) {
-		this.ss_code = ss_code;
-	}
-
+	
+	
 	
 	
 }

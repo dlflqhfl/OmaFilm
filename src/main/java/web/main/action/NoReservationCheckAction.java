@@ -2,6 +2,7 @@ package web.main.action;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,12 +45,8 @@ public class NoReservationCheckAction implements Action{
 			
 			HttpSession session = request.getSession();
 		    Map<String, String> userInfo = (Map<String, String>) session.getAttribute("info");
-			ReserverVO[] rvo = ReservationDAO.selectReserver(userInfo);
-			for (ReserverVO a : rvo) {
-				System.out.println(a);
-				
-			}
-			System.out.println(rvo);
+		    ReserverVO[] list = ReservationDAO.selectReserver(userInfo); 
+		    request.setAttribute("list", list);
 				
 			return "jsp/reservation/noReservationCheck.jsp";
 		}
