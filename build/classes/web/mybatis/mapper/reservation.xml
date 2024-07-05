@@ -76,5 +76,6 @@
         WHERE r.rsvr_code = #{rsvr_code} AND r.rs_status=1
         ORDER BY r.rs_cancel_time DESC
     </select>
+    
 
 </mapper>
