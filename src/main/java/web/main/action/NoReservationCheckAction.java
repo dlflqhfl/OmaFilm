@@ -47,7 +47,9 @@ public class NoReservationCheckAction implements Action{
 		    Map<String, String> userInfo = (Map<String, String>) session.getAttribute("info");
 		    ReserverVO[] list = ReservationDAO.selectReserver(userInfo); 
 		    request.setAttribute("list", list);
-				
+		    int cnt = ReservationDAO.selectCnt(userInfo);
+		    System.out.println(cnt);
+			request.setAttribute("cnt", cnt);
 			return "jsp/reservation/noReservationCheck.jsp";
 		}
 		

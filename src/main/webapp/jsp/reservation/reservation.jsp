@@ -533,7 +533,6 @@ $('#pw1').keyup(function () {
         
     });
     
-    console.log()
 	console.log(text)
 	console.log(movieName)
 	console.log(time)
