@@ -364,6 +364,9 @@
 }
 
 .screen .link-8 {
+	background-image: url("../../img/myPage/myhome/mypagelist.svg");
+  background-size: cover;
+  background-position: 50% 50%;
   position: absolute;
   width: 252px;
   height: 39px;
@@ -390,9 +393,6 @@
 }
 
 .screen .item-link-3 {
-	background-image: url("../../img/myPage/myhome/mypagelist.svg");
-  background-size: cover;
-  background-position: 50% 50%;
   top: 38px;
   position: absolute;
   width: 252px;
@@ -403,13 +403,12 @@
   background-color: #3d4d55;
 }
 
+
 .screen .text-wrapper-13 {
   width: 124px;
   height: 19px;
   top: 8px;
   left: 11px;
-  
-  -webkit-text-stroke: 1px #b58863;
   color: #b58863;
   font-size: 15px;
   letter-spacing: 0;
@@ -444,6 +443,7 @@
   font-family: "Inter", Helvetica;
   font-weight: 400;
   white-space: nowrap;
+  -webkit-text-stroke: 1px #b58863;
 }
 
 .screen .heading {
@@ -555,7 +555,7 @@
   width: 390px;
   height: 33px;
   top: 30px;
-  left: 566px;
+  left: 650px;
 }
 
 .screen .label-wrapper {

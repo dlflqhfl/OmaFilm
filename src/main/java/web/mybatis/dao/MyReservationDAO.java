@@ -200,4 +200,13 @@ public class MyReservationDAO {
 		ss.close();
 		return uid;
 	}
+	
+	public static String getPcode(String rs_num) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		String p_code = ss.selectOne("reservation.getPcode", rs_num);
+
+		ss.close();
+		
+		return p_code;
+	}
 }

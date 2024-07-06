@@ -9,8 +9,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/myReservation/globals.css" />
-<link rel="stylesheet" href="css/myReservation/style.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/myReservation/cancel_style.css" />
 </head>
 <body>
 	<div class="screen">
@@ -85,7 +85,7 @@
 								</div>
 								<div class="item-link">
 									<div class="text-wrapper-9">
-										<a href="Controller?type=personInfor">개인 정보 수정</a>
+										<a href="Controller?type=checkPw">개인 정보 수정</a>
 									</div>
 								</div>
 							</div>
