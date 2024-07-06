@@ -503,6 +503,23 @@ $('#pw1').keyup(function () {
 	        $(".text").css('color', '#666666'); // 원래 색상으로 되돌리기
 	    }
 	);
+	$(function(){
+		  
+		  // 페이지 로드 시 모달 표시
+		  modal.css("display", "none")
+		  
+		  // 닫기 버튼 클릭 시 모달 숨기기
+		  $(".div").click(function() {
+		    modal.hide();
+		  });
+		  
+		  // 모달 외부 클릭 시 모달 숨기기
+		  $(window).click(function(event) {
+		    if ($(event.target).is(modal)) {
+		      modal.hide();
+		    }
+		  });
+	});
 </script>
   </body>
 </html>

@@ -58,4 +58,11 @@ public class ReservationDAO {
 		
 		return ar;
 	}
+
+	public static int selectCnt(Map<String, String> userInfo) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int res = ss.selectOne("reserver.count",userInfo);
+		ss.close();
+		return res;
+	}
 }

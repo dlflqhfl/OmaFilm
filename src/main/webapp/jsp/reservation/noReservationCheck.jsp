@@ -8,6 +8,8 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/noReservationCheckGlobals.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/noReservationCheckStyle.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/noReservationCheckModalGlobals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/noReservationCheckModalStyle.css" />
   </head>
   <body>
   <jsp:include page="/jsp/header/header.jsp"/>
@@ -27,57 +29,11 @@
           <div class="container">
             
             <div class="content">
-              <div class="tit">예매/취소내역</div><div class="bokdlist">
+              <div class="tit">예매/취소내역</div>
+              <div class="bokdlist">
 				
-                <div class="p-2">총 n건</div><div class="li">
-                  <div class="round">
-                    <div class="img"></div>
-                    <div class="div">
-                            </div><p class="p">
-                            <span class="span">&nbsp;&nbsp;&nbsp;&nbsp;이주현 </span>
-                            </p><p></p><table class="table">
-                      <tbody class="tbody">
-                        <tr class="tr">
-                          <th class="th">관람일시</th>
-                            <td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024-07-03 12:51:18</td>
-                          
-                          </tr><tr class="tr-2">
-                            <th class="text-wrapper">관람좌석</th>
-                            <td class="td-2">&nbsp;&nbsp;&nbsp;&nbsp;1A3</td>
-                          </tr>
-                        
-                        <tr class="tr-3">
-                          <th class="th">영화관
-                          </th><td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;프리미엄 오경주관</td>
-                        </tr>
-                        <tr class="tr-4">
-                          <th class="text-wrapper">관람인원
-                          </th><td class="td-2">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
-                        </tr>
-                        <tr class="tr-5">
-                          <th class="th">영화명</th>
-                          <td class="td-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;인사이드 아웃 2</td>
-                        </tr>
-                        <tr class="tr-6">
-                          <th class="th">예매자</th>
-                          <td class="text-wrapper-2"></td>
-                          
-                        </tr>
-                    	</tbody>
-                      </table>
-                    <div class="tr-wrapper">
-                      
-                        결제일시
-                        <div class="overlap-group">
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <div class="buttom"><div class="text-wrapper-3">인사이드 아웃 2 성인(1) </div></div>
-                        </div>
-                      
-                    </div>
-                    <div class="div-wrapper"><div class="text-wrapper-4">예매취소</div></div>
-                  </div>
-                </div>
-				
+                <div class="p-2">총 ${cnt }건</div>
+                <c:forEach var="vo" items="${list }">
                 <div class="li">
                   <div class="round">
                     <div class="img"></div>
@@ -88,246 +44,52 @@
                       <tbody class="tbody">
                         <tr class="tr">
                           <th class="th">관람일시</th>
-                            <td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024-07-03 14:53:01</td>
+                            <td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vo.rsvr_time }</td>
                           
                           </tr><tr class="tr-2">
                             <th class="text-wrapper">관람좌석</th>
-                            <td class="td-2">&nbsp;&nbsp;&nbsp;&nbsp;1B1</td>
+                            <td class="td-2">&nbsp;&nbsp;&nbsp;&nbsp;${vo.svo.s_code }</td>
                           </tr>
                         
                         <tr class="tr-3">
                           <th class="th">영화관
-                          </th><td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;프리미엄 오경주관</td>
+                          </th><td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vo.ssvo.t_name }</td>
                         </tr>
                         <tr class="tr-4">
                           <th class="text-wrapper">관람인원
-                          </th><td class="td-2">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+                          </th><td class="td-2">&nbsp;&nbsp;&nbsp;&nbsp;${vo.rvo.rs_count } 명</td>
                         </tr>
                         <tr class="tr-5">
                           <th class="th">영화명</th>
-                          <td class="td-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;인사이드 아웃 2</td>
+                          <td class="td-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vo.mvo.movieNm }</td>
                         </tr>
                         <tr class="tr-6">
                           <th class="th">예매자</th>
                           <td class="text-wrapper-2"></td>
-                          
                         </tr>
                     	</tbody>
                       </table>
-                    <div class="tr-wrapper">
-                      
+                    <div class="tr-wrapper" data-p_ex_price="${vo.pvo.p_ex_price }" data-p_tt_price="${vo.pvo.p_tt_price }" data-p_method="${vo.pvo.p_method }" data-p_time="${vo.pvo.p_time }">
+                      <div class="payTime">
                         결제일시
+                      </div>
                         <div class="overlap-group">
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <div class="buttom"><div class="text-wrapper-3">인사이드 아웃 2 성인(1) </div></div>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vo.pvo.p_time }
                         </div>
-                      
-                    </div>
+                          <button class="buttom btn"><div class="text-wrapper-3">결제정보</div></button>
+                    	</div>
                     <div class="div-wrapper"><div class="text-wrapper-4">예매취소</div></div>
                   </div>
                 </div>
-				
-                <div class="li">
-                  <div class="round">
-                    <div class="img"></div>
-                    <div class="div">
-                            </div><p class="p">
-                            <span class="span">&nbsp;&nbsp;&nbsp;&nbsp;이주현 </span>
-                            </p><p></p><table class="table">
-                      <tbody class="tbody">
-                        <tr class="tr">
-                          <th class="th">관람일시</th>
-                            <td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024-07-03 16:32:53</td>
-                          
-                          </tr><tr class="tr-2">
-                            <th class="text-wrapper">관람좌석</th>
-                            <td class="td-2">&nbsp;&nbsp;&nbsp;&nbsp;1B2</td>
-                          </tr>
-                        
-                        <tr class="tr-3">
-                          <th class="th">영화관
-                          </th><td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;프리미엄 오경주관</td>
-                        </tr>
-                        <tr class="tr-4">
-                          <th class="text-wrapper">관람인원
-                          </th><td class="td-2">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
-                        </tr>
-                        <tr class="tr-5">
-                          <th class="th">영화명</th>
-                          <td class="td-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;인사이드 아웃 2</td>
-                        </tr>
-                        <tr class="tr-6">
-                          <th class="th">예매자</th>
-                          <td class="text-wrapper-2"></td>
-                          
-                        </tr>
-                    	</tbody>
-                      </table>
-                    <div class="tr-wrapper">
-                      
-                        결제일시
-                        <div class="overlap-group">
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <div class="buttom"><div class="text-wrapper-3">인사이드 아웃 2 성인(1) </div></div>
-                        </div>
-                      
-                    </div>
-                    <div class="div-wrapper"><div class="text-wrapper-4">예매취소</div></div>
-                  </div>
-                </div>
-				
-                <div class="li">
-                  <div class="round">
-                    <div class="img"></div>
-                    <div class="div">
-                            </div><p class="p">
-                            <span class="span">&nbsp;&nbsp;&nbsp;&nbsp;이주현 </span>
-                            </p><p></p><table class="table">
-                      <tbody class="tbody">
-                        <tr class="tr">
-                          <th class="th">관람일시</th>
-                            <td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024-07-03 17:24:13</td>
-                          
-                          </tr><tr class="tr-2">
-                            <th class="text-wrapper">관람좌석</th>
-                            <td class="td-2">&nbsp;&nbsp;&nbsp;&nbsp;1B4</td>
-                          </tr>
-                        
-                        <tr class="tr-3">
-                          <th class="th">영화관
-                          </th><td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;프리미엄 오경주관</td>
-                        </tr>
-                        <tr class="tr-4">
-                          <th class="text-wrapper">관람인원
-                          </th><td class="td-2">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
-                        </tr>
-                        <tr class="tr-5">
-                          <th class="th">영화명</th>
-                          <td class="td-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;인사이드 아웃 2</td>
-                        </tr>
-                        <tr class="tr-6">
-                          <th class="th">예매자</th>
-                          <td class="text-wrapper-2"></td>
-                          
-                        </tr>
-                    	</tbody>
-                      </table>
-                    <div class="tr-wrapper">
-                      
-                        결제일시
-                        <div class="overlap-group">
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <div class="buttom"><div class="text-wrapper-3">인사이드 아웃 2 성인(1) </div></div>
-                        </div>
-                      
-                    </div>
-                    <div class="div-wrapper"><div class="text-wrapper-4">예매취소</div></div>
-                  </div>
-                </div>
-				
-                <div class="li">
-                  <div class="round">
-                    <div class="img"></div>
-                    <div class="div">
-                            </div><p class="p">
-                            <span class="span">&nbsp;&nbsp;&nbsp;&nbsp;이주현 </span>
-                            </p><p></p><table class="table">
-                      <tbody class="tbody">
-                        <tr class="tr">
-                          <th class="th">관람일시</th>
-                            <td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024-07-04 11:54:38</td>
-                          
-                          </tr><tr class="tr-2">
-                            <th class="text-wrapper">관람좌석</th>
-                            <td class="td-2">&nbsp;&nbsp;&nbsp;&nbsp;1C2</td>
-                          </tr>
-                        
-                        <tr class="tr-3">
-                          <th class="th">영화관
-                          </th><td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;프리미엄 오경주관</td>
-                        </tr>
-                        <tr class="tr-4">
-                          <th class="text-wrapper">관람인원
-                          </th><td class="td-2">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
-                        </tr>
-                        <tr class="tr-5">
-                          <th class="th">영화명</th>
-                          <td class="td-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;인사이드 아웃 2</td>
-                        </tr>
-                        <tr class="tr-6">
-                          <th class="th">예매자</th>
-                          <td class="text-wrapper-2"></td>
-                          
-                        </tr>
-                    	</tbody>
-                      </table>
-                    <div class="tr-wrapper">
-                      
-                        결제일시
-                        <div class="overlap-group">
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <div class="buttom"><div class="text-wrapper-3">인사이드 아웃 2 성인(1) </div></div>
-                        </div>
-                      
-                    </div>
-                    <div class="div-wrapper"><div class="text-wrapper-4">예매취소</div></div>
-                  </div>
-                </div>
-				
-                <div class="li">
-                  <div class="round">
-                    <div class="img"></div>
-                    <div class="div">
-                            </div><p class="p">
-                            <span class="span">&nbsp;&nbsp;&nbsp;&nbsp;이주현 </span>
-                            </p><p></p><table class="table">
-                      <tbody class="tbody">
-                        <tr class="tr">
-                          <th class="th">관람일시</th>
-                            <td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024-07-04 15:13:20</td>
-                          
-                          </tr><tr class="tr-2">
-                            <th class="text-wrapper">관람좌석</th>
-                            <td class="td-2">&nbsp;&nbsp;&nbsp;&nbsp;1C3</td>
-                          </tr>
-                        
-                        <tr class="tr-3">
-                          <th class="th">영화관
-                          </th><td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;프리미엄 오경주관</td>
-                        </tr>
-                        <tr class="tr-4">
-                          <th class="text-wrapper">관람인원
-                          </th><td class="td-2">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
-                        </tr>
-                        <tr class="tr-5">
-                          <th class="th">영화명</th>
-                          <td class="td-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;인사이드 아웃 2</td>
-                        </tr>
-                        <tr class="tr-6">
-                          <th class="th">예매자</th>
-                          <td class="text-wrapper-2"></td>
-                          
-                        </tr>
-                    	</tbody>
-                      </table>
-                    <div class="tr-wrapper">
-                      
-                        결제일시
-                        <div class="overlap-group">
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <div class="buttom"><div class="text-wrapper-3">인사이드 아웃 2 성인(1) </div></div>
-                        </div>
-                      
-                    </div>
-                    <div class="div-wrapper"><div class="text-wrapper-4">예매취소</div></div>
-                  </div>
-                </div>
-				                
+				</c:forEach>
+                          	<div id="modalPlace" class="modalPlace">
+					    	<div class="modal-content">
+			              		<%@ include file="/jsp/reservation/noReservationCheckModal.jsp" %>
+					    	</div>
+	  						</div>
                  </div>
                 </div>
-                
               </div>
-              
               
               <div class="div-2">
                 <div class="overlap-3">
@@ -442,7 +204,57 @@
               </div>
             </div>
           </div>
-          
         </div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+<script type="text/javascript">
+		let modal = $(".modalPlace");
+$(function(){
+		  
+	// 닫기 버튼 클릭 시 모달 숨기기
+	$(".modal-button").click(function() {
+	  modal.hide();
+	});
+	$(".multiply").click(function() {
+	  modal.hide();
+	});
+	
+	// 모달 외부 클릭 시 모달 숨기기
+	$(window).click(function(event) {
+	  if ($(event.target).is(modal)) {
+	    modal.hide();
+	  }
+	});
+	
+	$(".btn").click(function(){
+        let parent = $(this).closest(".tr-wrapper");
+
+        let p_ex_price = parseInt(parent.data("p_ex_price"));
+        let p_tt_price = parseInt(parent.data("p_tt_price"));
+        let p_method = parent.data("p_method");
+        let p_time = parent.data("p_time");
+
+
+        let name;
+        $("#t_ex_price").text("상품금액: " + p_ex_price.toLocaleString() + "원");
+
+        if (p_method === "card") {
+            name = "카드";
+        } else if (p_method === "point") {
+            name = "카카오페이";
+        }
+
+        let sale = p_ex_price - p_tt_price;
+        $("#t_tt_price").text("할인금액: " + sale.toLocaleString() + "원");
+        $("#totalPrice1").text("최종 결제금액: " + p_tt_price.toLocaleString() + "원 /" + name);
+        $("#ppTime").text(p_time);
+
+        modal.css("display", "block");
+    });
+	
+});
+
+</script>        
   </body>
 </html>
