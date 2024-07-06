@@ -245,6 +245,29 @@
             modal.css("display", "block");
         });
 
+        
+        //예매취소버튼
+        $(".div-wrapper").click(function () {
+        	var confirmCancel = confirm("예매를 취소하시겠습니까?");
+	        
+	        if (confirmCancel) {
+	        	var rs_num =   // rs_num 좀 구해줘
+	        	
+		        var form = document.createElement('form');
+		        var objs;
+		        
+		        objs = document.createElement('input');
+	            objs.setAttribute('type', 'hidden');
+	            objs.setAttribute('name', 'rs_num');
+	            objs.setAttribute('value', rs_num);
+	            form.appendChild(objs);
+	            
+		        form.setAttribute('method', 'post');
+	            form.setAttribute('action', 'Controller?type=payCancelNonMem');
+	            document.body.appendChild(form);
+	            form.submit();
+	        }
+        });
     });
 
 </script>
