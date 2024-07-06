@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/noReservationCheckModalStyle.css"/>
     <div class="modal">
       <div class="div">
         <div class="modal-button"><div class="text-wrapper">닫기</div></div>
