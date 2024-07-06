@@ -763,6 +763,21 @@
   border-right-width: 1px;
   border-right-style: solid;
 }
+.selectseat .select-seat-text {
+  position: absolute;
+  width: 453px;
+  height: 50px;
+  top: 2px;
+  left: 375px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 55px;
+  white-space: nowrap;
+}
 .modal {
   display: none;
   position: fixed;
@@ -787,20 +802,4 @@
   color: black;
   text-decoration: none;
   cursor: pointer;
-}
-
-.selectseat .select-seat-text {
-  position: absolute;
-  width: 453px;
-  height: 50px;
-  top: 2px;
-  left: 375px;
-  font-family: "Noto Sans KR", Helvetica;
-  font-weight: 300;
-  color: #ffffff;
-  font-size: 18px;
-  text-align: center;
-  letter-spacing: -0.36px;
-  line-height: 55px;
-  white-space: nowrap;
 }

@@ -3,6 +3,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
+	Object mvo = request.getSession().getAttribute("mvo");
+	boolean isLogin = (mvo != null);
+	
 	Object obj = request.getAttribute("svo"); 
 	SelectSeatVO[] svo = null;
 	if( obj != null){
@@ -15,7 +18,9 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/reservationGlobals2.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/reservationStyle2.css" />
-  </head>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/noReservationGlobals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/noReservationStyle.css" /> 
+ </head>
   <body>
     <div class="selectseat">
       <div class="overlap-wrapper">
@@ -230,9 +235,15 @@
         	<input type="hidden" id="date" name="date" value="${param.date }">
         	<input type="hidden" id="totalPrice" name="totalPrice" value="">
         </form>
-         <c:forEach var="a" items="${svo }">
-	        ${a.s_code }
-        </c:forEach>
+        <div>
+       <c:if test="${mvo == null}">
+		  <div id="modal" class="modal">
+		    <div class="modal-content">
+              	<%@ include file="/jsp/reservation/noReservation.jsp" %>
+		    </div>
+		  </div>
+		</c:if>
+        </div>
       </div>
     </div>
     
@@ -240,6 +251,9 @@
   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
   crossorigin="anonymous"></script>
 <script type="text/javascript">
+
+timer = null;
+
 function sendEmail() {
     var email = $('#email').val();
 
@@ -258,7 +272,7 @@ function sendEmail() {
             data = data.trim();
             if (data === "0") {
                 alert("이메일이 성공적으로 전송되었습니다.");
-                var time = 180;
+                time = 180;
                 timer = setInterval(function () {
                     var minutes = Math.floor(time / 60);
                     var seconds = time % 60;
@@ -337,10 +351,15 @@ $('#pw1').keyup(function () {
         $('.checkPw').text('일치하지 않음').css('color', 'red').show();
     }
 });
+
 	let text = '<%= request.getParameter("text") %>';
 	let movieName = '<%= request.getParameter("movieName") %>';
 	let time = '<%= request.getParameter("time") %>';
 	let date = '<%= request.getParameter("date") %>';
+	let login = <%=isLogin %>;
+	let modal = $("#modal");
+	let totalCount;
+	let totalPrice;
 	
 	function hoverEvent() {
 	    $('.rectangle').not('[style*="background-color: black"]').hover(
@@ -355,6 +374,47 @@ $('#pw1').keyup(function () {
 	        }
 	    );
 	}
+	
+	function noReservation(){
+		let name = $("#name").val()
+		let email = $("#email").val()
+		let pw = $("#pw").val()
+		
+		let adult = $("#adult").text();
+		let teen = $("#teen").text();
+		let old = $("#old").text();
+
+		let adultCount = "성인:" + adult;
+		let teenCount = "청소년:" + teen;
+		let oldCount = "경로:" + old;
+
+		totalCount = adultCount+"/" + teenCount+"/" + oldCount;
+		console.log()
+		$("#nTotalCount").val(totalCount);
+		$("#nCheckSeat").val(seats);
+
+		$("#non_name").val(name)
+		$("#non_email").val(email)
+		$("#non_pw").val(pw)
+		
+		$("#nonReserver").submit()
+	}
+	
+	function paymentData(){
+		let adult = $("#adult").text();
+		let teen = $("#teen").text();
+		let old = $("#old").text();
+
+		let adultCount = "성인:" + adult;
+		let teenCount = "청소년:" + teen;
+		let oldCount = "경로:" + old;
+
+		totalCount = adultCount+"/" + teenCount+"/" + oldCount;
+		console.log()
+		$("#totalCount").val(totalCount);
+		$("#checkSeat").val(seats);
+		$("#goPayment").submit();
+	}
 
 	
 	//이미 예매된 좌석
@@ -364,7 +424,8 @@ $('#pw1').keyup(function () {
         for (int i = 0; i < svo.length; i++) {
             SelectSeatVO ss = svo[i]; 
             String sr =  ss.getS_code();
-            String trimSeat = sr.substring(1);%>
+            String trimSeat = sr.substring(1);
+     %>
             selectedSeat.push("<%=trimSeat%>");
     <% }
     } %>
@@ -379,7 +440,6 @@ $('#pw1').keyup(function () {
         
     });
     
-    console.log()
 	console.log(text)
 	console.log(movieName)
 	console.log(time)
@@ -407,7 +467,7 @@ $('#pw1').keyup(function () {
 				$(this).css('background-color', '#2CC7E9');
 			}
 		} else {
-			alert("인원을먼저 선택해줭~~")
+			alert("인원을먼저 선택해주세요")
 		}
 
 		if( length == (num-1)){
@@ -494,9 +554,10 @@ $('#pw1').keyup(function () {
 	}
 
 	function updatePrice(){
-		let totalPrice = (adult * 13000) + (teen * 10000) + (old * 8000);
+		totalPrice = (adult * 13000) + (teen * 10000) + (old * 8000);
 		$(".total-price-text").text(totalPrice)
 		$("#totalPrice").val(totalPrice); // hidden input 필드 값 업데이트
+		$("#nTotalPrice").val(totalPrice);
 		console.log(totalPrice)
 	}
 
@@ -512,23 +573,13 @@ $('#pw1').keyup(function () {
 	$(".pay-button").click(function(){
 		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?")
 		if( result ){
-
-			let adult = $("#adult").text();
-			let teen = $("#teen").text();
-			let old = $("#old").text();
-
-			let adultCount = "성인:" + adult;
-			let teenCount = "청소년:" + teen;
-			let oldCount = "경로:" + old;
-
-			let totalCount = adultCount+"/" + teenCount+"/" + oldCount;
-			console.log()
-			$("#totalCount").val(totalCount)
-			$("#checkSeat").val(seats);
-
-       	 	$("#goPayment").submit();
+			if(login){
+				paymentData()
+			} else{
+				modal.css("display", "block")
+			}
 		} else {
-			location.reload()
+			
 		}
 	})
 
@@ -537,35 +588,35 @@ $('#pw1').keyup(function () {
 		window.location.href = "Controller?type=selectTime";
 	})
 
-	$('.a').hover(
-	    function() {
-	        // 마우스가 올라갔을 때
-	        $(this).css('background-color', '#3D4D55');
-	        $(".text").css('color', 'white');
-	    },
-	    function() {
-	        // 마우스가 내려갔을 때
-	        $(this).css('background-color', 'white');
-	        $(".text").css('color', '#666666'); // 원래 색상으로 되돌리기
+$('.a').hover(
+    function() {
+        // 마우스가 올라갔을 때
+        $(this).css('background-color', '#3D4D55');
+        $(".text").css('color', 'white');
+    },
+    function() {
+        // 마우스가 내려갔을 때
+        $(this).css('background-color', 'white');
+        $(".text").css('color', '#666666'); // 원래 색상으로 되돌리기
+    }
+);
+$(function(){
+	  
+	  // 페이지 로드 시 모달 표시
+	  modal.css("display", "none")
+	  
+	  // 닫기 버튼 클릭 시 모달 숨기기
+	  $(".div").click(function() {
+	    modal.hide();
+	  });
+	  
+	  // 모달 외부 클릭 시 모달 숨기기
+	  $(window).click(function(event) {
+	    if ($(event.target).is(modal)) {
+	      modal.hide();
 	    }
-	);
-	$(function(){
-		  
-		  // 페이지 로드 시 모달 표시
-		  modal.css("display", "none")
-		  
-		  // 닫기 버튼 클릭 시 모달 숨기기
-		  $(".div").click(function() {
-		    modal.hide();
-		  });
-		  
-		  // 모달 외부 클릭 시 모달 숨기기
-		  $(window).click(function(event) {
-		    if ($(event.target).is(modal)) {
-		      modal.hide();
-		    }
-		  });
-	});
+	  });
+});
 </script>
-  </body>
+</body>
 </html>
