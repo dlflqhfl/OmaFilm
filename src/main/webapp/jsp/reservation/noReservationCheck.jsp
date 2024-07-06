@@ -44,7 +44,7 @@
                                     <div class="div">
                                     </div>
                                     <p class="p">
-                                        <span class="span">&nbsp;&nbsp;&nbsp;&nbsp;이주현 </span>
+                                        <span class="span">&nbsp;&nbsp;&nbsp;&nbsp;${vo.non_name } </span>
                                     </p>
                                     <p></p>
                                     <table class="table">
@@ -94,6 +94,7 @@
                                     </div>
                                     <div class="div-wrapper">
                                         <div class="text-wrapper-4">예매취소</div>
+                                        <input type="hidden" name="rs_num" value="${vo.rvo.rs_num }"/>
                                     </div>
                                 </div>
                             </div>
@@ -251,7 +252,7 @@
         	var confirmCancel = confirm("예매를 취소하시겠습니까?");
 	        
 	        if (confirmCancel) {
-	        	var rs_num =   // rs_num 좀 구해줘
+	        	var rs_num = $(this).find("input[name=rs_num]").val();
 	        	
 		        var form = document.createElement('form');
 		        var objs;

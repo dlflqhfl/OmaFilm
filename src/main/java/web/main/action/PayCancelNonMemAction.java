@@ -22,8 +22,9 @@ public class PayCancelNonMemAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String rs_num = request.getParameter("rs_num");
+		System.out.println("rs_num : " + rs_num);
         String p_code =  MyReservationDAO.getPcode(rs_num); 
-
+        System.out.println("p_code : " + p_code);
         MyReservationDAO.cancelReservation(rs_num, p_code);
 
         //p_code에 해당되는 merchant_uid 들고오기
@@ -37,7 +38,7 @@ public class PayCancelNonMemAction implements Action {
             e.printStackTrace();
         }
         
-		return "Controller?type=type=noReservationCheck";
+		return "Controller?type=noReservationCheck&res=1";
 	}
 	
 	//merchant_uid 주면 됨
