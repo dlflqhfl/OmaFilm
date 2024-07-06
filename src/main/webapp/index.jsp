@@ -15,7 +15,6 @@
     <div class="overlap-wrapper">
         <div class="overlap">
             <div class="background">
-
                 <div class="overlap-group">
                     <div class="container">
                         <div class="view">
@@ -87,46 +86,45 @@
                             </div>
                         </div>
                     </div>
-                    <div class="border-2">
-                        <div class="customer-service">
-                            <a href="Controller?type=home">
-                                <div class="link-9">
-                                    <div class="image"></div>
-                                    <div class="text-wrapper-8">고객센터</div>
-                                </div>
-                            </a>
-                            <a href="Controller?type=faq">
-                                <div class="link-10">
-                                    <div class="image-2"></div>
-                                    <div class="text-wrapper-9">자주 묻는 질문</div>
-                                </div>
-                            </a>
-                            <a href="Controller?type=sinquiry">
-                                <div class="link-11">
-                                    <div class="image-3"></div>
-                                    <div class="text-wrapper-10">1:1 문의</div>
-                                </div>
-                            </a>
-                            <a href="Controller?type=notice">
-                                <div class="link-12">
-                                    <div class="image-4"></div>
-                                    <div class="text-wrapper-11">공지사항</div>
-                                </div>
-                            </a>
-                            <a href="Controller?type=directions">
-                                <div class="link-13">
-                                    <div class="image-5"></div>
-                                    <div class="text-wrapper-12">오시는 길</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    <div class="border-2"></div>
                     <div class="overlap-group-wrapper">
                         <div class="overlap-2"></div>
                     </div>
                 </div>
             </div>
             <div class="top">
+                <div class="customer-service">
+                	<a href="Controller?type=home">
+                    <div class="link-9">
+                        <div class="image"></div>
+                        <div class="text-wrapper-8">고객센터</div>
+                    </div>
+                    </a>
+                    <a href="Controller?type=faq">
+                    <div class="link-10">
+                        <div class="image-2"></div>
+                        <div class="text-wrapper-9">자주 묻는 질문</div>
+                    </div>
+                    </a>
+                    <a href="Controller?type=sinquiry">
+                    <div class="link-11">
+                        <div class="image-3"></div>
+                        <div class="text-wrapper-10">1:1 문의</div>
+                    </div>
+                    </a>
+                    <a href="Controller?type=notice">
+                    <div class="link-12">
+                        <div class="image-4"></div>
+                        <div class="text-wrapper-11">공지사항</div>
+                    </div>
+                    </a>
+                    <a href="Controller?type=directions">
+                    <div class="link-13">
+                        <div class="image-5"></div>
+                        <div class="text-wrapper-12">오시는 길</div>
+                    </div>
+                    </a>
+                </div>
                 <div class="container-wrapper">
                     <div class="container-4">
                         <button class="button">
@@ -144,7 +142,7 @@
                         	<c:if test="${vs.index < 4}">
 					            <div class="item">
 					              <div class="link-15">
-					                <div class="overlap-group-2" style="background-image: url('${pageContext.request.contextPath}/img/movie/movieList/${mar.movieNm}.png'); background-size: cover; background-repeat: no-repeat; background-position: center;"> 
+					                <div class="overlap-group-2" style="background-image: url('${mar.m_file}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
 					                  <%-- 이미지 호버 --%>
 					                  <div class="MovieHover">
 						                <a href="Controller?type=moviedetail&movieCd=${mar.movieCd}">
@@ -210,6 +208,13 @@
         element.parentElement.addEventListener('mouseout', function () {
             element.style.display = 'none';
         });
+    });
+
+    var moviePlot = document.querySelectorAll('.MovieHover_text');
+    moviePlot.forEach(function (element) {
+       if(element.innerText.length > 150){
+          element.innerText = element.innerText.substring(0, 150) + '...';
+       }
     });
 </script>
 </body>

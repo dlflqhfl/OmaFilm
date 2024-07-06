@@ -51,7 +51,6 @@ public class MyHomeAction implements Action {
 		        return "/jsp/login/login_1.jsp";
 		    }
 		
-		
 	}	
 		
 	}

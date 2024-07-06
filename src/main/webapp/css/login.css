@@ -924,6 +924,7 @@
     letter-spacing: 0;
     line-height: 50px;
     white-space: nowrap;
+    text-align: left;
 }
 
 .login_2 .input-4 {

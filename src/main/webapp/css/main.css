@@ -3,27 +3,27 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: auto;
+  width: 100%;
 }
 
 .omakase-cinema .overlap-wrapper {
   background-color: #ffffff;
   overflow-x: hidden;
   width: 1920px;
-  height: 100%;
+  height: 2575px;
 }
 
 .omakase-cinema .overlap {
   position: relative;
   width: 1921px;
-  height: 2450px;
+  height: 2575px;
   left: -1px;
 }
 
 .omakase-cinema .background {
   position: absolute;
   width: 1920px;
-  height: 100%;
+  height: 2575px;
   top: 0;
   left: 1px;
   background-color: #ffffff;
@@ -32,7 +32,7 @@
 .omakase-cinema .overlap-group {
   position: absolute;
   width: 1920px;
-  height: auto;
+  height: 2315px;
   top: 0;
   left: 0;
 }
@@ -40,7 +40,7 @@
 .omakase-cinema .container {
   position: absolute;
   width: 1920px;
-  height: 1300px;
+  height: 1419px;
   top: 896px;
   left: 0;
   background-color: #ffffff;
@@ -527,11 +527,11 @@
 
 .omakase-cinema .border-2 {
   position: absolute;
-  width: 1200px;
-  height: 20px;
-  top: 1955px;
-  left: 360px;
-  /* border-top-width: 4px; */
+  width: 1920px;
+  height: 43px;
+  top: 2100px;
+  left: 0;
+  border-top-width: 2px;
   border-top-style: solid;
   border-bottom-width: 2px;
   border-bottom-style: solid;
@@ -565,8 +565,8 @@
   position: absolute;
   width: 1000px;
   height: 77px;
-  top: 68px;
-  left: 100px;
+  top: 2197px;
+  left: 462px;
 }
 
 .omakase-cinema .link-9 {
@@ -1461,15 +1461,17 @@ input:focus {
 }
 
 .MovieHover .MovieHover_text {
-  width: 207px;
-  height: 201px;
+  width: 200px;
+  height: 280px;
   color: white;
   font-size: 15px;
   font-family: Roboto;
   font-style: italic;
   font-weight: 300;
   line-height: 25px;
-  word-wrap: break-word
+  word-wrap: break-word;
+  overflow: hidden;
+  margin-top: 25px;
 }
 
 
@@ -1544,30 +1546,30 @@ input:focus {
 }
 
 .omakase-cinema .border .notice-list {
-  position: absolute; /* 위치 조정 */
-  top: 72px; /* 원하는 위치로 조정 */
-  left: 45px; /* 원하는 위치로 조정 */
-  display: flex;
-  justify-content:space-between;
-  flex-direction: column;
-  width: 298px;
+    position: absolute; /* 위치 조정 */
+    top: 72px; /* 원하는 위치로 조정 */
+    left: 45px; /* 원하는 위치로 조정 */
+    display: flex;
+    justify-content:space-between;
+    flex-direction: column;
+    width: 298px;
 }
 
 .omakase-cinema .border .benefits-list {
-  position: absolute; /* 위치 조정 */
-  top: 72px; /* 원하는 위치로 조정 */
-  left: 426px; /* 원하는 위치로 조정 */
-  width: 500px; /* 혜택 리스트 너비 설정 */
-  display: flex;
-  justify-content:space-between;
+    position: absolute; /* 위치 조정 */
+    top: 72px; /* 원하는 위치로 조정 */
+    left: 426px; /* 원하는 위치로 조정 */ 
+    width: 500px; /* 혜택 리스트 너비 설정 */
+    display: flex;
+    justify-content:space-between;
 }
 
 .omakase-cinema .border .OMAKASE {
-  width: 286px; /* 각 공지사항 너비 설정 */
-  display: contents;
-  position: relative;
+    width: 286px; /* 각 공지사항 너비 설정 */
+    display: contents;
+    position: relative; 
 }
 .notice-list a {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 

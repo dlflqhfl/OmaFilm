@@ -1,15 +1,16 @@
 <%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
- 
+
 <!DOCTYPE html>
-<html> 
+<html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/myReservation/globals.css" />
+    <link rel="stylesheet" href="css/globals.css" />
     <link rel="stylesheet" href="css/myReservation/style.css" />
   </head>
   <body>
@@ -44,12 +45,12 @@
               <div class="link-6"><div class="text-wrapper-8">마이페이지</div></div>
               <div class="list">
                 <div class="overlap-group">
-                  <div class="item-link"><div class="text-wrapper-9">개인 정보 수정</div></div>
-                  <div class="item-link-2"><div class="text-wrapper-10">마이페이지 홈</div></div>
-                  <div class="link-7"><div class="text-wrapper-11">나의 문의 내역</div></div>
-                  <div class="link-8"><div class="text-wrapper-12"><a href="Controller?type=myCoupon">나의 쿠폰 조회</a></div></div>
-                  <div class="item-link-3"><div class="text-wrapper-13"></div></div>
-                  <div class="link-9"><div class="text-wrapper-14">나의 포인트 조회</div></div>
+                  <div class="item-link-2"><div class="text-wrapper-10"><a href="Controller?type=myHome">마이페이지 홈</a></div></div>
+                  <div class="item-link-3"><div class="text-wrapper-13"><a href="Controller?type=myReservation">나의 예매 내역 조회</a></div></div>
+                  <div class="link-8"><div class="text-wrapper-14"><a href="Controller?type=myCancelReservation">나의 예매 취소 내역 조회</a></div></div>
+                  <div class="link-9"><div class="text-wrapper-12"><a href="Controller?type=myCoupon">나의 쿠폰 조회</a></div></div>
+                  <div class="link-7"><div class="text-wrapper-11"><a href="Controller?type=inquiry">나의 문의 내역</a></div></div>
+                  <div class="item-link"><div class="text-wrapper-9"><a href="Controller?type=">개인 정보 수정</a></div></div>
                 </div>
               </div>
             </div>
@@ -98,121 +99,85 @@
                 </div>
                 
                 <div class="tbody">
-                	<c:forEach var="item" items="${rvo}" varStatus="status">
-					  <div class="tr-${status.index + 1}">
-					    <div class="data-1"><div class="text-wrapper-24">${item.rs_time.split(" ")[0]}</div></div>
-					    <div class="data-2"><div class="text-wrapper-25">${item.rs_num}</div></div>
-					    <c:if test="${item.ssvo != null}">
-					      <div class="data-3"><div class="text-wrapper-26">${item.ssvo.t_name}</div></div>
-					      <div class="data-4"><div class="text-wrapper-27">${item.ssvo.ss_time.split(" ")[0]}</div></div>
-					      <div class="data-5"><div class="text-wrapper-28">${item.ssvo.mvo.movieNm }</div></div>
-					    </c:if>
-					    <c:if test="${item.pvo != null}">            
-					      <div class="data-6"><div class="text-wrapper-27">${item.pvo.p_tt_price}</div></div>
-					    </c:if><!-- rs_num, p_code -->
-					    <div class="th-8"><div class="text-wrapper-23"><button class="cancel-bt" value="${item.rs_num} ${item.pvo.p_code}">취소</button></div></div>
-					  </div>
+                <c:set var="len" value="${fn:length(rvo)}" />
+                <c:if test="${page.end<=len}">
+                	<c:set var="end" value="${page.end}"/>
+                </c:if>
+				<c:if test="${page.end>len}">
+					<c:set var="end" value="${len}" />
+				</c:if>
+					 <c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
+						<div class="tr-${status.index}">
+							<div class="data-1">
+								<div class="text-wrapper-24">${rvo[i-1].rs_time.split(" ")[0]}</div>
+							</div>
+							<div class="data-2">
+								<div class="text-wrapper-25">${rvo[i-1].rs_num}</div>
+							</div>
+							<c:if test="${rvo[i-1].ssvo != null}">
+								<div class="data-3">
+									<div class="text-wrapper-26">${rvo[i-1].ssvo.t_name}</div>
+								</div>
+								<div class="data-4">
+									<div class="text-wrapper-27">${rvo[i-1].ssvo.ss_time.split(" ")[0]}</div>
+								</div>
+								<div class="data-5">
+									<div class="text-wrapper-28">${rvo[i-1].ssvo.mvo.movieNm }</div>
+								</div>
+							</c:if>
+							<c:if test="${rvo[i-1].pvo != null}">
+								<div class="data-6">
+									<div class="text-wrapper-27">${rvo[i-1].pvo.p_tt_price}</div>
+								</div>
+							</c:if>
+							<div class="th-8">
+								<div class="text-wrapper-23">
+									<button class="cancel-bt"
+										value="${rvo[i-1].rs_num} ${rvo[i-1].pvo.p_code}">취소</button>
+								</div>
+							</div>
+						</div>
 					</c:forEach>
-                	
-                  <div class="nav">
-                    <div class="strong"><div class="text-wrapper-29">1</div></div>
-                    <div class="link-11"><div class="text-wrapper-30">2</div></div>
-                    <div class="link-12"><div class="text-wrapper-30">3</div></div>
-                    <div class="link-13"><div class="text-wrapper-30">4</div></div>
-                    <div class="link-14"><div class="text-wrapper-30">5</div></div>
-                    <div class="link-15"><div class="text-wrapper-30">6</div></div>
-                    <div class="link-16"><div class="text-wrapper-30">7</div></div>
-                    <div class="link-17"><div class="text-wrapper-30">8</div></div>
-                    <div class="link-18"><div class="text-wrapper-30">9</div></div>
-                    <div class="link-19"><div class="text-wrapper-31">10</div></div>
-                    <div class="link-20"></div>
-                    <div class="link-21"></div>
-                  </div>
                 </div>
               </div>
-              <div class="heading-2">예매 내역</div>
             </div>
-          </div>
-          <div class="overlap-wrapper">
-            <div class="overlap-4">
-              <div class="table-2">
-                <div class="thead-2">
-                  <div class="th-9"><div class="text-wrapper-32">취소 일시</div></div>
-                  <div class="th-10"><div class="text-wrapper-33">예매번호</div></div>
-                  <div class="th-11"><div class="text-wrapper-20">영화명</div></div>
-                  <div class="th-12"><div class="text-wrapper-21">극장/상영관</div></div>
-                  <div class="th-13"><div class="text-wrapper-22">상영일시</div></div>
-                  <div class="th-14"><div class="text-wrapper-22">환불 금액</div></div>
-                </div>
-                <div class="tbody-2">
-                
-                <c:forEach var="item" items="${rvo_cancel}" varStatus="status">
-					  <div class="tr-${status.index + 11}">
-					    <div class="data-7"><div class="text-wrapper-27">${item.rs_time.split(" ")[0]}</div></div>
-					    <div class="data-8"><div class="text-wrapper-27">${item.rs_num}</div></div>
-					    <c:if test="${item.ssvo != null}">
-					      <div class="data-9"><div class="text-wrapper-26">${item.ssvo.t_name}</div></div>
-					      <div class="data-10"><div class="text-wrapper-27">${item.ssvo.ss_time.split(" ")[0]}</div></div>
-					      <div class="data-11"><div class="text-wrapper-28">${item.ssvo.mvo.movieNm }</div></div>
-					    </c:if>
-					    <c:if test="${item.pvo != null}">
-					      <div class="data-12"><div class="text-wrapper-27">${item.pvo.p_tt_price}</div></div>
-					    </c:if>
-					  </div>
-					</c:forEach>
-                
-                    <div class="nav-2">
-                      <div class="strong"><div class="text-wrapper-29">1</div></div>
-                      <div class="link-11"><div class="text-wrapper-30">2</div></div>
-                      <div class="link-12"><div class="text-wrapper-30">3</div></div>
-                      <div class="link-13"><div class="text-wrapper-30">4</div></div>
-                      <div class="link-14"><div class="text-wrapper-30">5</div></div>
-                      <div class="link-15"><div class="text-wrapper-30">6</div></div>
-                      <div class="link-16"><div class="text-wrapper-30">7</div></div>
-                      <div class="link-17"><div class="text-wrapper-30">8</div></div>
-                      <div class="link-18"><div class="text-wrapper-30">9</div></div>
-                      <div class="link-19"><div class="text-wrapper-31">10</div></div>
-                      <div class="link-20"></div>
-                      <div class="link-21"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="heading-2">예매 취소 내역</div>
-              
-              
-              <!-- 
-              
-              div class="label-wrapper"><div class="label-2">기간</div></div>
-               
-				
-				<select class="text-wrapper-16" id="reservationValue">
-				    <option value=""> ::선택하세요:: </option>
-				    <% for(int i = 0; i < 12; i++) { %>
-				        <% String formattedDate = sdf.format(cal.getTime()); %>
-            			<option value="<%=formattedDate%>"><%=formattedDate%></option>
-            			<%
-                		cal.add(java.util.Calendar.MONTH, -1);
-           				 } %>
-				</select>
-				
-               -->
-               <div class="overlap-2">
-             
-              <div class="label-wrapper"><div class="label-2">기간</div></div>
-               		<%
-				    java.util.Calendar cal2 = java.util.Calendar.getInstance();
-				%>
-				<select class="text-wrapper-16" id="cancelMonth">
-				    <option value=""> ::선택하세요:: </option>
-				    <% for(int i = 0; i < 12; i++) { %>
-				        <% String formattedDate = sdf.format(cal2.getTime()); %>
-            			<option value="<%=formattedDate%>"><%=formattedDate%></option>
-            			<%
-                		cal2.add(java.util.Calendar.MONTH, -1);
-           				 } %>
-				</select>
-              <button class="link-10" id="cancelSearch">조회</button>
+            <!-- 페이징 -->
+					<div class="nav">
+						<div>
+							<ol class="paging">
+								<c:if test="${page.startPage < page.pagePerBlock}">
+									<li class="disable">&lt;</li>
+								</c:if>
+								<c:if test="${page.startPage >= page.pagePerBlock}">
+									<li class=""><a
+										href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+								</c:if>
+								<!-- <div class="nav"> -->
+								<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+									<c:if test="${i == page.nowPage}">
+										<li class="now">${i}</li>
+									</c:if>
+									<c:if test="${i != page.nowPage}">
+										<li class=" "><a
+											href="Controller?type=myReservation&cPage=${i}">${i}</a></li>
+									</c:if>
+								</c:forEach>
+
+
+								<c:if test="${page.endPage < page.totalPage}">
+									<li class=""><a
+										href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+								</c:if>
+								<c:if test="${page.endPage >= page.totalPage}">
+									<li class=" disable">&gt;</li>
+								</c:if>
+
+							</ol>
+						</div>
+					</div>
+					<!-- 페이징 끝-->
+				</div>
+          
             </div>
           </div>
           <img class="line" src="https://c.animaapp.com/G7hSAD2g/img/line-1.svg" />
@@ -284,25 +249,7 @@
 			    
 			 });
 			 
-			 //예매 취소 내역 기간 검색 버튼
-			 $("#cancelSearch").click(function() {
-				    const selectedMonth = $("#cancelMonth").val(); // 선택된 월 값
-		
-				    var form = document.createElement('form');
-			        var objs;
-		            
-		            objs = document.createElement('input');
-		            objs.setAttribute('type', 'hidden');
-		            objs.setAttribute('name', 'cancelMonth');
-		            objs.setAttribute('value', selectedMonth);
-		            form.appendChild(objs);
-		            
-		            form.setAttribute('method', 'post');
-		            form.setAttribute('action', 'Controller?type=myReservation');
-		            document.body.appendChild(form);
-		            form.submit();
-				    
-				 });
+			 
 		});
 		
 		

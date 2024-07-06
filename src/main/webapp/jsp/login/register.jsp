@@ -96,7 +96,6 @@
         }
     };
 </script>
-<jsp:include page="/jsp/header/header.jsp"/>
 <div class="screen">
     <div class="div">
         <div class="overlap">
@@ -257,10 +256,12 @@
                     </button>
                 </div>
             </div>
+            <jsp:include page="../header/header.jsp"/>
+            <jsp:include page="../footer/footer.jsp"/>
         </div>
     </div>
 </div>
-<jsp:include page="/jsp/footer/footer.jsp"/>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>

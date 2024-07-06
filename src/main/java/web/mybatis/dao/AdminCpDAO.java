@@ -13,7 +13,6 @@ import web.mybatis.vo.MemberVO;
 public class AdminCpDAO {
 	public static CouponItemVO[] getCouponItem() {
 		
-		
 		SqlSession ss = FactoryService.getFactory().openSession();
 		
 		List<CouponItemVO> list = ss.selectList("couponItem.getCouponItemList");
@@ -91,5 +90,37 @@ public class AdminCpDAO {
 			ss.rollback();
 
 		ss.close();
+	}
+	
+	public static CouponItemVO[] searchCouponItem(String searchType, String searchValue) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("searchType", searchType);
+		map.put("searchValue", searchValue);
+		
+		List<CouponItemVO> list = ss.selectList("couponItem.searchCouponItem", map);
+		
+		CouponItemVO[] couponItem = new CouponItemVO[list.size()];
+		list.toArray(couponItem);
+		return couponItem;
+		
+	}
+	
+	public static MemberVO[] searchMemItem(String searchType, String searchValue) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("searchType", searchType);
+		map.put("searchValue", searchValue);
+		System.out.println(searchType);
+		System.out.println(searchValue);
+		
+		List<MemberVO> list = ss.selectList("member.searchMem", map);
+		System.out.println(list.size());
+		
+		MemberVO[] memItem = new MemberVO[list.size()];
+		list.toArray(memItem);
+		return memItem;
 	}
 }

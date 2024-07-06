@@ -4,16 +4,11 @@
     right: 20px;
 }
 .select-movie {
-  position: absolute;
-  top: 100px;
-  height: auto;
   background-color: #ffffff;
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  padding: 50px 0;
-
 }
 
 .select-movie .div {

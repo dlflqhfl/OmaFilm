@@ -3,13 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-  <head>
+  <head> 
     <meta charset="utf-8" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/selectTimeGlobals.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/selectTimeStyle.css" />
   </head>
   <body>
- <jsp:include page="/jsp/header/header.jsp"/>
+ 
     <div class="select-movie">
       <div class="div">
         <div class="list">
@@ -325,7 +325,7 @@
                 </div>
                 <div class="item-6"></div>
               </div>
-
+              
 			<form id="goReservation" action="Controller?type=reservation" method="post">
 				<input type="hidden" id="movieName" name="movieName" value="">
 				<input type="hidden" id="text" name="text" value="">
@@ -338,20 +338,19 @@
         </div>
       </div>
     </div>
- <jsp:include page="/jsp/footer/footer.jsp"/>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
   crossorigin="anonymous"></script>
 <script type="text/javascript">
 	let date;
 $(function() {
-
+	
 	let checkClick = null;
 	let checkGuan = null;
 	let checkMovie = null;
 	let checkTime = null;
 	let checkDate = null;
-
+	
 	//선택확인
 	function check(element, selector, color, type){
 		 if (checkClick) {
@@ -367,9 +366,9 @@ $(function() {
         } else if (type === 4 && checkDate && checkDate !== element) {
             $(checkDate).css('background-color', '');
         }
-
+		
 		$(element).css('background-color', color);
-
+		
         // 선택된 요소 업데이트
         if (type === 1) {
             checkGuan = element;
@@ -380,9 +379,9 @@ $(function() {
         } else if (type === 4) {
             checkDate = element;
         }
-
+		
 	}
-
+	
 	$(".guan").click(function() {
 	    check(this, '.guan', '#C0C0C0',1); // 영화 선택 시 배경색 변경
 	});
@@ -393,15 +392,15 @@ $(function() {
 	    check(this, '.guan', '#C0C0C0',3); // 영화 선택 시 배경색 변경
 	});
 
-
-
+	
+	
 	$('.guan').hover(function() {
         if (this !== checkGuan) { // 선택된 요소가 아닐 때만 hover 효과 적용
             $(this).css('background-color', '#C0C0C0');
         }
     }, function() {
         if (this !== checkGuan) { // 선택된 요소가 아닐 때만 hover 효과 제거
-            $(this).css('background-color', '');
+            $(this).css('background-color', ''); 
         }
     });
 	$('.movie').hover(function() {
@@ -410,7 +409,7 @@ $(function() {
         }
     }, function() {
         if (this !== checkMovie) { // 선택된 요소가 아닐 때만 hover 효과 제거
-            $(this).css('background-color', '');
+            $(this).css('background-color', ''); 
         }
     });
 	$('.time').hover(function() {
@@ -419,18 +418,18 @@ $(function() {
         }
     }, function() {
         if (this !== checkTime) { // 선택된 요소가 아닐 때만 hover 효과 제거
-            $(this).css('background-color', '');
+            $(this).css('background-color', ''); 
         }
     });
-
+	
     let $daysContainer = $('#days');
     let $monthContainer = $('#current-month');
-
+    
     let today = new Date();
     let currentMonth = today.getMonth(); // 0부터 시작합니다.
     let currentDate = today.getDate();
     let currentDay = today.getDay();
-
+    
     let daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
     let monthNames = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
 
@@ -445,7 +444,7 @@ $(function() {
         new Date(today.getFullYear(), 9, 9),    // 한글날
         new Date(today.getFullYear(), 11, 25)   // 성탄절
     ];
-
+    
     $monthContainer.text(`${monthNames[currentMonth]}`);
 
     // 오늘의 날짜가 왼쪽에서 두 번째 위치에 나타나도록 위치 조정
@@ -459,7 +458,7 @@ $(function() {
         dayDate.setDate(currentDate - currentDay + startDay + i);
 
         let $dayElement = $('<div></div>').addClass('day');
-
+        
         let $dateElement = $('<span></span>').addClass('date').text(dayDate.getDate());
 
         if (dayDate.getDate() === currentDate) { // 오늘 날짜일 경우
@@ -489,16 +488,16 @@ $(function() {
         if (holidays.some(holiday => holiday.getTime() === dayDate.getTime())) {
             $dateElement.css('color', 'red');
         }
-
+        
         $dayElement.append($dateElement);
         $daysContainer.append($dayElement);
-
-
+        
+        
         $daysContainer.on('click', '.date', function() {
             check(this,'date', '#C0C0C0', 4); // 마우스 오버 시 배경색 변경
         });
     }
-
+    
 	$(".date").click(function(){
 	    let day = $(this).text(); // 예: "20"
 
@@ -512,10 +511,10 @@ $(function() {
 
 	    let selectedYear = selectedDate.getFullYear(); // 선택한 일자의 연도를 가져옵니다.
 	    let selectedMonth = selectedDate.getMonth() + 1; // 선택한 일자의 월을 가져옵니다.
-
+	    
 	    date = selectedYear+ "-"+selectedMonth + "-" + day
 	    console.log(date)
-	})
+	})    
 
 });
 
@@ -531,32 +530,32 @@ $(function() {
 		text = $(this).text()
 		console.log(text)
 	})
-
-
+	
+	
 
 	//영화 가져오기
 	$(".name").click(function(){
 		movieName = $(this).text()
 		console.log(movieName)
 	})
-
+	
 	//시간 선택
 	$(".text-wrapper-27").click(function(){
 		time = $(this).text();
 		console.log(time)
 	})
-
+	
 	function sendTime(){
 		$("#text").val(text)
 		$("#movieName").val(movieName)
 		$("#time").val(time)
 		$("#date").val(date)
-
+		
 		let checkText = $("#text").val()
 		let checkMovieName = $("#movieName").val()
 		let checkTime = $("#time").val()
 		let checkDate = $("#date").val()
-
+		
 		if( checkText != "" && checkMovieName != "" && checkTime != "" && checkDate != "" ){
 			$("#goReservation").submit()
 		} else {

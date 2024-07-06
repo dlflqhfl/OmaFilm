@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <head> <!-- !1정보전략1! -->
@@ -160,11 +160,18 @@
               <div class="select-won">원</div>
               <div class="select-price">${param.p_ex_price }</div>
             </div>
-            <div class="dis-price">${param.saleprice}</div>
+            <div class="dis-price">
+            	${param.saleprice}
+            </div>
             <div class="total-price">${param.p_tt_price }</div>
             <div class="text-wrapper-7">예매번호 ${rs_num }</div>
             <div class="text-wrapper-8">
-              ${payContent }??????
+            <c:if test="${payContent != null }">
+              ${payContent }
+            </c:if>
+            <c:if test="${nPayContent != null }">
+              ${nPayContent }
+            </c:if>
             </div>
           </div>
         </div>

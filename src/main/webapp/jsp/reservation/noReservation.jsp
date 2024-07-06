@@ -11,10 +11,10 @@
               <div class="row-2">
                 <div class="cell"><div class="label-2">인증번호</div></div>
                 <div class="data">
-                  <button class="button-2"><div class="text-wrapper-6">인증확인</div></button>
+                  <button class="button-2" id="checkButton"><div class="text-wrapper-6">인증확인</div></button>
                   <div class="background-border">
-                    <div class="input-3"></div>
-                    <div class="text-wrapper-7">3:00</div>
+                    <input type="text" id="emailCheck" name="emailCheck" class="input-3">
+                    <div class="text-wrapper-7" id="timer">3:00</div>
                   </div>
                 </div>
               </div>
@@ -22,7 +22,7 @@
                 <div class="label-wrapper"><div class="label-3">이메일</div></div>
                 <div class="data-2">
                   <input class="input-4" placeholder="이메일을 입력해주세요" type="email" id="email" name="email">
-                  <button class="button-3"><div class="text-wrapper-8">인증요청</div></button>
+                  <button class="button-3" onclick="sendEmail()"><div class="text-wrapper-8">인증요청</div></button>
                 </div>
               </div>
               <div class="row-4">
@@ -44,9 +44,10 @@
                 </div>
               </div>
               <div class="row-7">
-                <div class="label-wrapper"><div class="label-4">비밀번호 확인</div></div>
-                <div class="data-2">
-                  <input type="password" id="pw2" name="pw2" placeholder="비밀번호를 다시 입력해주세요" class="input-5">
+                <div class="data1"><div class="dd">비밀번호 확인</div></div>
+                <div class="data22">
+                  <input type="password" id="pw1" name="pw1" placeholder="비밀번호를 다시 입력해주세요" class="input-5"><br>
+                  <span class="checkPw"></span>
                 </div>
               </div>
               
