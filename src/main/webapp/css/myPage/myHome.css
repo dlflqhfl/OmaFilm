@@ -303,6 +303,17 @@
   left: -1px;
 }
 
+.screen .item-link2 {
+  width: 252px;
+  height: 39px;
+  top: 190px;
+  background-color: #3d4d55;
+  border: 1px solid;
+  border-color: #d8d9db;
+  position: absolute;
+  left: -1px;
+}
+
 .screen .text-wrapper-9 {
   position: absolute;
   width: 98px;

@@ -664,15 +664,15 @@ $('#pw1').keyup(function () {
 
 	//결제하기로 넘기기
 	$(".pay-button").click(function(){
-		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?     (비회원 예매시 취소버튼 클릭!)")
+		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?")
 		if( result ){
-			paymentData()
-		} else {
-			if( login){
+			if(login){
 				paymentData()
 			} else{
 				modal.css("display", "block")
 			}
+		} else {
+			
 		}
 	})
 
