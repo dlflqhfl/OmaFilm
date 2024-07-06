@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/myPage/myHome.css" />
   </head>
   <body>
+  	<jsp:include page="/jsp/header/header.jsp"/> 
+	<jsp:include page="/jsp/footer/footer.jsp"/>
     <div class="screen">
       <div class="container-wrapper">
         <div class="container">
@@ -122,7 +124,6 @@
 			        <span class="coupon-expiring">${delCouponCount }<span>매</span></span>
 		    </div>
 		</div>
-		<jsp:include page="/jsp/header/header.jsp"/> 
-		<jsp:include page="/jsp/footer/footer.jsp"/>
+		
   </body>
 </html> 
