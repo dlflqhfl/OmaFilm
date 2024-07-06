@@ -1,0 +1,224 @@
+.footer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1920px;
+    height: 200px;
+    background-color: #f8f8fa;
+    bottom: 0;
+    margin: auto;
+}
+
+.footer .footer_wrapper {
+    position: absolute;
+    width: 1100px;
+    height: 90px;
+    top: 0;
+    left: 410px;
+}
+
+.footer .footer__navbar {
+    position: relative;
+    width: 681px;
+    height: 30px;
+    top: 30px;
+}
+
+.footer .footer__text-wrapper {
+    width: 47px;
+    left: 0;
+    font-size: 11.6px;
+    position: absolute;
+    height: 30px;
+    top: -2px;
+    font-family: "Dotum-Regular", Helvetica;
+    font-weight: 400;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 30px;
+    white-space: nowrap;
+}
+
+.footer .footer__item {
+    width: 47px;
+    left: 60px;
+    font-size: 11.6px;
+    position: absolute;
+    height: 30px;
+    top: -2px;
+    font-family: "Dotum-Regular", Helvetica;
+    font-weight: 400;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 30px;
+    white-space: nowrap;
+}
+
+.footer .footer__item-2 {
+    width: 47px;
+    left: 121px;
+    font-size: 11.6px;
+    position: absolute;
+    height: 30px;
+    top: -2px;
+    font-family: "Dotum-Regular", Helvetica;
+    font-weight: 400;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 30px;
+    white-space: nowrap;
+}
+
+.footer .footer__item-3 {
+    width: 128px;
+    left: 181px;
+    font-size: 11.8px;
+    position: absolute;
+    height: 30px;
+    top: -2px;
+    font-family: "Dotum-Regular", Helvetica;
+    font-weight: 400;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 30px;
+    white-space: nowrap;
+}
+
+.footer .footer__link {
+    position: absolute;
+    width: 46px;
+    height: 30px;
+    top: 0;
+    left: 323px;
+}
+
+.footer .footer__div-wrapper {
+    width: 130px;
+    left: 383px;
+    position: absolute;
+    height: 30px;
+    top: 0;
+}
+
+.footer .footer__text-wrapper-4 {
+    width: 131px;
+    color: #666666;
+    font-size: 11.5px;
+    position: absolute;
+    height: 30px;
+    top: -2px;
+    left: 0;
+    font-family: "Dotum-Regular", Helvetica;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 30px;
+    white-space: nowrap;
+}
+
+.footer .footer__link-2 {
+    width: 93px;
+    left: 528px;
+    position: absolute;
+    height: 30px;
+    top: 0;
+}
+
+.footer .footer__text-wrapper-5 {
+    width: 93px;
+    color: #222222;
+    font-size: 11.6px;
+    position: absolute;
+    height: 30px;
+    top: -2px;
+    left: 0;
+    font-family: "Dotum-Regular", Helvetica;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 30px;
+    white-space: nowrap;
+}
+
+.footer .footer__link-3 {
+    width: 46px;
+    left: 634px;
+    position: absolute;
+    height: 30px;
+    top: 0;
+}
+
+.footer .footer__wrapper--secondary {
+    position: absolute;
+    width: 1136px;
+    height: 59px;
+    top: 90px;
+    left: 392px;
+}
+
+.footer .footer__image {
+    width: 150px;
+    height: 50px;
+    left: 0;
+    background-image: url(https://c.animaapp.com/ZnqZ58gK/img/image@2x.png);
+    position: absolute;
+    top: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.footer .footer__address {
+    position: absolute;
+    width: 754px;
+    height: 58px;
+    top: -1px;
+    left: 170px;
+    font-family: "Dotum-Regular", Helvetica;
+    font-weight: 400;
+    color: #444444;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 19.5px;
+}
+
+.footer .footer__image-2 {
+    width: 30px;
+    height: 30px;
+    left: 972px;
+    background-image: url(https://c.animaapp.com/ZnqZ58gK/img/image-1@2x.png);
+    position: absolute;
+    top: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.footer .footer__image-3 {
+    width: 30px;
+    height: 30px;
+    left: 1009px;
+    background-image: url(https://c.animaapp.com/ZnqZ58gK/img/image-2@2x.png);
+    position: absolute;
+    top: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.footer .footer__image-4 {
+    width: 30px;
+    height: 30px;
+    left: 1046px;
+    background-image: url(https://c.animaapp.com/ZnqZ58gK/img/image-3@2x.png);
+    position: absolute;
+    top: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.footer .footer__image-5 {
+    width: 30px;
+    height: 30px;
+    left: 1083px;
+    background-image: url(https://c.animaapp.com/ZnqZ58gK/img/image-4@2x.png);
+    position: absolute;
+    top: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+}
