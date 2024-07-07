@@ -17,29 +17,7 @@
     <div class="screen">
       <div class="container-wrapper">
         <div class="container">
-          <img class="footer" src="https://c.animaapp.com/G7hSAD2g/img/footer.png" />
-          <div class="frame">
-            <div class="navbar">
-              <div class="link"><div class="text-wrapper">회원가입</div></div>
-              <div class="div-wrapper"><div class="text-wrapper">고객센터</div></div>
-              <div class="div"><div class="text-wrapper-2">관리자</div></div>
-              <div class="text-wrapper-3">로그인</div>
-              <div class="link-2"><div class="text-wrapper">빠른예매</div></div>
-              <img class="img" src="https://c.animaapp.com/G7hSAD2g/img/link-9@2x.png" />
-              <img class="link-3" src="https://c.animaapp.com/G7hSAD2g/img/link-10@2x.png" />
-              <img class="link-4" src="https://c.animaapp.com/G7hSAD2g/img/link-11@2x.png" />
-              <div class="text-wrapper-4">예매</div>
-              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                ><div class="text-wrapper-5">영화</div></a
-              >
-              <div class="text-wrapper-6">이벤트</div>
-              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                ><div class="text-wrapper-7">혜택</div></a
-              >
-              <img class="heading-link" src="https://c.animaapp.com/G7hSAD2g/img/heading-1---link-1@2x.png" />
-              <div class="link-5"></div>
-            </div>
-          </div>
+          <jsp:include page="/jsp/header/header.jsp"/>
           <div class="background">
             <div class="overlap">
               <div class="link-6"><div class="text-wrapper-8">마이페이지</div></div>
@@ -209,6 +187,7 @@
         </div>
       </div>
     </div>
+   <jsp:include page="/jsp/footer/footer.jsp"/> 
   </body>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script>

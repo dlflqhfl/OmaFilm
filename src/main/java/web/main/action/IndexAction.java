@@ -39,12 +39,10 @@ public class IndexAction implements Action{
 			page.setNowPage(1);
 
 		MovieListVO[] mar = MovieListDAO.getList(page.getBegin(), page.getEnd(), null);
-		// 배열 길이 확인 후 접근
-		if (mar.length > 3) {
-			System.out.println(mar[3].getMovieNm());
-		} else {
-			System.out.println("The requested index is out of bounds for the mar array.");
-		}
+		
+		if (mar == null) {  // null 체크 추가
+	         mar = new MovieListVO[0]; // 빈 리스트로 초기화
+	      }
 
 		NoticeVO[] ear = EventDAO.getElist();
 		NoticeVO[] nar = NoticeDAO.getList(page.getBegin(), page.getEnd(), null);

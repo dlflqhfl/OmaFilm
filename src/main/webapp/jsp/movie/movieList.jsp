@@ -10,10 +10,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/movie/movieList.css" />
   </head>
   <body>
-          <div class="overlap-group">
-              <img class="overlay" src="${pageContext.request.contextPath}/img/movie/movieList/overlay.svg" />
              <jsp:include page="/jsp/header/header.jsp"/>
-            </div>
     <div class="div-wrapper">
       <div class="container-wrapper">
         <div class="container">

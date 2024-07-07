@@ -119,7 +119,7 @@
             (SELECT @RN := 0) b
         ORDER BY        
             IF(d.rank IS NULL, 1, 0) ASC,  
-       		d.rank ASC,
+       		CAST(d.rank AS UNSIGNED) ASC,
        		m.openDt DESC
 	    ) c
 	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
