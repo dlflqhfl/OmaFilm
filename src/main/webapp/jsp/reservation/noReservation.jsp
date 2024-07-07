@@ -44,9 +44,10 @@
                 </div>
               </div>
               <div class="row-7">
-                <div class="label-wrapper"><div class="label-4">비밀번호 확인</div></div>
-                <div class="data-2">
-                  <input type="password" id="pw2" name="pw2" placeholder="비밀번호를 다시 입력해주세요" class="input-5">
+                <div class="data1"><div class="dd">비밀번호 확인</div></div>
+                <div class="data22">
+                  <input type="password" id="pw1" name="pw1" placeholder="비밀번호를 다시 입력해주세요" class="input-5"><br>
+                  <span class="checkPw"></span>
                 </div>
               </div>
               

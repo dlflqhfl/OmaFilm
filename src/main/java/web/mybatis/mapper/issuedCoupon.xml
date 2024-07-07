@@ -65,17 +65,19 @@
 	<!-- 마이페이지 전체 쿠폰 개수 조회 -->
 	<select id="getCouponCount" parameterType="int" resultType="int">
 		SELECT count(*) FROM issued_coupon 
-		WHERE u_code=#{u_code}
+		WHERE u_code=#{u_code} and cp_status = 0
 	</select>
 	
 	<!-- 마이페이지 당월 소멸 쿠폰 개수 조회 -->
 	 <select id="delCouponCount" resultType="int" parameterType="int">
          <![CDATA[
-        SELECT COUNT(*)
-        FROM issued_coupon
-        WHERE DATE_FORMAT(cp_date, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m')
-        AND cp_date <= LAST_DAY(NOW())
-        AND u_code = #{u_code}
+         SELECT COUNT(*)
+        FROM issued_coupon ic
+        INNER JOIN coupon_item ci ON ic.ci_code = ci.ci_code
+        WHERE ic.u_code = #{u_code}
+        	AND ic.cp_status = 0 and ci.ci_status = 0
+          AND ci.ci_time >= DATE_FORMAT(NOW(), '%Y-%m-01') 
+          AND ci.ci_time < DATE_FORMAT(NOW(), '%Y-%m-01') + INTERVAL 1 MONTH
          ]]>
     </select>
 </mapper>

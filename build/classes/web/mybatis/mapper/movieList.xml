@@ -8,7 +8,7 @@
     <select id="getMovieVO" parameterType="String" resultType="web.mybatis.vo.MovieListVO">
         SELECT *
         FROM movie_list
-        WHERE movieNm = #{movieNm}
+        WHERE movieNm = #{movieNm} 
     </select>
 
     <select id="getMVO" parameterType="String" resultType="web.mybatis.vo.MovieListVO">
@@ -94,7 +94,7 @@
         SELECT 
             (@RN := @RN + 1) AS rnum1,
             m.movieCd, 
-            m.movieNm, 
+            m.movieNm,  
             m.openDt, 
             m.watchGradeNm, 
             m.m_plot, 
@@ -117,10 +117,10 @@
                 GROUP BY movieCd
             ) r ON m.movieCd = r.movieCd,
             (SELECT @RN := 0) b
-        ORDER BY
-            CAST(REPLACE(REPLACE(COALESCE(d.salesShare, '0'), ',', ''), '%', '') AS DECIMAL) DESC,
-            COALESCE(d.salesShare, '0') DESC,
-            COALESCE(r.review_count, 0) DESC
+        ORDER BY        
+            IF(d.rank IS NULL, 1, 0) ASC,  
+       		d.rank ASC,
+       		m.openDt DESC
 	    ) c
 	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
 		</select>
@@ -166,7 +166,9 @@
 	            ) r ON m.movieCd = r.movieCd,
 	            (SELECT @RN := 0) b
 	        ORDER BY
-	            COALESCE(r.review_count, 0) DESC 
+	            IF(r.review_count IS NULL, 1, 0) ASC,  
+       			 r.review_count DESC, 
+        		CAST(COALESCE(d.rank, '9999') AS UNSIGNED) ASC 
 	    ) c
 	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
 	</select>

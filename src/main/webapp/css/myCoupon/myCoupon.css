@@ -103,13 +103,17 @@
 
 .screen .li-2 {
   height: 39px;
-  top: 113px;
+  top: 190px;
   background-color: #3d4d55;
   position: absolute;
   width: 252px;
   left: -1px;
   border: 1px solid;
   border-color: #d8d9db;
+}
+a:link, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
 }
 
 .screen .text-wrapper-2 {
@@ -132,9 +136,7 @@
 .screen .li-3 {
   height: 39px;
   top: 75px;
-  background-image: url("../../img/myPage/myhome/mypagelist.svg");
-  background-size: cover;
-  background-position: 50% 50%;
+  background-color: #3d4d55;
   position: absolute;
   width: 252px;
   left: -1px;
@@ -161,12 +163,15 @@
 .screen .li-4 {
   height: 39px;
   top: 114px;
-  background-color: #3d4d55;
   position: absolute;
   width: 252px;
-  left: 0;
+  left: -1px;
   border: 1px solid;
   border-color: #d8d9db;
+  background-image: url("../../img/myPage/myhome/mypagelist.svg");
+  background-size: cover;
+  background-position: 50% 50%;
+  
 }
 
 .screen .text-wrapper-4 {

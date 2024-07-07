@@ -2,7 +2,7 @@
 <%@page import="web.mybatis.vo.SelectSeatVO"%>
 <%@page import="web.mybatis.vo.ScreeningScheduleVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+         pageEncoding="UTF-8" %> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
@@ -344,6 +344,9 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous"></script>
 <script type="text/javascript">
+
+timer = null;
+
 function sendEmail() {
     var email = $('#email').val();
 
@@ -362,7 +365,7 @@ function sendEmail() {
             data = data.trim();
             if (data === "0") {
                 alert("이메일이 성공적으로 전송되었습니다.");
-                var time = 180;
+                time = 180;
                 timer = setInterval(function () {
                     var minutes = Math.floor(time / 60);
                     var seconds = time % 60;
@@ -429,6 +432,17 @@ $("#checkButton").on("click", function () {
             }
         }
     });
+});
+
+//비밀번호 확인
+$('#pw1').keyup(function () {
+    var pw = $('#pw').val();
+    var pw_check = $('#pw1').val();
+    if (pw == pw_check) {
+        $('.checkPw').text('일치함').css('color', 'blue').show();
+    } else {
+        $('.checkPw').text('일치하지 않음').css('color', 'red').show();
+    }
 });
 
 	let text = '<%= request.getParameter("text") %>';
@@ -519,7 +533,6 @@ $("#checkButton").on("click", function () {
         
     });
     
-    console.log()
 	console.log(text)
 	console.log(movieName)
 	console.log(time)
@@ -651,15 +664,15 @@ $("#checkButton").on("click", function () {
 
 	//결제하기로 넘기기
 	$(".pay-button").click(function(){
-		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?     (비회원 예매시 취소버튼 클릭!)")
+		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?")
 		if( result ){
-			paymentData()
-		} else {
-			if( login){
+			if(login){
 				paymentData()
 			} else{
 				modal.css("display", "block")
 			}
+		} else {
+			
 		}
 	})
 

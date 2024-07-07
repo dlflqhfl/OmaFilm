@@ -35,8 +35,8 @@
     session.setAttribute("state", state);
 %>
 <div class="container">
+    <jsp:include page="/jsp/header/header.jsp"/>
     <div class="div">로그인</div>
-    <jsp:include page="../header/header.jsp"/>
     <span class="button"><div class="text-wrapper-8">회원</div></span>
     <span class="button-2"><div class="text-wrapper-9"><a href="login_2.jsp">비회원</a></div></span>
     <div class="link-7">
@@ -63,7 +63,7 @@
     <a href="<%=apiURL%>" id="naver_login"><img class="image-2" src="https://c.animaapp.com/s5cVxUlg/img/image-6@2x.png"/></a>
 </div>
 
-<%@ include file="../footer/footer.jsp" %>
+<jsp:include page="/jsp/footer/footer.jsp"/>
 <script>
     window.onload = function() {
         //requset에 저장된 result값을 가져온다.
@@ -189,6 +189,12 @@
         }else if(result == "2"){
             alert("로그인 실패");
         }
+    });
+
+    //라디오 버튼 클릭 할 때마다 상태 변경
+    $("#remember_id").click(function() {
+        // Toggle the 'checked' property directly
+        $(this).prop("checked", !$(this).prop("checked"));
     });
 
 </script>

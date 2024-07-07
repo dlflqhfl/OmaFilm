@@ -203,7 +203,7 @@
   position: absolute;
   width: 78px;
   height: 218px;
-  top: 435px;
+  top: 434px;
   left: 0;
   background-color: #ffffff;
   border-right-width: 1px;
@@ -758,4 +758,29 @@
   letter-spacing: -0.36px;
   line-height: 55px;
   white-space: nowrap;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

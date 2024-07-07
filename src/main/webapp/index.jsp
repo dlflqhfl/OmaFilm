@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css"/>
 </head>
 <body>
+<jsp:include page="jsp/header/header.jsp"/>
 <div class="omakase-cinema">
     <div class="overlap-wrapper">
         <div class="overlap">
@@ -141,7 +142,7 @@
                         	<c:if test="${vs.index < 4}">
 					            <div class="item">
 					              <div class="link-15">
-					                <div class="overlap-group-2" style="background-image: url('${pageContext.request.contextPath}/img/movie/movieList/${mar.movieNm}.png'); background-size: cover; background-repeat: no-repeat; background-position: center;"> 
+					                <div class="overlap-group-2" style="background-image: url('${mar.m_file}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
 					                  <%-- 이미지 호버 --%>
 					                  <div class="MovieHover">
 						                <a href="Controller?type=moviedetail&movieCd=${mar.movieCd}">
@@ -192,11 +193,10 @@
                     </div>
                 </div>
             </div>
-            <jsp:include page="jsp/header/header.jsp"/>
         </div>
-            <jsp:include page="jsp/footer/footer.jsp"/>
     </div>
 </div>
+<jsp:include page="jsp/footer/footer.jsp"/>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
     var movieHoverElements = document.querySelectorAll('.MovieHover');
@@ -208,6 +208,13 @@
         element.parentElement.addEventListener('mouseout', function () {
             element.style.display = 'none';
         });
+    });
+
+    var moviePlot = document.querySelectorAll('.MovieHover_text');
+    moviePlot.forEach(function (element) {
+       if(element.innerText.length > 150){
+          element.innerText = element.innerText.substring(0, 150) + '...';
+       }
     });
 </script>
 </body>

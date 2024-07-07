@@ -73,13 +73,18 @@
         SELECT @RN:=@RN+1 AS rnum, a.* FROM(
         SELECT * FROM notice
         WHERE n_status = 0 AND nt_ct_code = 1
-        <if test="n_title != null and n_idx != null">
+        <if test="n_title != null and n_title != ''">
             AND n_title LIKE CONCAT('%', #{n_title}, '%')
-            AND n_idx = #{n_idx}
+        </if>
+        <if test="n_idx != null and n_idx != 0">
+                AND n_idx = #{n_idx}
         </if>
         ORDER BY n_idx DESC
         ) a, (SELECT @RN:=0) b
-        ) c WHERE c.rnum between #{begin} AND #{end};
+        ) c 
+        <if test="begin != null and end != null">
+        WHERE c.rnum BETWEEN #{begin} AND #{end}
+    	</if>
     </select>
     <!--  자주묻는질문  -->
     <select id="flist" resultMap="map1" parameterType="Map">

@@ -76,5 +76,10 @@
         WHERE r.rsvr_code = #{rsvr_code} AND r.rs_status=1
         ORDER BY r.rs_cancel_time DESC
     </select>
-
+    
+	<select id="getPcode" resultType="String" parameterType="String">
+		SELECT p_code
+		FROM reservation
+		WHERE rs_num = #{rs_num}
+	</select>
 </mapper>

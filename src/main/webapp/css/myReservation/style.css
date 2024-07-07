@@ -131,6 +131,7 @@
 }
 
 .screen .link-3 {
+	
   position: absolute;
   width: 36px;
   height: 36px;
@@ -389,16 +390,17 @@
 }
 
 .screen .item-link-3 {
-  top: 38px;
-  background-image: url(https://c.animaapp.com/G7hSAD2g/img/item---link.svg);
+	background-image: url("../../img/myPage/myhome/mypagelist.svg");
   background-size: cover;
   background-position: 50% 50%;
+  top: 38px;
   position: absolute;
   width: 252px;
   height: 39px;
   left: 0;
   border: 1px solid;
   border-color: #d8d9db;
+  background-color: #3d4d55;
 }
 
 .screen .text-wrapper-13 {
@@ -406,6 +408,7 @@
   height: 19px;
   top: 8px;
   left: 11px;
+  
   -webkit-text-stroke: 1px #b58863;
   color: #b58863;
   font-size: 15px;
@@ -664,7 +667,7 @@
   position: absolute;
   width: 1018px;
   height: 726px;
-  top: 0;
+  top: -80px;
   left: 0;
 }
 
@@ -1112,13 +1115,7 @@
   height: 45px;
 }
 
-.screen .nav {
-  position: absolute;
-  width: 840px;
-  height: 62px;
-  top: 451px;
-  left: 92px;
-}
+
 
 .screen .strong {
   position: absolute;
@@ -1285,7 +1282,6 @@
   top: 29px;
   left: 164px;
   border-radius: 4px;
-  transform: rotate(-179.79deg);
   background-image: url(https://c.animaapp.com/G7hSAD2g/img/link-6@2x.png);
   background-size: cover;
   background-position: 50% 50%;
@@ -1322,7 +1318,7 @@
   position: absolute;
   width: 1028px;
   height: 726px;
-  top: 1282px;
+  top: 240px;
   left: 607px;
 }
 
@@ -1628,7 +1624,7 @@
   position: absolute;
   width: 840px;
   height: 62px;
-  top: 450px;
+  top: 500px;
   left: 92px;
 }
 
@@ -1639,4 +1635,57 @@
   top: 1199px;
   left: 612px;
   object-fit: cover;
+}
+
+
+ol.paging {
+    list-style:none;
+   
+}
+
+.nav{
+	position: absolute;
+	width: auto;
+	height: 62px;
+	top: 600px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+ol.paging li {
+    float:left;
+    margin-right:8px;
+}
+
+ol.paging li a {
+    display:block;
+    padding:3px 7px;
+    border:1px solid #00B3DC;
+    color:#2f313e;
+    font-weight:bold;
+}
+
+ol.paging li a:hover {
+    background:#00B3DC;
+    color:white;
+    font-weight:bold;
+}
+
+.disable {
+    padding:3px 7px;
+    border:1px solid silver;
+    color:silver;
+}
+
+.now {
+   padding:3px 7px;
+    border:1px solid #ff4aa5;
+    background:#ff4aa5;
+    color:white;
+    font-weight:bold;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
 }

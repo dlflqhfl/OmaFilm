@@ -2,7 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
  
 <!DOCTYPE html>
@@ -17,24 +17,41 @@
       <div class="text-wrapper">
         <div class="text">
           <div class="background">
+          
+          
+          <!-- 
+          
+          <div class="overlap-group">
+                  <div class="li-2"><div class="text-wrapper"><a href="Controller?type=checkPw">개인 정보 수정</a></div></div>
+                  <div class="div-wrapper"><div class="div"><a href="Controller?type=myReservation">나의 예매 내역 조회</a></div></div>
+                  <div class="li"><div class="text-wrapper-2"><a href="Controller?type=inquiry">나의 문의 내역</a></div></div>
+                  <div class="li-4"><div class="text-wrapper-3"><a href="Controller?type=myCoupon">나의 쿠폰 조회</a></div></div>
+                  <div class="li-3"><div class="text-wrapper-4"><a href="Controller?type=myCancelReservation">나의 예매 취소 내역 조회</a></div></div>
+                  <div class="li-5"><div class="text-wrapper-5"><a href="Controller?type=myHome">마이페이지 홈</a></div></div>
+                </div>
+           -->
             <div class="nav">
               <div class="link"><div class="div">마이페이지</div></div>
               <div class="list">
-                  <div class="item-4">
-                    <div class="div-wrapper"><div class="text-wrapper-5"><a href="jsp/myPage/personInfor.jsp">개인 정보 수정</a></div></div>
-                  </div>
-                <div class="item">
-                  <div class="div-wrapper"><div class="text-wrapper-2"><a href="jsp/myPage/ticket.jsp">나의 예매 내역 조회</a></div></div>
-                </div>
-                <div class="overlap-group">
-                  <div class="item-link"><div class="text-wrapper-6"><a href="Controller?type=inquiry">나의 문의 내역</a></div></div>
-                </div>
-                <div class="item-3">
-                  <div class="div-wrapper"><div class="text-wrapper-4"><a href="jsp/myPage/myhome.jsp">마이페이지 홈</a></div></div>
-                </div>
-                <div class="link-wrapper">
-                  <div class="div-wrapper"><div class="text-wrapper-3"><a href="jsp/myPage/couponList.jsp">나의 쿠폰 조회</a></div></div>
-                </div>
+              		<div class="item-3">
+	                  <div class="div-wrapper"><div class="text-wrapper-4"><a href="Controller?type=myHome">마이페이지 홈</a></div></div>
+	                </div>
+	                <div class="item">
+	                  <div class="div-wrapper"><div class="text-wrapper-2"><a href="Controller?type=myReservation">나의 예매 내역 조회</a></div></div>
+	                </div>
+	                <div class="link-wrapper">
+	                  <div class="div-wrapper"><div class="text-wrapper-3"><a href="Controller?type=myCancelReservation">나의 예매 취소 내역 조회</a></div></div>
+	                </div> 
+	                <div class="overlap-group">
+	                  <div class="div-wrapper2"><div class="text-wrapper-6"><a href="Controller?type=myCoupon">나의 쿠폰 조회</a></div></div>
+	                </div>
+	                <div class="item-4">
+	                 <div class="item-link"><div class="text-wrapper-5"><a href="Controller?type=inquiry">나의 문의 내역</a></div></div>
+	               </div>
+	                <div class="item-5">
+	                 <div class="div-wrapper"><div class="text-wrapper-100"><a href="Controller?type=checkPw">개인 정보 수정</a></div></div>
+	               </div>
+	                
               </div>
             </div>
           </div>
