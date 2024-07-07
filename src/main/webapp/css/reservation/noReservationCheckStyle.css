@@ -163,11 +163,8 @@
 }
 
 .screen .tr-2 {
-  position: absolute;
   width: 353px;
   height: 39px;
-  top: 0;
-  left: 402px;
   overflow: hidden;
 }
 
@@ -568,13 +565,6 @@
   flex-direction: column;
 }
 
-.screen .nav {
-  position: relative;
-  width: 1024px;
-  height: 95px;
-  /* top: 495px; */
-  left: 0;
-}
 
 .screen .strong {
   position: absolute;
@@ -783,23 +773,18 @@
   left: 0;
 }
 
-.screen .data {
-  position: absolute;
+.screen .data-1 {
   width: 160px;
   height: 45px;
-  top: 0;
-  left: 0;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #eaeaea;
+  vertical-align: middle;
 }
 
-.screen .text-wrapper-10 {
-  position: absolute;
-  width: 91px;
+.screen .text-wrapper-20 {
+  width: 160px;
   height: 21px;
-  top: 11px;
-  left: 35px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #000000;
@@ -810,26 +795,82 @@
   white-space: nowrap;
 }
 
+.screen .text-wrapper-21 {
+  width: 170px;
+  height: 21px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+.screen .text-wrapper-22 {
+  width: 205px;
+  height: 21px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+.screen .text-wrapper-23 {
+  width: 170px;
+  height: 21px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+.screen .text-wrapper-24 {
+  width: 160px;
+  height: 21px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+.screen .text-wrapper-25 {
+  width: 160px;
+  height: 21px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
 .screen .data-2 {
   width: 170px;
-  left: 160px;
-  position: absolute;
   height: 45px;
-  top: 0;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #eaeaea;
+  vertical-align: middle;
 }
 
 .screen .data-3 {
   width: 170px;
-  left: 534px;
-  position: absolute;
   height: 45px;
-  top: 0;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #eaeaea;
+  vertical-align: middle;
 }
 
 .screen .text-wrapper-11 {
@@ -850,24 +891,20 @@
 
 .screen .data-4 {
   width: 160px;
-  left: 704px;
-  position: absolute;
   height: 45px;
-  top: 0;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #eaeaea;
+  vertical-align: middle;
 }
 
 .screen .data-5 {
   width: 204px;
-  left: 330px;
-  position: absolute;
   height: 45px;
-  top: 0;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #eaeaea;
+  vertical-align: middle;
 }
 
 .screen .text-wrapper-12 {
@@ -888,17 +925,14 @@
 
 .screen .data-6 {
   width: 160px;
-  left: 864px;
-  position: absolute;
   height: 45px;
-  top: 0;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #eaeaea;
+  vertical-align: middle;
 }
 
 .screen .tr-8 {
-  position: absolute;
   width: 1025px;
   height: 45px;
   /* top: 45px; */
@@ -906,7 +940,7 @@
 }
 
 .screen .tr-9 {
-  position: absolute;
+
   width: 1025px;
   height: 45px;
   top: 90px;
@@ -1180,8 +1214,6 @@
   overflow: auto;
 }
 
-
-
 .close {
   color: #aaa;
   float: right;
@@ -1196,3 +1228,53 @@
   text-decoration: none;
 }
 
+
+
+
+
+
+
+
+ol.paging {
+    list-style:none;
+   
+}
+
+.screen .nav {
+  position: relative;
+  width: 1024px;
+  height: 95px;
+}
+
+ol.paging li {
+    float:left;
+    margin-right:8px;
+}
+
+ol.paging li a {
+    display:block;
+    padding:3px 7px;
+    border:1px solid #00B3DC;
+    color:#2f313e;
+    font-weight:bold;
+}
+
+ol.paging li a:hover {
+    background:#00B3DC;
+    color:white;
+    font-weight:bold;
+}
+
+.disable {
+    padding:3px 7px;
+    border:1px solid silver;
+    color:silver;
+}
+
+.now {
+   padding:3px 7px;
+    border:1px solid #ff4aa5;
+    background:#ff4aa5;
+    color:white;
+    font-weight:bold;
+}

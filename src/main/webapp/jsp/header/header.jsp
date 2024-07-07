@@ -2,7 +2,50 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css"/>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	var mvo = <c:out value="${sessionScope.mvo}" default="null" />;
 
+    // Function to check if the modal should be opened based on mvo
+    function shouldOpenModal() {
+        return mvo == null; // Open only if mvo is null (user not logged in)
+    }
+
+    function openModal() {
+        document.querySelector('.modal_wrapper').style.display = 'block';
+        document.body.classList.add('no-scroll');
+    }
+
+    function closeModal() {
+        document.querySelector('.modal_wrapper').style.display = 'none';
+        document.body.classList.remove('no-scroll');
+    }
+
+    document.addEventListener('click', function (event) {
+        var targetId = event.target.id;
+        if (targetId && targetId.startsWith('my_') && shouldOpenModal()) {
+        	console.log('open modal');
+            openModal();
+            event.preventDefault(); // Prevent default link behavior
+        }
+    });
+
+        document.querySelector('.modal-button').addEventListener('click', function () {
+            document.querySelector('.modal_wrapper').style.display = 'none';
+            document.body.classList.remove('no-scroll');
+        });
+
+        document.querySelector('.div-wrapper').addEventListener('click', function () {
+            document.querySelector('.modal_wrapper').style.display = 'none';
+            document.body.classList.remove('no-scroll');
+        });
+
+        document.querySelector('.multiply').addEventListener('click', function () {
+            document.querySelector('.modal_wrapper').style.display = 'none';
+            document.body.classList.remove('no-scroll');
+        });
+    });
+</script>
 <header class="site_header">
     <div class="header-wrapper">
         <div class="navigation_bar">
@@ -148,38 +191,33 @@
 
                 <%-- ======================= 마이페이지 ========================= --%>
 
-                <div id="my_1"
-                     style="width: 191px; height: 32px; left: 1095px; top: 184px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
-                    <a href="${pageContext.request.contextPath}/Controller?type=myHome">
+                <div style="width: 191px; height: 32px; left: 1095px; top: 184px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
+                    <a id="my_1" href="${pageContext.request.contextPath}/Controller?type=myHome">
                         마이페이지 홈
                     </a>
                 </div>
 
 
-                <div id="my_2"
-                     style="width: 167px; height: 32px; left: 1107px; top: 401px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
-                    <a href="${pageContext.request.contextPath}/Controller?type=inquiry">
+                <div style="width: 167px; height: 32px; left: 1107px; top: 401px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
+                    <a id="my_2" href="${pageContext.request.contextPath}/Controller?type=inquiry">
                         나의 문의 내역
                     </a>
                 </div>
 
-                <div id="my_2"
-                     style="width: 216px; height: 32px; left: 1086px; top: 255px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
-                    <a href="${pageContext.request.contextPath}/Controller?type=myReservation">
+                <div style="width: 216px; height: 32px; left: 1086px; top: 255px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
+                    <a id="my_3" href="${pageContext.request.contextPath}/Controller?type=myReservation">
                         나의 예매 내역 조회
                     </a>
                 </div>
 
-                <div id="my_3"
-                     style="width: 167px; height: 32px; left: 1107px; top: 328px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
-                    <a href="${pageContext.request.contextPath}/Controller?type=myCoupon">
+                <div style="width: 167px; height: 32px; left: 1107px; top: 328px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
+                    <a id="my_4" href="${pageContext.request.contextPath}/Controller?type=myCoupon">
                         나의 쿠폰 조회
                     </a>
                 </div>
 
-                <div id="my_4"
-                     style="width: 167px; height: 32px; left: 1107px; top: 474px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
-                    <a href="${pageContext.request.contextPath}/Controller?type=personInfor">
+                <div style="width: 167px; height: 32px; left: 1107px; top: 474px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
+                    <a id="my_5" href="${pageContext.request.contextPath}/Controller?type=personInfor">
                         개인 정보 수정
                     </a>
                 </div>
@@ -235,44 +273,5 @@
             event.preventDefault();
         }
     });
-
-    /*function openModal() {
-        document.querySelector('.modal_wrapper').style.display = 'block';
-        document.body.classList.add('no-scroll');
-    }
-
-    function closeModal() {
-        document.querySelector('.modal_wrapper').style.display = 'none';
-        document.body.classList.remove('no-scroll');
-    }
-
-
-    document.querySelector('#my_1').addEventListener('click', function (event) {
-        if (!mvo || mvo == null) {
-            openModal();
-            event.preventDefault();
-        }
-    });
-
-    document.querySelector('#my_2').addEventListener('click', function (event) {
-        if (!mvo || mvo == null) {
-            openModal();
-            event.preventDefault();
-        }
-    });
-
-    document.querySelector('#my_3').addEventListener('click', function (event) {
-        if (!mvo || mvo == null) {
-            openModal();
-            event.preventDefault();
-        }
-    });
-
-    document.querySelector('#my_4').addEventListener('click', function (event) {
-        if (!mvo || mvo == null) {
-            openModal();
-            event.preventDefault();
-        }
-    });*/
 
 </script>

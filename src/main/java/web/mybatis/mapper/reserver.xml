@@ -126,4 +126,40 @@
 	    </where>
 	</select>
 	
+	<resultMap type="web.mybatis.vo.ReserverVO" id="forNonCancelList">
+    	<association property="pvo" javaType="web.mybatis.vo.PaymentVO">
+			<result property="p_tt_price" column="p_tt_price" />
+    	</association>
+    	<association property="rvo" javaType="web.mybatis.vo.ReservationVO">
+			<result property="rs_num" column="rs_num" />
+			<result property="rs_cancel_time" column="rs_cancel_time" />
+    	</association>
+    	
+    	<association property="ssvo" javaType="web.mybatis.vo.ScreeningScheduleVO">
+			<result property="t_name" column="t_name" />
+			<result property="ss_time" column="ss_time" />
+    	</association>
+    	<association property="mvo" javaType="web.mybatis.vo.MovieListVO">
+			<result property="movieNm" column="movieNm" />
+    	</association>
+    </resultMap>
+    
+    <select id="getNonMemCancelList" resultMap="forNonCancelList" parameterType="Map">
+    	SELECT rr.rs_cancel_time, rr.rs_num, m.movieNm, sc.t_name, sc.ss_time, p.p_tt_price
+   		FROM reserver r
+    	INNER JOIN reservation rr ON r.rsvr_code = rr.rsvr_code
+    	INNER JOIN payment p ON r.rsvr_code = p.rsvr_code
+    	INNER JOIN selected_seat ss ON rr.rs_num = ss.rs_num
+    	INNER JOIN screening_schedule sc ON sc.ss_code = rr.ss_code
+    	INNER JOIN movie_list m ON m.movieCd = sc.movieCd
+		<where>
+			AND non_name = #{name}
+			AND non_email = #{email}
+			AND non_pw = #{password}
+			AND u_code IS NULL
+			AND rs_status = 1
+		</where>
+    </select>
+    <!-- 취소 일시(reservation) 예매번호(reservation) 영화명(movieList) 극장/상영관(sc) 상영일시(sc) 환불 금액(payment)  -->
+	
 </mapper>

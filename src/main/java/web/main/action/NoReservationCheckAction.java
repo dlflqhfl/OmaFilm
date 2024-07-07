@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import web.main.util.Paging;
 import web.mybatis.dao.ReservationDAO;
 import web.mybatis.vo.ReserverVO;
 
@@ -21,14 +22,20 @@ public class NoReservationCheckAction implements Action{
 		String password = request.getParameter("password");
 		String birth = request.getParameter("birth");
 		String login = request.getParameter("res");
+		
 		Map<String, String> map = new HashMap<>();
+		
 		map.put("name", name);
 		map.put("email", email);
 		map.put("password", password);
 		map.put("birth", birth);
 		//map값 다 들어옴
 		System.out.println(map);
+		
 		int res = ReservationDAO.loginNoReserver(map);
+		
+		
+		
 		
 		if( name != null && email != null && password != null && birth != null) {
 			if(res > 0) {
@@ -46,10 +53,30 @@ public class NoReservationCheckAction implements Action{
 			HttpSession session = request.getSession();
 		    Map<String, String> userInfo = (Map<String, String>) session.getAttribute("info");
 		    ReserverVO[] list = ReservationDAO.selectReserver(userInfo); 
+		    ReserverVO[] cancel_list = ReservationDAO.getNonMemCancelList(userInfo); 
+		    
+		    
 		    request.setAttribute("list", list);
+		    request.setAttribute("cancel_list", cancel_list);
 		    int cnt = ReservationDAO.selectCnt(userInfo);
 		    System.out.println(cnt);
 			request.setAttribute("cnt", cnt);
+			
+			
+			
+			
+			//rvo 페이징 처리
+			Paging page = new Paging(10,5);
+			
+			String res2 = request.getParameter("res");
+			if(cancel_list !=null)
+				page.setTotalRecode(cancel_list.length);
+			if(res2 !=null)
+				page.setNowPage(Integer.parseInt(res2));
+			else
+				page.setNowPage(1);
+			request.setAttribute("page", page);
+			
 			return "jsp/reservation/noReservationCheck.jsp";
 		}
 		
