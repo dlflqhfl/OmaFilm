@@ -587,14 +587,6 @@
   height: 2272px;
 }
 
-.select-movie .item-link-7 {
-  position: absolute;
-  width: 411px;
-  height: 46px;
-  top: 2px;
-  left: 2px;
-}
-
 .select-movie .overlap-group {
   position: absolute;
   width: 281px;
@@ -609,21 +601,6 @@
   height: 16px;
   top: 3px;
   left: 1px;
-}
-
-.select-movie .text-wrapper-12 {
-  width: 97px;
-  height: 16px;
-  top: -1px;
-  left: 30px;
-  font-weight: 700;
-  color: #000000;
-  font-size: 15px;
-  letter-spacing: -0.36px;
-  line-height: 16.5px;
-  white-space: nowrap;
-  position: absolute;
-  font-family: "Noto Sans KR", Helvetica;
 }
 
 .select-movie .image-background {
@@ -643,11 +620,11 @@
 }
 
 .select-movie .img {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  top: 2px;
-  left: 1px;
+    position: absolute;
+    width: 638px;
+    height: 222px;
+    top: 116px;
+    left: -76px;
 }
 
 .select-movie .overlap-wrapper {
@@ -1390,26 +1367,6 @@
   overflow: hidden;
 }
 
-.select-movie .container-8 {
-  position: absolute;
-  width: 460px;
-  height: 342px;
-  top: 0;
-  left: 0;
-}
-
-.select-movie .seat-time-bt {
-  position: absolute;
-  width: 116px;
-  height: 53px;
-  top: 156px;
-  left: 30px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #a4a4a4;
-}
-
 .select-movie .text-wrapper-27 {
   width: 37px;
   height: 19px;
@@ -1423,6 +1380,49 @@
   white-space: nowrap;
   position: absolute;
   font-family: "Noto Sans KR", Helvetica;
+}
+/* 여기 좌석 */
+.schedule-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.time-seat-button {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  width: calc(33.33% - 10px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+}
+
+.seats {
+  color: green;
+}
+
+.available, .total {
+  display: inline-block;
+}
+
+.theater {
+  color: #666;
 }
 
 .select-movie .overlap-5 {
@@ -1516,91 +1516,6 @@
   font-family: "Noto Sans KR", Helvetica;
 }
 
-.select-movie .seat-time-bt-2 {
-  top: 156px;
-  left: 172px;
-  position: absolute;
-  width: 116px;
-  height: 53px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #a4a4a4;
-
-}
-
-.select-movie .seat-time-bt-3 {
-  top: 12px;
-  left: 30px;
-  position: absolute;
-  width: 116px;
-  height: 53px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #a4a4a4;
-}
-
-.select-movie .seat-time-bt-4 {
-  top: 12px;
-  left: 172px;
-  position: absolute;
-  width: 116px;
-  height: 53px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #a4a4a4;
-}
-
-.select-movie .seat-time-bt-5 {
-  top: 84px;
-  left: 30px;
-  position: absolute;
-  width: 116px;
-  height: 53px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #a4a4a4;
-}
-
-.select-movie .seat-time-bt-6 {
-  top: 12px;
-  left: 314px;
-  position: absolute;
-  width: 116px;
-  height: 53px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #a4a4a4;
-}
-
-.select-movie .seat-time-bt-7 {
-  top: 84px;
-  left: 172px;
-  position: absolute;
-  width: 116px;
-  height: 53px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #a4a4a4;
-}
-
-.select-movie .seat-time-bt-8 {
-  top: 84px;
-  left: 314px;
-  position: absolute;
-  width: 116px;
-  height: 53px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #a4a4a4;
-}
-
 .select-movie .background-7 {
   position: absolute;
   width: 460px;
@@ -1691,4 +1606,39 @@
 
 .day:nth-child(3) .date {
     color: red;
+}
+/* 부모 컨테이너에 Flexbox를 적용합니다. */
+.movie-container {
+  display: flex;
+  flex-direction: column; /* 세로 방향으로 나열합니다. */
+  align-items: flex-start; /* 가로 방향으로 가운데 정렬합니다. */
+  gap: 20px; /* 요소 간격을 설정합니다. */
+  min-height: 100vh; /* 세로 방향 가운데 정렬을 위해 전체 높이를 설정합니다. */
+}
+
+.item-link-7.movie {
+	position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 내부 요소들의 위치를 상대적으로 설정합니다. */
+.overlap-group, .overlap-2 {
+  position: relative;
+  padding: 10px; /* 내용물의 여백을 설정합니다. */
+}
+
+/* 이미지와 텍스트의 크기 및 위치를 조정합니다. */
+.image-background, .img {
+  width: 100%;
+  height: auto;
+}
+
+.text-wrapper-12.name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center; /* 텍스트를 가운데 정렬합니다. */
 }

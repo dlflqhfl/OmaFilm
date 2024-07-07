@@ -1,6 +1,7 @@
 package web.mybatis.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,5 +65,29 @@ public class ReservationDAO {
 		int res = ss.selectOne("reserver.count",userInfo);
 		ss.close();
 		return res;
+	}
+
+	public static ScreeningScheduleVO[] selectText(String text) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		List<ScreeningScheduleVO> list = ss.selectList("reservation.selectByText",text);
+		ScreeningScheduleVO[] ar = null;
+		if( list != null && list.size() > 0 ) {
+			ar = new ScreeningScheduleVO[list.size()];
+			list.toArray(ar);
+		}
+		ss.close();
+		return ar;
+	}
+
+	public static String[] selectTime(Map<String, String> map) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		List<String> list = ss.selectList("reservation.selectByTime",map);
+		String[] ar = null;
+		if( list != null && list.size() > 0) {
+			ar = new String[list.size()];
+			list.toArray(ar);
+		}
+		ss.close();
+		return ar;
 	}
 }
