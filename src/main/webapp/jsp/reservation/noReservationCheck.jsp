@@ -2,6 +2,7 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -134,62 +135,75 @@
                         </th>
                         </thead>
                         <tbody class="tbody-2">
-                        <tr class="div-3">
-                            <td class="data">
-                                <div class="text-wrapper-10">2024-06-16</div>
+                        
+                        <c:set var="len" value="${fn:length(cancel_list)}" />
+		                <c:if test="${page.end<=len}">
+		                	<c:set var="end" value="${page.end}"/>
+		                </c:if>
+						<c:if test="${page.end>len}">
+							<c:set var="end" value="${len}" />
+						</c:if>
+						
+                        <c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
+                        <tr class="tr-2">
+							<td class="data-1">
+                                <div class="text-wrapper-20">${cancel_list[i-1].rvo.rs_cancel_time }</div>
                             </td>
                             <td class="data-2">
-                                <div class="text-wrapper-10">1991-10-30</div>
+                                <div class="text-wrapper-21">${cancel_list[i-1].rvo.rs_num }</div>
                             </td>
                             <td class="data-3">
-                                <div class="text-wrapper-11">쌍용관</div>
+                                <div class="text-wrapper-22">${cancel_list[i-1].mvo.movieNm }</div>
                             </td>
                             <td class="data-4">
-                                <div class="text-wrapper-10">2024-06-17</div>
+                                <div class="text-wrapper-23">${cancel_list[i-1].ssvo.t_name }</div>
                             </td>
                             <td class="data-5">
-                                <div class="text-wrapper-12">선재 업고 못튀어</div>
+                                <div class="text-wrapper-24">${cancel_list[i-1].ssvo.ss_time.split(" ")[0] }</div>
                             </td>
                             <td class="data-6">
-                                <div class="text-wrapper-10">15000원</div>
+                                <div class="text-wrapper-25">${cancel_list[i-1].pvo.p_tt_price }</div>
                             </td>
                         </tr>
+					</c:forEach>
+					
+                            
                         </tbody>
                     </table>
+                    
+                    
                     <div class="nav">
-                        <div class="strong">
-                            <div class="text-wrapper-7">1</div>
-                        </div>
-                        <div class="link">
-                            <div class="text-wrapper-8">2</div>
-                        </div>
-                        <div class="link-2">
-                            <div class="text-wrapper-8">3</div>
-                        </div>
-                        <div class="link-3">
-                            <div class="text-wrapper-8">4</div>
-                        </div>
-                        <div class="link-4">
-                            <div class="text-wrapper-8">5</div>
-                        </div>
-                        <div class="link-5">
-                            <div class="text-wrapper-8">6</div>
-                        </div>
-                        <div class="link-6">
-                            <div class="text-wrapper-8">7</div>
-                        </div>
-                        <div class="link-7">
-                            <div class="text-wrapper-8">8</div>
-                        </div>
-                        <div class="link-8">
-                            <div class="text-wrapper-8">9</div>
-                        </div>
-                        <div class="link-9">
-                            <div class="text-wrapper-9">10</div>
-                        </div>
-                        <div class="link-10"></div>
-                        <div class="link-11"></div>
-                    </div>
+						<div>
+							<ol class="paging">
+								<c:if test="${page.startPage < page.pagePerBlock}">
+									<li class="disable">&lt;</li>
+								</c:if>
+								<c:if test="${page.startPage >= page.pagePerBlock}">
+									<li class=""><a
+										href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+								</c:if>
+								<!-- <div class="nav"> -->
+								<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+									<c:if test="${i == page.nowPage}">
+										<li class="now">${i}</li>
+									</c:if>
+									<c:if test="${i != page.nowPage}">
+										<li class=" "><a
+											href="Controller?type=myReservation&cPage=${i}">${i}</a></li>
+									</c:if>
+								</c:forEach>
+
+
+								<c:if test="${page.endPage < page.totalPage}">
+									<li class=""><a
+										href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+								</c:if>
+								<c:if test="${page.endPage >= page.totalPage}">
+									<li class=" disable">&gt;</li>
+								</c:if>
+
+							</ol>
+						</div>
                 </div>
             </div>
             <jsp:include page="/jsp/footer/footer.jsp"/>
