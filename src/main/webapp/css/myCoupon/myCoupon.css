@@ -111,10 +111,9 @@
   border: 1px solid;
   border-color: #d8d9db;
 }
-
-a{
-	text-decoration: none;
-	
+a:link, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
 }
 
 .screen .text-wrapper-2 {

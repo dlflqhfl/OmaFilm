@@ -10,8 +10,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/globals.css" />
-    <link rel="stylesheet" href="css/myReservation/style.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/myReservation/style.css" />
   </head>
   <body>
     <div class="screen">
@@ -50,7 +50,7 @@
                   <div class="link-8"><div class="text-wrapper-14"><a href="Controller?type=myCancelReservation">나의 예매 취소 내역 조회</a></div></div>
                   <div class="link-9"><div class="text-wrapper-12"><a href="Controller?type=myCoupon">나의 쿠폰 조회</a></div></div>
                   <div class="link-7"><div class="text-wrapper-11"><a href="Controller?type=inquiry">나의 문의 내역</a></div></div>
-                  <div class="item-link"><div class="text-wrapper-9"><a href="Controller?type=personInfor">개인 정보 수정</a></div></div>
+                  <div class="item-link"><div class="text-wrapper-9"><a href="Controller?type=checkPw">개인 정보 수정</a></div></div>
                 </div>
               </div>
             </div>
@@ -131,9 +131,34 @@
 								</div>
 							</c:if>
 							<div class="th-8">
-								<div class="text-wrapper-23">
-									<button class="cancel-bt"
-										value="${rvo[i-1].rs_num} ${rvo[i-1].pvo.p_code}">취소</button>
+							    <div class="text-wrapper-23">
+
+									<fmt:parseDate var="showTime"
+										value="${rvo[i-1].ssvo.ss_time}"
+										pattern="yyyy-MM-dd HH:mm:ss" />
+									<%
+									java.util.Date showTimeDate = (java.util.Date) pageContext.getAttribute("showTime");
+									request.setAttribute("showTime", showTimeDate);
+									%>
+	
+									<%
+									java.util.Date now = new java.util.Date();
+									java.util.Calendar cal3 = java.util.Calendar.getInstance();
+									cal3.setTime(now);
+									cal3.add(java.util.Calendar.MINUTE, -10);
+									request.setAttribute("currentTimeMinus10", cal3.getTime());
+									%>
+	
+									<c:choose>
+										<c:when test="${showTime.time > currentTimeMinus10.time}">
+											<button class="cancel-bt"
+												value="${rvo[i-1].rs_num} ${rvo[i-1].pvo.p_code}">취소</button>
+										</c:when>
+										<c:otherwise>
+											<span>취소 불가</span>
+										</c:otherwise>
+									</c:choose>
+	
 								</div>
 							</div>
 						</div>
@@ -194,7 +219,7 @@
 		        
 		        if (confirmCancel) {
 		        	var buttonValue = $(this).val();   // 클릭된 버튼의 value 속성 값
-			        console.log(buttonValue); //19 23
+			        console.log(buttonValue); //19 23 -> rs_num, p_code
 			        var str = buttonValue.split(" ");
 			        
 			        var form = document.createElement('form');

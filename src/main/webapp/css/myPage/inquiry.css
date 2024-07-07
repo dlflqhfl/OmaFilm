@@ -67,11 +67,7 @@
   top: 90px;
   left: 0;
   border-radius: 0px 0px 10px 10px;
-  border-style: solid;
-  border-top-style: solid;
-  border-right-style: solid;
-  border-bottom-style: solid;
-  border-left-style: solid;
+  border: 1px solid;
   border-color: #d8d9db;
 }
 
@@ -91,6 +87,14 @@
   height: 40px;
   top: -21px;
   background-color: #3d4d55;
+}
+.screen .div-wrapper2 {
+  position: relative;
+  height: 40px;
+  top: -38px;
+  background-color: #3d4d55;
+  width: 252px;
+  left: -2px;
 }
 
 .screen .text-wrapper-2 {
@@ -198,7 +202,24 @@
   letter-spacing: 0;
   line-height: 19.5px;
   white-space: nowrap;
+  -webkit-text-stroke: 1px #b58863;
 }
+.screen .text-wrapper-100 {
+  position: absolute;
+  width: 92px;
+  height: 19px;
+  top: 9px;
+  left: 15px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #b58863;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+
 
 .screen .overlap-group {
   position: absolute;
@@ -209,8 +230,7 @@
 }
 
 .screen .item-link {
-  top: -38px;
-  left: -2px;
+  top: -20px;
   border-right-width: 1px;
   border-right-style: solid;
   border-bottom-width: 1px;
@@ -230,13 +250,12 @@
   position: absolute;
   width: 95px;
   height: 21px;
-  top: 7px;
-  left: 11px;
-  -webkit-text-stroke: 1px #b58863;
+  top: 10px;
+  left: 15px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #b58863;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 0;
   line-height: 19.5px;
   white-space: nowrap;
@@ -244,6 +263,16 @@
 
 .screen .item-4 {
   top: 184px;
+  left: 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: #d8d9db;
+  position: absolute;
+  width: 252px;
+  height: 39px;
+}
+.screen .item-5 {
+  top: 225px;
   left: 0;
   border-top-width: 1px;
   border-top-style: solid;
@@ -887,7 +916,7 @@ ol.paging li a:hover {
 }
 
 
-.text-wrapper-5 a,.text-wrapper-2 a,.text-wrapper-6 a,.text-wrapper-4 a,.text-wrapper-3 a
+.text-wrapper-5 a,.text-wrapper-2 a,.text-wrapper-6 a,.text-wrapper-4 a,.text-wrapper-3 a .text-wrapper-100 a, .text-wrapper-3 a
  { /* .item-link 안의 모든 a 태그에 적용 */
   color: #b58863;
   text-decoration: none; /* 밑줄 제거 */

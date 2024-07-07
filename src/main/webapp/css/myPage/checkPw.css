@@ -392,7 +392,7 @@
 }
 
 .container .item-link-3 {
-  top: 149px;
+  top: 189px;
   background-image: url("../../img/myPage/myhome/mypagelist.svg");
   background-size: cover;
   background-position: 50% 50%;
@@ -402,6 +402,17 @@
   left: -1px;
   border: 1px solid;
   border-color: #d8d9db;
+}
+
+.container .item-link-4 {
+  top: 149px;
+  position: absolute;
+  width: 252px;
+  height: 39px;
+  left: -1px;
+  border: 1px solid;
+  border-color: #d8d9db;
+  background-color: #3d4d55;
 }
 
 .container .text-wrapper-13 {

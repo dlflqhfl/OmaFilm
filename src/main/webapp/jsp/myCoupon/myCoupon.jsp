@@ -6,7 +6,8 @@
 <html> 
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/myCoupon/myCoupon.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/myCoupon/myCoupon.css" />
+     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
   </head>
   <body>
     <div class="screen">
@@ -16,7 +17,7 @@
             <div class="overlap">
               <div class="ul">
                 <div class="overlap-group">
-                  <div class="li-2"><div class="text-wrapper"><a href="Controller?type=personInfor">개인 정보 수정</a></div></div>
+                  <div class="li-2"><div class="text-wrapper"><a href="Controller?type=checkPw">개인 정보 수정</a></div></div>
                   <div class="div-wrapper"><div class="div"><a href="Controller?type=myReservation">나의 예매 내역 조회</a></div></div>
                   <div class="li"><div class="text-wrapper-2"><a href="Controller?type=inquiry">나의 문의 내역</a></div></div>
                   <div class="li-4"><div class="text-wrapper-3"><a href="Controller?type=myCoupon">나의 쿠폰 조회</a></div></div>

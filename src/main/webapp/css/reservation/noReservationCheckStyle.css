@@ -10,10 +10,25 @@
   height: auto;
 }
 
+.screen .overlap-wrapper .footer{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1920px;
+  height: 200px;
+  background-color: #f8f8fa;
+  bottom: 600px;
+  margin: auto;
+}
+
 .screen .overlap-wrapper {
   background-color: #ffffff;
   width: 1920px;
   height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
 }
 
 .screen .overlap {
@@ -24,7 +39,7 @@
 .screen .container {
   position: relative;
   width: 1920px;
-  height: auto;
+  height: 100%;
   top: 0;
   left: 0;
 }
@@ -37,19 +52,10 @@
   left: 0;
 }
 
-.screen .footer {
-  position: absolute;
-  width: 1920px;
-  height: 222px;
-  top: 105px;
-  left: 0;
-  object-fit: cover;
-}
-
 .screen .content {
   position: relative;
   width: 1025px;
-  height: auto;
+  height: 100%;
   top: 0;
   margin: 0 auto;
   overflow: hidden;
@@ -61,6 +67,9 @@
   height: auto;
   top: 300px;
   left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .screen .li {
@@ -257,17 +266,17 @@
 }
 
 .screen .span {
-    width: 360px;
-    height: 39px;
-    top: 23px;
-    left: 239px;
-    font-family: "NanumBarunGothic-Regular", Helvetica;
-    color: #000000;
-    font-size: 18px;
-    position: absolute;
-    font-weight: 400;
-    letter-spacing: 2px;
-    line-height: 30.8px;
+  width: 360px;
+  height: 39px;
+  top: 23px;
+  left: 239px;
+  font-family: "NanumBarunGothic-Regular", Helvetica;
+  color: #000000;
+  font-size: 18px;
+  position: absolute;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 30.8px;
 }
 
 .screen .text-wrapper-2 {
@@ -311,11 +320,11 @@
 }
 
 .screen .overlap-group {
-    position: absolute;
-    width: 327px;
-    height: 42px;
-    top: 12px;
-    left: 75px;
+  position: absolute;
+  width: 327px;
+  height: 42px;
+  top: 12px;
+  left: 75px;
 }
 
 .screen .td-4 {
@@ -333,16 +342,16 @@
 }
 
 .screen .buttom {
-    position: absolute;
-    width: 61px;
-    height: 28px;
-    top: 8px;
-    left: 268px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    overflow: hidden;
-    border: 1px solid;
-    border-color: #c8c8c8;
+  position: absolute;
+  width: 61px;
+  height: 28px;
+  top: 8px;
+  left: 268px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #c8c8c8;
 }
 
 .screen .text-wrapper-3 {
@@ -404,18 +413,18 @@
 }
 
 .screen .p-2 {
-	position: absolute;
-	width: 1026px;
-	height: 17px;
-	top: -27px;
-	left: 0;
-	font-family: "Inter", Helvetica;
-	font-weight: 400;
-	color: #222222;
-	font-size: 15px;
-	letter-spacing: -1px;
-	line-height: 30.8px;
-	white-space: nowrap;
+  position: absolute;
+  width: 1026px;
+  height: 17px;
+  top: -27px;
+  left: 0;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #222222;
+  font-size: 15px;
+  letter-spacing: -1px;
+  line-height: 30.8px;
+  white-space: nowrap;
 }
 
 .screen .list-search {
@@ -438,11 +447,14 @@
 }
 
 .screen .container-2 {
+  flex-direction: row;
+  display: flex;
   position: absolute;
   width: 391px;
   height: 27px;
   top: 0;
   left: 0;
+  justify-content: space-between;
 }
 
 .screen .label {
@@ -492,16 +504,16 @@
 }
 
 .screen .button {
-    position: absolute;
-    width: 61px;
-    height: 28px;
-    top: 8px;
-    left: 264px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    overflow: hidden;
-    border: 1px solid;
-    border-color: #c8c8c8;
+  position: relative;
+  width: 61px;
+  height: 28px;
+  top: 8px;
+  left: 400px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #c8c8c8;
 }
 
 .screen .text-wrapper-6 {
@@ -538,24 +550,29 @@
   position: relative;
   width: 1028px;
   height: 758px;
-  bottom: 0;
+  bottom: 555px;
   left: 2px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  /* bottom: 605px; */
 }
 
 .screen .overlap-3 {
   position: absolute;
   width: 1025px;
   height: 590px;
-  top: 168px;
+  top: 0;
   left: 2px;
+  display: flex;
+  flex-direction: column;
 }
 
 .screen .nav {
-  position: absolute;
+  position: relative;
   width: 1024px;
   height: 95px;
-  top: 495px;
+  /* top: 495px; */
   left: 0;
 }
 
@@ -743,23 +760,23 @@
 }
 
 .screen .table-2 {
-  position: absolute;
+  position: relative;
   width: 1025px;
-  height: 502px;
+  height: auto;
   top: 0;
   left: 0;
 }
 
 .screen .tbody-2 {
-  position: absolute;
+  position: relative;
   width: 1025px;
-  height: 450px;
-  top: 45px;
+  height: auto;
+  /* top: 45px; */
   left: 0;
 }
 
 .screen .div-3 {
-  position: absolute;
+  position: relative;
   width: 1025px;
   height: 45px;
   top: 0;
@@ -884,8 +901,8 @@
   position: absolute;
   width: 1025px;
   height: 45px;
-  top: 45px;
-  left: 0;
+  /* top: 45px; */
+  /* left: 0; */
 }
 
 .screen .tr-9 {
@@ -1115,10 +1132,10 @@
 }
 
 .screen .heading {
-  position: absolute;
+  position: relative;
   width: 1019px;
   height: 31px;
-  top: 96px;
+  top: 0;
   left: 2px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
@@ -1127,6 +1144,7 @@
   letter-spacing: -1px;
   line-height: 30.8px;
   white-space: nowrap;
+  padding-bottom: 80px;
 }
 
 .screen .header {
@@ -1137,53 +1155,44 @@
   left: 0;
 }
 .payTime{
-	position: absolute;
-    width: 75px;
-    height: 42px;
-    top: 6px;
-    left: 6px;
-    -webkit-text-stroke: 0.5px #313131;
-    font-family: "Inter", Helvetica;
-    font-weight: 400;
-    color: #313131;
-    font-size: 18px;
-    text-align: right;
-    letter-spacing: -1px;
-    line-height: 30.8px;
+  position: absolute;
+  width: 75px;
+  height: 42px;
+  top: 6px;
+  left: 6px;
+  -webkit-text-stroke: 0.5px #313131;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #313131;
+  font-size: 18px;
+  text-align: right;
+  letter-spacing: -1px;
+  line-height: 30.8px;
 }
 .modalPlace {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 216px;
-    top: -104px;
-    width: 60%;
-    height: 100%;
-    overflow: auto;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 216px;
+  top: -104px;
+  width: 60%;
+  height: 100%;
+  overflow: auto;
 }
 
-.modal-content {
-	position: relative;
-    margin: auto;
-    padding: 20px;
-    width: 660px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    top: 20%;
-    left: 51px;
-}
+
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
+

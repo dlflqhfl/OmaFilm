@@ -53,6 +53,8 @@
 	  seatLength = seat.length;
 	  
   }
+  MovieListVO movieVO = (MovieListVO) request.getAttribute("movieVO");
+  request.setAttribute("movieVO", movieVO);
 %>
 <head>
   <meta charset="utf-8" />
@@ -121,7 +123,7 @@
           	</c:if>
           </div>
         </div>
-        <div class="movie-image"></div>
+        <div class="movie-image"><img width="100px" src="${movieVO.m_file }" /></div>
         <c:if test="${requestScope.movieVO.watchGradeNm == '전체관람가' }">
           <img class="age-image" src="img/payment/age_all_img.png" />
         </c:if>
@@ -371,10 +373,13 @@
 
       input_info('date', '${param.nDate }');
       input_info('time', ' ${param.nTime }');
-
+      input_info('poster', ' ${movieVO.m_file }');
+      
       var saleprice = $('#Discount').val()
       input_info('saleprice', saleprice);
-
+      
+      input_info('payContent', '${payContent}');
+      
       form.setAttribute('method', 'post');
       form.setAttribute('action', 'Controller?type=paycomplete');
       document.body.appendChild(form);
@@ -405,6 +410,7 @@
 
         input_info('date', '${param.date }');
         input_info('time', ' ${param.time }');
+        input_info('poster', ' ${movieVO.m_file }');
 
         var saleprice = $('#Discount').val()
         input_info('saleprice', saleprice);

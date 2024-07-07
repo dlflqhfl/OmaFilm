@@ -52,7 +52,7 @@
                 	<div class="link-8"><div class="text-wrapper-14"><a href="Controller?type=myCancelReservation">나의 예매 취소 내역 조회</a></div></div>         
                   <div class="link-7"><div class="text-wrapper-12"><a href="Controller?type=myCoupon">나의 쿠폰 조회</a></div></div>
                   <div class="item-link"><div class="text-wrapper-11"><a href="Controller?type=inquiry">나의 문의 내역</a></div></div>
-                  <div class="item-link2"><div class="text-wrapper-9"><a href="Controller?type=personInfor">개인 정보 수정</a></div></div>
+                  <div class="item-link2"><div class="text-wrapper-9"><a href="Controller?type=checkPw">개인 정보 수정</a></div></div>
                 </div>
               </div>
             </div>

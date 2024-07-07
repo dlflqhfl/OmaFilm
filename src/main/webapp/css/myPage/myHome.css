@@ -18,14 +18,6 @@
   height: 2515px;
 }
 
-.screen .footer {
-  position: absolute;
-  width: 1920px;
-  height: 220px;
-  top: 2295px;
-  left: 0;
-  object-fit: cover;
-}
 
 .screen .heading {
   position: absolute;
