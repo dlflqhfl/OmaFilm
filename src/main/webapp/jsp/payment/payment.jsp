@@ -271,11 +271,12 @@
 <script>
   let selectedPay;
   let login = <%= login %>;
+  
+  let originalPrice = <%= originalPrice %>;
+  let saleAmount = <%= saleAmount %>;
+  let finalPrice = <%= finalPrice %>;
   $(function(){
-    let originalPrice = <%= originalPrice %>;
-    let saleAmount = <%= saleAmount %>;
-    let finalPrice = <%= finalPrice %>;
-    
+ 
     $('#OriginalPrice').val(originalPrice);
     $('#Discount').val(saleAmount);
     $('#FinalPrice').val(finalPrice);

@@ -8,7 +8,8 @@ public class ReservationVO {
 	
 	private String ss_code, rs_num //예매번호
 	, s_code // 상영시간표 코드
-	, rs_time; //예매시간
+	, rs_time //예매시간
+	, rs_cancel_time; //취소시간
 	
 	private PaymentVO pvo;
 	private ScreeningScheduleVO ssvo;
@@ -115,6 +116,14 @@ public class ReservationVO {
 
 	public void setSsvo(ScreeningScheduleVO ssvo) {
 		this.ssvo = ssvo;
+	}
+
+	public String getRs_cancel_time() {
+		return rs_cancel_time;
+	}
+
+	public void setRs_cancel_time(String rs_cancel_time) {
+		this.rs_cancel_time = rs_cancel_time;
 	}
 
 	
