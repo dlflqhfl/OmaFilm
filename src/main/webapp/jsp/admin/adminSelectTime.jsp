@@ -58,7 +58,7 @@
           <div class="item-button-2 guan">쌍용 2관</div>
           <div class="item-button-3 guan">쌍용 3관</div>
           <div class="item-button-4 guan">쌍용 4관</div>
-          <div class="item-button-5 guan">특별 오경주관</div>
+          <div class="item-button-5 guan">프리미엄 오경주관</div>
           <div class="vertical-divider"></div>
           <button class="button-12"><div class="text-wrapper-18">전체</div></button>
           <button class="button-13"><div class="text-wrapper-19">특별관</div></button>

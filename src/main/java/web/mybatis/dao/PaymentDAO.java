@@ -220,10 +220,11 @@ public class PaymentDAO {
 	public static void saveSelectedSeat(Map<String, String> map) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		int cnt = ss.insert("selectSeat.insertSeat", map);
-		if(cnt > 0)
+		if(cnt > 0) {
 			ss.commit();
-		else
+		} else {
 			ss.rollback();
+		}
 		ss.close();
 
 	}

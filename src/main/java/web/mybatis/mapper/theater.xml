@@ -9,4 +9,9 @@
         FROM theater
         WHERE t_name = #{t_name}
     </select>
+    
+    <select id="totalSeatCount" parameterType="String" resultType="int">
+    	SELECT t_seat_count FROM theater
+    	WHERE t_name = #{guan}
+    </select>
 </mapper>
