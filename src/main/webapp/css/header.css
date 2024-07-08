@@ -192,19 +192,22 @@
 
 /*=========== 모달창 ===============*/
 
-.modal_wrapper {
+.header_modal_wrapper {
+    display: none;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vW;
-    height: 100vW;
+    width: 100vw;
+    height: 100vw;
     background-color: rgba(0, 0, 0, 0.5);
-    display: none;
     z-index: 9999;
 }
 
-.modal {
+.header_modal {
     background-color: #ffffff;
+    position: fixed;
     top: 50%; /* 상단에서 50% 위치 */
     left: 50%; /* 왼쪽에서 50% 위치 */
     transform: translate(-50%, -50%); /* 정확한 중앙 정렬을 위해 변환 */
@@ -215,14 +218,7 @@
     height: 180px;
 }
 
-.modal .div {
-    background-color: #ffffff;
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.modal .button {
+.header_modal .header_modal_div_button {
     position: absolute;
     width: 119px;
     height: 24px;
@@ -230,7 +226,7 @@
     left: 90px;
 }
 
-.modal .modal-button {
+.header_modal .header_modal-button {
     position: absolute;
     width: 46px;
     height: 24px;
@@ -238,25 +234,15 @@
     left: 73px;
     background-color: #0f212b;
     border-radius: 4px;
-}
-
-.modal .text-wrapper {
-    width: 46px;
-    height: 23px;
-    top: 0;
-    left: 0;
     font-family: "NanumBarunGothic-Regular", Helvetica;
     color: #ffffff;
     text-align: center;
     letter-spacing: -0.5px;
-    line-height: 46px;
-    white-space: nowrap;
-    position: absolute;
     font-weight: 400;
     font-size: 15px;
 }
 
-.modal .div-wrapper {
+.header_modal .header_modal-button-2 {
     position: absolute;
     width: 46px;
     height: 24px;
@@ -266,25 +252,17 @@
     border-radius: 4px;
     border: 1px solid;
     border-color: #0e2128;
-}
-
-.modal .text-wrapper-2 {
-    width: 46px;
-    height: 23px;
-    top: 0;
-    left: 0;
     font-family: "NanumBarunGothic-Regular", Helvetica;
     color: #0e2128;
     text-align: center;
     letter-spacing: -0.5px;
-    line-height: 46px;
-    white-space: nowrap;
-    position: absolute;
     font-weight: 400;
     font-size: 15px;
 }
 
-.modal .modal-header {
+
+
+.header_modal .modal-header {
     position: absolute;
     width: 300px;
     height: 45px;
@@ -293,7 +271,7 @@
     background-color: #0e2128;
 }
 
-.modal .text-wrapper-3 {
+.header_modal .header_modal-text-wrapper-3 {
     width: 30px;
     top: 12px;
     left: 15px;
@@ -306,15 +284,15 @@
     font-size: 15px;
 }
 
-.modal .multiply {
-    position: absolute;
-    width: 23px;
-    height: 23px;
-    top: 11px;
-    left: 265px;
+.header_modal .header_modal-multiply {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    top: 7px;
+    left: 262px;
 }
 
-.modal .txt-comon {
+.header_modal .header_modal-txt-comon {
     position: absolute;
     width: 230px;
     height: 45px;
@@ -322,7 +300,7 @@
     left: 30px;
 }
 
-.modal .text-wrapper-4 {
+.header_modal .header_modal-text-wrapper-4 {
     width: 230px;
     top: -1px;
     left: 0;
@@ -333,8 +311,4 @@
     position: absolute;
     font-weight: 400;
     font-size: 15px;
-}
-
-.no-scroll {
-    overflow: hidden;
 }

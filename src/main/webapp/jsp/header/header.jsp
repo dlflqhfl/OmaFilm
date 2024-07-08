@@ -2,47 +2,45 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css"/>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-	var mvo = <c:out value="${sessionScope.mvo}" default="null" />;
+    document.addEventListener('DOMContentLoaded', function () {
+        var mvo = <c:out value="${sessionScope.mvo}" default="null" />;
 
-    // Function to check if the modal should be opened based on mvo
-    function shouldOpenModal() {
-        return mvo == null; // Open only if mvo is null (user not logged in)
-    }
 
-    function openModal() {
-        document.querySelector('.modal_wrapper').style.display = 'block';
-        document.body.classList.add('no-scroll');
-    }
 
-    function closeModal() {
-        document.querySelector('.modal_wrapper').style.display = 'none';
-        document.body.classList.remove('no-scroll');
-    }
+        var openModal = function () {
+            document.querySelector('.header_modal_wrapper').style.display = 'block';
+             document.body.classList.add('no-scroll');
+        };
 
-    document.addEventListener('click', function (event) {
-        var targetId = event.target.id;
-        if (targetId && targetId.startsWith('my_') && shouldOpenModal()) {
-        	console.log('open modal');
-            openModal();
-            event.preventDefault(); // Prevent default link behavior
+        var closeModal = function () {
+            document.querySelector('.header_modal_wrapper').style.display = 'none';
+            document.body.classList.remove('no-scroll');
+        };
+
+        // 로그인이 안되어있을 때 id가 my_1~5인 a태그를 클릭하면 모달창 뜸
+        if (!mvo) {
+            document.querySelectorAll('a[id^="my_"]').forEach(function (a) {
+                a.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    openModal();
+                });
+            });
         }
-    });
 
-        document.querySelector('.modal-button').addEventListener('click', function () {
-            document.querySelector('.modal_wrapper').style.display = 'none';
-            document.body.classList.remove('no-scroll');
+        document.querySelector('.header_modal-button').addEventListener('click', function () {
+            closeModal();
+            location.href = '${pageContext.request.contextPath}/jsp/login/login_1.jsp';
         });
 
-        document.querySelector('.div-wrapper').addEventListener('click', function () {
-            document.querySelector('.modal_wrapper').style.display = 'none';
-            document.body.classList.remove('no-scroll');
+        document.querySelector('.header_modal-button-2').addEventListener('click', function () {
+            closeModal();
         });
 
-        document.querySelector('.multiply').addEventListener('click', function () {
-            document.querySelector('.modal_wrapper').style.display = 'none';
-            document.body.classList.remove('no-scroll');
+
+        document.querySelector('.header_modal-multiply').addEventListener('click', function () {
+            closeModal();
         });
     });
 </script>
@@ -224,30 +222,27 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         </div>
     </div>
-    <div class="modal_wrapper">
-        <div class="modal">
-            <div class="div">
-                <div class="button">
-                    <div class="modal-button">
-                        <div class="text-wrapper">확인</div>
-                    </div>
-                    <div class="div-wrapper">
-                        <div class="text-wrapper-2">취소</div>
-                    </div>
-                </div>
-                <div class="modal-header">
-                    <div class="text-wrapper-3">알림</div>
-                    <img class="multiply" src="https://c.animaapp.com/ScPQRqN0/img/multiply@2x.png"/>
-                </div>
-                <div class="txt-comon">
-                    <div class="text-wrapper-4">로그인이 필요한 서비스 입니다.<br/>로그인하시겠습니까?</div>
-                </div>
-            </div>
+</header>
+<div class="header_modal_wrapper">
+    <div class="header_modal">
+        <div class="header_modal_div_button">
+            <button type="button" class="header_modal-button">
+                확인
+            </button>
+            <button type="button" class="header_modal-button-2">취소
+            </button>
+        </div>
+        <div class="modal-header">
+            <div class="header_modal-text-wrapper-3">알림</div>
+            <img class="header_modal-multiply" src="https://c.animaapp.com/ScPQRqN0/img/multiply@2x.png"/>
+        </div>
+        <div class="header_modal-txt-comon">
+            <div class="header_modal-text-wrapper-4">로그인이 필요한 서비스 입니다.<br/>로그인하시겠습니까?</div>
         </div>
     </div>
-</header>
+</div>
 <script>
-    // 메뉴 전체보기를 클릭했을 때 link-4 이미지가 cancle이미지로 바뀐다
+    /*메뉴 전체보기를 클릭했을 때 link-4 이미지가 cancle이미지로 바뀐다*/
     document.querySelector('.m_all').addEventListener('click', function () {
         var element = document.querySelector('.m_all');
         var style = window.getComputedStyle(element);
@@ -273,5 +268,4 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
         }
     });
-
 </script>
