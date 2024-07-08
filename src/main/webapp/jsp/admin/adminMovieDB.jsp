@@ -32,7 +32,7 @@
               </div>
               <div class="button-2"></div>
             </div>
-            <div class="cell"><div class="text-wrapper-10">삭제</div></div>
+            <div class="cell" ><div class="text-wrapper-10" onclick="del()">삭제</div></div>
             <div class="cell-2"><div class="text-wrapper-11" onclick="dialog()">시간 추가</div></div>
        	 	<div id="myModal" class="modal">
        			<div class="modal-content">
@@ -45,7 +45,7 @@
               <div class="item-wrapper">
                 <div class="item">
                   <div class="link-12">
-                    <div class="text-wrapper-13">로그아웃</div>
+                    <div class="text-wrapper-13" id="logout"><a href="${pageContext.request.contextPath}/Controller?type=logout">로그아웃</a></div>
                     <div class="pseudo"></div>
                   </div>
                 </div>
@@ -119,6 +119,10 @@
                 <input type="hidden" id="timeData" name="timeData" value="">
                 <input type="hidden" id="movieCd" name="movieCd" value="">
             </form>
+            <form id="screenDelete" action="Controller?type=adminMovieDb" method="post">
+                <input type="hidden" id="movieCD" name="movieCd" value="">
+                <input type="hidden" id="delete" name="delete" value="delete">
+            </form>
             
             <form id="searchDb" action="Controller?type=adminMovieDb" method="post">
             	<input type="hidden" id="searchData" name="searchData" value="">
@@ -132,7 +136,12 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous"></script>
 <script type="text/javascript">
-
+function del(){
+	console.log("하이")
+	let movieCd = $("input[name='movieCd']:checked").val();
+	$("#movieCD").val(movieCd);
+	$("#screenDelete").submit();
+}
     let date;
     let name, time;
 
@@ -141,7 +150,7 @@
     let checkMovie = null;
     let checkTime = null;
     let checkDate = null;
-
+    
 
     let $daysContainer = $('#days');
     let $monthContainer = $('#current-month');
@@ -154,7 +163,6 @@
     let daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
     let monthNames = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
 	
-    
     
     function search(){
     	let search = $("#search").val()
@@ -176,7 +184,7 @@
     $(function(){
 
         $("#sb").click(function(){
-            let movieCd = $("input[name='movieCd']:checked").val();
+            movieCd = $("input[name='movieCd']:checked").val();
             $("#nameData").val(name)
             $("#dateData").val(date)
             $("#timeData").val(time)
@@ -360,7 +368,14 @@
         });
     })
 
-
+	//아이디가 로그아웃을 클릭했을때 로그아웃할거냐고 경고창
+    document.querySelector('#logout').addEventListener('click', function(event) {
+        var confirmLogout = confirm("로그아웃하시겠습니까?");
+        if (!confirmLogout) {
+            // 사용자가 취소를 클릭하면 이벤트를 중단합니다.
+            event.preventDefault();
+        }
+    });
 
 </script>
 </body>

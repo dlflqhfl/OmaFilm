@@ -20,6 +20,10 @@ public class NoticeSearchAction implements Action {
 		String n_title = request.getParameter("n_title");
 		String type=request.getParameter("type");
 		
+		if (n_title != null) {
+			n_title = n_title.replaceAll("\\s+", ""); // 공백 제거
+	    }
+		
 		//전체페이지 수를 구하기
 		page.setTotalRecode(NoticeDAO.getsearchCount(n_title));
 		

@@ -50,7 +50,7 @@
           </div>
           <div class="row-6">
             <div class="cell-8">
-              <p class="p"><span class="span">줄거리 </span><span class="text-wrapper-2">*</span></p>
+              <p class="p"><span class="span">줄거리 </span></p>
             </div>
             <div class="border-wrapper">
                <div class="overlap-group-2">
@@ -71,20 +71,19 @@
         	<button type="submit" id="goAdd" class="button-2 "><div class="text-wrapper-5">등록</div></button>
         </form>
         <button class="button-3"><div class="text-wrapper-6">목록</div></button>
-        <div class="heading">영화 관리</div>
+        <div class="heading">영화관리</div>
         <div class="span-name"><div class="text-wrapper-7">관리자 님</div></div>
         <div class="list">
           <div class="item">
             <div class="link">
-              <div class="text-wrapper-8">로그아웃</div>
-              <div class="pseudo"></div>
+              <div class="text-wrapper-8" id="logout"><a href="${pageContext.request.contextPath}/Controller?type=logout">로그아웃</a></div>
             </div>
           </div>
         </div>
         <img class="line" src="img/line-2.svg" />
         <div class="text-wrapper-9">영화 추가</div>
         <jsp:include page="/jsp/admin/menu/menu.jsp"></jsp:include>
-        <div class="div-wrap"></div>
+        
       </div>
     </div>
     
@@ -321,7 +320,8 @@ function closeDialog() {
 const settings = {
 	  async: true,
 	  crossDomain: true,
-	  url: 'https://api.themoviedb.org/3/search/movie?query=${movie.movieNm}&include_adult=false&language=ko-KR&page=1',
+	  
+	  url: 'https://api.themoviedb.org/3/search/movie?query=${movie.movieNm}&include_adult=false&language=ko-KR&page=1&year=${movie.openDt.substring(0,4)}',
 	  method: 'GET',
 	  headers: {
 	    accept: 'application/json',
@@ -343,7 +343,15 @@ const settings = {
 	  $(".input").val(posterPath);
 	  $("#area").val(overview);
 	});
-
+	
+	//아이디가 로그아웃을 클릭했을때 로그아웃할거냐고 경고창
+    document.querySelector('#logout').addEventListener('click', function(event) {
+        var confirmLogout = confirm("로그아웃하시겠습니까?");
+        if (!confirmLogout) {
+            // 사용자가 취소를 클릭하면 이벤트를 중단합니다.
+            event.preventDefault();
+        }
+    });
     
 </script>
   </body>
