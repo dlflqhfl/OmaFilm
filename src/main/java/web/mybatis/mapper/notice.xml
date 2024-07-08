@@ -140,4 +140,142 @@
         AND n_idx = #{n_idx}
     </select>
 
+
+
+
+
+
+
+	<!-- 공지사항 DB -->
+	<select id="noticeList" parameterType="String" resultType="web.mybatis.vo.NoticeVO">
+	select *
+	from notice
+	<where>
+	 nt_ct_code = 1
+        <if test="n_none != null and n_none != ''">
+            n_none = #{n_none}
+        </if>
+    </where>
+	</select>
+	<!-- 공지사항 넣기 -->
+	<insert id="insertNotice" parameterType="web.mybatis.vo.NoticeVO">
+	INSERT INTO notice(nt_ct_code,n_title,n_content,n_time,n_status)
+	VALUES(#{nt_ct_code},#{n_title},#{n_content},#{n_time},#{n_status}) 
+	</insert>
+	<!-- 공지사항 삭제 -->
+	<delete id="deleteNotice" parameterType="web.mybatis.vo.NoticeVO">
+	<!-- 삭제할곳 공지사항은 nt_ct_code = 1 로 고정-->
+	DELETE FROM notice
+    WHERE n_idx = #{n_idx}
+    AND nt_ct_code = 1
+	</delete>
+	<!-- 공지사항 검색 -->
+	<select id="searchList" parameterType="String" resultType="web.mybatis.vo.NoticeVO">
+	select *
+	from notice
+	<where>
+			<if test="searchCategory != null and searchTerm != null">
+                ${searchCategory} LIKE CONCAT('%', #{searchTerm}, '%')
+            </if>
+	</where>
+	
+	</select>
+	<!-- 공지사항 갯수 -->
+	<select id="noticeCount" resultType="int">
+	SELECT COUNT(*) FROM notice
+	WHERE nt_ct_code=1
+	</select>
+	<!-- noticeCount 페이징 -->
+	<!-- 자주묻는질문 DB -->
+	<select id="noticeFreList" parameterType="String" resultType="web.mybatis.vo.NoticeVO">
+	select *
+	from notice
+	<where>
+	 nt_ct_code = 4 and n_status = 0
+        <if test="n_none != null and n_none != ''">
+            n_none = #{n_none}
+        </if>
+    </where>
+    
+	</select>
+	<!-- 자주묻는질문 넣기 -->
+	<insert id="insertFreNotice" parameterType="web.mybatis.vo.NoticeVO">
+	INSERT INTO notice(nt_ct_code,n_title,n_content,n_time,n_status)
+	VALUES(#{nt_ct_code},#{n_title},#{n_content},#{n_time},#{n_status}) 
+	</insert>
+	<!-- 자주묻는질문 검색 -->
+	<select id="searchFreList" parameterType="String" resultType="web.mybatis.vo.NoticeVO">
+	select *
+	from notice
+	<where>
+			<if test="searchCategory != null and searchTerm != null">
+                ${searchCategory} LIKE CONCAT('%', #{searchTerm}, '%')
+            </if>
+	</where>
+	</select>
+	<!-- 자주묻는질문 삭제 -->
+	<delete id="deleteFreNotice" parameterType="web.mybatis.vo.NoticeVO">
+	<!-- 삭제할곳 공지사항은 nt_ct_code = 2 로 고정-->
+	DELETE FROM notice
+    WHERE n_idx = #{n_idx}
+    AND nt_ct_code = 2
+	</delete>
+	
+	<!-- 이벤트 관련 DB -->
+   <select id="eventList" parameterType="String" resultType="web.mybatis.vo.NoticeVO">
+   select *
+   from notice
+   <where>
+    (nt_ct_code = 3 OR nt_ct_code = 4)
+        <if test="n_none != null and n_none != ''">
+            n_none = #{n_none}
+        </if>
+    </where>
+   </select>
+	
+	<!-- 이벤트 넣기 -->
+	<insert id="insertEvent" parameterType="web.mybatis.vo.NoticeVO">
+	INSERT INTO notice(nt_ct_code,n_title,n_content,n_time,n_status,n_img,n_banner)
+	VALUES(#{nt_ct_code},#{n_title},#{n_content},#{n_time},#{n_status},#{n_img},#{n_banner}) 
+	</insert>
+
+	
+	<!-- 이벤트 검색 -->
+	<select id="searchEventList" parameterType="map" resultType="web.mybatis.vo.NoticeVO">
+	select *
+	from notice
+	<where>
+			<if test="searchTerm != null and searchTerm != ''">
+            <choose>
+                <when test="searchCategory == 'n_title'">
+                    n_title LIKE CONCAT('%', #{searchTerm}, '%')
+                </when>
+                <when test="searchCategory == 'n_content'">
+                    n_content LIKE CONCAT('%', #{searchTerm}, '%')
+                </when>
+            </choose>
+        </if>
+	</where>
+	</select>
+
+	
+	<delete id="deleteEvent" parameterType="web.mybatis.vo.NoticeVO">
+	<!-- 삭제할곳 공지사항은 nt_ct_code = 1 로 고정-->
+	DELETE FROM notice
+    WHERE n_idx = #{n_idx}
+	</delete>
+		<!-- 게시물 목록을 만들기 위한 select -->
+	<!--  <select id="list" resultMap="map1"
+	parameterType="Map">
+		SELECT * FROM(
+			SELECT @RN:=@RN+1 AS rnum, a.* FROM(
+				SELECT * FROM notice
+				WHERE nt_ct_code = 1 AND bname = #{bname}
+				ORDER BY n_idx DESC
+			) a, (SELECT @RN:=0) b
+		) c WHERE c.rnum BETWEEN #{begin} AND #{end}
+	</select>
+	-->
+	
+	
 </mapper>

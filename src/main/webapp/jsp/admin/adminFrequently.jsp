@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="web.main.util.Paging"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>"
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="css/admin/adminNoticeStyle.css" />
+
 <link rel="stylesheet" href="css/admin/adminNoticeGlobals.css" />
 </head>
 <body>
@@ -46,15 +46,16 @@
 								</div>
 							</div>
 							<div class="body">
-								<c:set var="len" value="${fn:length(noticeList)}" />
+							
+								<c:set var="len" value="${fn:length(noticeFreList)}" />
 					                <c:if test="${page.end<=len}">
 					                	<c:set var="end" value="${page.end}"/>
 					                </c:if>
 									<c:if test="${page.end>len}">
 										<c:set var="end" value="${len}" />
 									</c:if>
-								
-								 <c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
+							
+								<c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
 									<c:choose>
 										<c:when test="${status.index == 0}">
 											<div class="row">
@@ -65,24 +66,23 @@
 									</c:choose>
 									<div class="overlap-group-3">
 										<div class="data">
-											<div class="text-wrapper-6">${noticeList[i-1].n_idx}</div>
+											<div class="text-wrapper-6">${noticeFreList[i-1].n_idx}</div>
 										</div>
 										<div class="data-2">
-											<div class="text-wrapper-7">${noticeList[i-1].n_title}</div>
+											<div class="text-wrapper-7">${noticeFreList[i-1].n_title}</div>
 										</div>
 									</div>
 									<div class="rectangle-wrapper">
 										<input type="checkbox" class="rectangle" name="deleteIds"
-											value="${noticeList[i-1].n_idx}" />
+											value="${noticeFreList[i-1].n_idx}" />
 									</div>
 									<div class="data-3">
-										<div class="text-wrapper-8">${noticeList[i-1].n_time}</div>
+										<div class="text-wrapper-8">${noticeFreList[i-1].n_time}</div>
 									</div>
-								</div>
+							</div>
 							</c:forEach>
 						</div>
 					</div>
-					<!-- Paging을 이용해서 해야 한다+11개이상 목록이 있을땐 10개 까지만 출력 그 후 페이징을 통해 분할 -->
 					 <!-- 페이징 -->
 					<div class="frame-2">
 						<div>
@@ -92,7 +92,7 @@
 								</c:if>
 								<c:if test="${page.startPage >= page.pagePerBlock}">
 									<li class=""><a
-										href="Controller?type=adminNotice&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+										href="Controller?type=adminFrequently&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
 								</c:if>
 								<!-- <div class="nav"> -->
 								<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
@@ -101,14 +101,14 @@
 									</c:if>
 									<c:if test="${i != page.nowPage}">
 										<li class=" "><a
-											href="Controller?type=adminNotice&cPage=${i}">${i}</a></li>
+											href="Controller?type=adminFrequently&cPage=${i}">${i}</a></li>
 									</c:if>
 								</c:forEach>
 
 
 								<c:if test="${page.endPage < page.totalPage}">
 									<li class=""><a
-										href="Controller?type=adminNotice&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+										href="Controller?type=adminFrequently&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
 								</c:if>
 								<c:if test="${page.endPage >= page.totalPage}">
 									<li class=" disable">&gt;</li>
@@ -118,13 +118,11 @@
 						</div>
 					</div>
 					<!-- 페이징 끝-->
-					
-					
 				</div>
 				
-				<form id="searchForm" method="post" action="Controller?type=adminSearch">
+				<form id="searchForm" method="post" action="Controller?type=adminSearchFre">
 				<div class="button">
-						<select id="searchCategory" name="searchCategory" class="text-wrapper-12">
+						<select id="searchCategory" name="searchCategory" class="text-wrapper-12" >
 							<option value="n_title">제목</option>
 							<option value="n_content">내용</option>
 						</select>
@@ -141,7 +139,7 @@
 				
 				
 				<div class="cell-5">
-					<a href="Controller?type=adminAddNotice" class="text-wrapper-14">추가</a>
+					<a href="Controller?type=adminAddFrequently" class="text-wrapper-14">추가</a>
 				</div>
 				<div class="cell-6">
 					<button type="button" class="text-wrapper-24"
@@ -150,11 +148,11 @@
 				<div class="bar">
 					<a href="Controller?type=adminInquiry" class="element"><div
 							class="text-wrapper-15">1:1 문의</div></a>
-					<a href="Controller?type=adminFrequently" class="view">
-						<div class="text-wrapper-16">자주 묻는 질문</a>
-					</div>
 					<div class="view-3">
-						<div class="text-wrapper-18">공지사항</div>
+						<div class="text-wrapper-16">자주 묻는 질문</div>
+					</div>
+					<a href="Controller?type=adminNotice" class="view">
+						<div class="text-wrapper-18">공지사항</a>
 					</div>
 				</div>
 				<div class="heading">고객센터 관리</div>
@@ -164,12 +162,14 @@
 				<div class="text-wrapper-19">관리자</div>
 				<div class="list-2">
 					<div class="item-link"><div class="text-wrapper-20"><a href="Controller?type=adminMovieDb">영화관리</a></div></div>
-					<div class="item-link-2"><a href="Controller?type=adminEvent" class="text-wrapper-21">이벤트/혜택 관리</a></div>
+					<div class="item-link-2"><a href="Controller?type=adminEvent" class="text-wrapper-21"><a href="Controller?type=adminEvent">이벤트/혜택 관리</a></a></div>
 					<div class="item-link-2"><div class="text-wrapper-22"><a href="Controller?type=adminCpHome">쿠폰관리</a></div></div>
 					<div class="item-link-3"><div class="text-wrapper-23"><a href="Controller?type=adminNotice">고객센터 관리</a></div></div>
 				</div>
 			</div>
 		</div>
+	</div>
+	</div>
 	<script>
 function deleteNotices() {
   var checkboxes = document.querySelectorAll('input[name="deleteIds"]:checked');
@@ -201,6 +201,11 @@ function deleteNotices() {
   document.body.appendChild(form);
   form.submit();
 }
+function updateDropdownText() {
+	var dropdown = document.getElementById("searchCategory");
+    var selectedOption = dropdown.options[dropdown.selectedIndex].text;
+    document.querySelector('.text-wrapper-12').textContent = selectedOption;
+	}
 function executeSearch() {
     document.getElementById("searchForm").submit();
 }

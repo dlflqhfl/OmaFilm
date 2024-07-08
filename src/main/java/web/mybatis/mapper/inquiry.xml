@@ -59,4 +59,40 @@
 		     ORDER BY iq_time DESC
 		     LIMIT 5
 	    </select>
+	    
+	    
+	    
+	    
+    <resultMap id="getComment" type="web.mybatis.vo.InquiryVO">
+           <id property="iq_idx" column="iq_idx"/>
+           <association property="icvo" javaType="web.mybatis.vo.IqCommentVO" 
+				select="iqComment.getComment" column="iq_idx"/> 
+    </resultMap>
+    
+    
+    <select id="inquiryList" resultMap="getComment">
+		select *
+		from inquiry
+	</select>
+	
+	<select id="getInquiry" parameterType="int" resultMap="getComment">
+	select *
+	from inquiry
+	<where>
+		iq_idx = #{iq_idx}
+	</where>
+	</select>
+	
+	<!-- inquirySearchList -->
+	<select id="inquirySearchList" parameterType="String" resultType="web.mybatis.vo.InquiryVO">
+	select *
+	from inquiry
+	<where>
+			<if test="searchCategory != null and searchTerm != null">
+                ${searchCategory} LIKE CONCAT('%', #{searchTerm}, '%')
+            </if>
+	</where>	
+	</select>
+	
+	    
 </mapper>

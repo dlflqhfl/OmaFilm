@@ -68,11 +68,11 @@ public class NoReservationCheckAction implements Action{
 			//rvo 페이징 처리
 			Paging page = new Paging(10,5);
 			
-			String res2 = request.getParameter("res");
+			String cPage = request.getParameter("cPage");
 			if(cancel_list !=null)
 				page.setTotalRecode(cancel_list.length);
-			if(res2 !=null)
-				page.setNowPage(Integer.parseInt(res2));
+			if(cPage !=null)
+				page.setNowPage(Integer.parseInt(cPage));
 			else
 				page.setNowPage(1);
 			request.setAttribute("page", page);
