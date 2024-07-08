@@ -359,36 +359,30 @@ function sendEmail() {
     // jQuery AJAX를 사용하여 서버에 이메일을 보냅니다.
     $.ajax({
         type: "POST",
-        url: "${pageContext.request.contextPath}/Controller?type=send",
+        url: "${pageContext.request.contextPath}/Controller?type=send_2",
         data: {email: email},
-        success: function (data) {
-            data = data.trim();
-            if (data === "0") {
-                alert("이메일이 성공적으로 전송되었습니다.");
-                time = 180;
-                timer = setInterval(function () {
-                    var minutes = Math.floor(time / 60);
-                    var seconds = time % 60;
-                    $("#timer").text(minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
-                    if (time <= 0) {
-                        clearInterval(timer);
-                        alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
-                        $(".input-3").prop("readonly", true);
-                        $(".background-border").css("background-color", "#f2f2f2");
-                        $(".input-3").val("");
-                        $(".input-3").css("background-color", "#f2f2f2");
-                        $(".text-wrapper-9").css("display", "none");
-                    }
-                    time--;
-                }, 1000);
-
-                setTimeout(function () {
+        success: function () {
+            alert("이메일이 성공적으로 전송되었습니다.");
+            time = 180;
+            timer = setInterval(function () {
+                var minutes = Math.floor(time / 60);
+                var seconds = time % 60;
+                $("#timer").text(minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
+                if (time <= 0) {
+                    clearInterval(timer);
                     alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
-                }, 3 * 60 * 1000);
-            }else if (data === "1") {
-                alert("가입된 이메일입니다.");
-                location.href = "${pageContext.request.contextPath}/jsp/login/login_1.jsp";
-            }
+                    $(".input-3").prop("readonly", true);
+                    $(".background-border").css("background-color", "#f2f2f2");
+                    $(".input-3").val("");
+                    $(".input-3").css("background-color", "#f2f2f2");
+                    $(".text-wrapper-9").css("display", "none");
+                }
+                time--;
+            }, 1000);
+
+            setTimeout(function () {
+                alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
+            }, 3 * 60 * 1000);
         }
     });
 }
