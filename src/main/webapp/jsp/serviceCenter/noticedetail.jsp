@@ -44,8 +44,8 @@
                 </div>
                 <div class="data">
                 <div class="input-2">
-	                <fmt:parseDate value="${nvo.n_time}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate"/>
-	    			<fmt:formatDate value="${parsedDate}" pattern="yyyy.MM.dd" />
+                   <fmt:parseDate value="${nvo.n_time}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate"/>
+                <fmt:formatDate value="${parsedDate}" pattern="yyyy.MM.dd" />
                 </div>
                 </div>
               </div>

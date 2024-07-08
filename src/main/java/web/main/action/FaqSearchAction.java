@@ -19,6 +19,10 @@ public class FaqSearchAction implements Action {
 				String cPage = request.getParameter("cPage");
 				String n_title = request.getParameter("n_title");
 				
+				if (n_title != null) {
+					n_title = n_title.replaceAll("\\s+", "");
+			    }
+				
 				//전체페이지 수를 구하기
 				page.setTotalRecode(FaqDAO.getsearchCount(n_title));
 				

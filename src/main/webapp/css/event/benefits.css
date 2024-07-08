@@ -111,20 +111,20 @@
 
 .screen .background {
   position: absolute;
-  width: 439px;
+  width: 438px;
   height: 244px;
-  background-color: #eeeeee;
+  background-color: #eeeeee; 
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #e4e4e4;
-  border-radius: 10px 0px;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .screen .div {
   position: relative;
-  width: 438px;
+  width: 437px;
   height: 243px;
-  background-image: url(../../img/event/benefits/fouilyt7jncmcboni66dljpyxxy7zra7-jpg.png);
+  /* background-image: url(../../img/event/benefits/fouilyt7jncmcboni66dljpyxxy7zra7-jpg.png); */
   background-size: cover;
   background-position: 50% 50%;
   border-radius: 10px 10px 0px 0px;
@@ -139,7 +139,7 @@
 }
 
 .screen .p {
-  width: 390px;
+  width: 415px;
   height: 45px;
   top: 35px;
   left: 17px;

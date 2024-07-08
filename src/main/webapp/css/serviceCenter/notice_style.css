@@ -27,15 +27,6 @@
   background-size: 100% 100%;
 }
 
-.screen .navbar {
-  position: relative;
-  height: 98px;
-  background-color: #00000080;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-color: #ffffff33;
-}
-
 .screen .link {
   position: absolute;
   width: 46px;
@@ -332,7 +323,7 @@ input:focus {
 .screen .table th, .screen .table td {
   border: 1px solid #eaeaea; /* 테두리 색상 및 두께 */
   padding: 12px;
-  text-align: left; 
+  text-align: center;
 }
 
 /* 테이블 헤더 스타일 */
@@ -391,6 +382,7 @@ input:focus {
     background-color: #f2f4f5;
     font-weight: bold;
     text-align: center; /* 가운데 정렬 추가 */
+    width: px;
 }
 
 /* 제목 셀 스타일 */
@@ -746,5 +738,5 @@ ol.paging li a:hover {
 .nav1 {
     position: relative;
     top: 1000px;
-    LEFT: 50px;
+    LEFT: 150px;
 }

@@ -9,12 +9,12 @@
 .screen .container-wrapper {
   background-color: #ffffff;
   width: 1920px;
-  height: 1720px;
+  /* height: auto; */
 }
 
 .screen .container {
-  position: relative;
   height: 1720px;
+  position: relative;
 }
 
 .screen .frame {
@@ -27,14 +27,6 @@
   background-size: 100% 100%;
 }
 
-.screen .navbar {
-  position: relative;
-  height: 98px;
-  background-color: #00000080;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-color: #ffffff33;
-}
 
 .screen .link {
   position: absolute;
@@ -439,14 +431,14 @@
 
 .screen .t1 {
 	position : relative;
-	top: 800px;
+	top: 750px;
 	left: 610px;
 	
 }
 
 .screen .t2 {
 	position : relative;
-	top: 850px;
+	top: 800px;
 	left: 610px;
 	
 }
