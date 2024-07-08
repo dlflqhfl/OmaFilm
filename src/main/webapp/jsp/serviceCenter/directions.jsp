@@ -11,8 +11,7 @@
     <div class="screen">
       <div class="container-wrapper">
         <div class="container">
-          <jsp:include page="/jsp/header/header.jsp"/>
-          <jsp:include page="/jsp/footer/footer.jsp"/>
+             <jsp:include page="/jsp/header/header.jsp"/>
           <div class="heading">오시는 길</div>
           <p class="text-wrapper">주소 : 서울 강남구 테헤란로 132 한독약품빌딩 8층 (우)06235</p>
           <div id="map"></div>
@@ -56,6 +55,7 @@
 		  // 마커 지도 위에 셋칭
 		  marker.setMap(map);
 		});
-	</script>    
+	</script>   
+	<jsp:include page="/jsp/footer/footer.jsp"/> 
   </body>
 </html>

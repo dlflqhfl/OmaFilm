@@ -31,6 +31,7 @@ public class LoginAction implements Action{
         /*System.out.println("여기까지는 왔다");*/
 
         if(mvo != null){
+            request.getSession().removeAttribute("remember_id");
         	if(Integer.parseInt(mvo.getU_authority()) == 1) {
         		System.out.println("관리자 로그인");
         		return "Controller?type=adminMovieApi&curPage=1";

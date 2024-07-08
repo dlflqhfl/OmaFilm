@@ -1,12 +1,15 @@
 .site_header {
     position: absolute;
     top: 0;
+    left: 50%; /* Move the starting point to the middle of the page */
+    transform: translateX(-50%); /* Center the element with respect to its width */
     width: 100%;
-    max-width: 1920px;
-    margin: auto;
+    max-width: 1920px; /* Adjust this value as needed */
     height: 100px;
     background-color: transparent;
     background-image: url(../img/header/overlay-1.svg);
+    margin: auto;
+    z-index: 99;
 }
 
 .site_header .navigation_bar {
@@ -17,6 +20,8 @@
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-color: #ffffff33;
+    background-image: url(../img/header/overlay-1.svg);
+    background-size: 100% 100%;
 }
 
 .site_header .nav_item_1 {
@@ -183,4 +188,127 @@
 .MenuAll {
     display: none;
     z-index: 9999;
+}
+
+/*=========== 모달창 ===============*/
+
+.header_modal_wrapper {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.header_modal {
+    background-color: #ffffff;
+    position: fixed;
+    top: 50%; /* 상단에서 50% 위치 */
+    left: 50%; /* 왼쪽에서 50% 위치 */
+    transform: translate(-50%, -50%); /* 정확한 중앙 정렬을 위해 변환 */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 300px;
+    height: 180px;
+}
+
+.header_modal .header_modal_div_button {
+    position: absolute;
+    width: 119px;
+    height: 24px;
+    top: 139px;
+    left: 90px;
+}
+
+.header_modal .header_modal-button {
+    position: absolute;
+    width: 46px;
+    height: 24px;
+    top: 0;
+    left: 73px;
+    background-color: #0f212b;
+    border-radius: 4px;
+    font-family: "NanumBarunGothic-Regular", Helvetica;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: -0.5px;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.header_modal .header_modal-button-2 {
+    position: absolute;
+    width: 46px;
+    height: 24px;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #0e2128;
+    font-family: "NanumBarunGothic-Regular", Helvetica;
+    color: #0e2128;
+    text-align: center;
+    letter-spacing: -0.5px;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+
+
+.header_modal .modal-header {
+    position: absolute;
+    width: 300px;
+    height: 45px;
+    top: 0;
+    left: 0;
+    background-color: #0e2128;
+}
+
+.header_modal .header_modal-text-wrapper-3 {
+    width: 30px;
+    top: 12px;
+    left: 15px;
+    font-family: "Inter-Regular", Helvetica;
+    color: #ffffff;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.header_modal .header_modal-multiply {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    top: 7px;
+    left: 262px;
+}
+
+.header_modal .header_modal-txt-comon {
+    position: absolute;
+    width: 230px;
+    height: 45px;
+    top: 67px;
+    left: 30px;
+}
+
+.header_modal .header_modal-text-wrapper-4 {
+    width: 230px;
+    top: -1px;
+    left: 0;
+    font-family: "Inter-Regular", Helvetica;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    font-weight: 400;
+    font-size: 15px;
 }

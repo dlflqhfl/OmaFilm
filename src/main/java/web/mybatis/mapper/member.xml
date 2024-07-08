@@ -64,6 +64,30 @@
         </if>
     </select>
 
+    <select id="searchMem" parameterType="map" resultType="web.mybatis.vo.MemberVO">
+    	select * from member
+    	<where>
+	        u_authority = 0 and u_status = 0
+	        <if test="searchValue != null">
+		        <if test="searchType == 'u_code'">
+		            AND u_code LIKE CONCAT('%', #{searchValue}, '%')
+		        </if>
+		        <if test="searchType == 'u_id'">
+		        	AND u_id LIKE CONCAT('%', #{searchValue}, '%')
+		        </if>
+		        <if test="searchType == 'u_name'">
+		            AND u_name LIKE CONCAT('%', #{searchValue}, '%')
+		        </if>
+		        <if test="searchType == 'u_birth'">
+		            AND u_birth LIKE CONCAT('%', #{searchValue}, '%')
+		        </if>
+		        <if test="searchType == 'u_email'">
+		            AND u_email LIKE CONCAT('%', #{searchValue}, '%')
+		        </if>
+		     </if>
+    	</where>
+    </select>
+
     <!--비밀번호 변경 쿼리-->
     <update id="change_pw" parameterType="map">
         UPDATE member SET u_pw = #{pw} WHERE u_id = #{id} and u_pw = #{origin_pw}
@@ -99,5 +123,10 @@
         SELECT * FROM member
         WHERE u_code = #{u_code}
     </select>
+
+	<select id="getMemList" resultType="web.mybatis.vo.MemberVO">
+		SELECT * FROM member
+		where u_authority = 0 and u_status = 0
+	</select>
 
 </mapper>

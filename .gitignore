@@ -15,7 +15,6 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear
@@ -27,4 +26,33 @@
 hs_err_pid*
 replay_pid*
 
-# End of https://www.toptal.com/developers/gitignore/api/java
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.iws
+out/
+
+### Eclipse ###
+.classpath
+.project
+.settings/
+target/
+bin/
+
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+### Web ###
+# Specific to web projects
+node_modules/
+dist/
+npm-debug.log
+.DS_Store
+/.sass-cache
+
+# End of custom .gitignore for Java, IntelliJ IDEA, Eclipse, and web projects

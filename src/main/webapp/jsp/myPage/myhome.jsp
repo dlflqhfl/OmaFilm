@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,12 +11,15 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/myPage/myHome.css" />
   </head>
   <body>
+  	<jsp:include page="/jsp/header/header.jsp"/> 
+	<jsp:include page="/jsp/footer/footer.jsp"/>
     <div class="screen">
       <div class="container-wrapper">
         <div class="container">
-          <img class="footer" src="${pageContext.request.contextPath}/img/myPage/myhome/footer.png" />
+          <%-- <img class="footer" src="${pageContext.request.contextPath}/img/myPage/myhome/footer.png" /> --%>
           <div class="heading">마이페이지 홈</div>
-          <div class="frame">
+          
+          <%-- <div class="frame">
             <div class="navbar">
               <div class="link"><div class="text-wrapper">회원가입</div></div>
               <div class="div-wrapper"><div class="text-wrapper">고객센터</div></div>
@@ -36,17 +40,19 @@
               <img class="heading-link" src="${pageContext.request.contextPath}/img/myPage/myhome/heading-1-link.png" />
               <div class="link-5"></div>
             </div>
-          </div>
+          </div> --%>
           <div class="background">
             <div class="overlap">
               <div class="link-6"><div class="text-wrapper-8">마이페이지</div></div>
               <div class="list">
+              
                 <div class="overlap-group">
-                  <div class="item-link"><div class="text-wrapper-9"><a href="Controller?type=personInfor">개인 정보 수정</a></div></div>
-                  <div class="item-link-2"><div class="text-wrapper-10"><a href="Controller?type=myReservation">나의 예매 내역 조회</a></div></div>
-                  <div class="link-7"><div class="text-wrapper-11"><a href="Controller?type=inquiry">나의 문의 내역</a></div></div>
-                  <div class="item-link-3"><div class="text-wrapper-13"><a href="Controller?type=myHome">마이페이지 홈</a></div></div>
-                  <div class="link-8"><div class="text-wrapper-12"><a href="Controller?type=myCoupon">나의 쿠폰 조회</a></div></div>
+                	<div class="item-link-3"><div class="text-wrapper-13"><a href="Controller?type=myHome">마이페이지 홈</a></div></div>
+                	<div class="item-link-2"><div class="text-wrapper-10"><a href="Controller?type=myReservation">나의 예매 내역 조회</a></div></div>
+                	<div class="link-8"><div class="text-wrapper-14"><a href="Controller?type=myCancelReservation">나의 예매 취소 내역 조회</a></div></div>         
+                  <div class="link-7"><div class="text-wrapper-12"><a href="Controller?type=myCoupon">나의 쿠폰 조회</a></div></div>
+                  <div class="item-link"><div class="text-wrapper-11"><a href="Controller?type=inquiry">나의 문의 내역</a></div></div>
+                  <div class="item-link2"><div class="text-wrapper-9"><a href="Controller?type=checkPw">개인 정보 수정</a></div></div>
                 </div>
               </div>
             </div>
@@ -61,12 +67,16 @@
 			  </div>
 				  <table>  
 				    <tbody>
-				    <c:forEach var="item" items="${rvo}" varStatus="status">
-				      <tr>
-				        <td><span class="span">${status.index + 1}</span><span class="text-wrapper-18"> </span><span class="text-wrapper-18">${item.ssvo.mvo.movieNm }</span></td>
-				        <td><div class="text-wrapper-17">${item.rs_time.split(" ")[0]}</div></td>
-				      </tr>
-				      </c:forEach>
+				    
+					<c:set var="end" value="${fn:length(rvo) > 6 ? 6 : fn:length(rvo)}" />
+					
+					<c:forEach var="item" items="${rvo}" begin="0" end="${end - 1}" varStatus="status">
+					  <tr>
+					    <td><span class="span">${status.index + 1}</span><span class="text-wrapper-18"> </span>
+					    <span class="text-wrapper-18">${item.ssvo.mvo.movieNm }</span></td>
+					    <td><div class="text-wrapper-17">${item.rs_time.split(" ")[0]}</div></td>
+					  </tr>
+					</c:forEach>
 				    </tbody>
 				  </table> 
 			</div> 
@@ -80,13 +90,15 @@
 			    </div>
 				    <table>
 				        <tbody>
-				        	<c:forEach items="${ivo}" var="vo" varStatus="num"> 
-					            <tr>
-					                <td><span class="text-wrapper-18">${vo.iq_idx }</span></td>
-					                <td><span class="text-wrapper-18">${vo.iq_title }</span></td>
-					                <td><div class="text-wrapper-25">${vo.iq_time }</div></td>
-					            </tr>
-				            </c:forEach>
+				        	<c:set var="end" value="${fn:length(ivo) > 6 ? 6 : fn:length(ivo)}" />
+
+							<c:forEach var="vo" items="${ivo}" begin="0" end="${end - 1}" varStatus="num">
+							  <tr>
+							    <td><span class="text-wrapper-18">${vo.iq_idx }</span></td>
+							    <td><span class="text-wrapper-18">${vo.iq_title }</span></td>
+							    <td><div class="text-wrapper-25">${vo.iq_time }</div></td>
+							  </tr>
+							</c:forEach>
 				        </tbody>
 				    </table>
 				</div>
@@ -104,7 +116,7 @@
 				    <div class="overlap-4">
 		        	<div class="overlap-5">
 		            <div class="text-wrapper-31">쿠폰 현황</div>
-  					<a href="../../jsp/myPage/couponList.jsp"><img class="polygon" src="${pageContext.request.contextPath}/img/myPage/myhome/polygon-2.svg" alt="아이콘" /></a>
+  					<a href="Controller?type=myCoupon"><img class="polygon" src="${pageContext.request.contextPath}/img/myPage/myhome/polygon-2.svg" alt="아이콘" /></a>
 			        	</div>
 			        <div class="text-wrapper-32">총 쿠폰</div>
 			        <span class="coupon-total">${couponCount }<span>매</span></span>
@@ -112,5 +124,6 @@
 			        <span class="coupon-expiring">${delCouponCount }<span>매</span></span>
 		    </div>
 		</div>
+		
   </body>
 </html> 

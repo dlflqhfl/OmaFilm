@@ -150,7 +150,7 @@
   position: absolute;
   width: 78px;
   height: 218px;
-  top: 435px;
+  top: 436px;
   left: 0;
   background-color: #ffffff;
   border-right-width: 1px;
@@ -476,7 +476,6 @@
   height: 174px;
   top: 50px;
   left: 58px;
-  background-color: #05771847;
   border-radius: 3px;
 }
 
@@ -523,6 +522,7 @@
   letter-spacing: -0.36px;
   line-height: 16.5px;
   white-space: nowrap;
+  text-align: left;
 }
 
 .div .people-num {
@@ -819,10 +819,10 @@
 }
 
 .div .dis-price {
-  width: 11px;
+  width: 70px;
   height: 15px;
   top: 258px;
-  left: 359px;
+  left: 300px;
   position: absolute;
   font-family: "Noto Sans KR", Helvetica;
   font-weight: 500;
@@ -831,6 +831,7 @@
   letter-spacing: -0.36px;
   line-height: 16.5px;
   white-space: nowrap;
+  text-align: right;
 }
 
 .div .total-price {

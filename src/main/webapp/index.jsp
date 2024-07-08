@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css"/>
 </head>
 <body>
+<jsp:include page="jsp/header/header.jsp"/>
 <div class="omakase-cinema">
     <div class="overlap-wrapper">
         <div class="overlap">
@@ -137,27 +139,35 @@
                             >
                         </a>
                         <div class="ordered-list">
-                        <c:forEach items="${mar}" var="mar" varStatus="vs">
-                        	<c:if test="${vs.index < 4}">
-					            <div class="item">
-					              <div class="link-15">
-					                <div class="overlap-group-2" style="background-image: url('${mar.m_file}'); background-size: cover; background-repeat: no-repeat; background-position: center;"> 
-					                  <%-- 이미지 호버 --%>
-					                  <div class="MovieHover">
-						                <a href="Controller?type=moviedetail&movieCd=${mar.movieCd}">
-						               	 <div class="MovieHover_text">${mar.m_plot}</div><%-- 줄거리 --%>
-						                </a>
-					                 </div>
-					                  <div class="background-3"><div class="text-wrapper-15">${mar.dvo.rank}</div></div>
-					                </div>
-					              </div>
-					              <div class="container-5">
-					                <div class="link-16"><a href="Controller?type=selectTime&movieCd=${mar.movieCd}" class="text-wrapper-16">예매</a></div>
-					              </div>
-					            </div>
-				            </c:if>
-				            </c:forEach>
-                            </div>
+	                        <c:forEach items="${mar}" var="mar" varStatus="vs">
+	                        	<c:if test="${vs.index < 4}">
+						            <div class="item">
+						              <div class="link-15">
+						                <div class="overlap-group-2" style="background-image: url('${mar.m_file}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+						                  <%-- 이미지 호버 --%>
+						                  <div class="MovieHover">
+							                <a href="Controller?type=moviedetail&movieCd=${mar.movieCd}">
+							               	 <div class="MovieHover_text">${mar.m_plot}</div><%-- 줄거리 --%>
+							                </a>
+						                 </div>
+						                  <div class="background-3"><div class="text-wrapper-15">${mar.dvo.rank}</div></div>
+						                </div>
+						              </div>
+						              <div class="container-5">
+						                <div class="link-16"><a href="Controller?type=selectTime&movieCd=${mar.movieCd}" class="text-wrapper-16">예매</a></div>
+						              </div>
+						            </div>
+					            </c:if>
+					         </c:forEach>
+
+
+				            <c:if test="${empty mar}">
+				            	<div id="none">
+		              			 죄송합니다. 상영 준비중입니다.<br/>
+		              			 빠른 시일 내에 준비하겠습니다.
+		              			</div>
+		              		</c:if>
+                        </div>
                         <div class="overlay">
                             <div class="horizontal-border-2">
                                 <div class="input">
@@ -192,11 +202,10 @@
                     </div>
                 </div>
             </div>
-            <jsp:include page="jsp/header/header.jsp"/>
         </div>
-            <jsp:include page="jsp/footer/footer.jsp"/>
     </div>
 </div>
+<jsp:include page="jsp/footer/footer.jsp"/>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
     var movieHoverElements = document.querySelectorAll('.MovieHover');
@@ -209,7 +218,7 @@
             element.style.display = 'none';
         });
     });
-    
+
     var moviePlot = document.querySelectorAll('.MovieHover_text');
     moviePlot.forEach(function (element) {
        if(element.innerText.length > 150){

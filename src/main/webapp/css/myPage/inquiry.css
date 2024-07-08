@@ -21,16 +21,16 @@
 .screen .background {
   position: absolute;
   width: 252px;
-  height: 791px;
-  top: 170px;
-  left: 253px;
+  height: 536px;
+  top: 240px;
+  left: 302px;
   background-color: #ffffff;
 }
 
 .screen .nav {
   position: relative;
   height: 655px;
-  top: 82px;
+  /* top: 82px; */
 }
 
 .screen .link {
@@ -67,20 +67,16 @@
   top: 90px;
   left: 0;
   border-radius: 0px 0px 10px 10px;
-  border-style: solid;
-  border-top-style: solid;
-  border-right-style: solid;
-  border-bottom-style: solid;
-  border-left-style: solid;
+  border: 1px solid;
   border-color: #d8d9db;
 }
 
 .screen .item {
   position: absolute;
-  width: 252px;
+  width: 251px;
   height: 39px;
-  top: 62px;
-  left: 0px;
+  top: 39.5px;
+  /* left: -1px; */
   border-top-width: 1px;
   border-top-style: solid;
   border-color: #3d4d55;
@@ -88,9 +84,17 @@
 
 .screen .div-wrapper {
   position: relative;
-  height: 40px;
-  top: -21px;
+  height: 39px;
+  /* top: -21px; */
   background-color: #3d4d55;
+}
+.screen .div-wrapper2 {
+  position: relative;
+  height: 40px;
+  top: -37.5px;
+  background-color: #3d4d55;
+  width: 251px;
+  left: -2px;
 }
 
 .screen .text-wrapper-2 {
@@ -109,13 +113,13 @@
 }
 
 .screen .link-wrapper {
-  top: 103px;
+  top: 79px;
   left: 0px;
   border-top-width: 1px;
   border-top-style: solid;
   border-color: #d8d9db;
   position: absolute;
-  width: 252px;
+  width: 251px;
   height: 39px;
 }
 .screen .link-wrapper:hover {
@@ -175,13 +179,13 @@
 }
 
 .screen .item-3 {
-  top: 21px;
-  left: 0px;
-  border-top-width: 1px;
-  border-top-style: solid;
+  /* top: 21px; */
+  /* left: -1px; */
+  /* border-top-width: 1px; */
+  /* border-top-style: solid; */
   border-color: #d8d9db;
   position: absolute;
-  width: 252px;
+  width: 251px;
   height: 39px;
 }
 
@@ -198,19 +202,35 @@
   letter-spacing: 0;
   line-height: 19.5px;
   white-space: nowrap;
+  -webkit-text-stroke: 1px #b58863;
 }
+.screen .text-wrapper-100 {
+  position: absolute;
+  width: 92px;
+  height: 19px;
+  top: 9px;
+  left: 15px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #b58863;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+
 
 .screen .overlap-group {
   position: absolute;
-  width: 248px;
+  width: 247px;
   height: 80px;
-  top: 162px;
+  top: 157px;
   left: 2px;
 }
 
 .screen .item-link {
-  top: -38px;
-  left: -2px;
+  top: -19.5px;
   border-right-width: 1px;
   border-right-style: solid;
   border-bottom-width: 1px;
@@ -222,7 +242,7 @@
   /* background-size: cover; */
   background-position: 50% 50%;
   position: absolute;
-  width: 252px;
+  width: 251px;
   height: 39px;
 }
 
@@ -230,26 +250,35 @@
   position: absolute;
   width: 95px;
   height: 21px;
-  top: 7px;
-  left: 11px;
-  -webkit-text-stroke: 1px #b58863;
+  top: 10px;
+  left: 15px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #b58863;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 0;
   line-height: 19.5px;
   white-space: nowrap;
 }
 
 .screen .item-4 {
-  top: 184px;
+  top: 175px;
   left: 0;
   border-top-width: 1px;
   border-top-style: solid;
   border-color: #d8d9db;
   position: absolute;
   width: 252px;
+  height: 39px;
+}
+.screen .item-5 {
+  top: 194.5px;
+  left: 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: #d8d9db;
+  position: absolute;
+  width: 251px;
   height: 39px;
 }
 
@@ -887,8 +916,12 @@ ol.paging li a:hover {
 }
 
 
-.text-wrapper-5 a,.text-wrapper-2 a,.text-wrapper-6 a,.text-wrapper-4 a,.text-wrapper-3 a
+.text-wrapper-5 a,.text-wrapper-2 a,.text-wrapper-6 a,.text-wrapper-4 a,.text-wrapper-3 a .text-wrapper-100 a, .text-wrapper-3 a
  { /* .item-link 안의 모든 a 태그에 적용 */
   color: #b58863;
   text-decoration: none; /* 밑줄 제거 */
+}
+.text-wrapper-3 a:hover {
+	color: inherit;
+  text-decoration: none !important; /* !important 추가 */
 }

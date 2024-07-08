@@ -1,5 +1,6 @@
 package web.main.action;
 
+import web.main.util.Paging;
 import web.mybatis.dao.MyReservationDAO;
 import web.mybatis.vo.MemberVO;
 import web.mybatis.vo.ReservationVO;
@@ -34,37 +35,39 @@ public class MyReservationAction implements Action {
 			selectedMonth=null;
 		}
 
-		String cancelMonth = request.getParameter("cancelMonth");
-		if(cancelMonth!=null && cancelMonth.trim().length()<1) {
-			cancelMonth=null;
-		}
+		
+		ReservationVO[] rvo = null;
+		
+		if(searchKey==null && selectedMonth==null) { //월 입력값이 없을 때 -> 모든 값
 
-
-		if(cancelMonth!=null) {
-			//당월 예매 취소 내역 -> list로 띄우기
-			ReservationVO[] rvo_cancel = MyReservationDAO.getCancelList(mvo.getU_code(), cancelMonth);
-			if(rvo_cancel !=null)
-				System.out.println(rvo_cancel.length);
-			request.setAttribute("rvo_cancel", rvo_cancel);
-		}
-		else if(searchKey==null && selectedMonth==null) { //월 입력값이 없을 때 -> 모든 값
-
-			ReservationVO[] rvo = MyReservationDAO.getAllList(mvo.getU_code());
+			rvo = MyReservationDAO.getAllList(mvo.getU_code());
 			request.setAttribute("rvo", rvo);
 
-			ReservationVO[] rvo_cancel = MyReservationDAO.getAllCancel(mvo.getU_code());
-			request.setAttribute("rvo_cancel", rvo_cancel);
 
 		}else { //입력값이 있을 때
 
 			//당월 예매 내역 조회 -> list로 띄우기
-			ReservationVO[] rvo = MyReservationDAO.getReservationList(mvo.getU_code(), searchKey, selectedMonth);
+			rvo = MyReservationDAO.getReservationList(mvo.getU_code(), searchKey, selectedMonth);
 			if(rvo !=null)
 				System.out.println(rvo.length);
 			request.setAttribute("rvo", rvo);
 
 		}
 
+		
+		//rvo 페이징 처리
+		Paging page = new Paging(10,5);
+		
+		String cPage = request.getParameter("cPage");
+		if(rvo !=null)
+			page.setTotalRecode(rvo.length);
+		if(cPage !=null)
+			page.setNowPage(Integer.parseInt(cPage));
+		else
+			page.setNowPage(1);
+		request.setAttribute("page", page);
+		
+		
 		//예매 취소하기
 		return "/jsp/myReservation/myReservation.jsp";
 	}

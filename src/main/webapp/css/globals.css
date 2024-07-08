@@ -26,9 +26,16 @@ a:link, a:visited, a:hover, a:active {
 
 button:active {
   transform: scale(0.95);
-}
-button:active {
   background-color: #0a161d;
+}
+
+
+.no-scroll {
+  overflow: hidden;
+}
+
+button:disabled {
+  transform: none;
 }
 
 @font-face {

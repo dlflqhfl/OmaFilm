@@ -30,7 +30,7 @@
   width: 145px;
   height: 34px;
   top: 48px;
-  left: 1495px;
+  left: 1285px;
 }
 
 .screen .span-name {
@@ -121,16 +121,15 @@
 
 .screen .table {
   position: absolute;
-  width: 1301px;
-  height: 555px;
-  top: 0;
+  width: 1200px;
+  top: -55px;
   left: 0;
 }
 
 .screen .thead {
-  position: absolute;
+  /* position: absolute; */
   width: 1300px;
-  height: 45px;
+  height: 50px;
   top: 0;
   left: 1px;
 }
@@ -143,16 +142,74 @@
   left: 0;
 }
 
-.screen .th {
-  width: 240px;
-  left: 100px;
-  position: absolute;
+.screen .th-0{
+  width: 100px;
+  left: 0;
   height: 45px;
   top: 0;
   background-color: #f2f4f5;
   border-right-width: 1px;
   border-right-style: solid;
   border-color: #eaeaea;
+  line-height: 3;
+}
+
+.screen .th-1 {
+  width: 120px;
+  left: 100px;
+  height: 45px;
+  top: 0;
+  background-color: #f2f4f5;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-color: #eaeaea;
+  line-height: 3;
+}
+
+.screen .th-2 {
+  width: 360px;
+  left: 220px;
+  height: 45px;
+  top: 0;
+  background-color: #f2f4f5;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-color: #eaeaea;
+  line-height: 3;
+}
+
+.screen .th-3 {
+  width: 120px;
+  left: 580px;
+  height: 45px;
+  top: 0;
+  background-color: #f2f4f5;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-color: #eaeaea;
+  line-height: 3;
+}
+
+.screen .th-4 {
+  width: 240px;
+  left: 700px;
+  height: 45px;
+  top: 0;
+  background-color: #f2f4f5;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-color: #eaeaea;
+  line-height: 3;
+}
+
+.screen .th-5 {
+  width: 240px;
+  left: 940px;
+  height: 45px;
+  top: 0;
+  background-color: #f2f4f5;
+  border-color: #eaeaea;
+  line-height: 3;
 }
 
 .screen .text-wrapper-2 {
@@ -160,7 +217,7 @@
   width: 67px;
   height: 20px;
   top: 12px;
-  left: 86px;
+  left: 26px;
   font-family: "ABeeZee", Helvetica;
   font-weight: 400;
   color: #222222;
@@ -171,17 +228,7 @@
   white-space: nowrap;
 }
 
-.screen .div-wrapper {
-  width: 100px;
-  left: 0;
-  position: absolute;
-  height: 45px;
-  top: 0;
-  background-color: #f2f4f5;
-  border-right-width: 1px;
-  border-right-style: solid;
-  border-color: #eaeaea;
-}
+
 
 .screen .text-wrapper-3 {
   position: absolute;
@@ -199,24 +246,14 @@
   white-space: nowrap;
 }
 
-.screen .th-2 {
-  width: 240px;
-  left: 340px;
-  position: absolute;
-  height: 45px;
-  top: 0;
-  background-color: #f2f4f5;
-  border-right-width: 1px;
-  border-right-style: solid;
-  border-color: #eaeaea;
-}
+
 
 .screen .text-wrapper-4 {
   position: absolute;
-  width: 55px;
+  width: 360px;
   height: 20px;
   top: 12px;
-  left: 92px;
+  left: 0px;
   font-family: "ABeeZee", Helvetica;
   font-weight: 400;
   color: #222222;
@@ -227,29 +264,7 @@
   white-space: nowrap;
 }
 
-.screen .th-3 {
-  width: 240px;
-  left: 580px;
-  position: absolute;
-  height: 45px;
-  top: 0;
-  background-color: #f2f4f5;
-  border-right-width: 1px;
-  border-right-style: solid;
-  border-color: #eaeaea;
-}
 
-.screen .th-4 {
-  width: 240px;
-  left: 820px;
-  position: absolute;
-  height: 45px;
-  top: 0;
-  background-color: #f2f4f5;
-  border-right-width: 1px;
-  border-right-style: solid;
-  border-color: #eaeaea;
-}
 
 .screen .text-wrapper-5 {
   position: absolute;
@@ -267,24 +282,13 @@
   white-space: nowrap;
 }
 
-.screen .th-5 {
-  width: 240px;
-  left: 1060px;
-  position: absolute;
-  height: 45px;
-  top: 0;
-  background-color: #f2f4f5;
-  border-right-width: 1px;
-  border-right-style: solid;
-  border-color: #eaeaea;
-}
+
 
 .screen .tbody {
   position: absolute;
   width: 1300px;
   height: 513px;
   top: 46px;
-  left: 1px;
 }
 
 .screen .td {
@@ -296,23 +300,41 @@
 }
 
 .screen .data {
-  width: 240px;
+  width: 120px;
   left: 98px;
-  position: absolute;
-  height: 40px;
+  height: 55px;
   top: 0;
   border-right-width: 1px;
   border-right-style: solid;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #eaeaea;
+  line-height: 3;
+   text-align: center;
 }
 
 .screen .text-wrapper-6 {
-  width: 70px;
+  width: 120px;
   height: 20px;
   top: 9px;
-  left: 85px;
+  left: 0px;
+  color: #444444;
+  line-height: 19.5px;
+  position: absolute;
+  font-family: "ABeeZee", Helvetica;
+  font-weight: 400;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.screen .th{
+
+	width: 120px;
+  height: 20px;
+  top: 9px;
+  left: 0px;
   color: #444444;
   line-height: 19.5px;
   position: absolute;
@@ -325,10 +347,11 @@
 }
 
 .screen .text-wrapper-22{
-	width: 70px;
+	position:absolute;
+	width: 120px;
   height: 20px;
   top: 9px;
-  left: 85px;
+  left: 0px;
   color: #444444;
   line-height: 19.5px;
   position: absolute;
@@ -341,37 +364,39 @@
 }
 
 .screen .data-2 {
-  width: 240px;
+  width: 120px;
   left: 580px;
-  position: absolute;
-  height: 40px;
+  height: 55px;
   top: 0;
   border-right-width: 1px;
   border-right-style: solid;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #eaeaea;
+  line-height: 3;
+   text-align: center;
 }
 
 .screen .data-3 {
-  width: 240px;
-  left: 338px;
-  position: absolute;
-  height: 40px;
+  width: 360px;
+  left: 219px;
+  height: 55px;
   top: 0;
   border-right-width: 1px;
   border-right-style: solid;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #eaeaea;
+  line-height: 3;
+   text-align: center;
 }
 
 .screen .text-wrapper-7 {
   position: absolute;
-  width: 108px;
+  width: 360px;
   height: 20px;
   top: 9px;
-  left: 66px;
+  left: 0px;
   font-family: "ABeeZee", Helvetica;
   font-weight: 400;
   color: #444444;
@@ -396,27 +421,29 @@
 }
 
 .screen .rectangle {
-  position: relative;
-  width: 15px;
+  width: 100px;
   height: 15px;
   top: 12px;
-  left: 42px;
-  background-color: #d9d9d9;
-  border: 1px solid;
-  border-color: #000000;
+  border-right-width: 1px;
+    border-right-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: #eaeaea;
+     text-align: center;
 }
 
 .screen .data-4 {
   width: 240px;
-  left: 820px;
-  position: absolute;
-  height: 40px;
+  left: 700px;
+  height: 55px;
   top: 0;
   border-right-width: 1px;
   border-right-style: solid;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #eaeaea;
+  line-height: 3;
+   text-align: center;
 }
 
 .screen .text-wrapper-8 {
@@ -437,15 +464,16 @@
 
 .screen .data-5 {
   width: 240px;
-  left: 1060px;
-  position: absolute;
-  height: 40px;
+  left: 940px;
+  height: 55px;
   top: 0;
   border-right-width: 1px;
   border-right-style: solid;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #eaeaea;
+  line-height: 3;
+  text-align: center;
 }
 
 .screen .text-wrapper-9 {
@@ -466,7 +494,6 @@
 
 .screen .td-2 {
   top: 40px;
-  left: 1px;
   position: absolute;
   width: 1300px;
   height: 40px;
@@ -474,7 +501,6 @@
 
 .screen .td-3 {
   top: 80px;
-  left: 1px;
   position: absolute;
   width: 1300px;
   height: 40px;
@@ -482,7 +508,6 @@
 
 .screen .td-4 {
   top: 120px;
-  left: 1px;
   position: absolute;
   width: 1300px;
   height: 40px;
@@ -490,7 +515,6 @@
 
 .screen .td-5 {
   top: 160px;
-  left: 1px;
   position: absolute;
   width: 1300px;
   height: 40px;
@@ -501,7 +525,6 @@
   width: 1300px;
   height: 79px;
   top: 200px;
-  left: 1px;
 }
 
 .screen .td-6 {
@@ -522,7 +545,6 @@
 
 .screen .td-8 {
   top: 280px;
-  left: 1px;
   position: absolute;
   width: 1300px;
   height: 40px;
@@ -720,17 +742,11 @@
 }
 
 .screen .button {
-  all: unset;
-  box-sizing: border-box;
   position: absolute;
   width: 118px;
-  height: 35px;
-  top: 359px;
-  left: 1000px;
-  background-color: #ffffff;
-  border-radius: 4px;
-  border: 1px solid;
-  border-color: #666666;
+  height: 30px;
+  top: 361px;
+  left: 900px;
 }
 
 .screen .container {
@@ -768,19 +784,14 @@
   position: absolute;
   width: 360px;
   height: 36px;
-  top: 358px;
-  left: 1127px;
-  border-radius: 3px;
-  border: 1px solid;
-  border-color: #d8d9db;
+  top: 361px;
+  left: 1027px;
 }
 
 .screen .input {
   position: absolute;
-  width: 327px;
-  height: 34px;
-  top: 1px;
-  left: 1px;
+  width: 260px;
+  height: 30px;
   background-color: #ffffff;
 }
 
@@ -808,13 +819,9 @@
 
 .screen .button-2 {
   position: absolute;
-  width: 30px;
-  height: 32px;
-  top: 2px;
-  left: 328px;
-  background-image: url(./img/button.svg);
-  background-size: cover;
-  background-position: 50% 50%;
+  width: 60px;
+  height: 30px;
+  left: 270px;
 }
 
 .screen .cell {
@@ -849,7 +856,7 @@
 .screen .cell-2 {
   width: 55px;
   top: 358px;
-  left: 270px;
+  left: 260px;
   position: absolute;
   height: 40px;
   background-color: #f2f4f5;
@@ -862,7 +869,7 @@
 .screen .cell-3 {
   width: 109px;
   top: 359px;
-  left: 352px;
+  left: 330px;
   position: absolute;
   height: 40px;
   background-color: #f2f4f5;
@@ -1035,3 +1042,80 @@
   line-height: 60px;
   white-space: nowrap;
 }
+
+.screen .text-wrapper-22 {
+  position: absolute;
+  width: 120px;
+  height: 20px;
+  top: 12px;
+  left: 0px;
+  font-family: "ABeeZee", Helvetica;
+  font-weight: 400;
+  color: #222222;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+.screen .text-wrapper-23 {
+  position: absolute;
+  width: 55px;
+  height: 20px;
+  top: 12px;
+  left: 92px;
+  font-family: "ABeeZee", Helvetica;
+  font-weight: 400;
+  color: #222222;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+ol.paging {
+	    list-style:none;
+	   
+	}
+	
+	.nav{
+	 position: absolute;
+  width: 840px;
+  height: 62px;
+  top: 500px;
+  left: 92px;
+	}
+	
+	ol.paging li {
+	    float:left;
+	    margin-right:8px;
+	}
+	
+	ol.paging li a {
+	    display:block;
+	    padding:3px 7px;
+	    border:1px solid #00B3DC;
+	    color:#2f313e;
+	    font-weight:bold;
+	}
+	
+	ol.paging li a:hover {
+	    background:#00B3DC;
+	    color:white;
+	    font-weight:bold;
+	}
+	
+	.disable {
+	    padding:3px 7px;
+	    border:1px solid silver;
+	    color:silver;
+	}
+	
+	.now {
+	   padding:3px 7px;
+	    border:1px solid #ff4aa5;
+	    background:#ff4aa5;
+	    color:white;
+	    font-weight:bold;
+	}

@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html> 
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/myCoupon/myCoupon.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/myCoupon/myCoupon.css" />
+     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
   </head>
   <body>
     <div class="screen">
@@ -16,11 +17,12 @@
             <div class="overlap">
               <div class="ul">
                 <div class="overlap-group">
-                  <div class="li"><div class="text-wrapper"><a href="../../jsp/myPage/personInfor.jsp">개인 정보 수정</a></div></div>
+                  <div class="li-2"><div class="text-wrapper"><a href="Controller?type=checkPw">개인 정보 수정</a></div></div>
                   <div class="div-wrapper"><div class="div"><a href="Controller?type=myReservation">나의 예매 내역 조회</a></div></div>
-                  <div class="li-2"><div class="text-wrapper-2"><a href="../../jsp/myPage/inquiry.jsp">나의 문의 내역</a></div></div>
-                  <div class="li-3"><div class="text-wrapper-3"><a href="../../jsp/myPage/couponList.jsp">나의 쿠폰 조회</a></div></div>
-                  <div class="li-5"><div class="text-wrapper-5"><a href="../../jsp/myPage/myhome.jsp">마이페이지 홈</a></div></div>
+                  <div class="li"><div class="text-wrapper-2"><a href="Controller?type=inquiry">나의 문의 내역</a></div></div>
+                  <div class="li-4"><div class="text-wrapper-3"><a href="Controller?type=myCoupon">나의 쿠폰 조회</a></div></div>
+                  <div class="li-3"><div class="text-wrapper-4"><a href="Controller?type=myCancelReservation">나의 예매 취소 내역 조회</a></div></div>
+                  <div class="li-5"><div class="text-wrapper-5"><a href="Controller?type=myHome">마이페이지 홈</a></div></div>
                 </div>
               </div>
               <div class="div-2"><div class="text-wrapper-6">마이페이지</div></div>
@@ -83,31 +85,9 @@
           </div>
           <div class="overlap-2">
             <div ></div>
-            <p class="element"><span class="text-wrapper-19">총</span><span class="span">3</span> <span class="text-wrapper-20"> 매</span></p>
+            <p class="element"><span class="text-wrapper-19">총</span><span class="span">${fn:length(cvo) }</span> <span class="text-wrapper-20"> 매</span></p>
           </div>
-          <div class="frame">
-            <div class="navbar">
-              <div class="link"><div class="text-wrapper-21">회원가입</div></div>
-              <div class="link-2"><div class="text-wrapper-21">고객센터</div></div>
-              <div class="link-3"><div class="text-wrapper-22">관리자</div></div>
-              <div class="text-wrapper-23">로그인</div>
-              <div class="link-4"><div class="text-wrapper-21">빠른예매</div></div>
-              <img class="img" src="https://c.animaapp.com/WCDFxYha/img/link-5@2x.png" />
-              <img class="link-5" src="https://c.animaapp.com/WCDFxYha/img/link-6@2x.png" />
-              <img class="link-6" src="https://c.animaapp.com/WCDFxYha/img/link-7@2x.png" />
-              <div class="text-wrapper-24">예매</div>
-              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                ><div class="text-wrapper-25">영화</div></a
-              >
-              <div class="text-wrapper-26">이벤트</div>
-              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                ><div class="text-wrapper-27">혜택</div></a
-              >
-              <img class="heading-link" src="https://c.animaapp.com/WCDFxYha/img/heading-1---link-1@2x.png" />
-              <div class="link-7"></div>
-            </div>
-          </div>
-          <img class="footer" src="https://c.animaapp.com/WCDFxYha/img/footer.png" />
+          <jsp:include page="/jsp/header/header.jsp"/>
         </div>
       </div>
     </div>
@@ -142,6 +122,7 @@
     	});
     });
     </script>
+    <jsp:include page="/jsp/footer/footer.jsp"/>
   </body>
 </html>
     

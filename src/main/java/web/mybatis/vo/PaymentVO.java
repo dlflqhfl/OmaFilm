@@ -13,6 +13,16 @@ public class PaymentVO {
 	, p_content; //결제 내용
 	
 	public PaymentVO() {}
+	
+
+	@Override
+	public String toString() {
+		return "PaymentVO [p_code=" + p_code + ", u_code=" + u_code + ", p_ex_price=" + p_ex_price + ", p_tt_price="
+				+ p_tt_price + ", p_status=" + p_status + ", p_no=" + p_no + ", cp_no=" + cp_no + ", p_method="
+				+ p_method + ", p_time=" + p_time + ", p_content=" + p_content + "]";
+	}
+
+
 
 	public PaymentVO(int p_code, int u_code, int p_ex_price, int p_tt_price, int p_status, String p_no, String cp_no,
 			String p_method, String p_time, String p_content) {

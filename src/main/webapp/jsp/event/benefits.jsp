@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
   <head>
@@ -24,7 +24,11 @@
                 <div class="list">
                 <c:forEach items="${bar}" var="bar" varStatus="vs">
                   <div class="item-link">
+<<<<<<< HEAD
                    	<a href="Controller?type=benefitdetail&n_idx=${bar.n_idx}">
+=======
+                  <a href="Controller?type=benefitdetail&n_idx=${bar.n_idx}">
+>>>>>>> de098d57607d524e5a7719055510e3006fe53f26
                     <div class="background">
                     <div class="div" style="background-image: url('${pageContext.request.contextPath}/img/event/benefits/${bar.n_banner}.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
                     </div>
@@ -37,10 +41,10 @@
             </div>
              <img class="overlay" src="${pageContext.request.contextPath}/img/event/benefits/overlay.svg" />
             <jsp:include page="/jsp/header/header.jsp"/>
-            <jsp:include page="/jsp/footer/footer.jsp"/>
           </div>
         </div>
       </div>
     </div>
+            <jsp:include page="/jsp/footer/footer.jsp"/>
   </body>
 </html>

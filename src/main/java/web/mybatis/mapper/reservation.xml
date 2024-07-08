@@ -76,5 +76,33 @@
         WHERE r.rsvr_code = #{rsvr_code} AND r.rs_status=1
         ORDER BY r.rs_cancel_time DESC
     </select>
-
+    
+	<select id="getPcode" resultType="String" parameterType="String">
+		SELECT p_code
+		FROM reservation
+		WHERE rs_num = #{rs_num}
+	</select>
+	
+	<resultMap type="web.mybatis.vo.ScreeningScheduleVO" id="map2">
+		<association property="mvo" column="web.mybatis.vo.MovieListVO">
+			<result property="movieNm" column="movieNm"/>
+			<result property="watchGradeNm" column="watchGradeNm"/>
+		</association>
+	</resultMap>
+	
+	<select id="selectByText" parameterType="String" resultMap="map2">
+		SELECT DISTINCT movieNm,watchGradeNm FROM screening_schedule sc
+        INNER JOIN movie_list m 
+        ON sc.movieCd = m.movieCd
+		WHERE t_name = #{text}
+	</select>
+	
+	<select id="selectByTime" resultType="String" parameterType="Map">
+		    SELECT TIME(ss_time) AS time
+		    FROM screening_schedule sc 
+            INNER JOIN movie_list m 
+        	ON sc.movieCd = m.movieCd
+		    WHERE DATE(ss_time) = #{date}
+		    AND movieNm = #{movieName}
+	</select>
 </mapper>

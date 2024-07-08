@@ -14,8 +14,7 @@
     <div class="div-wrapper">
       <div class="container-wrapper">
         <div class="container">
-          <jsp:include page="/jsp/footer/footer.jsp"/>
-           <jsp:include page="/jsp/header/header.jsp"/>
+             <jsp:include page="/jsp/header/header.jsp"/>
           <div class="heading">공지사항 상세보기</div>
           <div class="background">
             <div class="overlap">
@@ -45,8 +44,8 @@
                 </div>
                 <div class="data">
                 <div class="input-2">
-	                <fmt:parseDate value="${nvo.n_time}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate"/>
-	    			<fmt:formatDate value="${parsedDate}" pattern="yyyy.MM.dd" />
+                   <fmt:parseDate value="${nvo.n_time}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate"/>
+                <fmt:formatDate value="${parsedDate}" pattern="yyyy.MM.dd" />
                 </div>
                 </div>
               </div>
@@ -68,4 +67,5 @@
       </div>
     </div>
   </body>
+  <jsp:include page="/jsp/footer/footer.jsp"/>
 </html>

@@ -315,7 +315,7 @@ input:focus {
   width: 940px; 
   border-collapse: collapse; /* 테이블 경계선 병합 */
   position : relative;
-  top: 400px;
+  top: 450px;
   left: 615px;
 }
 

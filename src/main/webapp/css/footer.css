@@ -1,14 +1,12 @@
 .footer {
     position: absolute;
-    /* margin: auto; */
-    /* width: 1920px; */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1920px;
     height: 200px;
     background-color: #f8f8fa;
     bottom: 0;
-    width: 100%;
-    max-width: 1920px;
     margin: auto;
-    /* margin-top: 100px; */
 }
 
 .footer .footer_wrapper {
@@ -19,14 +17,14 @@
     left: 410px;
 }
 
-.footer .navbar {
+.footer .footer__navbar {
     position: relative;
     width: 681px;
     height: 30px;
     top: 30px;
 }
 
-.footer .text-wrapper {
+.footer .footer__text-wrapper {
     width: 47px;
     left: 0;
     font-size: 11.6px;
@@ -41,7 +39,7 @@
     white-space: nowrap;
 }
 
-.footer .div {
+.footer .footer__item {
     width: 47px;
     left: 60px;
     font-size: 11.6px;
@@ -56,7 +54,7 @@
     white-space: nowrap;
 }
 
-.footer .text-wrapper-2 {
+.footer .footer__item-2 {
     width: 47px;
     left: 121px;
     font-size: 11.6px;
@@ -71,7 +69,7 @@
     white-space: nowrap;
 }
 
-.footer .text-wrapper-3 {
+.footer .footer__item-3 {
     width: 128px;
     left: 181px;
     font-size: 11.8px;
@@ -86,7 +84,7 @@
     white-space: nowrap;
 }
 
-.footer .item-link {
+.footer .footer__link {
     position: absolute;
     width: 46px;
     height: 30px;
@@ -94,7 +92,7 @@
     left: 323px;
 }
 
-.footer .div-wrapper {
+.footer .footer__div-wrapper {
     width: 130px;
     left: 383px;
     position: absolute;
@@ -102,7 +100,7 @@
     top: 0;
 }
 
-.footer .text-wrapper-4 {
+.footer .footer__text-wrapper-4 {
     width: 131px;
     color: #666666;
     font-size: 11.5px;
@@ -117,7 +115,7 @@
     white-space: nowrap;
 }
 
-.footer .item-link-2 {
+.footer .footer__link-2 {
     width: 93px;
     left: 528px;
     position: absolute;
@@ -125,7 +123,7 @@
     top: 0;
 }
 
-.footer .text-wrapper-5 {
+.footer .footer__text-wrapper-5 {
     width: 93px;
     color: #222222;
     font-size: 11.6px;
@@ -140,7 +138,7 @@
     white-space: nowrap;
 }
 
-.footer .item-link-3 {
+.footer .footer__link-3 {
     width: 46px;
     left: 634px;
     position: absolute;
@@ -148,7 +146,7 @@
     top: 0;
 }
 
-.footer .footer_wrapper-2 {
+.footer .footer__wrapper--secondary {
     position: absolute;
     width: 1136px;
     height: 59px;
@@ -156,7 +154,7 @@
     left: 392px;
 }
 
-.footer .image {
+.footer .footer__image {
     width: 150px;
     height: 50px;
     left: 0;
@@ -167,7 +165,7 @@
     background-position: 50% 50%;
 }
 
-.footer .address {
+.footer .footer__address {
     position: absolute;
     width: 754px;
     height: 58px;
@@ -181,7 +179,7 @@
     line-height: 19.5px;
 }
 
-.footer .image-2 {
+.footer .footer__image-2 {
     width: 30px;
     height: 30px;
     left: 972px;
@@ -192,7 +190,7 @@
     background-position: 50% 50%;
 }
 
-.footer .image-3 {
+.footer .footer__image-3 {
     width: 30px;
     height: 30px;
     left: 1009px;
@@ -203,7 +201,7 @@
     background-position: 50% 50%;
 }
 
-.footer .image-4 {
+.footer .footer__image-4 {
     width: 30px;
     height: 30px;
     left: 1046px;
@@ -214,7 +212,7 @@
     background-position: 50% 50%;
 }
 
-.footer .image-5 {
+.footer .footer__image-5 {
     width: 30px;
     height: 30px;
     left: 1083px;
