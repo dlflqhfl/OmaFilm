@@ -10,8 +10,8 @@
     <div class="time-seat-button">
       <div class="time">${fn:substring(time, 0, 5)}</div>
       <div class="info">
-        <span class="seats"><span class="available">40</span>/<span class="total">56</span></span>
-        <span class="theater">9관</span>
+        <span class="seats"><span class="available">${count }</span>/<span class="total">${total }</span></span>
+        <span class="theater"></span>
       </div>
     </div>
   </c:forEach>

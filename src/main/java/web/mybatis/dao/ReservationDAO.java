@@ -67,9 +67,9 @@ public class ReservationDAO {
 		return res;
 	}
 
-	public static ScreeningScheduleVO[] selectText(String text) {
+	public static ScreeningScheduleVO[] selectText() {
 		SqlSession ss = FactoryService.getFactory().openSession();
-		List<ScreeningScheduleVO> list = ss.selectList("reservation.selectByText",text);
+		List<ScreeningScheduleVO> list = ss.selectList("reservation.selectByText");
 		ScreeningScheduleVO[] ar = null;
 		if( list != null && list.size() > 0 ) {
 			ar = new ScreeningScheduleVO[list.size()];
@@ -102,4 +102,27 @@ public class ReservationDAO {
 		ss.close();
 		return ar;
 	}
+
+	public static int selectS_code(Map<String, String> map) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int res = ss.selectOne("reservation.selectByScode",map);
+		ss.close();
+		return res;
+	}
+
+	public static int selectCount(int s_code) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int res = ss.selectOne("selectSeat.seatCount",s_code);
+		ss.close();
+		return res;
+	}
+
+	public static int selectSeatTotal(String guan) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int res = ss.selectOne("theater.totalSeatCount", guan);
+		ss.close();
+		return res;
+	}
+
+
 }

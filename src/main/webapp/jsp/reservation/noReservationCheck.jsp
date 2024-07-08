@@ -137,16 +137,20 @@
                         <tbody class="tbody-2">
                         
                         <c:set var="len" value="${fn:length(cancel_list)}" />
-		                <c:if test="${page.end<=len}">
-		                	<c:set var="end" value="${page.end}"/>
-		                </c:if>
-						<c:if test="${page.end>len}">
-							<c:set var="end" value="${len}" />
-						</c:if>
-						
-                        <c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
+                      <c:if test="${page.end<=len}">
+                         <c:set var="end" value="${page.end}"/>
+                      </c:if>
+                  <c:if test="${page.end>len}">
+                     <c:set var="end" value="${len}" />
+                  </c:if>
+                  
+                  <c:if test="${page.begin<0}">
+                     <c:set var="begin" value="1" />
+                  </c:if>
+                  
+                        <c:forEach var="i" begin="${begin}" end="${ end}" varStatus="status">
                         <tr class="tr-2">
-							<td class="data-1">
+                     <td class="data-1">
                                 <div class="text-wrapper-20">${cancel_list[i-1].rvo.rs_cancel_time }</div>
                             </td>
                             <td class="data-2">
@@ -165,45 +169,45 @@
                                 <div class="text-wrapper-25">${cancel_list[i-1].pvo.p_tt_price }</div>
                             </td>
                         </tr>
-					</c:forEach>
-					
+               </c:forEach>
+               
                             
                         </tbody>
                     </table>
                     
                     
                     <div class="nav">
-						<div>
-							<ol class="paging">
-								<c:if test="${page.startPage < page.pagePerBlock}">
-									<li class="disable">&lt;</li>
-								</c:if>
-								<c:if test="${page.startPage >= page.pagePerBlock}">
-									<li class=""><a
-										href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
-								</c:if>
-								<!-- <div class="nav"> -->
-								<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
-									<c:if test="${i == page.nowPage}">
-										<li class="now">${i}</li>
-									</c:if>
-									<c:if test="${i != page.nowPage}">
-										<li class=" "><a
-											href="Controller?type=myReservation&cPage=${i}">${i}</a></li>
-									</c:if>
-								</c:forEach>
+                  <div>
+                     <ol class="paging">
+                        <c:if test="${page.startPage < page.pagePerBlock}">
+                           <li class="disable">&lt;</li>
+                        </c:if>
+                        <c:if test="${page.startPage >= page.pagePerBlock}">
+                           <li class=""><a
+                              href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+                        </c:if>
+                        <!-- <div class="nav"> -->
+                        <c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+                           <c:if test="${i == page.nowPage}">
+                              <li class="now">${i}</li>
+                           </c:if>
+                           <c:if test="${i != page.nowPage}">
+                              <li class=" "><a
+                                 href="Controller?type=myReservation&cPage=${i}">${i}</a></li>
+                           </c:if>
+                        </c:forEach>
 
 
-								<c:if test="${page.endPage < page.totalPage}">
-									<li class=""><a
-										href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
-								</c:if>
-								<c:if test="${page.endPage >= page.totalPage}">
-									<li class=" disable">&gt;</li>
-								</c:if>
+                        <c:if test="${page.endPage < page.totalPage}">
+                           <li class=""><a
+                              href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+                        </c:if>
+                        <c:if test="${page.endPage >= page.totalPage}">
+                           <li class=" disable">&gt;</li>
+                        </c:if>
 
-							</ol>
-						</div>
+                     </ol>
+                  </div>
                 </div>
             </div>
             <jsp:include page="/jsp/footer/footer.jsp"/>
@@ -263,25 +267,25 @@
         
         //예매취소버튼
         $(".div-wrapper").click(function () {
-        	var confirmCancel = confirm("예매를 취소하시겠습니까?");
-	        
-	        if (confirmCancel) {
-	        	var rs_num = $(this).find("input[name=rs_num]").val();
-	        	
-		        var form = document.createElement('form');
-		        var objs;
-		        
-		        objs = document.createElement('input');
-	            objs.setAttribute('type', 'hidden');
-	            objs.setAttribute('name', 'rs_num');
-	            objs.setAttribute('value', rs_num);
-	            form.appendChild(objs);
-	            
-		        form.setAttribute('method', 'post');
-	            form.setAttribute('action', 'Controller?type=payCancelNonMem');
-	            document.body.appendChild(form);
-	            form.submit();
-	        }
+           var confirmCancel = confirm("예매를 취소하시겠습니까?");
+           
+           if (confirmCancel) {
+              var rs_num = $(this).find("input[name=rs_num]").val();
+              
+              var form = document.createElement('form');
+              var objs;
+              
+              objs = document.createElement('input');
+               objs.setAttribute('type', 'hidden');
+               objs.setAttribute('name', 'rs_num');
+               objs.setAttribute('value', rs_num);
+               form.appendChild(objs);
+               
+              form.setAttribute('method', 'post');
+               form.setAttribute('action', 'Controller?type=payCancelNonMem');
+               document.body.appendChild(form);
+               form.submit();
+           }
         });
     });
 
