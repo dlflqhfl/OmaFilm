@@ -90,11 +90,11 @@
 		</association>
 	</resultMap>
 	
-	<select id="selectByText" parameterType="String" resultMap="map2">
+	<select id="selectByText" resultMap="map2">
 		SELECT DISTINCT movieNm,watchGradeNm FROM screening_schedule sc
         INNER JOIN movie_list m 
         ON sc.movieCd = m.movieCd
-		WHERE t_name = #{text}
+		
 	</select>
 	
 	<select id="selectByTime" resultType="String" parameterType="Map">
@@ -104,5 +104,17 @@
         	ON sc.movieCd = m.movieCd
 		    WHERE DATE(ss_time) = #{date}
 		    AND movieNm = #{movieName}
+		    AND t_name = #{guan}
+		    ORDER BY ss_time
 	</select>
+	
+	<select id="selectByScode" parameterType="Map" resultType="int">
+		SELECT ss_code FROM screening_schedule sc
+        INNER JOIN movie_list m 
+ 		ON sc.movieCd = m.movieCd
+		WHERE DATE(ss_time) = #{date}
+		AND movieNm = #{movieName}
+		AND t_name = #{guan}
+	</select>
+	
 </mapper>

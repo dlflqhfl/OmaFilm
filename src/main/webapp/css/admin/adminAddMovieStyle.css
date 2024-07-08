@@ -8,8 +8,8 @@
 
 .API .div {
   background-color: #ffffff;
-  width: 1691px;
-  height: 1287px;
+  width: 1765px;
+  height: 1286px;
   position: relative;
 }
 
@@ -17,8 +17,8 @@
   position: absolute;
   width: 1125px;
   height: 586px;
-  top: 383px;
-  left: 283px;
+  top: 380px;
+  left: 340px;
 }
 
 .API .row {
@@ -76,6 +76,8 @@
   background-color: #ffffff;
   border: 1px solid;
   border-color: #d8d9db;
+  line-height: 32px;
+  padding-left: 5px;
 }
 
 .API .button {
@@ -205,6 +207,8 @@ button .text-wrapper {
   background-color: #ffffff;
   border: 1px solid;
   border-color: #d8d9db;
+  line-height: 32px;
+  padding-left: 5px;
 }
 
 .API .input-5 {
@@ -216,6 +220,9 @@ button .text-wrapper {
   background-color: #ffffff;
   border: 1px solid;
   border-color: #d8d9db;
+  line-height: 32px;
+  padding-left: 5px;
+  overflow: hidden;
 }
 
 .API .input-6 {
@@ -227,6 +234,9 @@ button .text-wrapper {
   background-color: #ffffff;
   border: 1px solid;
   border-color: #d8d9db;
+  line-height: 32px;
+  padding-left: 5px;
+  overflow: hidden;
 }
 
 .API .cell-2 {
@@ -349,6 +359,8 @@ button .text-wrapper {
   background-color: #ffffff;
   border: 1px solid;
   border-color: #d8d9db;
+  line-height: 32px;
+  padding-left: 5px;
 }
 
 .API .input-8 {
@@ -360,6 +372,8 @@ button .text-wrapper {
   background-color: #ffffff;
   border: 1px solid;
   border-color: #d8d9db;
+  line-height: 32px;
+  padding-left: 5px;
 }
 
 .API .input-9 {
@@ -371,6 +385,8 @@ button .text-wrapper {
   background-color: #ffffff;
   border: 1px solid;
   border-color: #d8d9db;
+  line-height: 32px;
+  padding-left: 5px;
 }
 
 .API .input-10 {
@@ -382,6 +398,8 @@ button .text-wrapper {
   background-color: #ffffff;
   border: 1px solid;
   border-color: #d8d9db;
+  line-height: 32px;
+  padding-left: 5px;
 }
 
 .API .row-5 {
@@ -428,6 +446,9 @@ button .text-wrapper {
   background-color: #ffffff;
   border: 1px solid;
   border-color: #d8d9db;
+  line-height: 32px;
+  padding-left: 5px;
+  overflow: hidden;
 }
 
 .API .row-6 {
@@ -523,6 +544,7 @@ button .text-wrapper {
   letter-spacing: 0;
   line-height: 21px;
   white-space: nowrap;
+  z-index: 999; 
 }
 
 .API .text-wrapper-4 {
@@ -536,6 +558,7 @@ button .text-wrapper {
   font-size: 12.7px;
   letter-spacing: 0;
   line-height: 22.5px;
+  resize: none; 
 }
 
 .API .button-2 {
@@ -548,6 +571,7 @@ button .text-wrapper {
   background-color: #0e202a;
   position: absolute;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .API .text-wrapper-5 {
@@ -570,14 +594,15 @@ button .text-wrapper {
   all: unset;
   box-sizing: border-box;
   width: 126px;
-  height: 48px;
-  top: 1031px;
+  height: 48px; 
+  top: 1000px;
   left: 860px;
   background-color: #ffffff;
   border: 1px solid;
   border-color: #01060a;
   position: absolute;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .API .text-wrapper-6 {
@@ -599,12 +624,12 @@ button .text-wrapper {
 .API .heading {
   position: absolute;
   height: 31px;
-  top: 145px;
-  left: 151px;
+  top: 249px; 
+  left: 340px;
   font-family: "Noto Sans KR", Helvetica;
-  font-weight: 500;
+  font-weight: 300;
   color: #000000;
-  font-size: 30px;
+  font-size: 40px;
   letter-spacing: -1px;
   line-height: 30.8px;
   white-space: nowrap;
@@ -707,8 +732,8 @@ button .text-wrapper {
   position: absolute;
   width: 131px;
   height: 27px;
-  top: 333px;
-  left: 285px;
+  top: 345px;
+  left: 340px;
   font-family: "ABeeZee", Helvetica;
   font-weight: 400;
   color: #000000;
@@ -752,6 +777,8 @@ button .text-wrapper {
   letter-spacing: 0;
   line-height: 24.2px;
   white-space: nowrap;
+  margin-bottom: 30px;
+  left: 25px;
 }
 
 .API .item-link-wrapper {
@@ -762,6 +789,7 @@ button .text-wrapper {
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
+  /* top: 0px; */
 }
 
 .API .item-link {
@@ -875,6 +903,7 @@ button .text-wrapper {
     top: -11px;
     width: 936px;
     height: 305px;
+    padding: 5px;
 }
  .modal {
     display: none; /* Hidden by default */

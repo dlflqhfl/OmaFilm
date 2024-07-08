@@ -51,7 +51,7 @@
                         회원로그인 후 문의작성시 나의 문의내역을 통해 답변을 확인하실 수 있습니다.
                       </label>
                       <textarea name="content" class="textarea" cols="50" data-str="내용" 
-							id="content" rows="8"></textarea>
+                     id="content" rows="8"></textarea>
                       <div class="container-2"><div class="text-wrapper-5">0 / 2000</div></div>
                     </div>
                   </div>
@@ -85,47 +85,47 @@
       </div>
     </div>
    
-   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>	
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>   
    <script>
-   	function sendData(){
-   		let isValid = true;
-   		
-		for(var i=0 ; i<document.forms[0].elements.length ; i++){
-			var element = document.forms[0].elements[i];
-		    // 공백 제거
-		  if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA'){
-			  
-		    var trimmedValue = element.value.trim();
+      function sendData(){
+         let isValid = true;
+         
+      for(var i=0 ; i<document.forms[0].elements.length ; i++){
+         var element = document.forms[0].elements[i];
+          // 공백 제거
+        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA'){
+           
+          var trimmedValue = element.value.trim();
 
-		    if (trimmedValue === "") { // 공백 제거 후에도 비어있는지 확인
-		      element.value = "";	
-		      alert(element.dataset.str + "을 입력하세요");
-		      element.focus();
-		      isValid = false;
-		    }
-		  }
-		}    
+          if (trimmedValue === "") { // 공백 제거 후에도 비어있는지 확인
+            element.value = "";   
+            alert(element.dataset.str + "을 입력하세요");
+            element.focus();
+            isValid = false;
+          }
+        }
+      }    
 
-		if (!isValid) {
-			location.href = "Controller?type=sinquiry";
-		  }else {
-			  document.forms[0].submit();
-		  }
-	}
-   	
-   	const textarea = document.getElementById('content');
-   	const placeholderLabel = textarea.previousElementSibling;
+      if (!isValid) {
+         location.href = "Controller?type=sinquiry";
+        }else {
+           document.forms[0].submit();
+        }
+   }
+      
+      const textarea = document.getElementById('content');
+      const placeholderLabel = textarea.previousElementSibling;
 
-   	textarea.addEventListener('focus', () => {
-   	  placeholderLabel.style.display = 'none';
-   	  textarea.setSelectionRange(0, 0);
-   	});
+      textarea.addEventListener('focus', () => {
+        placeholderLabel.style.display = 'none';
+        textarea.setSelectionRange(0, 0);
+      });
 
-   	textarea.addEventListener('blur', () => {
-   	  if (textarea.value === '') {
-   	    placeholderLabel.style.display = 'block';
-   	  }
-   	});
+      textarea.addEventListener('blur', () => {
+        if (textarea.value === '') {
+          placeholderLabel.style.display = 'block';
+        }
+      });
    </script>
     <jsp:include page="/jsp/footer/footer.jsp"/>
   </body>

@@ -48,8 +48,6 @@
   crossorigin="anonymous"></script>
 <script type="text/javascript">
 $(function(){
-
-	
 	$("#noReserverLogin").click(function(){
 		let name = $("#name").val();
 		let birth = $("#birth").val();

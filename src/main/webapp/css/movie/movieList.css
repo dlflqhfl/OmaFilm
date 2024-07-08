@@ -16,13 +16,14 @@
 .div-wrapper .container {
   position: relative;
   height: 2515px;
+  top:100px; 
 }
 
 .div-wrapper .div {
   position: absolute;
   width: 1300px;
   height: 40px;
-  top: 154px;
+  top: 100px;
   left: 370px;
   overflow: hidden;
 }
@@ -223,7 +224,7 @@
 }
 
 .div-wrapper .overlap-group {
-  position: relative;
+  position: relative; 
   height: 331px;
   background-image: url(../../img/movie/movieList/y9pfa6qicqbkxvibmbcjnuulgkilibcl-420-jpg.png);
   background-size: cover;

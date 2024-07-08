@@ -8,7 +8,7 @@ import web.mybatis.vo.InquiryVO;
 import web.mybatis.vo.IqCommentVO;
 import web.mybatis.vo.MovieListVO;
 import web.mybatis.vo.NoticeVO;
-import web.mybatis.vo.ScreeningScheduleVO;
+import web.mybatis.vo.ScreeningScheduleVO; 
 
 import java.util.HashMap;
 import java.util.List;
@@ -348,5 +348,18 @@ public class AdminDAO {
 		return noticeList;
 	}
 
-	
+
+	public static int deleteScreen(String movieCd) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+
+		int res = ss.delete("movieList.deleteMovie",movieCd);
+		if( res > 0) {
+			ss.commit();
+		} else {
+			ss.rollback();
+		}
+		ss.close();
+		return res;
+		
+	}
 }

@@ -356,11 +356,10 @@
     position: absolute;
     width: 118px;
     height: 35px;
-    top: 440px;
+    top: 415px;
     left: 1345px;
-    background-color: #ffffff;
+    background-color: #f2f4f5;
     border-radius: 4px;
-    border: 1px solid;
     border-color: #666666;
     text-align: center;
 }
@@ -395,16 +394,17 @@
   top: 16px;
   left: 95px;
 }
-
+ 
 .DB .border {
     position: absolute;
     width: 360px;
     height: 36px;
-    top: 439px;
-    left: 977px;
-    border-radius: 3px;
+    top: 415px;
+    left: 960px;
+    border-radius: 5px;
     border: 1px solid;
     border-color: #d8d9db;
+    /* border-radius: 3px; */
 }
 
 .DB .input {
@@ -452,7 +452,7 @@
 .DB .cell {
   width: 55px;
   height: 40px;
-  top: 439px;
+  top: 415px;
   left: 185px;
   background-color: #f2f4f5;
   border-radius: 5px;
@@ -481,8 +481,8 @@
 .DB .cell-2 {
   width: 102px;
   height: 40px;
-  top: 439px;
-  left: 276px;
+  top: 415px;
+  left: 265px;
   background-color: #f2f4f5;
   border-radius: 5px;
   border-right-width: 1px;
@@ -611,7 +611,7 @@
   position: absolute;
   width: 1275px;
   height: 51px;
-  top: 330px;
+  top: 305px; 
   left: 187px;
 }
 
@@ -884,9 +884,9 @@
 
 /* 테이블 스타일 */
 .DB table.movie-table {
-    width: 1293px;
-    margin-left: 174px;
-    margin-top: 40px;
+    width: 1275px;
+    margin-left: 185px;
+    margin-top: 30px;
     border-collapse: collapse;
     font-family: "ABeeZee", Helvetica;
     position: absolute;
@@ -913,8 +913,8 @@
 }
 #searchForm {
   position: absolute;
-  top: 444px;
-  left: 391px;
+  top: 415px;
+  left: 190px;
 }
 .menu {
     position: absolute;

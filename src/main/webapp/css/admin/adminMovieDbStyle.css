@@ -354,13 +354,12 @@
   all: unset;
   box-sizing: border-box;
   position: absolute;
-  width: 118px;
+  width: 115px;
   height: 35px;
-  top: 440px;
+  top: 400px;
   left: 1348px;
-  background-color: #ffffff;
-  border-radius: 4px;
-  border: 1px solid;
+  background-color: #f2f4f5;
+  border-radius: 5px;
   border-color: #666666;
   text-align: center;
 }
@@ -400,9 +399,9 @@
     position: absolute;
     width: 360px;
     height: 36px;
-    top: 439px;
-    left: 984px;
-    border-radius: 3px;
+    top: 400px;
+    left: 960px;
+    border-radius: 5px;
     border: 1px solid;
     border-color: #d8d9db;
 }
@@ -424,7 +423,7 @@
   left: 10px;
 }
 
-.DB .text-wrapper-9 {
+.DB .text-wrapper-9 { 
     position: absolute;
     width: 361px;
     height: 37px;
@@ -436,6 +435,9 @@
     font-size: 13.1px;
     letter-spacing: 0;
     line-height: normal;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: #d8d9db;
 }
 
 .DB .button-2 {
@@ -455,7 +457,7 @@
 .DB .cell {
   width: 55px;
   height: 40px;
-  top: 439px;
+  top: 400px;
   left: 185px;
   background-color: #f2f4f5;
   border-radius: 5px;
@@ -484,8 +486,8 @@
 .DB .cell-2 {
   width: 102px;
   height: 40px;
-  top: 439px;
-  left: 276px;
+  top: 400px;
+  left: 270px;
   background-color: #f2f4f5;
   border-radius: 5px;
   border-right-width: 1px;
@@ -887,13 +889,13 @@
 
 /* 테이블 스타일 */
 .DB table.movie-table {
-    width: 1293px;
-    margin-left: 174px;
-    margin-top: 40px;
+    width: 1275px;
     border-collapse: collapse;
     font-family: "ABeeZee", Helvetica;
     position: absolute;
     bottom: 541px;
+    top: 500px;
+    left: 185px;
 }
 
 .DB table.movie-table th, .DB table.movie-table td {
@@ -989,7 +991,7 @@ ol.paging li a {
     position: absolute;
     top: 76px;
     left: 700px;
-}
+} 
 
 ol.paging li a:hover {
   background:#00B3DC;
@@ -998,7 +1000,7 @@ ol.paging li a:hover {
 }
 .paging{
   position: absolute;
-  top: 76px;
+  top: 170px;
   left: 700px;
 }
 /* 캘린더 */

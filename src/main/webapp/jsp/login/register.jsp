@@ -19,7 +19,6 @@
 <body>
 <script>
     /*소셜로 회원가입창으로 이동했을 경우*/
-
     window.onload = function () {
         <%
             String id = (String) session.getAttribute("social_id");
@@ -29,13 +28,6 @@
             String birth_month = (String) request.getAttribute("birth_month");
             String birth_day = (String) request.getAttribute("birth_day");
             String mobile = (String) request.getAttribute("mobile");
-            System.out.println(id);
-            System.out.println(name);
-            System.out.println(email);
-            System.out.println(birth_year);
-            System.out.println(birth_month);
-            System.out.println(birth_day);
-            System.out.println(mobile);
         %>
 
         var id= "<%=id%>";
@@ -45,11 +37,6 @@
         var birth_month = "<%=birth_month%>";
         var birth_day = "<%=birth_day%>";
         var mobile = "<%=mobile%>";
-
-
-        console.log(id);
-        console.log(name);
-        console.log(email);
 
         //아이디 이름 이메일이 존재하고 널이 아닐떄만 뜨는 함수
         if (id && name && email && id != "null" && name != "null" && email != "null") {
@@ -96,6 +83,7 @@
         }
     };
 </script>
+<jsp:include page="/jsp/header/header.jsp"/>
 <div class="screen">
     <div class="div">
         <div class="overlap">
@@ -256,12 +244,10 @@
                     </button>
                 </div>
             </div>
-            <jsp:include page="../header/header.jsp"/>
-            <jsp:include page="../footer/footer.jsp"/>
         </div>
     </div>
 </div>
-
+<jsp:include page="/jsp/footer/footer.jsp"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -607,6 +593,24 @@
             }
         });
     }
+
+    // 이창을 벗어나면 모든세션 삭세 스크립트문
+    window.onbeforeunload = function () {
+        <%
+            session.removeAttribute("emailVerified");
+            session.removeAttribute("code");
+            session.removeAttribute("codeTime");
+            session.removeAttribute("birth_year");
+            session.removeAttribute("birth_month");
+            session.removeAttribute("birth_day");
+            session.removeAttribute("mobile");
+            session.removeAttribute("social_id");
+            session.removeAttribute("social_name");
+            session.removeAttribute("social_email");
+            session.removeAttribute("social_profile");
+            session.removeAttribute("token");
+        %>
+    };
 </script>
 </body>
 </html>

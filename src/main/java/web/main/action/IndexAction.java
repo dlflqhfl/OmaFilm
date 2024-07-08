@@ -1,6 +1,5 @@
 package web.main.action;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -42,7 +41,7 @@ public class IndexAction implements Action{
 		
 		if (mar == null) {  // null 체크 추가
 	         mar = new MovieListVO[0]; // 빈 리스트로 초기화
-	      }
+		}
 
 		NoticeVO[] ear = EventDAO.getElist();
 		NoticeVO[] nar = NoticeDAO.getList(page.getBegin(), page.getEnd(), null);
