@@ -391,7 +391,7 @@
 
 .screen .item-link-3 {
   top: 150px;
-  background-image: url(./img/item-link.svg);
+  background-image: url("../../img/myPage/myhome/mypagelist.svg");
   background-size: cover;
   background-position: 50% 50%;
   position: absolute;
