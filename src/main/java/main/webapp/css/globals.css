@@ -1,0 +1,45 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:500,700,300|Amiko:400|Roboto:300,italic");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: auto;
+  /* width: auto; */
+  position: relative;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+a:link, a:visited, a:hover, a:active {
+  color: inherit; /* 상위 요소의 색상을 상속받습니다. */
+  text-decoration: none; /* 밑줄을 제거합니다. */
+}
+
+button:active {
+  transform: scale(0.95);
+  background-color: #0a161d;
+}
+
+
+.no-scroll {
+  overflow: hidden;
+}
+
+button:disabled {
+  transform: none;
+}
+
+@font-face {
+  font-family: "Kokoro-Regular";
+  src: url("https://anima-uploads.s3.amazonaws.com/projects/65133c87dabf3a1a0d271ffa/fonts/kokoro-regular.ttf")
+    format("truetype");
+}
