@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reserver">
+
+    <insert id="insertNonMem" parameterType="Map">
+        insert into reserver (non_name, non_email, non_pw, rsvr_time)
+        values (#{non_name}, #{non_email}, #{non_pw}, now())
+    </insert>
+
+    <select id="getNonMemRsvrCode" parameterType="String" resultType="int">
+        SELECT rsvr_code FROM reserver
+        WHERE non_name = #{non_name}
+        ORDER BY rsvr_time DESC
+        LIMIT 1
+    </select>
+
+    <select id="getMemRsvrCode" parameterType="int" resultType="int">
+        SELECT rsvr_code FROM reserver
+        WHERE u_code = #{u_code}
+        ORDER BY rsvr_time DESC
+        LIMIT 1
+    </select>
+
+    <insert id="insertMem" parameterType="int">
+        insert into reserver (u_code, rsvr_time)
+        values (#{u_code}, now())
+    </insert>
+
+    <select id="getMonthRsvrList" parameterType="Map" resultType="web.mybatis.vo.ReserverVO">
+        SELECT *
+        FROM reserver
+        WHERE u_code = #{u_code}
+        AND rsvr_time &gt;= CONCAT(#{yearAndMonth}, '-01')
+        AND rsvr_time &lt;= LAST_DAY(CONCAT(#{yearAndMonth}, '-01') )
+    </select>
+
+    <select id="getAllRsvrList" parameterType="int" resultType="web.mybatis.vo.ReserverVO">
+        select *
+        from reserver
+        where u_code = ${u_code}
+        ORDER BY rsvr_time DESC
+    </select>
+    
+    <select id="selectNoReserver" parameterType="Map" resultType="int">
+    	SELECT count(*) FROM reserver
+		<where>
+			AND non_name = #{name}
+			AND non_email = #{email}
+			AND non_pw = #{password}
+			AND u_code IS NULL
+		</where>
+    </select>
+    
+    <resultMap type="web.mybatis.vo.ReserverVO" id="map1">
+		<result property="non_name" column="non_name" />
+		<result property="rsvr_time" column="rsvr_time" />
+    	
+    	<association property="pvo" javaType="web.mybatis.vo.PaymentVO">
+			<result property="p_content" column="p_content" />
+			<result property="p_tt_price" column="p_tt_price" />
+			<result property="p_time" column="p_time" />
+			<result property="p_ex_price" column="p_ex_price" />
+			<result property="p_method" column="p_method" />
+    	</association>
+    	<association property="rvo" javaType="web.mybatis.vo.ReservationVO">
+			<result property="rs_count" column="rs_count" />
+			<result property="rs_num" column="rs_num" />
+    	</association>
+    	<association property="svo" javaType="web.mybatis.vo.SelectSeatVO">
+			<result property="s_code" column="s_code" />
+			<result property="ss_code" column="ss_code" />
+    	</association>
+    	<association property="ssvo" javaType="web.mybatis.vo.ScreeningScheduleVO">
+			<result property="t_name" column="t_name" />
+    	</association>
+    	<association property="mvo" javaType="web.mybatis.vo.MovieListVO">
+			<result property="movieNm" column="movieNm" />
+    	</association>
+    </resultMap>
+    
+    <select id="selectReserverInfo" resultMap="map1" parameterType="Map">
+    SELECT r.rsvr_code, r.non_email, r.non_name, r.rsvr_time, p.p_content
+    		, p_tt_price, ss.s_code, sc.t_name, sc.ss_time, rr.rs_count, rr.rs_num, r.non_name
+    		, m.movieNm, p.p_method, p.p_ex_price, p.p_tt_price, p.p_time
+   		FROM reserver r
+    	INNER JOIN reservation rr
+    	ON r.rsvr_code = rr.rsvr_code
+    	INNER JOIN payment p
+    	ON r.rsvr_code = p.rsvr_code
+    	INNER JOIN selected_seat ss
+    	ON rr.rs_num = ss.rs_num
+    	INNER JOIN screening_schedule sc
+    	ON sc.ss_code = rr.ss_code
+    	INNER JOIN movie_list m
+    	ON m.movieCd = sc.movieCd
+		<where>
+			AND non_name = #{name}
+			AND non_email = #{email}
+			AND non_pw = #{password}
+			AND u_code IS NULL
+			AND rs_status = 0
+		</where>
+    </select>
+    
+    <select id="count" resultType="int" parameterType="Map">
+	    SELECT count(*)
+	    FROM reserver r
+	    INNER JOIN reservation rr 
+	    ON r.rsvr_code = rr.rsvr_code
+	    INNER JOIN payment p 
+	    ON r.rsvr_code = p.rsvr_code
+	    INNER JOIN selected_seat ss 
+	    ON rr.rs_num = ss.rs_num
+	    INNER JOIN screening_schedule sc 
+	    ON sc.ss_code = rr.ss_code
+	    INNER JOIN movie_list m 
+	    ON m.movieCd = sc.movieCd
+	    <where>
+	        non_name = #{name}
+	        AND non_email = #{email}
+	        AND non_pw = #{password}
+	        AND u_code IS NULL
+	        AND rs_status = 0
+	    </where>
+	</select>
+	
+	<resultMap type="web.mybatis.vo.ReserverVO" id="forNonCancelList">
+    	<association property="pvo" javaType="web.mybatis.vo.PaymentVO">
+			<result property="p_tt_price" column="p_tt_price" />
+    	</association>
+    	<association property="rvo" javaType="web.mybatis.vo.ReservationVO">
+			<result property="rs_num" column="rs_num" />
+			<result property="rs_cancel_time" column="rs_cancel_time" />
+    	</association>
+    	
+    	<association property="ssvo" javaType="web.mybatis.vo.ScreeningScheduleVO">
+			<result property="t_name" column="t_name" />
+			<result property="ss_time" column="ss_time" />
+    	</association>
+    	<association property="mvo" javaType="web.mybatis.vo.MovieListVO">
+			<result property="movieNm" column="movieNm" />
+    	</association>
+    </resultMap>
+    
+    <select id="getNonMemCancelList" resultMap="forNonCancelList" parameterType="Map">
+    	SELECT rr.rs_cancel_time, rr.rs_num, m.movieNm, sc.t_name, sc.ss_time, p.p_tt_price
+   		FROM reserver r
+    	INNER JOIN reservation rr ON r.rsvr_code = rr.rsvr_code
+    	INNER JOIN payment p ON r.rsvr_code = p.rsvr_code
+    	INNER JOIN selected_seat ss ON rr.rs_num = ss.rs_num
+    	INNER JOIN screening_schedule sc ON sc.ss_code = rr.ss_code
+    	INNER JOIN movie_list m ON m.movieCd = sc.movieCd
+		<where>
+			AND non_name = #{name}
+			AND non_email = #{email}
+			AND non_pw = #{password}
+			AND u_code IS NULL
+			AND rs_status = 1
+		</where>
+    </select>
+    <!-- 취소 일시(reservation) 예매번호(reservation) 영화명(movieList) 극장/상영관(sc) 상영일시(sc) 환불 금액(payment)  -->
+	
+</mapper>

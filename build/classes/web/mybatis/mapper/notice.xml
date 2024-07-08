@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+    <!--  해당 게시물의 전체게시물 수를 반환(공지사항)  -->
+    <select id="count" resultType="int">
+        SELECT COUNT(*) FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 1
+    </select>
+
+    <!--  해당 게시물의 전체게시물 수를 반환(공지사항)  -->
+    <select id="searchcount" resultType="int" parameterType="String">
+        SELECT COUNT(*) FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 1
+        AND n_title LIKE CONCAT('%',#{n_title},'%')
+    </select>
+
+    <!--  해당 게시물의 전체게시물 수를 반환(자주묻는질문)  -->
+    <select id="fcount" resultType="int">
+        SELECT COUNT(*) FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 4
+    </select>
+
+    <!--  해당 게시물의 전체게시물 수를 반환(자주묻는질문)  -->
+    <select id="searchfcount" resultType="int" parameterType="String">
+        SELECT COUNT(*) FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 4
+        AND n_title LIKE CONCAT('%',#{n_title},'%')
+    </select>
+
+    <!--  해당 게시물의 전체게시물 수를 반환(이벤트)  -->
+    <select id="ecount" resultType="int">
+        SELECT COUNT(*) FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 2
+    </select>
+
+    <!--  해당 게시물의 전체게시물 수를 반환(혜택)  -->
+    <select id="bcount" resultType="int">
+        SELECT COUNT(*) FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 3
+    </select>
+
+    <resultMap type="web.mybatis.vo.NoticeVO" id="map1">
+        <!--  기본키설정  -->
+        <id property="n_idx" column="n_idx"/>
+        <result property="nt_ct_code" column="nt_ct_code"/>
+        <result property="n_title" column="n_title"/>
+        <result property="n_content" column="n_content"/>
+        <result property="n_banner" column="n_banner"/>
+        <result property="n_img" column="n_img"/>
+        <result property="n_time" column="n_time"/>
+        <result property="n_status" column="n_status"/>
+    </resultMap>
+
+    <!--  공지사항 -->
+    <select id="list" resultMap="map1" parameterType="Map">
+        SELECT * FROM(
+        SELECT @RN:=@RN+1 AS rnum, a.* FROM(
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 1
+        <if test="n_title != null">
+            AND n_title LIKE CONCAT('%', #{n_title}, '%')
+        </if>
+        ORDER BY n_idx DESC
+        ) a, (SELECT @RN:=0) b
+        ) c 
+        WHERE c.rnum between #{begin} AND #{end};
+    </select>
+
+    <select id="view" resultMap="map1" parameterType="Map">
+        SELECT * FROM(
+        SELECT @RN:=@RN+1 AS rnum, a.* FROM(
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 1
+        <if test="n_title != null and n_title != ''">
+            AND n_title LIKE CONCAT('%', #{n_title}, '%')
+        </if>
+        <if test="n_idx != null and n_idx != 0">
+                AND n_idx = #{n_idx}
+        </if>
+        ORDER BY n_idx DESC
+        ) a, (SELECT @RN:=0) b
+        ) c 
+        <if test="begin != null and end != null">
+        WHERE c.rnum BETWEEN #{begin} AND #{end}
+    	</if>
+    </select>
+    <!--  자주묻는질문  -->
+    <select id="flist" resultMap="map1" parameterType="Map">
+        SELECT * FROM(
+        SELECT @RN:=@RN+1 AS rnum, a.* FROM(
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 4
+        <if test="n_title != null">
+            AND n_title LIKE CONCAT('%', #{n_title}, '%')
+        </if>
+        ORDER BY n_idx DESC
+        ) a, (SELECT @RN:=0) b
+        ) c WHERE c.rnum between #{begin} AND #{end};
+    </select>
+
+    <select id="fview" resultMap="map1" parameterType="Map">
+        SELECT * FROM(
+        SELECT @RN:=@RN+1 AS rnum, a.* FROM(
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 4
+        <if test="n_title != null and n_idx != null">
+            AND n_title LIKE CONCAT('%', #{n_title}, '%')
+            AND n_idx = #{n_idx}
+        </if>
+        ORDER BY n_idx DESC
+        ) a, (SELECT @RN:=0) b
+        ) c WHERE c.rnum between #{begin} AND #{end};
+    </select>
+
+    <!--  이벤트 -->
+    <select id="elist" resultMap="map1">
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 2
+        ORDER BY n_idx ASC
+    </select>
+
+    <select id="eview" resultMap="map1" parameterType="String">
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 2
+        AND n_idx = #{n_idx}
+    </select>
+
+    <!--  혜택 -->
+    <select id="blist" resultMap="map1">
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 3
+        ORDER BY n_idx ASC
+    </select>
+
+    <select id="bview" resultMap="map1" parameterType="String">
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 3
+        AND n_idx = #{n_idx}
+    </select>
+
+</mapper>

@@ -41,7 +41,7 @@
                 <div class="heading-2">간편찾기</div>
                 <p class="p">※ 가입한 이메일을 잊으신 고객께서는 고객센터에 문의 바랍니다.</p>
                 <div class="horizontal-border">
-                    <button type="button" class="button" onclick="searach_id()">아이디 찾기</button>
+                    <button type="button" class="button" onclick="serach_id()">아이디 찾기</button>
                 </div>
                 <div class="overlap">
                     <div class="table-body-wrapper">
@@ -93,13 +93,15 @@
 </div>
 <div class="modal-overlay">
     <div class="modal">
-        <button type="button" class="modal-button">확인</button>
-        <div class="modal-header">
-            <div class="text-wrapper-2">알림</div>
-            <img class="multiply" src="https://c.animaapp.com/ScPQRqN0/img/multiply@2x.png"/>
-        </div>
-        <div class="txt-comon">
-            <div class="id_search" id="modal_id_search"></div>
+        <div class="div">
+            <button type="button" class="modal-button">확인</button>
+            <div class="modal-header">
+                <div class="text-wrapper-2">알림</div>
+                <img class="multiply" src="https://c.animaapp.com/ScPQRqN0/img/multiply@2x.png"/>
+            </div>
+            <div class="txt-comon">
+                <div class="id_search" id="modal_id_search"></div>
+            </div>
         </div>
     </div>
 </div>
@@ -110,14 +112,12 @@
     window.onload = function () {
         //background-bordr 색 변경
         $(".background-border").css("background-color", "#f2f2f2");
-        $(".input-3").prop("disabled", true);
-        if ($(".input-3").prop("disabled") === true) {
+        $(".input-3").prop("readonly", true);
+        if ($(".input-3").prop("readonly") === true) {
             $(".input-3").css("outline", "none");
         }
         $(".input-3").css("background-color", "#f2f2f2");
         $(".button").prop("disabled", true);
-        $(".button-2").prop("disabled", true);
-        $(".button-3").prop("disabled", true);
     }
 
     //이름입력칸에 숫자가 들어가면 그 숫자가 지워지는 함수
@@ -147,6 +147,9 @@
         var name = $(".input").val();
         //생일은 중간에 생년월일 사이에 -를 넣어서 보내줍니다.
         var birth = $(".container-wrapper").val().substring(0, 4) + "-" + $(".container-wrapper").val().substring(4, 6) + "-" + $(".container-wrapper").val().substring(6, 8);
+        console.log(email)
+        console.log(name)
+        console.log(birth)
         // jQuery AJAX를 사용하여 서버에 이메일을 보냅니다.
         $.ajax({
             type: "POST",
@@ -168,7 +171,7 @@
                         if (time <= 0) {
                             clearInterval(timer);
                             alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
-                            $(".input-3").prop("disabled", true);
+                            $(".input-3").prop("readonly", true);
                             $(".background-border").css("background-color", "#f2f2f2");
                             $(".input-3").val("");
                             $(".input-3").css("background-color", "#f2f2f2");
@@ -176,12 +179,12 @@
                         }
                         time--;
                     }, 1000);
-                    $(".input-3").prop("disabled", false);
+                    alert("이메일이 성공적으로 전송되었습니다.")
+                    $(".input-3").prop("readonly", false);
                     $(".input-3").focus();
                     $(".input-3").css("background-color", "#ffffff");
                     $(".background-border").css("background-color", "#ffffff");
                     $(".text-wrapper-9").css("display", "block");
-                    alert("이메일이 성공적으로 전송되었습니다.")
                 } else if (data === "0") {
                     alert("올바르지 않은 이메일입니다.");
                     $(".input-2").val("");
@@ -194,7 +197,7 @@
     //인증번호 확인 버튼을 눌렀을때 인증번호 검증 함수
     $(".button-3").on("click", function () {
         //만약 인증번호 칸이 막혔을때 버튼을 누르면 이메일을 입력하라는 경고창
-        if ($(".input-3").prop("disabled") === true) {
+        if ($(".input-3").prop("readonly") === true) {
             alert("이메일을 입력해주세요.");
             $(".input-2").focus();
             return;
@@ -219,12 +222,11 @@
                     $(".button").prop("disabled", false);
                     alert("인증이 완료되었습니다.");
                     $(".background-border").css("background-color", "#f2f2f2");
-                    $(".input-3").prop("disabled", true);
+                    $(".input-3").prop("readonly", true);
                     $(".input-3").attr("placeholder", "인증이 완료되었습니다");
                     $(".input-3").css("background-color", "#f2f2f2");
                     $(".text-wrapper-9").css("display", "none");
                     clearInterval(timer);
-                    sessionStorage.removeItem('codeTime');
                     sessionStorage.setItem("emailVerified", "true");
                 } else if (success === "0") {
                     alert("인증번호가 유효하지 않습니다");
@@ -237,7 +239,7 @@
 
     /* 아이디 찾기를 누를때 호출되는 함수
     * 세션에 emailemailVerified가 있고 텍스트필드들에 빈칸이없으면 이름 생년월일 id를 통해 mvo객체를 받아와 모달창에 띄움*/
-    function search_id() {
+    function serach_id() {
         if (sessionStorage.getItem("emailVerified") === "true" || $(".input").val() === "" || $(".container-wrapper").val() === "" || $(".input-2").val() === "") {
             var name = $(".input").val();
             var birth = $(".container-wrapper").val().substring(0, 4) + "-" + $(".container-wrapper").val().substring(4, 6) + "-" + $(".container-wrapper").val().substring(6, 8);
@@ -250,12 +252,9 @@
                 success: function (data) {
                     var id = data.id;
                     var date = data.join_date;
-                    console.log("id: " + id);
-                    console.log("date: " + date);
                     $("#modal_id_search").html("회원님의 아이디는 [" + id + "]입니다.<br>가입일: " + date);
                     $(".modal-overlay").css("display", "block");
                     $(".modal-overlay").css("pointer-events", "auto");
-                    $("body").addClass("no-scroll");
                 }
 
             });
@@ -267,14 +266,12 @@
     $(".multiply").on("click", function () {
         $(".modal-overlay").css("display", "none");
         $(".modal-overlay").css("pointer-events", "none");  // 클릭 이벤트 무시
-        $("body").removeClass("no-scroll");
     });
 
     $(".modal-button").on("click", function () {
         sessionStorage.removeItem("emailVerified");
         $(".modal-overlay").css("display", "none");
         $(".modal-overlay").css("pointer-events", "none");  // 클릭 이벤트 무시
-        $("body").removeClass("no-scroll");
         location.href = "${pageContext.request.contextPath}/Controller?type=index";
     });
 

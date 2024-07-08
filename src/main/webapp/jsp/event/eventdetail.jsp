@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/event/eventdetail.css" />
   </head>
   <body style="position:relative;">
-      <jsp:include page="/jsp/footer/footer.jsp"/>
     <div class="screen">
       <div class="overlap-wrapper">
         <div class="overlap">
@@ -29,5 +28,6 @@
         </div>
       </div>
     </div>
+      <jsp:include page="/jsp/footer/footer.jsp"/>
   </body>
 </html>
