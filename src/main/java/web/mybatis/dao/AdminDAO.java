@@ -111,4 +111,18 @@ public class AdminDAO {
 		ss.close();
 		return res;
 	}
+
+	public static int deleteScreen(String movieCd) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+
+		int res = ss.delete("movieList.deleteMovie",movieCd);
+		if( res > 0) {
+			ss.commit();
+		} else {
+			ss.rollback();
+		}
+		ss.close();
+		return res;
+		
+	}
 }

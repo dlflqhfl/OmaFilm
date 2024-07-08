@@ -8,16 +8,13 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/event/eventdetail.css" />
   </head>
   <body style="position:relative;">
-      <jsp:include page="/jsp/footer/footer.jsp"/>
     <div class="screen">
       <div class="overlap-wrapper">
+      <jsp:include page="/jsp/footer/footer.jsp"/>
         <div class="overlap">
           <div class="container">
             <div class="heading">이벤트 상세보기</div>
-            <div class="overlap-group">
-              <img class="overlay" src="${pageContext.request.contextPath}/img/event/eventdetail/overlay.svg" />
              <jsp:include page="/jsp/header/header.jsp"/>
-            </div>
             <div class="overlap-group-2">
               <div class="rectangle"></div>
               <div class="text-wrapper-8">${evo.n_title }</div>

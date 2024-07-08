@@ -15,10 +15,7 @@
       <div class="container-wrapper">
         <div class="container">
           <jsp:include page="/jsp/footer/footer.jsp"/>
-          <div class="overlap-group">
-              <img class="overlay" src="${pageContext.request.contextPath}/img/serviceCenter/noticedetail/overlay.svg" />
-             <jsp:include page="/jsp/header/header.jsp"/>
-            </div>
+           <jsp:include page="/jsp/header/header.jsp"/>
           <div class="heading">공지사항 상세보기</div>
           <div class="background">
             <div class="overlap">

@@ -11,10 +11,7 @@
     <div class="screen">
       <div class="container-wrapper">
         <div class="container">
-          <div class="overlap-group">
-              <img class="overlay" src="${pageContext.request.contextPath}/img/serviceCenter/directions/overlay.svg" />
-             <jsp:include page="/jsp/header/header.jsp"/>
-            </div>
+          <jsp:include page="/jsp/header/header.jsp"/>
           <jsp:include page="/jsp/footer/footer.jsp"/>
           <div class="heading">오시는 길</div>
           <p class="text-wrapper">주소 : 서울 강남구 테헤란로 132 한독약품빌딩 8층 (우)06235</p>

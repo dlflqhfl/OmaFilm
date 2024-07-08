@@ -63,10 +63,7 @@
          </form>
 
           <div class="heading">1:1 문의</div>
-          <div class="overlap-group">
-              <img class="overlay" src="${pageContext.request.contextPath}/img/serviceCenter/Inquiry/overlay.svg" />
-             <jsp:include page="/jsp/header/header.jsp"/>
-            </div>
+          <jsp:include page="/jsp/header/header.jsp"/>
           <div class="overlap-wrapper">
             <div class="overlap-2">
               <div class="link-8"><div class="text-wrapper-14">고객센터</div></div>

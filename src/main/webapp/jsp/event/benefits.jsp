@@ -24,6 +24,7 @@
                 <div class="list">
                 <c:forEach items="${bar}" var="bar" varStatus="vs">
                   <div class="item-link">
+                   	<a href="Controller?type=benefitdetail&n_idx=${bar.n_idx}">
                     <div class="background">
                     <div class="div" style="background-image: url('${pageContext.request.contextPath}/img/event/benefits/${bar.n_banner}.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
                     </div>
@@ -34,6 +35,7 @@
                 </div>
               </div>
             </div>
+             <img class="overlay" src="${pageContext.request.contextPath}/img/event/benefits/overlay.svg" />
             <jsp:include page="/jsp/header/header.jsp"/>
             <jsp:include page="/jsp/footer/footer.jsp"/>
           </div>

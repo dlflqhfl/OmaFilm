@@ -98,10 +98,15 @@ public class AdminMovieApiAction implements Action{
 		String openEndDt = request.getParameter("openEndDt");
 		System.out.println(openEndDt);
 		String search = request.getParameter("searchData");
+		String curPage = request.getParameter("curPage");
 		try {
 
 			String path ="https://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.xml?key=0a2ce772f649e25bd781abec17bf6279";
-
+			
+			if( curPage != null) {
+				path += "&curPage=" + curPage;
+			}
+			
 			if ( openStartDt != null) {
 				path += "&openStartDt=" + openStartDt;
 			}

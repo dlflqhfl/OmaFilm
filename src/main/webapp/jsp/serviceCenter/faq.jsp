@@ -10,14 +10,11 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/serviceCenter/faq_style.css" />
   </head>
   <body>
-      <div class="overlap-header">
-        <img class="overlay" src="${pageContext.request.contextPath}/img/serviceCenter/home/overlay.svg" />
-       <jsp:include page="/jsp/header/header.jsp"/>
-      </div>
     <div class="screen">
       <div class="overlap-wrapper">
         <div class="overlap">
           <div class="container">
+       <jsp:include page="/jsp/header/header.jsp"/>
             <div class="overlap-group">
               <div class="div">
                 <div class="overlap-2">

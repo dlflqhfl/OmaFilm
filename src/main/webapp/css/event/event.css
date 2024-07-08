@@ -109,18 +109,18 @@
 
 .screen .background {
   position: absolute;
-  width: 439px;
+  width: 438px;
   height: 244px;
   background-color: #eeeeee;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #e4e4e4;
-  border-radius: 10px 0px;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .screen .div {
   position: relative;
-  width: 438px;
+  width: 437px;
   height: 243px;
   background-size: cover;
   background-position: 50% 50%;
@@ -515,18 +515,6 @@
   height: 91px;
   top: 3px;
   left: 0;
-}
-
-.screen .navbar {
-  position: absolute;
-  width: 1920px;
-  height: 98px;
-  top: 0;
-  left: 0;
-  background-color: #00000080;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-color: #ffffff33;
 }
 
 .screen .link {

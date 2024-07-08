@@ -16,10 +16,7 @@
       <div class="container-wrapper">
         <div class="container">
           <jsp:include page="/jsp/footer/footer.jsp"/>
-          <div class="overlap-group">
-              <img class="overlay" src="${pageContext.request.contextPath}/img/serviceCenter/notice/overlay.svg" />
-             <jsp:include page="/jsp/header/header.jsp"/>
-            </div>
+		 <jsp:include page="/jsp/header/header.jsp"/>
           <div class="heading">공지사항</div>
           <div class="strong">
             <p class="element">
@@ -38,9 +35,9 @@
 		  <table class="table">
 		    <thead>
 		      <tr>
-		        <th class="cell n_idx"><div class="text-wrapper-10">번호</div></th>
+		        <th class="cell n_idx" style="width:10%;"><div class="text-wrapper-10">번호</div></th>
 		        <th class="cell-2 title"><div class="text-wrapper-11">제목</div></th>
-		        <th class="cell-3 n_time"><div class="text-wrapper-12">등록일</div></th>
+		        <th class="cell-3 n_time" style="width:15%;"><div class="text-wrapper-12">등록일</div></th>
 		      </tr>
 		    </thead>
 		    
@@ -85,7 +82,7 @@
 				<c:forEach var="vo" items="${nar }" varStatus="vs">
 		                <tr>
 		                   <td>${requestScope.page.totalRecode - ((requestScope.page.nowPage - 1) * requestScope.page.numPerPage + vs.index)}</td>
-		                    <td style="text-align: left">
+		                    <td style="text-align: left; padding-left:20px;">
 		                        	<a href="Controller?type=noticedetail&n_idx=${vo.n_idx}&n_title=${vo.n_title}&cPage=${requestScope.page.nowPage}">
 		                            ${vo.n_title}
 		                        </a>

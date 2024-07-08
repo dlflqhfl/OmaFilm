@@ -13,10 +13,12 @@
     position: relative;
     width: 1920px;
     height: 100px;
-    background-color: #000000;
+    background-color: #00000080;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-color: #ffffff33;
+    background-image: url("/img/header/overlay.svg");
+    background-size: 100% 100%;
 }
 
 .site_header .nav_item_1 {

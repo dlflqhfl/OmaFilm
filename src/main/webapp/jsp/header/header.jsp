@@ -1,54 +1,35 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css" />
 
 
-<header class="header">
-    <div class="navbar">
+<header class="site_header">
+    <div class="navigation_bar">
         <c:choose>
             <c:when test="${not empty sessionScope.mvo}">
-                <div class="link-21" id="logout"><div class="text-wrapper-26"><a href="${pageContext.request.contextPath}/Controller?type=logout">로그아웃</a></div></div>
+                <div class="nav_item_1" id="logout"><div class="nav_text_1"><a href="${pageContext.request.contextPath}/Controller?type=logout">로그아웃</a></div></div>
             </c:when>
             <c:otherwise>
-        <div class="link-21"><div class="text-wrapper-26"><a href="${pageContext.request.contextPath}/jsp/login/register.jsp">회원가입</a></div></div>
-        <div class="link-23"><div class="text-wrapper-27"><a href="${pageContext.request.contextPath}/jsp/login/login_1.jsp">로그인</a></div></div>
-        
+        <div class="nav_item_1"><div class="nav_text_1"><a href="${pageContext.request.contextPath}/jsp/login/register.jsp">회원가입</a></div></div>
+        <div class="nav_item_2"><div class="nav_text_2"><a href="${pageContext.request.contextPath}/jsp/login/login_1.jsp">로그인</a></div></div>
             </c:otherwise>
         </c:choose>
-        <div class="link-22">
+        <div class="nav_item_3">
             <a href="${pageContext.request.contextPath}/Controller?type=home">
-                <div class="text-wrapper-26">고객센터</div></a>
+                <div class="nav_text_1">고객센터</div></a>
         </div>
-        <a href="${pageContext.request.contextPath}/Controller?type=selectTime"><div class="link-24"><div class="text-wrapper-26">빠른예매</div></div></a>
-        <a href="${pageContext.request.contextPath}/Controller?type=selectTime"><img class="link-26" src="${pageContext.request.contextPath}/img/main_img/link-1.png" /></a>
-        <a href="${pageContext.request.contextPath}/Controller?type=myHome"><img class="link-27" src="${pageContext.request.contextPath}/img/main_img/link-2.png" /></a>
+        <a href="${pageContext.request.contextPath}/Controller?type=selectTime"><div class="nav_item_4"><div class="nav_text_1">빠른예매</div></div></a>
+        <a href="${pageContext.request.contextPath}/Controller?type=selectTime"><img class="nav_item_5" src="${pageContext.request.contextPath}/img/header/link-1.png"/></a>
+        <a href="${pageContext.request.contextPath}/Controller?type=myHome"><img class="nav_item_6" src="${pageContext.request.contextPath}/img/header/link-2.png" /></a>
 
-        <a href="${pageContext.request.contextPath}/Controller?type=selectTime"><div class="text-wrapper-29">예매</div></a>
-        <a href="${pageContext.request.contextPath}/Controller?type=movielist"><div class="text-wrapper-30">영화</div></a>
-        <a href="${pageContext.request.contextPath}/Controller?type=event"><div class="text-wrapper-31">이벤트</div></a>
-        <a href="${pageContext.request.contextPath}/Controller?type=benefits"><div class="text-wrapper-32">혜택</div></a>
+        <a href="${pageContext.request.contextPath}/Controller?type=selectTime"><div class="nav_text_3">예매</div></a>
+        <a href="${pageContext.request.contextPath}/Controller?type=movielist"><div class="nav_text_4">영화</div></a>
+        <a href="${pageContext.request.contextPath}/Controller?type=event"><div class="nav_text_5">이벤트</div></a>
+        <a href="${pageContext.request.contextPath}/Controller?type=benefits"><div class="nav_text_6">혜택</div></a>
 
-       <a href="${pageContext.request.contextPath}/Controller?type=index"><img class="heading-link" src="${pageContext.request.contextPath}/img/main_img/heading-1-link.png" /></a>
+       <a href="${pageContext.request.contextPath}/Controller?type=index"><img class="logo_link" src="${pageContext.request.contextPath}/img/header/heading-1-link.png" /></a>
         <div class="m_all"></div>
-
-        <%-- 예매 섹션에 마우스를 올렸을 때 보여지는 메뉴 --%>
-
-        <div class="menu-ticketing">
-            <div class="Line1" style="width: 31px; height: 0px; left: 764px; top: -2px; position: absolute; border: 3px white solid"></div>
-            <div style="width: 77px; height: 21px; left: 651px; top: 7px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; word-wrap: break-word">전체영화</div>
-            <div style="width: 39px; height: 21px; left: 744px; top: 7px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; word-wrap: break-word">예매</div>
-        </div>
-
-        <%-- 이벤트 섹션에 마우스를 올렸을 때 보여지는 메뉴 --%>
-        <div class="menu-event">
-            <div class="MenuBg" style="width: 1920px; height: 47px; padding-top: 13px; padding-bottom: 13px; padding-left: 972px; padding-right: 612px; left: 0px; top: 47px; position: absolute; background: rgba(0, 0, 0, 0.30); justify-content: flex-end; align-items: flex-start; gap: 22px; display: inline-flex">
-                <div style="width: 110px; height: 21px; text-align: center; color: white; font-size: 15px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; word-wrap: break-word">진행중 이벤트</div>
-                <div style="width: 91px; height: 21px; text-align: center; color: white; font-size: 15px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; word-wrap: break-word">지난 이벤트</div>
-                <div style="width: 91px; height: 21px; text-align: center; color: white; font-size: 15px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; word-wrap: break-word">당첨자발표</div>
-            </div>
-            <div class="Line3" style="width: 48px; height: 0px; left: 1121.50px; top: 48.50px; position: absolute; border: 3px white solid"></div>
-        </div>
 
         <%-- 전체보기 눌렀을 때 나오는 창 --%>
         <div class="MenuAll" style="width: 1920px; height: 816px; position: absolute; top:100px; background: #53585A">
@@ -126,39 +107,8 @@
         </div>
     </div>
 </header>
-
 <script>
-    // 이벤트 섹션에 마우스를 올렸을 때
-    document.querySelector('.text-wrapper-31').addEventListener('mouseenter', function() {
-        // menu-event를 보이게 합니다.
-        document.querySelector('.menu-event').style.display = 'block';
-        document.querySelector('.menu-ticketing').style.display = 'none';
-    });
 
-    // menu-event에서 마우스를 떼었을 때
-    document.querySelector('.menu-event').addEventListener('mouseout', function(event) {
-        // 마우스가 클래스가 menu-event의 바깥으로 나갔는지 확인합니다.
-    if (!event.relatedTarget || event.relatedTarget.id !== 'menu-event') {
-            // menu-event를 숨깁니다.
-            document.querySelector('.menu-event').style.display = 'none';
-        }
-    });
-
-    // 예매 섹션에 마우스를 올렸을 때
-    document.querySelector('.text-wrapper-29').addEventListener('mouseenter', function() {
-        // MenuTicketing을 보이게 합니다.
-        document.querySelector('.menu-ticketing').style.display = 'block';
-        document.querySelector('.menu-event').style.display = 'none';
-    });
-
-    // MenuTicketing에서 마우스를 떼었을 때
-    document.querySelector('.menu-ticketing').addEventListener('mouseout', function(event) {
-        // 마우스가 MenuTicketing의 바깥으로 나갔는지 확인합니다.
-        if (!event.relatedTarget || event.relatedTarget.id !== 'menu-ticketing') {
-            // MenuTicketing을 숨깁니다.
-            document.querySelector('.menu-ticketing').style.display = 'none';
-        }
-    });
 
     // 메뉴 전체보기를 클릭했을 때 link-4 이미지가 cancle이미지로 바뀐다
     document.querySelector('.m_all').addEventListener('click', function() {

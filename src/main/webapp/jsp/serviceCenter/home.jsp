@@ -15,10 +15,7 @@
     <div class="screen">
       <div class="container-wrapper">
         <div class="container">
-          <div class="overlap-group">
-              <img class="overlay" src="${pageContext.request.contextPath}/img/serviceCenter/home/overlay.svg" />
-             <jsp:include page="/jsp/header/header.jsp"/>
-            </div>
+           <jsp:include page="/jsp/header/header.jsp"/>
            <jsp:include page="/jsp/footer/footer.jsp"/>
           <div class="heading">고객센터 홈</div>
           <div class="frame-2">

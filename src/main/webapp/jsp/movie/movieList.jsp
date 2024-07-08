@@ -10,12 +10,10 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/movie/movieList.css" />
   </head>
   <body>
-          <div class="overlap-group">
-              <img class="overlay" src="${pageContext.request.contextPath}/img/movie/movieList/overlay.svg" />
-             <jsp:include page="/jsp/header/header.jsp"/>
-            </div>
     <div class="div-wrapper">
+    <jsp:include page="/jsp/footer/footer.jsp"/>
       <div class="container-wrapper">
+        <jsp:include page="/jsp/header/header.jsp"/>
         <div class="container">
           <div class="div">
             <div class="border">
@@ -117,7 +115,7 @@
         </div>
       </div>
     </div>
-          <jsp:include page="/jsp/footer/footer.jsp"/>
+          
     <script>
     var movieHoverElements = document.querySelectorAll('.MovieHover');
 
