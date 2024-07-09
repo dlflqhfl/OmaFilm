@@ -120,7 +120,7 @@
                 <input type="hidden" id="movieCd" name="movieCd" value="">
             </form>
             <form id="screenDelete" action="Controller?type=adminMovieDb" method="post">
-                <input type="hidden" id="movieCD" name="movieCd" value="">
+                <input type="hidden" id="movieCD_2" name="movieCd" value="">
                 <input type="hidden" id="delete" name="delete" value="delete">
             </form>
             

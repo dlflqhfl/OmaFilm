@@ -4,12 +4,13 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  height: auto;
 }
 
 .screen .div {
   background-color: #ffffff;
   width: 856px;
-  height: 545px;
+  height: 667px;
   position: relative;
 }
 
@@ -324,7 +325,6 @@
   height: 12px;
   top: 13px;
   left: 9px;
-  background-image: url(./img/image.png);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -343,21 +343,20 @@
   height: 12px;
   top: 12px;
   left: 13px;
-  background-image: url(./img/image-1.png);
   background-size: cover;
   background-position: 50% 50%;
 }
 
 .screen .overlap {
-  position: absolute;
+  position: relative;
   width: 781px;
   height: 372px;
-  top: 108px;
+  top: 90px;
   left: 35px;
 }
 
 .screen .border-2 {
-  position: absolute;
+  position: relative;
   width: 781px;
   height: 372px;
   top: 0;
@@ -850,7 +849,8 @@
   border-right-style: solid;
   border-left-width: 1px;
   border-left-style: solid;
-  border-color: #666666;
+  border-color: #dddddd;
+  border-bottom-width: 1px;
 }
 
 .screen .text-wrapper-18 {
@@ -909,7 +909,7 @@
   background-color: #e0e0e0;
   border-radius: 10px 10px 0px 0px;
   overflow: hidden;
-  position: absolute;
+  position: relative;
   height: 51px;
   top: 0;
 }
@@ -954,15 +954,16 @@
 }
 
 .screen .button-14 {
-  all: unset;
+  /* all: unset; */
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   width: 124px;
   height: 46px;
-  top: 489px;
+  top: 122px;
   left: 366px;
   background-color: #0e202a;
   border-radius: 4px;
+  margin: 0 auto;
 }
 
 .screen .text-wrapper-22 {
@@ -982,58 +983,65 @@
 }
 /* 캘린더 */
 .calendar {
-    position: absolute;
-    top: 18px;
-    background-color: white;
-    border-radius: 10px;
-    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
-    padding: 20px;
-    width: 795px;
-    text-align: center;
-    left: 32px;
+  position: relative;
+  top: 0;
+  background-color: white;
+  border-radius: 10px;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  padding: 20px;
+  width: 795px;
+  text-align: center;
+  left: 32px;
+  height: auto;
 }
 
 .month {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 
 .days {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .day {
-    width: 30px;
-    text-align: center;
+  width: 30px;
+  text-align: center;
+  /* left: 1px; */
+  position: relative;
+  left: 1px;
 }
 
 .date {
-    display: block;
-    font-size: 1.2em;
-    margin-bottom: 5px;
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 5px;
 }
+
 .now{
-    position: absolute;
-    left: 504px;
+  position: absolute;
+  left: 285px;
 }
 .day-name {
-    font-size: 0.8em;
-    color: gray;
-    position: absolute;
-    top: 14px;
+  font-size: 0.8em;
+  color: gray;
+  position: absolute;
+  top: 14px;
+  left: 3px;
 }
 .date {
-    position: absolute;
-    top: 47px;
+  position: absolute;
+  top: 47px;
+  height: auto;
 }
 .selected .date {
-    background-color: black;
-    color: white;
-    border-radius: 50%;
-    padding: 5px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
 }
 
 .day:nth-child(3) .date {
-    color: red;
+  color: red;
 }

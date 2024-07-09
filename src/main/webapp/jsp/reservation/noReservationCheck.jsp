@@ -36,7 +36,6 @@
                 <div class="content">
                     <div class="tit">예매/취소내역</div>
                     <div class="bokdlist">
-
                         <div class="p-2">총 ${cnt }건</div>
                         <c:forEach var="vo" items="${list }">
                             <div class="li">
@@ -100,16 +99,12 @@
                                 </div>
                             </div>
                         </c:forEach>
-                        <div id="modalPlace" class="modalPlace">
-                            <div class="modal-content">
-                                <%@ include file="/jsp/reservation/noReservationCheckModal.jsp" %>
-                            </div>
-                        </div>
+                        <div class="no-history-reservation">예매 내역이 없습니다 </div>
                     </div>
                 </div>
             </div>
 
-            <%--리스트도 뽑아줘용--%>
+
             <div class="div-2">
                 <div class="overlap-3">
                     <div class="heading">예매 취소 내역</div>
@@ -147,35 +142,31 @@
                   <c:if test="${page.begin<0}">
                      <c:set var="begin" value="1" />
                   </c:if>
-                  
-                        <c:forEach var="i" begin="${begin}" end="${ end}" varStatus="status">
-                        <tr class="tr-2">
-                     <td class="data-1">
-                                <div class="text-wrapper-20">${cancel_list[i-1].rvo.rs_cancel_time }</div>
-                            </td>
-                            <td class="data-2">
-                                <div class="text-wrapper-21">${cancel_list[i-1].rvo.rs_num }</div>
-                            </td>
-                            <td class="data-3">
-                                <div class="text-wrapper-22">${cancel_list[i-1].mvo.movieNm }</div>
-                            </td>
-                            <td class="data-4">
-                                <div class="text-wrapper-23">${cancel_list[i-1].ssvo.t_name }</div>
-                            </td>
-                            <td class="data-5">
-                                <div class="text-wrapper-24">${cancel_list[i-1].ssvo.ss_time.split(" ")[0] }</div>
-                            </td>
-                            <td class="data-6">
-                                <div class="text-wrapper-25">${cancel_list[i-1].pvo.p_tt_price }</div>
-                            </td>
-                        </tr>
-               </c:forEach>
-               
-                            
+
+                        <c:forEach items="${cancel_list}" var="item">
+                            <tr class="tbody-2_tr">
+                                <td class="data-1">
+                                    <div class="text-wrapper-20">${item.rvo.rs_cancel_time}</div>
+                                </td>
+                                <td class="data-2">
+                                    <div class="text-wrapper-21">${item.rvo.rs_num}</div>
+                                </td>
+                                <td class="data-3">
+                                    <div class="text-wrapper-22">${item.mvo.movieNm}</div>
+                                </td>
+                                <td class="data-4">
+                                    <div class="text-wrapper-23">${item.ssvo.t_name}</div>
+                                </td>
+                                <td class="data-5">
+                                    <div class="text-wrapper-24">${item.ssvo.ss_time.split(" ")[0]}</div>
+                                </td>
+                                <td class="data-6">
+                                    <div class="text-wrapper-25">${item.pvo.p_tt_price}</div>
+                                </td>
+                            </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
-                    
-                    
                     <div class="nav">
                   <div>
                      <ol class="paging">
@@ -210,36 +201,31 @@
                   </div>
                 </div>
             </div>
-            <jsp:include page="/jsp/footer/footer.jsp"/>
         </div>
+            <jsp:include page="/jsp/footer/footer.jsp"/>
     </div>
 </div>
 </div>
-
+<%@ include file="/jsp/reservation/noReservationCheckModal.jsp" %> <!-- 모달창 -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous"></script>
 <script type="text/javascript">
-    let modal = $(".modalPlace");
+    let modal = $(".modal-wrapper");
     $(function () {
-
         // 닫기 버튼 클릭 시 모달 숨기기
         $(".modal-button").click(function () {
             modal.hide();
+            $("body").removeClass("no-scroll");
         });
         $(".multiply").click(function () {
             modal.hide();
-        });
-
-        // 모달 외부 클릭 시 모달 숨기기
-        $(window).click(function (event) {
-            if ($(event.target).is(modal)) {
-                modal.hide();
-            }
+            $("body").removeClass("no-scroll");
         });
 
         $(".btn").click(function () {
             let parent = $(this).closest(".tr-wrapper");
+            $("body").addClass("no-scroll");
 
             let p_ex_price = parseInt(parent.data("p_ex_price"));
             let p_tt_price = parseInt(parent.data("p_tt_price"));
@@ -286,8 +272,40 @@
                document.body.appendChild(form);
                form.submit();
            }
+
         });
     });
+
+    //requset에 저장된 list의 사이즈가 0일때 no-history-reservation을 띄운다
+    var listLength = ${fn:length(list)};
+    var cancelListLength = ${fn:length(cancel_list)};
+
+    $(function () {
+        if (listLength == 0) {
+            $(".no-history-reservation").css("display", "block");
+        }
+    });
+
+    $(function () {
+        if (cancelListLength == 0) {
+            var newRow = $("<tr>").addClass("tbody-2_tr");
+            var newCell = $("<td>").attr("colspan", "6").text("취소내역이 없습니다").css({
+                "text-align": "center",
+                "padding": "10px",
+                "font-size": "20px",
+                "border-top": "1px solid #e0e0e0",
+                "border-bottom": "1px solid #e0e0e0",
+                "color": "#b6b6b6",
+
+            });
+            newRow.append(newCell);
+            $(".tbody-2").append(newRow);
+
+            $(".nav").remove();
+        }
+    });
+
+
 
 </script>
 </body>

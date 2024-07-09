@@ -83,13 +83,9 @@
         <img class="line" src="img/line-2.svg" />
         <div class="text-wrapper-9">영화 추가</div>
         <jsp:include page="/jsp/admin/menu/menu.jsp"></jsp:include>
-        
       </div>
     </div>
-    
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 let date;
 let name, time;
