@@ -146,13 +146,13 @@
             
           </div>
           <div class="div-sidebar">
-            <img class="img" src="img/1.png" />
+            <img class="element" src="img/adminMovie/1.png" />
             <div class="text-wrapper-19">관리자</div>
             <div class="list-2">
-              <div class="item-link"><div class="text-wrapper-20">영화관리</div></div>
-              <div class="item-link-2"><div class="text-wrapper-21">이벤트/혜택 관리</div></div>
-              <div class="item-link-3"><div class="text-wrapper-22">쿠폰 관리</div></div>
-              <div class="item-link-2"><div class="text-wrapper-23">고객센터 관리</div></div>
+              <div class="item-link"><div class="text-wrapper-20"><a href="Controller?type=adminMovieDb">영화관리</a></div></div>
+              <div class="item-link-2"><div class="text-wrapper-21"><a href="Controller?type=adminEvent">이벤트/혜택 관리</a></div></div>
+              <div class="item-link-3"><div class="text-wrapper-22"><a href="Controller?type=adminCpHome">쿠폰관리</a></div></div>
+              <div class="item-link-2"><div class="text-wrapper-23"><a href="Controller?type=adminNotice">고객센터 관리</a></div></div>
             </div>
           </div>
         </div>

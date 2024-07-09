@@ -25,7 +25,7 @@
   position: absolute;
   width: 1125px;
   height: 68px;
-  top: 151px;
+  top: 200px;
   left: 0;
 }
 
@@ -453,7 +453,7 @@ button .text-wrapper {
 
 .API .row-6 {
   height: 328px;
-  top: 210px;
+  top: 258px;
   position: absolute;
   width: 1125px;
   left: 0;
@@ -566,7 +566,7 @@ button .text-wrapper {
   box-sizing: border-box;
   width: 124px;
   height: 46px;
-  top: 1000px;
+  top: 1032px;
   left: 706px;
   background-color: #0e202a;
   position: absolute;
@@ -946,4 +946,9 @@ button .text-wrapper {
 .date {
     position: absolute;
     top: 33px;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
 }

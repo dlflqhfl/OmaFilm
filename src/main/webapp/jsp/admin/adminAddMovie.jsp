@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>     
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminAddMovieGlobals.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminAddMovieStyle.css" />
+    <link rel="stylesheet" href="css/admin/adminAddMovieGlobals.css" />
+    <link rel="stylesheet" href="css/admin/adminAddMovieStyle.css" />
   </head>
   <body>
     <div class="API">
@@ -18,6 +18,21 @@
             <div class="data">
               <input type="text" class="input">
               <input type="file" class="fileText">
+            </div>
+          </div>
+          <div class="row-2">
+            <div class="cell"><div class="label">전체 상영관</div></div>
+            <div class="data">
+              <input type="text" id="screenName" class="input-2">
+              <input type="text" id="screenTime" class="input-3">
+              <input type="text" id="screenDate" class="input-4">
+              <button class="div-wrapper" onclick="showDialog()">시간 추가하기</button> 
+             	 <div id="myModal" class="modal">
+        		<div class="modal-content">
+        			<jsp:include page="/jsp/admin/adminSelectTime.jsp" />
+        		</div>
+        	</div>
+              <div class="label-wrapper"><div class="label-2">전체 상영시간표</div></div>
             </div>
           </div>
           <div class="row-3">
@@ -64,7 +79,6 @@
 	        <input type="hidden" id="nameData" name="nameData" value="">
 	        <input type="hidden" id="timeData" name="timeData" value="">
 	        <input type="hidden" id="dateData" name="dateData" value="">
-	        <input type="hidden" id="fileData" name="fileData" value="">
 	        <input type="hidden" id="contentData" name="contentData" value="">
 	        <input type="hidden" id="submit" name="submit" value="submit">
 	        <input type="hidden" id="movieCd" name="movieCd" value="${movie.movieCd }">
@@ -115,13 +129,23 @@ $(function() {
             closeDialog();
         }
     });
-
+    
+   
+    
     $(".guan").click(function() {
         name = $(this).text();
     });
 
     $(".time").click(function() {
         time = $(this).text();
+    });
+
+    // 시간 추가 버튼 클릭시 이벤트
+    $("#sb").click(function() {
+        $("#screenName").val(name);
+        $("#screenTime").val(time);
+        $("#screenDate").val(date);
+        closeDialog();
     });
 
     let checkClick = null;
@@ -286,18 +310,21 @@ $(function() {
 
         let selectedYear = selectedDate.getFullYear(); // 선택한 일자의 연도를 가져옵니다.
         let selectedMonth = selectedDate.getMonth() + 1; // 선택한 일자의 월을 가져옵니다.
-
+        
         date = selectedYear + "-" + selectedMonth + "-" + day;
         console.log(date);
     });
     $("#goAdd").click(function() {
-	    let content = $("#area").val();
+		console.log(name)
+		console.log(time)
+		console.log(date)
+		
+	    $("#nameData").val(name);
+	    $("#timeData").val(time);
+	    $("#dateData").val(date);
+	    let content = $("#area").val(); // content의 값을 가져와야 할 것 같습니다.
 	    console.log(content)
 	    $("#contentData").val(content);
-
-	    let file = $(".input").val()
-	    $("#fileData").val(file)
-	    console.log(file)
 	    
 	    $("#add").submit(); // form을 submit하는 코드입니다.
 	});
@@ -317,6 +344,9 @@ function closeDialog() {
 }
 
 
+<<<<<<< HEAD
+	
+=======
 const settings = {
 	  async: true,
 	  crossDomain: true,
@@ -352,6 +382,7 @@ const settings = {
             event.preventDefault();
         }
     });
+>>>>>>> d9a23b654b86261b0bbccbf09d438cd59a003885
     
 </script>
   </body>

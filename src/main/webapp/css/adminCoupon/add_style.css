@@ -683,3 +683,7 @@
   line-height: 60px;
   white-space: nowrap;
 }
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
