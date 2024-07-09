@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/admin/adminSelectTimeglobals.css" />
-    <link rel="stylesheet" href="css/admin/adminSelectTimeStyle.css" />
-  </head>
-  <body>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminSelectTimeStyle.css" />
     <div class="screen">
       <div class="div">
+        <div class="frame">
+          <div class="text-wrapper-20">시간 추가</div>
+          <div class="text-wrapper-21">✕</div>
+        </div>
 		<div class="calendar">
 			<div class="month">
 				<span id="current-month">6월</span>
@@ -31,7 +29,7 @@
               <div class="data"><div class="text-wrapper-10 time">15:00</div></div>
             </div>
             <div class="overlap-4">
-              <div class="div-wrapper"><div class="text-wrapper-10 time">16:00</div></div>
+              <div class="data"><div class="text-wrapper-10 time">16:00</div></div>
             </div>
             <div class="overlap-5">
               <div class="data"><div class="text-wrapper-10 time">17:00</div></div>
@@ -78,5 +76,51 @@
         <button class="button-14"><div class="text-wrapper-22" id="sb">등록</div></button>
       </div>
     </div>
-  </body>
-</html>
+
+<script>
+    //오늘 기준으로 달력을 만들어주는 함수 일주일치만 만들어줌 양 옆에 화살표 누르면 저번 일주일 다음 일주일 나오게 만들어야함
+    function makeCalendar() {
+      //토요일은 파란색 공휴일은 빨간색으로 표시
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = today.getMonth();
+        var date = today.getDate();
+        var day = today.getDay();
+        var days = document.getElementById("days");
+        var dayArr = ["일", "월", "화", "수", "목", "금", "토"];
+        var lastDate = new Date(year, month + 1, 0).getDate();
+        var firstDay = new Date(year, month, 1).getDay();
+        var lastDay = new Date(year, month, lastDate).getDay();
+        var dayCount = 1;
+        var dayCount2 = 1;
+
+        for (var i = 0; i < 7; i++) {
+            var dayDiv = document.createElement("div");
+            dayDiv.className = "day";
+            dayDiv.innerHTML = dayArr[i];
+            days.appendChild(dayDiv);
+        }
+
+        for (var i = 0; i < 42; i++) {
+            var dayDiv = document.createElement("div");
+            dayDiv.className = "day";
+            if (i < firstDay || i >= lastDate + firstDay) {
+                dayDiv.innerHTML = "";
+            } else {
+                dayDiv.innerHTML = dayCount;
+                dayCount++;
+            }
+            if (i % 7 == 0) {
+                dayDiv.style.color = "red";
+            } else if (i % 7 == 6) {
+                dayDiv.style.color = "blue";
+            }
+            days.appendChild(dayDiv);
+        }
+
+        document.getElementById("current-month").innerHTML = month + 1 + "월";
+
+
+    }
+
+</script>

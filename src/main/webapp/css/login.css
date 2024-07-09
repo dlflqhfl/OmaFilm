@@ -2,10 +2,9 @@
 
 .container {
     position: relative;
-    width: 100%;
-    max-width: 1920px;
+    height: 1600px;
+    width: 1920px;
     margin: auto;
-    height: auto;
 }
 
 .container .div {
@@ -182,15 +181,6 @@
     left: 410px;
     background-image: url(https://c.animaapp.com/s5cVxUlg/img/link-8@2x.png);
     background-size: 100% 100%;
-}
-
-.container .footer {
-    position: absolute;
-    width: 1920px;
-    height: 223px;
-    top: 1497px;
-    left: 0;
-    object-fit: cover;
 }
 
 .container .button {
