@@ -56,15 +56,13 @@ public class AdminDAO {
 		ss.close();
 		return res;
 	}
-	public static MovieListVO[] selectMovieList(int begin, int end, String searchValue) {
+	public static MovieListVO[] selectMovieList(String searchValue) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 
 		Map<String, String> map = new HashMap<>();
-		map.put("begin", String.valueOf(begin));
-		map.put("end", String.valueOf(end));
 		map.put("searchValue", searchValue);
 
-		List<MovieListVO> list = ss.selectList("movieList.selectMovie",map);
+		List<MovieListVO> list = ss.selectList("movieList.getDBMovieList",map);
 		System.out.println("나오냐?" +list);
 		MovieListVO[] ar = null;
 		if( list != null && list.size() > 0) {

@@ -60,23 +60,6 @@
 	                </c:forEach>
 				</tbody>
 			</table>
-			
-			
-              <!-- <div class="nav">
-                <div class="strong"><div class="text-wrapper-10">1</div></div>
-                <div class="link-2"><div class="text-wrapper-11">2</div></div>
-                <div class="link-3"><div class="text-wrapper-11">3</div></div>
-                <div class="link-4"><div class="text-wrapper-11">4</div></div>
-                <div class="link-5"><div class="text-wrapper-11">5</div></div>
-                <div class="link-6"><div class="text-wrapper-11">6</div></div>
-                <div class="link-7"><div class="text-wrapper-11">7</div></div>
-                <div class="link-8"><div class="text-wrapper-11">8</div></div>
-                <div class="link-9"><div class="text-wrapper-11">9</div></div>
-                <div class="link-10"><div class="text-wrapper-12">10</div></div>
-                <div class="link-11"></div>
-                <div class="link-12"></div>
-              </div> -->
-              
             
               <div class="nav">   <!-- 페이징 시작 -->
 				<div>

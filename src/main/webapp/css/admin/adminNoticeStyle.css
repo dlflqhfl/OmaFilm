@@ -323,10 +323,9 @@
 
 .div-wrapper .text-wrapper-7 {
   position: absolute;
-  width: 108px;
+  width: 720px;
   height: 20px;
   top: 9px;
-  left: 307px;
   font-family: "ABeeZee", Helvetica;
   font-weight: 400;
   color: #444444;
@@ -376,10 +375,9 @@
 
 .div-wrapper .text-wrapper-8 {
   position: absolute;
-  width: 92px;
+  width: 240px;
   height: 20px;
   top: 9px;
-  left: 74px;
   font-family: "ABeeZee", Helvetica;
   font-weight: 400;
   color: #444444;
@@ -463,11 +461,12 @@
 }
 
 .div-wrapper .frame-2 {
-  position: absolute;
+  position: relative;
   width: 436px;
   height: 33px;
-  top: 564px;
-  left: 399px;
+  top: 600px;
+  left: 200px;
+  margin: 0 auto;
 }
 
 .div-wrapper .strong {
