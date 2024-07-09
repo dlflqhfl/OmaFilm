@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/noReservationStyle.css" />
   </head>
   <body>
+  <jsp:include page="/jsp/header/header.jsp"/>
     <div class="selectseat">
       <div class="overlap-wrapper">
         <div class="overlap">
@@ -455,7 +456,7 @@ $('#pw1').keyup(function () {
 		if(length > 0){
 			let value = $(this).attr("value")
 			if( checkSeat.has(value)){
-				alert("이미 선택한 좌석입니다")
+				checkSeat.delete(value)
 			} else {
 				hoverEvent()
 				checkSeat.add(value)
@@ -616,5 +617,6 @@ $(function(){
 	  });
 });
 </script>
+<jsp:include page="/jsp/footer/footer.jsp"/>
   </body>
 </html>

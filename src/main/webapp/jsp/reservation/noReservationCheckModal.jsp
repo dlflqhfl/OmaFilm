@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/noReservationCheckModalStyle.css"/>
-    <div class="modal">
-      <div class="div">
+    <div class="modal-wrapper">
+      <div class="modal">
         <div class="modal-button"><div class="text-wrapper">닫기</div></div>
         <div class="modal-header">
           <div class="text-wrapper-2">알림</div>

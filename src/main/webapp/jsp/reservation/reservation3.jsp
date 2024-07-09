@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/noReservationStyle.css" />
   </head>
   <body>
+  <jsp:include page="/jsp/header/header.jsp"/>
     <div class="selectseat">
       <div class="overlap-wrapper">
         <div class="overlap">
@@ -455,7 +456,7 @@ $('#pw1').keyup(function () {
 		if(length > 0){
 			let value = $(this).attr("value")
 			if( checkSeat.has(value)){
-				alert("이미 선택한 좌석입니다")
+				checkSeat.delete(value)
 			} else {
 				hoverEvent()
 				checkSeat.add(value)
@@ -569,17 +570,24 @@ $('#pw1').keyup(function () {
 
 	//결제하기로 넘기기
 	$(".pay-button").click(function(){
+		console.log(checkSeat.size)
 		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?")
+
 		if( result ){
+			if( length != checkSeat.size){
+				alert("좌석을 다 선택해주십시오")
+				return
+			}
 			if(login){
-				paymentData()
+					paymentData()
+				
 			} else{
 				modal.css("display", "block")
 			}
 		} else {
 			
 		}
-	})
+	});
 
 	$(".a").click(function(){
 
@@ -616,5 +624,6 @@ $(function(){
 	  });
 });
 </script>
+<jsp:include page="/jsp/footer/footer.jsp"/>
   </body>
 </html>

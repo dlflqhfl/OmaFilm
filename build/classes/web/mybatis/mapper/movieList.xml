@@ -25,11 +25,6 @@
         #{nationNm},#{genreNm},#{directors},#{peopleNm},#{peopleNmEn},#{actors},#{cast},#{castEn},#{showTypeGroupNm},
         #{showTypeNm},#{watchGradeNm},#{m_plot}, #{m_file} )
     </insert>
-    
-    <delete id="deleteMovie" parameterType="String">
-    	DELETE FROM movie_list
-    	WHERE movieCd = #{movieCd}
-    </delete>
 
     <select id="selectMovie" resultType="web.mybatis.vo.MovieListVO" parameterType="Map">
         SELECT * FROM(
@@ -185,5 +180,10 @@
 	    ) c
 	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
 	</select>
+	
+	<delete id="deleteMovie" parameterType="String">
+        DELETE FROM movie_list 
+        WHERE movieCd = #{movieCd}
+    </delete>
 
 </mapper>

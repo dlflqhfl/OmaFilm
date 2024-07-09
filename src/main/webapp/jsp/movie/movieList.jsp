@@ -45,11 +45,14 @@
                    </a>
                  </div>
                   <div class="text-wrapper-5">
-                     <c:if test="${requestScope.type eq 'movierlist'}">
-                         ${mar.rvo.review_count} <%-- MovieRlistAction에서 넘어온 경우 --%>
+                     <c:if test="${requestScope.type eq 'movielist'}">
+                         ${mar.dvo.rank} 
                      </c:if>
-                     <c:if test="${requestScope.type ne 'movierlist'}">
-                         ${mar.dvo.rank} <%-- 다른 Action에서 넘어온 경우 --%>
+                     <c:if test="${requestScope.type eq 'movierlist'}">
+                         ${mar.rvo.review_count}건 <%-- MovieRlistAction에서 넘어온 경우 --%>
+                     </c:if>
+                     <c:if test="${requestScope.type eq 'movieslist'}">
+                         
                      </c:if>
                   </div>
                 </div>

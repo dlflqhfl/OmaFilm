@@ -13,17 +13,17 @@
     <div class="overlap-wrapper">
         <div class="overlap">
             <div class="div-sidebar">
-                <img class="element" src="img/adminMovie/1.png" />
+                <img class="element" src="img/adminAddMovie/1.png" />
                 <div class="text-wrapper">관리자</div>
                 <div class="list">
-                    <div class="item-link"><div class="div"><a href="Controller?type=adminMovieDb">영화관리</a></div></div>
-                    <div class="div-wrapper"><div class="text-wrapper-2"><a href="Controller?type=adminEvent">이벤트/혜택 관리</a></div></div>
-                    <div class="item-link-2"><div class="text-wrapper-3"><a href="Controller?type=adminCpHome">쿠폰관리</a></div></div>
-                    <div class="item-link-2"><div class="text-wrapper-4"><a href="Controller?type=adminNotice">고객센터 관리</a></div></div>
+                    <div class="item-link"><div class="div">영화관리</div></div>
+                    <div class="div-wrapper"><div class="text-wrapper-2">이벤트/혜택 관리</div></div>
+                    <div class="item-link-2"><div class="text-wrapper-3">쿠폰관리</div></div>
+                    <div class="item-link-2"><div class="text-wrapper-4">고객센터 관리</div></div>
                 </div>
             </div>
             <div class="div-con-wrap">
-		 			<div class="nav1">
+                <div class="nav1">
                     <ol class="paging">
 
                         <c:set var="page" value="${requestScope.page}"/>
@@ -35,10 +35,10 @@
 
                     </ol>
                 </div>
-                	<form action="Controller?type=adminMovieApi" method="post">
-	                    <input class="border" id="searchData" name="searchData" placeholder="영화제목을 입력하세요">
-		                <button class="button">검색</button>
-                	</form>
+                   <form action="Controller?type=adminMovieApi" method="post">
+                       <input class="border" id="searchData" name="searchData" placeholder="영화제목을 입력하세요">
+                      <button class="button">검색</button>
+                   </form>
                     <div class="button-2"></div>
                 <div class="frame">
                     <div class="span-name"></div>
@@ -55,27 +55,27 @@
                 <div class="heading">영화관리</div>
                 <form id="searchForm" action="Controller?type=adminMovieApi" method="post">
                     개봉 년도 : <input type="text" name="openStartDt" required="" style="
-				    width: 120px;
-				    height: 30px;
-				    margin-left: 10px;
-				    border: 1px solid;
-				    border-color: #d8d9db;
-				    border-radius: 3px;
-				"placeholder="시작년도"> &nbsp;
-				                    ~ <input type="text" name="openEndDt" required="" style="
-				    width: 120px;
-				    height: 30px;
-				    margin-left: 10px;
-				    border: 1px solid;
-				    border-color: #d8d9db;
-				    border-radius: 3px;
-				"placeholder="종료년도"> &nbsp;
-				                    <button type="submit" style="
-				    width: 55px;
-				    height: 35px;
-				    border: none;
-				    border-radius: 5px;
-				">조회</button>
+                width: 120px;
+                height: 30px;
+                margin-left: 10px;
+                border: 1px solid;
+                border-color: #d8d9db;
+                border-radius: 3px;
+            "placeholder="시작년도"> &nbsp;
+                                ~ <input type="text" name="openEndDt" required="" style="
+                width: 120px;
+                height: 30px;
+                margin-left: 10px;
+                border: 1px solid;
+                border-color: #d8d9db;
+                border-radius: 3px;
+            "placeholder="종료년도"> &nbsp;
+                                <button type="submit" style="
+                width: 55px;
+                height: 35px;
+                border: none;
+                border-radius: 5px;
+            ">조회</button>
                 </form>
                 <div class="overlap-group">
                     <a href="Controller?type=adminMovieApi"><div class="view"><div class="text-wrapper-14">API</div></div></a>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminMovieStyle.css" />
 <div class="div-sidebar">
   <img class="element" src="img/adminMovie/1.png"/>
   <div class="item-link-wrapper">

@@ -59,8 +59,9 @@
                 <button type="button" class="button" onclick="sendData()"><div class="text-wrapper-6">등록</div></button>
               </div>
             </div>
+           </form>
           </div>
-         </form>
+
 
           <div class="heading">1:1 문의</div>
           <div class="overlap-wrapper">
@@ -73,7 +74,7 @@
                   <div class="link-10"><div class="text-wrapper-17"><a href="Controller?type=notice">공지사항</a></div></div>
                   <div class="item-link-3">
                   <div class="text-wrapper-18">
-                  <a href="Controller?type=sinquiry"><%--1:1 문의--%></a>
+                  <a href="Controller?type=sinquiry" id="my_10"><%--1:1 문의--%></a>
                   </div>
                   </div>
                   <div class="link-11"><div class="text-wrapper-19"><a href="Controller?type=directions">오시는 길</a></div></div>
