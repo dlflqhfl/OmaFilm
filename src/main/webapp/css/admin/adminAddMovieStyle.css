@@ -22,11 +22,11 @@
 }
 
 .API .row {
-  position: absolute;
-  width: 1125px;
-  height: 68px;
-  top: 200px;
-  left: 0;
+    position: absolute;
+    width: 1125px;
+    height: 68px;
+    top: 150px;
+    left: 0;
 }
 
 .API .cell {
@@ -452,11 +452,11 @@ button .text-wrapper {
 }
 
 .API .row-6 {
-  height: 328px;
-  top: 258px;
-  position: absolute;
-  width: 1125px;
-  left: 0;
+    height: 328px;
+    top: 208px;
+    position: absolute;
+    width: 1125px;
+    left: 0;
 }
 
 .API .cell-8 {
@@ -562,16 +562,16 @@ button .text-wrapper {
 }
 
 .API .button-2 {
-  all: unset;
-  box-sizing: border-box;
-  width: 124px;
-  height: 46px;
-  top: 1032px;
-  left: 706px;
-  background-color: #0e202a;
-  position: absolute;
-  border-radius: 4px;
-  cursor: pointer;
+	all: unset;
+	box-sizing: border-box;
+	width: 124px;
+	height: 46px;
+	top: 1001px;
+	left: 706px;
+	background-color: #0e202a;
+	position: absolute;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
 .API .text-wrapper-5 {

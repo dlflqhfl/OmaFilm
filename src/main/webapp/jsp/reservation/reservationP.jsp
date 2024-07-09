@@ -221,36 +221,30 @@ function sendEmail() {
     // jQuery AJAX를 사용하여 서버에 이메일을 보냅니다.
     $.ajax({
         type: "POST",
-        url: "${pageContext.request.contextPath}/Controller?type=send",
+        url: "${pageContext.request.contextPath}/Controller?type=send_2",
         data: {email: email},
-        success: function (data) {
-            data = data.trim();
-            if (data === "0") {
-                alert("이메일이 성공적으로 전송되었습니다.");
-                time = 180;
-                timer = setInterval(function () {
-                    var minutes = Math.floor(time / 60);
-                    var seconds = time % 60;
-                    $("#timer").text(minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
-                    if (time <= 0) {
-                        clearInterval(timer);
-                        alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
-                        $(".input-3").prop("readonly", true);
-                        $(".background-border").css("background-color", "#f2f2f2");
-                        $(".input-3").val("");
-                        $(".input-3").css("background-color", "#f2f2f2");
-                        $(".text-wrapper-9").css("display", "none");
-                    }
-                    time--;
-                }, 1000);
-
-                setTimeout(function () {
+        success: function () {
+            alert("이메일이 성공적으로 전송되었습니다.");
+            time = 180;
+            timer = setInterval(function () {
+                var minutes = Math.floor(time / 60);
+                var seconds = time % 60;
+                $("#timer").text(minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
+                if (time <= 0) {
+                    clearInterval(timer);
                     alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
-                }, 3 * 60 * 1000);
-            }else if (data === "1") {
-                alert("가입된 이메일입니다.");
-                location.href = "${pageContext.request.contextPath}/jsp/login/login_1.jsp";
-            }
+                    $(".input-3").prop("readonly", true);
+                    $(".background-border").css("background-color", "#f2f2f2");
+                    $(".input-3").val("");
+                    $(".input-3").css("background-color", "#f2f2f2");
+                    $(".text-wrapper-9").css("display", "none");
+                }
+                time--;
+            }, 1000);
+
+            setTimeout(function () {
+                alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
+            }, 3 * 60 * 1000);
         }
     });
 }
@@ -406,13 +400,16 @@ $('#pw1').keyup(function () {
 	let seatArray = [];
 	let seats = "";
 	let num = 0;
+	let value;
+	let length;
+	
 	//좌석선택
 	 $('.rectangle').not('[style*="background-color: black"]').click(function(){
-		let length = adult + teen + old;
+		length = adult + teen + old;
 		if(length > 0){
-			let value = $(this).attr("value")
+			value = $(this).attr("value")
 			if( checkSeat.has(value)){
-				checkSeat.delete(value)
+				alert("이미 선택된 좌석 입니다.")
 			} else {
 				hoverEvent()
 				checkSeat.add(value)
@@ -432,7 +429,7 @@ $('#pw1').keyup(function () {
 	
 	//성인관객 수 +
 	$(".aPlus").click(function(){
-		if( adult < 8){
+		if( adult <= 8){
 		adult = parseInt(adult) + 1;
 		$("#adult").text(adult);
 		updatePrice()
@@ -455,7 +452,7 @@ $('#pw1').keyup(function () {
 
 	//청소년관객 수 +
 	$(".tPlus").click(function(){
-		if( teen < 8){
+		if( teen <= 8){
 			teen = parseInt(teen) + 1;
 			let res = $("#teen").text(teen);
 			updatePrice()
@@ -477,7 +474,7 @@ $('#pw1').keyup(function () {
 
 	//경로관객 수 +
 	$(".oPlus").click(function(){
-		if( old < 8){
+		if( old <= 8){
 			old = parseInt(old) + 1;
 			$("#old").text(old);
 			updatePrice()
@@ -526,16 +523,19 @@ $('#pw1').keyup(function () {
 
 	//결제하기로 넘기기
 	$(".pay-button").click(function(){
-		console.log(checkSeat.size)
-		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?")
+		 if (checkSeat.size === 0) { // 아무 좌석도 선택되지 않은 경우
+	            alert("좌석을 먼저 선택해주세요.");
+	            return; // 함수 실행 종료
+	        }
 
+	        if (length !== checkSeat.size) { // 선택한 인원수와 좌석수 불일치
+	            alert("선택하신 인원수와 좌석수가 일치하지 않습니다.");
+	            return; // 함수 실행 종료
+	        }
+		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?")
 		if( result ){
-			if( length != checkSeat.size){
-				alert("좌석을 다 선택해주십시오")
-				return
-			}
 			if(login){
-					paymentData()
+				paymentData()
 			} else{
 				modal.css("display", "block")
 			}
@@ -545,6 +545,7 @@ $('#pw1').keyup(function () {
 	});
 
 	$(".a").click(function(){
+
 		window.location.href = "Controller?type=selectTime";
 	})
 

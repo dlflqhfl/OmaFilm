@@ -180,10 +180,5 @@
 	    ) c
 	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
 	</select>
-	
-	<delete id="deleteMovie" parameterType="String">
-        DELETE FROM movie_list 
-        WHERE movieCd = #{movieCd}
-    </delete>
 
 </mapper>
