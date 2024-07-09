@@ -1017,11 +1017,12 @@
   display: block;
   font-size: 1.2em;
   margin-bottom: 5px;
-}/* 
-.now{
-  position: absolute;
-  left: 285px;
-} */
+} 
+.nows{
+    padding: 3px 7px;
+    color: white;
+    font-weight: bold;
+} 
 .day-name {
   font-size: 0.8em;
   color: gray;
