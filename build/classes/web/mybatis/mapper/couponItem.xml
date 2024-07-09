@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="couponItem">
+	<select id="getCouponItem" parameterType="int" resultType="web.mybatis.vo.CouponItemVO">
+		SELECT * 
+		FROM coupon_item
+		WHERE ci_code = #{ci_code} 
+	</select>
+
+	<select id="getCouponItemList" resultType="web.mybatis.vo.CouponItemVO">
+		SELECT *
+		FROM coupon_item
+		WHERE ci_status = 0
+	</select>
+
+	<update id="delCouponItem" parameterType="String">
+		update coupon_item
+		set ci_status = 1
+		where ci_code = #{ci_code}
+	</update>
+	
+	<insert id="addCouponItem" parameterType="Map">
+		insert coupon_item(ci_discount, ci_content, ci_time, ci_regi_time, ci_status, ci_summary)
+		values(#{ci_discount}, #{ci_content}, #{ci_time}, #{ci_regi_time}, 0, #{ci_summary})
+	</insert>
+
+	<select id="searchCouponItem" parameterType="Map" resultType="web.mybatis.vo.CouponItemVO">
+    SELECT *
+    FROM coupon_item
+    <where>
+        ci_status = 0
+        <if test="searchValue != null"> 
+	        <if test="searchType == 'ci_code'"> 
+	            AND ci_code = #{searchValue}
+	        </if>
+	        <if test="searchType == 'ci_content'">  
+	        	AND ci_content LIKE CONCAT('%', #{searchValue}, '%') 
+	        </if>
+	        <if test="searchType == 'ci_discount'">
+	            AND ci_discount LIKE CONCAT('%', #{searchValue}, '%') 
+	        </if>
+	        <if test="searchType == 'ci_regi_time'">
+	            AND cp_date LIKE CONCAT('%', #{searchValue}, '%') 
+	        </if>
+	        <if test="searchType == 'ci_time'">
+	            AND ci_time LIKE CONCAT('%', #{searchValue}, '%') 
+	        </if>
+	    </if>
+    </where>
+</select>
+
+</mapper>
