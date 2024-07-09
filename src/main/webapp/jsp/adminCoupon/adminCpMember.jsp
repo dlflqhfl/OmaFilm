@@ -95,7 +95,7 @@
 						</c:if>
 						<c:if test="${page.startPage >= page.pagePerBlock}">
 							<li class=""><a
-								href="Controller?type=adminCpMember&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+								href="Controller?type=adminCpMember&ci_code=${param.ci_code}&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
 						</c:if>
 						<!-- <div class="nav"> -->
 						<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
@@ -104,14 +104,14 @@
 							</c:if>
 							<c:if test="${i != page.nowPage}">
 								<li class=" "><a
-									href="Controller?type=adminCpMember&cPage=${i}">${i}</a></li>
+									href="Controller?type=adminCpMember&ci_code=${param.ci_code}&cPage=${i}">${i}</a></li>
 							</c:if>
 						</c:forEach>
 
 
 						<c:if test="${page.endPage < page.totalPage}">
 							<li class=""><a
-								href="Controller?type=adminCpMember&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+								href="Controller?type=adminCpMember&ci_code=${param.ci_code}&ci_&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
 						</c:if>
 						<c:if test="${page.endPage >= page.totalPage}">
 							<li class=" disable">&gt;</li>
@@ -140,7 +140,6 @@
               <input type="text" class="input" placeholder="검색어를 입력해 주세요." />
               <button class="button-3">검색</button>
             </div>
-            <div class="cell-7"><div class="text-wrapper-15">전체선택</div></div>
             <div class="text-wrapper-16">총</div> 
             <p class="element"><span class="span">${fn:length(memlist) }</span> <span class="text-wrapper-17"> 명</span></p>
             
@@ -179,10 +178,6 @@
 				}
 			});
 			
-			/* //전체 선택을 누르면 모든 페이지의 정보를 check 할 것
-			$('.cell-7').click()(function(){
-				
-			}); */
 			
 			//체크된 정보를 가져와서 
 			$('.frame-2').click(function() {

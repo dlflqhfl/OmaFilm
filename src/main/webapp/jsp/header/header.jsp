@@ -166,22 +166,13 @@
                         공지사항
                     </div>
                 </a>
-<<<<<<< HEAD
-                <a href="${pageContext.request.contextPath}/jsp/serviceCenter/inquiry.jsp" id="my_6">
-                    <div style="width: 181px; height: 32px; left: 636px; top: 620px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
-                        1:1문의
-                    </div>
-                </a>
-=======
+
                 <div style="width: 181px; height: 32px; left: 636px; top: 620px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
                     <a id="my_255" href="${pageContext.request.contextPath}/Controller?type=sinquiry">
                     1:1문의
                     </a>
                 </div>
 
-
-
->>>>>>> 5d1ab45a8fb1b8ece68b02f7bedb8d446f5e95ac
                 <a href="${pageContext.request.contextPath}/Controller?type=directions">
                     <div style="width: 181px; height: 32px; left: 636px; top: 685px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
                         오시는 길

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+
+    <!--받아온 id가 이메일 또는 아이디와 일치하는지 그리고 비밀번호가 db에 있는 비밀번호와 일치하는지 셀렉트문-->
+    <select id="login_check" parameterType="map" resultType="web.mybatis.vo.MemberVO">
+        SELECT * FROM member WHERE (u_address = #{id} OR u_id = #{id}) AND u_pw = #{pw}
+    </select>
+
+    <!--아이디 중복체크-->
+    <select id="id_check" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM member WHERE u_id = #{id}
+    </select>
+
+    <!--회원가입-->
+    <insert id="regist" parameterType="web.mybatis.vo.MemberVO">
+        INSERT INTO member(u_id, u_pw, u_authority, u_social, u_name, u_phone,
+    u_postcode, u_address, u_email, u_email_rcv, u_birth, u_status, u_join_date, u_none)
+        VALUES(#{u_id}, #{u_pw}, #{u_authority}, #{u_social}, #{u_name}, #{u_phone}, #{u_postcode},
+    #{u_address}, #{u_email}, #{u_email_rcv}, #{u_birth}, #{u_status}, #{u_join_date}, #{u_none})
+    </insert>
+
+    <!--이메일 중복확인-->
+    <select id="email_check" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM member WHERE u_email = #{email} OR u_id = #{email}
+    </select>
+
+    <!-- 소셜 로그인 할때 이메일이 존재하면 해당 mvo를 다 가져오는 sql문 -->
+    <select id="get_member" parameterType="String" resultType="web.mybatis.vo.MemberVO">
+        SELECT * FROM member WHERE u_email = #{email} or u_id = #{email}
+    </select>
+
+    <!-- 소셜 로그인인지 확인하는 sql문장 -->
+    <select id="social_login_check" parameterType="String" resultType="int">
+        SELECT u_social FROM member WHERE u_email = #{email} or u_id = #{email}
+    </select>
+
+    <select id="idToMvo" resultType="String">
+        SELECT * FROM member WHERE u_id = #{id}
+    </select>
+
+    <!-- 이름 생년월일 이메일을 통해서 몇개나 일치하는지 확인하는 함수-->
+    <select id="find_id" parameterType="map" resultType="int">
+        SELECT COUNT(*) FROM member WHERE u_name = #{name} AND u_email = #{email}
+        <if test="id != null">
+            AND u_id = #{id}
+        </if>
+        <if test="id == null">
+            AND u_birth = #{birth}
+        </if>
+    </select>
+
+    <!-- 이름 생년월일 이메일을 통해서 아이디와 가입날짜 찾는 함수-->
+    <select id="find_id_date" parameterType="map" resultType="web.mybatis.vo.MemberVO">
+        SELECT * FROM member
+        WHERE u_name = #{name} AND u_email = #{email}
+        <if test="id != null">
+            AND u_id = #{id}
+        </if>
+        <if test="id == null">
+            AND u_birth = #{birth}
+        </if>
+    </select>
+
+    <select id="searchMem" parameterType="map" resultType="web.mybatis.vo.MemberVO">
+    	select * from member
+    	<where>
+	        u_authority = 0 and u_status = 0
+	        <if test="searchValue != null">
+		        <if test="searchType == 'u_code'">
+		            AND u_code LIKE CONCAT('%', #{searchValue}, '%')
+		        </if>
+		        <if test="searchType == 'u_id'">
+		        	AND u_id LIKE CONCAT('%', #{searchValue}, '%')
+		        </if>
+		        <if test="searchType == 'u_name'">
+		            AND u_name LIKE CONCAT('%', #{searchValue}, '%')
+		        </if>
+		        <if test="searchType == 'u_birth'">
+		            AND u_birth LIKE CONCAT('%', #{searchValue}, '%')
+		        </if>
+		        <if test="searchType == 'u_email'">
+		            AND u_email LIKE CONCAT('%', #{searchValue}, '%')
+		        </if>
+		     </if>
+    	</where>
+    </select>
+
+    <!--비밀번호 변경 쿼리-->
+    <update id="change_pw" parameterType="map">
+        UPDATE member SET u_pw = #{pw} WHERE u_id = #{id} and u_pw = #{origin_pw}
+    </update>
+
+    <!-- 개인정보수정 후 DB저장 -->
+     <update id="updateUserInfo" parameterType="web.mybatis.vo.MemberVO">
+       UPDATE member
+   		SET
+        u_id = #{u_id},
+        u_pw = #{u_pw},
+        u_name = #{u_name},
+        u_phone = #{u_phone},
+        u_postcode = #{u_postcode},
+        u_address = #{u_address},
+        u_email = #{u_email},
+        u_email_rcv = #{u_email_rcv},
+        u_birth = #{u_birth},
+        u_join_date = #{u_join_date},
+        u_social = #{u_social}
+   		 WHERE u_code = #{u_code}
+	</update>
+
+	<!-- 회원 탈퇴 시 회원 상태 1로 전환 -->
+	<update id="updateStatus">
+		  UPDATE member
+	      SET u_status = 1
+	      WHERE u_code = #{u_code}
+	</update>
+
+	   <!-- 마이페이지 member id검색 -->
+    <select id="getMemName" parameterType="int" resultType="web.mybatis.vo.MemberVO">
+        SELECT * FROM member
+        WHERE u_code = #{u_code}
+    </select>
+
+	<select id="getMemList" resultType="web.mybatis.vo.MemberVO">
+		SELECT * FROM member
+		where u_authority = 0 and u_status = 0
+	</select>
+
+</mapper>

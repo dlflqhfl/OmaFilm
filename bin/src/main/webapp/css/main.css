@@ -1,0 +1,1585 @@
+.omakase-cinema {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.omakase-cinema .overlap-wrapper {
+  background-color: #ffffff;
+  overflow-x: hidden;
+  width: 1920px;
+  height: 2575px;
+}
+
+.omakase-cinema .overlap {
+  position: relative;
+  width: 1921px;
+  height: 2575px;
+  left: -1px;
+}
+
+.omakase-cinema .background {
+  position: absolute;
+  width: 1920px;
+  height: 2575px;
+  top: 0;
+  left: 1px;
+  background-color: #ffffff;
+}
+
+.omakase-cinema .overlap-group {
+  position: absolute;
+  width: 1920px;
+  height: 2315px;
+  top: 0;
+  left: 0;
+}
+
+.omakase-cinema .container {
+  position: absolute;
+  width: 1920px;
+  height: 1419px;
+  top: 896px;
+  left: 0;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.omakase-cinema .view {
+  position: absolute;
+  width: 1332px;
+  height: 344px;
+  top: 76px;
+  left: 293px;
+  display: flex; /* Flexbox 적용 */
+  flex-wrap: wrap; /* 여러 줄로 배치 */
+  gap: 20px; /* 링크 요소 간 간격 */
+}
+
+.omakase-cinema .heading {
+  position: absolute;
+  width: 242px;
+  height: 31px;
+  top: 9px;
+  left: 120px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 700;
+  color: #4e5658;
+  font-size: 24.5px;
+  letter-spacing: -1px;
+  line-height: 30.8px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .link {
+  position: relative;
+  width: 310px;
+  height: 273px;
+}
+
+.omakase-cinema .strong {
+  position: absolute;
+  width: 310px;
+  height: 26px;
+  top: 223px;
+  left: 0;
+}
+
+.omakase-cinema .text-wrapper {
+  position: absolute;
+  width: 275px;
+  height: 25px;
+  top: -1px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #222222;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .div {
+  position: absolute;
+  width: 179px;
+  height: 20px;
+  top: 252px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #666666;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .container-2 {
+  position: absolute;
+  width: 310px;
+  height: 207px;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  background-image: url(../img/main_img/17180046098730-jpg.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .link-2 {
+  position: absolute;
+  width: 310px;
+  height: 273px;
+  top: 71px;
+  left: 902px;
+}
+
+.omakase-cinema .p {
+  position: absolute;
+  width: 262px;
+  height: 25px;
+  top: -1px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #222222;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .text-wrapper-2 {
+  position: absolute;
+  width: 148px;
+  height: 20px;
+  top: 252px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #666666;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .container-3 {
+  position: absolute;
+  width: 310px;
+  height: 207px;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  background-image: url(../img/main_img/17180046098730-jpg-1.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .link-3 {
+  position: absolute;
+  width: 310px;
+  height: 273px;
+  top: 71px;
+  left: 511px;
+}
+
+.omakase-cinema .text-wrapper-3 {
+  position: absolute;
+  width: 198px;
+  height: 25px;
+  top: -1px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #222222;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .img {
+  position: absolute;
+  width: 310px;
+  height: 207px;
+  top: 0;
+  left: 0;
+}
+
+.omakase-cinema .div-wrapper {
+  position: absolute;
+  width: 56px;
+  height: 27px;
+  top: 22px;
+  left: 1153px;
+  border-radius: 11px;
+  border: 1px solid;
+  border-color: #f4f4f4;
+}
+
+.omakase-cinema .text-wrapper-4 {
+  position: absolute;
+  width: 45px;
+  height: 17px;
+  top: 4px;
+  left: 5px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #666666;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 17px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .border-wrapper {
+  position: absolute;
+  width: 1920px;
+  height: 469px;
+  top: 501px;
+  left: -1px;
+  background-color: #50636d;
+}
+
+.omakase-cinema .border {
+  position: relative;
+  width: 1089px;
+  height: 281px;
+  top: 95px;
+  left: 418px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.omakase-cinema .group {
+  width: 298px;
+  left: 45px;
+  position: absolute;
+  height: 36px;
+  top: 23px;
+}
+
+.omakase-cinema .horizontal-border {
+  position: relative;
+  height: 36px;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-color: #ededed;
+}
+
+.omakase-cinema .strong-2 {
+  top: -2px;
+  position: absolute;
+  width: 59px;
+  height: 24px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #3c423f;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .link-4 {
+  position: absolute;
+  width: 46px;
+  height: 24px;
+  top: 0;
+  left: 252px;
+  border-radius: 11px;
+  border: 1px solid;
+  border-color: #f4f4f4;
+}
+
+.omakase-cinema .text-wrapper-5 {
+  position: absolute;
+  width: 33px;
+  height: 17px;
+  top: 2px;
+  left: 6px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #666666;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 17px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .horizontal-border-wrapper {
+  width: 618px;
+  left: 426px;
+  position: absolute;
+  height: 36px;
+  top: 23px;
+}
+
+.omakase-cinema .strong-3 {
+  top: 4px;
+  position: absolute;
+  width: 59px;
+  height: 24px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #3c423f;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .link-5 {
+  position: absolute;
+  width: 46px;
+  height: 24px;
+  top: 6px;
+  left: 572px;
+  border-radius: 11px;
+  border: 1px solid;
+  border-color: #f4f4f4;
+}
+
+.omakase-cinema .text-wrapper-6 {
+  position: absolute;
+  width: 33px;
+  height: 17px;
+  top: 2px;
+  left: 6px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #666666;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 17px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .OMAKSE-wrapper {
+  position: absolute;
+  width: 286px;
+  height: 20px;
+  top: 72px;
+  left: 46px;
+  overflow: hidden;
+}
+
+.omakase-cinema .OMAKSE {
+  position: absolute;
+  width: 294px;
+  height: 20px;
+  top: -1px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #3c423f;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .OMAKS-eh {
+  position: absolute;
+  width: 278px;
+  height: 20px;
+  top: 110px;
+  left: 45px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #3c423f;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .OMAKASE {
+  position: absolute;
+  width: 293px;
+  height: 20px;
+  top: 149px;
+  left: 45px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #3c423f;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .OMAKSE-2 {
+  position: absolute;
+  width: 293px;
+  height: 20px;
+  top: 188px;
+  left: 44px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #3c423f;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .CGV {
+  position: absolute;
+  width: 293px;
+  height: 20px;
+  top: 227px;
+  left: 45px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #3c423f;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .link-6 {
+  position: absolute;
+  width: 121px;
+  height: 121px;
+  top: 77px;
+  left: 426px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #00000033;
+  background-image: url(../img/main_img/link-4.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .background-wrapper {
+  position: absolute;
+  width: 121px;
+  height: 121px;
+  top: 77px;
+  left: 591px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 5px 5px 10px #00000033;
+  background-image: url(../img/main_img/link-5.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .background-2 {
+  position: relative;
+  width: 50px;
+  height: 22px;
+  top: 10px;
+  left: 61px;
+  background-color: #329eb1;
+  border-radius: 5px;
+}
+
+.omakase-cinema .text-wrapper-7 {
+  position: absolute;
+  width: 50px;
+  height: 25px;
+  top: -2px;
+  left: 0;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 25px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .link-7 {
+  position: absolute;
+  width: 121px;
+  height: 121px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #00000033;
+  background-image: url(../img/main_img/link-6.png);
+  background-size: cover;
+  background-position: 50% 50%;
+  display: inline;
+}
+
+.omakase-cinema .link-8 {
+  position: absolute;
+  width: 121px;
+  height: 121px;
+  top: 77px;
+  left: 923px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #00000033;
+  background-image: url(../img/main_img/link-7.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .border-2 {
+  position: absolute;
+  width: 1920px;
+  height: 43px;
+  top: 2100px;
+  left: 0;
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-color: #d9d9d9;
+}
+
+.omakase-cinema .overlap-group-wrapper {
+  position: absolute;
+  width: 1920px;
+  height: 997px;
+  top: 0;
+  left: 0;
+}
+
+.omakase-cinema .overlap-2 {
+  height: 896px;
+  background: linear-gradient(180deg, rgb(85, 63, 5) 0%, rgba(23, 17, 1, 0) 50%, rgb(85, 63, 5) 100%);
+  background-image: url(../img/main_img/image.png);
+  background-size: 100% 100%;
+}
+
+.omakase-cinema .top {
+  position: absolute;
+  width: 1918px;
+  height: 894px;
+  top: 2px;
+  left: 3px;
+}
+
+.omakase-cinema .customer-service {
+  position: absolute;
+  width: 1000px;
+  height: 77px;
+  top: 2197px;
+  left: 462px;
+}
+
+.omakase-cinema .link-9 {
+  position: absolute;
+  width: 114px;
+  height: 77px;
+  top: 0;
+  left: 0;
+}
+
+.omakase-cinema .image {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  top: 0;
+  left: 34px;
+  background-image: url(../img/main_img/image-1.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .text-wrapper-8 {
+  position: absolute;
+  width: 54px;
+  height: 20px;
+  top: 55px;
+  left: 30px;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #222222;
+  font-size: 13.4px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .link-10 {
+  position: absolute;
+  width: 114px;
+  height: 77px;
+  top: 0;
+  left: 221px;
+}
+
+.omakase-cinema .image-2 {
+  width: 50px;
+  height: 46px;
+  top: 0;
+  left: 32px;
+  background-image: url(../img/main_img/image-2.png);
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .text-wrapper-9 {
+  position: absolute;
+  width: 87px;
+  height: 20px;
+  top: 55px;
+  left: 13px;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #222222;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .link-11 {
+  position: absolute;
+  width: 114px;
+  height: 77px;
+  top: 0;
+  left: 443px;
+}
+
+.omakase-cinema .image-3 {
+  width: 43px;
+  height: 43px;
+  top: 0;
+  left: 36px;
+  background-image: url(../img/main_img/image-3.png);
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .text-wrapper-10 {
+  position: absolute;
+  width: 52px;
+  height: 20px;
+  top: 52px;
+  left: 31px;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #222222;
+  font-size: 13.6px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .link-12 {
+  position: absolute;
+  width: 114px;
+  height: 77px;
+  top: 0;
+  left: 664px;
+}
+
+.omakase-cinema .image-4 {
+  width: 51px;
+  height: 39px;
+  top: 0;
+  left: 31px;
+  background-image: url(../img/main_img/image-4.png);
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .text-wrapper-11 {
+  position: absolute;
+  width: 104px;
+  height: 20px;
+  top: 48px;
+  left: 5px;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #222222;
+  font-size: 13.4px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .link-13 {
+  position: absolute;
+  width: 114px;
+  height: 77px;
+  top: 0;
+  left: 886px;
+}
+
+.omakase-cinema .image-5 {
+  width: 48px;
+  height: 47px;
+  top: 0;
+  left: 33px;
+  background-image: url(../img/main_img/image-5.png);
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .text-wrapper-12 {
+  position: absolute;
+  width: 114px;
+  height: 21px;
+  top: 51px;
+  left: 0;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #222222;
+  font-size: 13.1px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .container-wrapper {
+  position: absolute;
+  width: 1920px;
+  height: 896px;
+  top: -2px;
+  left: -2px;
+  background-image: url(../img/main_img/overlay.svg);
+  background-size: 100% 100%;
+}
+
+.omakase-cinema .container-4 {
+  position: relative;
+  width: 1100px;
+  height: 896px;
+  left: 416px;
+  overflow: hidden;
+}
+
+.omakase-cinema .button {
+  all: unset;
+  box-sizing: border-box;
+  position: absolute;
+  width: 69px;
+  height: 25px;
+  top: 183px;
+  left: 516px;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-color: #ffffff33;
+}
+
+.omakase-cinema .text-wrapper-13 {
+  position: absolute;
+  width: 69px;
+  height: 18px;
+  top: -3px;
+  left: 0;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 14.1px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  line-height: 18.4px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .link-14 {
+  position: absolute;
+  width: 124px;
+  height: 16px;
+  top: 156px;
+  left: 976px;
+}
+
+.omakase-cinema .text-wrapper-14 {
+  position: absolute;
+  width: 104px;
+  height: 16px;
+  top: -1px;
+  left: 0;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #aaaaaa;
+  font-size: 13.5px;
+  letter-spacing: 0;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .image-6 {
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 106px;
+  background-image: url(../img/main_img/image-6.png);
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .ordered-list {
+  position: relative;
+  width: 1100px;
+  height: 398px;
+  top: 249px;
+  left: 1px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.omakase-cinema .item {
+  position: relative;
+  width: 245px;
+  height: 398px;
+  top: 0;
+  left: 0;
+}
+
+.omakase-cinema .link-15 {
+  position: absolute;
+  width: 245px;
+  height: 352px;
+  top: 0;
+  left: 0;
+  background-color: #2f3e46b2;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.omakase-cinema .overlap-group-2 {
+  border-radius: 5px;
+  background-image: url(../img/main_img/xm6jl0vuatoh6hrlxofu0z3qosqgml2q-420-jpg.png);
+  background-size: cover;
+  background-position: 50% 50%;
+  position: relative;
+  height: 352px;
+}
+
+.omakase-cinema .image-7 {
+  width: 28px;
+  height: 28px;
+  top: 316px;
+  left: 209px;
+  background-image: url(../img/main_img/image-7.png);
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .background-3 {
+  position: absolute;
+  width: 245px;
+  height: 150px;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .text-wrapper-15 {
+  position: absolute;
+  width: 17px;
+  height: 33px;
+  top: 9px;
+  left: 15px;
+  text-shadow: 2px 2px 2px #000000cc;
+  font-family: "Roboto", Helvetica;
+  font-weight: 300;
+  font-style: italic;
+  color: #ffffff33;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: 33px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .container-5 {
+  position: absolute;
+  width: 245px;
+  height: 36px;
+  top: 370px;
+  left: 0;
+}
+
+.omakase-cinema .link-16 {
+  position: absolute;
+  width: 160px;
+  height: 36px;
+  top: 0;
+  left: 45px;
+  background-color: #296e91cc;
+  border-radius: 4px;
+}
+
+.omakase-cinema .text-wrapper-16 {
+  position: absolute;
+  width: 160px;
+  height: 36px;
+  -webkit-text-stroke: 1px #ffffff33;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 13.5px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 36px;
+}
+
+.omakase-cinema .button-2 {
+  all: unset;
+  box-sizing: border-box;
+  position: absolute;
+  width: 80px;
+  height: 36px;
+  top: 0;
+  left: 0;
+  background-color: #00000033;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #555555;
+}
+
+.omakase-cinema .image-8 {
+  width: 17px;
+  height: 15px;
+  top: 9px;
+  left: 18px;
+  background-image: url(../img/main_img/image-8.png);
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .text-wrapper-17 {
+  width: 24px;
+  left: 39px;
+  position: absolute;
+  height: 34px;
+  top: 0;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff33;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  line-height: 34px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .item-2 {
+  left: 285px;
+  position: absolute;
+  width: 245px;
+  height: 398px;
+  top: 0;
+}
+
+.omakase-cinema .overlap-group-3 {
+  position: relative;
+  height: 352px;
+}
+
+.omakase-cinema .div-2 {
+  position: absolute;
+  width: 245px;
+  height: 352px;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  background-image: url(../img/main_img/hsboy1glp6etpi6ltbygsi0lgyviuxup-420-jpg.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .type-mega-png {
+  position: absolute;
+  width: 60px;
+  height: 20px;
+  top: 280px;
+  left: 8px;
+  background-image: url(../img/main_img/type-mega-mx4d-png.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .type-dolbycinema-png {
+  position: absolute;
+  width: 60px;
+  height: 20px;
+  top: 302px;
+  left: 8px;
+  background-image: url(../img/main_img/type-dolbycinema-png.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .type-dolbyatmos-png {
+  position: absolute;
+  width: 60px;
+  height: 20px;
+  top: 324px;
+  left: 8px;
+  background-image: url(../img/main_img/type-dolbyatmos-png-1.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .image-9 {
+  width: 28px;
+  height: 28px;
+  top: 316px;
+  left: 209px;
+  background-image: url(../img/main_img/image-13.png);
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .background-4 {
+  position: absolute;
+  width: 245px;
+  height: 352px;
+  top: 0;
+  left: 0;
+  background-image: url(../img/main_img/background-1.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .link-17 {
+  position: absolute;
+  width: 160px;
+  height: 36px;
+  top: 0;
+  left: 45px;
+  background-color: #316986;
+  border-radius: 4px;
+}
+
+.omakase-cinema .text-wrapper-18 {
+  position: absolute;
+  width: 27px;
+  height: 36px;
+  top: -2px;
+  left: 66px;
+  -webkit-text-stroke: 1px #ffffff33;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 13.5px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 36px;
+}
+
+.omakase-cinema .image-10 {
+  width: 17px;
+  height: 15px;
+  top: 9px;
+  left: 16px;
+  background-image: url(../img/main_img/image-10.png);
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .text-wrapper-19 {
+  position: absolute;
+  width: 27px;
+  height: 34px;
+  top: 0;
+  left: 37px;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff33;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  line-height: 34px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .item-3 {
+  left: 570px;
+  position: absolute;
+  width: 245px;
+  height: 398px;
+  top: 0;
+}
+
+.omakase-cinema .overlap-group-4 {
+  border-radius: 5px;
+  background-image: url(../img/main_img/dgupvnu5vvf2xoutaeu7tw7g5qzrbio7-420-jpg.png);
+  background-size: cover;
+  background-position: 50% 50%;
+  position: relative;
+  height: 352px;
+}
+
+.omakase-cinema .background-5 {
+  position: absolute;
+  width: 245px;
+  height: 150px;
+  top: 0;
+  left: 0;
+  background-image: url(../img/main_img/background-2.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .button-3 {
+  position: absolute;
+  width: 80px;
+  height: 36px;
+  top: 0;
+  left: 0;
+  background-color: #00000033;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #555555;
+}
+
+.omakase-cinema .image-11 {
+  width: 17px;
+  height: 15px;
+  top: 9px;
+  left: 21px;
+  background-image: url(../img/main_img/image-12.png);
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .text-wrapper-20 {
+  width: 17px;
+  left: 42px;
+  position: absolute;
+  height: 34px;
+  top: 0;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff33;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  line-height: 34px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .item-4 {
+  left: 855px;
+  position: absolute;
+  width: 245px;
+  height: 398px;
+  top: 0;
+}
+
+.omakase-cinema .overlap-group-5 {
+  border-radius: 5px;
+  background-image: url(../img/main_img/h37khilctcfswl6u9waszof9hmfjbjjz-420-jpg.png);
+  background-size: cover;
+  background-position: 50% 50%;
+  position: relative;
+  height: 352px;
+}
+
+.omakase-cinema .background-6 {
+  position: absolute;
+  width: 245px;
+  height: 150px;
+  top: 0;
+  left: 0;
+  background-image: url(../img/main_img/background-3.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .image-12 {
+  width: 17px;
+  height: 15px;
+  top: 9px;
+  left: 22px;
+  background-image: url(../img/main_img/image-14.png);
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .text-wrapper-21 {
+  position: absolute;
+  width: 16px;
+  height: 34px;
+  top: 0;
+  left: 43px;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff33;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  line-height: 34px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .overlay {
+  position: absolute;
+  width: 1100px;
+  height: 76px;
+  top: 739px;
+  left: 1px;
+  background-color: #00000033;
+}
+
+.omakase-cinema .horizontal-border-2 {
+  position: absolute;
+  width: 300px;
+  height: 35px;
+  top: 20px;
+  left: 50px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #423e3e;
+}
+
+.omakase-cinema .input {
+  position: absolute;
+  width: 230px;
+  height: 30px;
+  top: 0;
+  left: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+.omakase-cinema .container-6 {
+  position: relative;
+  width: 230px;
+  height: 30px;
+}
+
+.omakase-cinema .text-wrapper-22 {
+  position: absolute;
+  width: 230px;
+  height: 30px;
+  left: 0;
+  color: white;
+  background-color: #534e4e;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #aaaaaa;
+  font-size: 13.1px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.omakase-cinema .button-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 260px;
+  background-image: url(../img/main_img/button.png);
+  background-size: cover;
+  background-position: 50% 50%;
+  background-color: #00000033;
+  cursor: pointer;
+}
+
+.omakase-cinema .vertical-border {
+  position: absolute;
+  width: 275px;
+  height: 30px;
+  top: 0;
+  left: 275px;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #423e3e;
+}
+
+.omakase-cinema .link-18 {
+  position: relative;
+  width: 99px;
+  height: 30px;
+  left: 88px;
+}
+
+.omakase-cinema .image-13 {
+  width: 24px;
+  height: 26px;
+  top: 2px;
+  left: 0;
+  background-image: url(../img/main_img/image-15.png);
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .text-wrapper-23 {
+  position: absolute;
+  width: 70px;
+  height: 30px;
+  top: -1px;
+  left: 29px;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff33;
+  font-size: 13.1px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 30px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .link-wrapper {
+  left: 400px;
+  position: absolute;
+  width: 300px;
+  height: 35px;
+  top: 0;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #423e3e;
+}
+
+.omakase-cinema .link-19 {
+  position: relative;
+  width: 200px;
+  height: 37px;
+  left: 68px;
+  top: -1px;
+}
+
+.omakase-cinema .image-14 {
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  left: 24px;
+  background-image: url(../img/main_img/image-16.png);
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .text-wrapper-24 {
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  top: 5px;
+  left: 70px;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff33;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 30px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .vertical-border-2 {
+  left: 750px;
+  position: absolute;
+  width: 300px;
+  height: 35px;
+  top: 0;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #423e3e;
+}
+
+.omakase-cinema .link-20 {
+  position: relative;
+  width: 91px;
+  height: 30px;
+  top: -2px;
+  left: 74px;
+}
+
+.omakase-cinema .image-15 {
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  left: 20px;
+  background-image: url(../img/main_img/image-17.png);
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.omakase-cinema .text-wrapper-25 {
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  top: 5px;
+  left: 60px;
+  font-family: "Dotum-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff33;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 30px;
+  white-space: nowrap;
+}
+
+.omakase-cinema .link-25 {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  top: 42px;
+  left: 450px;
+}
+
+/* 영화 포스터 눌렀을 때 호버되는 창 */
+.MovieHover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 245px;
+  height: 352px;
+  padding-top: 29px;
+  padding-bottom: 122px;
+  padding-left: 19px;
+  padding-right: 19px;
+  background: rgba(34, 34, 34, 0.60);
+  border-radius: 5px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.MovieHover .MovieHover_text {
+  width: 200px;
+  height: 280px;
+  color: white;
+  font-size: 15px;
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 25px;
+  word-wrap: break-word;
+  overflow: hidden;
+  margin-top: 25px;
+}
+
+
+/* =============== 헤더에 세부 정보 창 ========================*/
+.MenuAll {
+  width: 1920px;
+  height: 816px;
+  position: absolute;
+  top: 100px;
+  background: #53585A;
+  display: none;
+  z-index: 9999;
+}
+
+.Sitemap {
+  width: 96px;
+  height: 22px;
+  left: 411px;
+  top: 33px;
+  position: absolute;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-family: Kokoro;
+  font-weight: 400;
+  line-height: 22.50px;
+  letter-spacing: 2px;
+  word-wrap: break-word;
+}
+
+.Frame2 {
+  width: 161px;
+  height: 59px;
+  left: 411px;
+  top: 84px;
+  position: absolute;
+}
+
+.Border {
+  width: 161px;
+  height: 58px;
+  left: 0px;
+  top: 1px;
+  position: absolute;
+  border-top: 1px #7B7B7B solid;
+  border-bottom: 1px #7B7B7B solid;
+}
+
+.Text {
+  width: 86px;
+  height: 29px;
+  left: 38px;
+  top: 15px;
+  position: absolute;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-family: Kokoro;
+  font-weight: 400;
+  line-height: 22.50px;
+  letter-spacing: 2px;
+  word-wrap: break-word;
+}
+.omakase-cinema .event-list {
+  position: absolute;
+  width: 1100px; /* 또는 원하는 너비 */
+  top: 71px; /* .view 기준으로 위치 조정 */
+  left: 120px; /* .view 기준으로 위치 조정 */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.omakase-cinema .border .notice-list {
+    position: absolute; /* 위치 조정 */
+    top: 72px; /* 원하는 위치로 조정 */
+    left: 45px; /* 원하는 위치로 조정 */
+    display: flex;
+    justify-content:space-between;
+    flex-direction: column;
+    width: 298px;
+}
+
+.omakase-cinema .border .benefits-list {
+    position: absolute; /* 위치 조정 */
+    top: 72px; /* 원하는 위치로 조정 */
+    left: 426px; /* 원하는 위치로 조정 */ 
+    width: 500px; /* 혜택 리스트 너비 설정 */
+    display: flex;
+    justify-content:space-between;
+}
+
+.omakase-cinema .border .OMAKASE {
+    width: 286px; /* 각 공지사항 너비 설정 */
+    display: contents;
+    position: relative; 
+}
+.notice-list a {
+	margin-bottom: 10px;
+}
+
+#none {
+	width: 100%;
+    height: 25%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    top: 140px;
+    position: absolute;
+}

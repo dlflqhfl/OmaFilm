@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="theater">
+    <!-- 상영관 이름 -> 상영관 VO -->
+    <select id="getTheaterVO" parameterType="String" resultType="web.mybatis.vo.TheaterVO">
+        SELECT *
+        FROM theater
+        WHERE t_name = #{t_name}
+    </select>
+    
+    <select id="totalSeatCount" parameterType="String" resultType="int">
+    	SELECT t_seat_count FROM theater
+    	WHERE t_name = #{guan}
+    </select>
+</mapper>

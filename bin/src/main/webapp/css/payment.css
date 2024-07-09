@@ -1,0 +1,1312 @@
+.payment {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.payment .overlap-wrapper {
+  overflow-x: hidden;
+  width: 1280px;
+  height: 871px;
+}
+
+.payment .overlap {
+  position: relative;
+  width: 1281px;
+  height: 871px;
+}
+
+.payment .menu {
+  position: absolute;
+  width: 1280px;
+  height: 870px;
+  top: 1px;
+  left: 0;
+  background-color: #ffffff;
+}
+
+.payment .menu-list {
+  position: relative;
+  width: 78px;
+  height: 870px;
+}
+
+.payment .watchbt {
+  position: absolute;
+  width: 78px;
+  height: 218px;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #3d4d55;
+}
+
+.payment .div {
+  height: 216px;
+  left: 1px;
+  position: relative;
+  width: 76px;
+}
+
+.payment .link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 76px;
+  height: 216px;
+}
+
+.payment .strong {
+  position: relative;
+  height: 125px;
+}
+
+.payment .text-wrapper {
+  width: 15px;
+  height: 20px;
+  top: 82px;
+  left: 31px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 700;
+  color: #666666;
+  font-size: 13px;
+  text-align: center;
+  line-height: 19.5px;
+  white-space: nowrap;
+  position: absolute;
+  letter-spacing: -0.36px;
+  padding-top: 7px;
+}
+
+.payment .text-wrapper-2 {
+  width: 54px;
+  top: 101px;
+  left: 11px;
+  font-weight: 700;
+  color: #666666;
+  font-size: 13px;
+  text-align: center;
+  line-height: 22.5px;
+  white-space: nowrap;
+  position: absolute;
+  height: 22px;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .container {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.payment .text-wrapper-3 {
+  position: absolute;
+  width: 1px;
+  height: 13px;
+  top: -7px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: -0.36px;
+  line-height: 13.2px;
+  white-space: nowrap;
+}
+
+.payment .seatbt {
+  position: absolute;
+  width: 78px;
+  height: 218px;
+  top: 218px;
+  left: 0;
+  background-color: #ffffff;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #3d4d55;
+}
+
+.payment .strong-2 {
+  position: relative;
+  height: 120px;
+}
+
+.payment .text-wrapper-4 {
+  width: 15px;
+  height: 20px;
+  top: 80px;
+  left: 31px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 700;
+  color: #3d4d55;
+  font-size: 13px;
+  text-align: center;
+  line-height: 19.5px;
+  white-space: nowrap;
+  position: absolute;
+  letter-spacing: -0.36px;
+}
+
+.payment .text-wrapper-5 {
+  width: 51px;
+  height: 20px;
+  top: 99px;
+  left: 12px;
+  font-weight: 700;
+  color: #3d4d55;
+  font-size: 13px;
+  text-align: center;
+  line-height: 19.5px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .paybt {
+  position: absolute;
+  width: 78px;
+  height: 218px;
+  top: 435px;
+  left: 0;
+  background-color: #3d4d55;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #666666;
+}
+
+.payment .text-wrapper-6 {
+  width: 15px;
+  height: 20px;
+  top: 80px;
+  left: 31px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  line-height: 19.5px;
+  white-space: nowrap;
+  position: absolute;
+  letter-spacing: -0.36px;
+}
+
+.payment .text-wrapper-7 {
+  width: 24px;
+  height: 20px;
+  top: 99px;
+  left: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  line-height: 19.5px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .paycompbt {
+  position: absolute;
+  width: 78px;
+  height: 218px;
+  top: 652px;
+  left: 0;
+  background-color: #ffffff;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #666666;
+}
+
+.payment .text-wrapper-8 {
+  width: 15px;
+  height: 20px;
+  top: 80px;
+  left: 31px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 700;
+  color: #666666;
+  font-size: 13px;
+  text-align: center;
+  line-height: 19.5px;
+  white-space: nowrap;
+  position: absolute;
+  letter-spacing: -0.36px;
+}
+
+.payment .text-wrapper-9 {
+  width: 47px;
+  height: 20px;
+  top: 99px;
+  left: 15px;
+  font-weight: 700;
+  color: #666666;
+  font-size: 13px;
+  text-align: center;
+  line-height: 19.5px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .total-container {
+  position: absolute;
+  width: 1202px;
+  height: 870px;
+  top: 0;
+  left: 78px;
+}
+
+.payment .infor-back {
+  position: absolute;
+  width: 335px;
+  height: 55px;
+  top: 0;
+  left: 0;
+  background-color: #0f212b;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.payment .infor-text {
+  position: absolute;
+  width: 70px;
+  height: 55px;
+  top: -1px;
+  left: 132px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 55px;
+}
+
+.payment .pay-meth-back {
+  position: absolute;
+  width: 421px;
+  height: 55px;
+  top: 0;
+  left: 335px;
+  background-color: #0f212b;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.payment .pay-meth-text {
+  position: absolute;
+  width: 70px;
+  height: 55px;
+  top: -1px;
+  left: 176px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 55px;
+}
+
+.payment .pay-background {
+  position: absolute;
+  width: 446px;
+  height: 55px;
+  top: 0;
+  left: 756px;
+  background-color: #0f212b;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.payment .pay-back-text {
+  position: absolute;
+  width: 133px;
+  height: 55px;
+  top: -1px;
+  left: 156px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 55px;
+}
+
+.payment .infor-frame {
+  position: absolute;
+  width: 335px;
+  height: 815px;
+  top: 55px;
+  left: 78px;
+  background-color: #ffffff;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #e6e6e6;
+}
+
+.payment .seat-frame {
+  position: absolute;
+  width: 336px;
+  height: 60px;
+  top: 332px;
+  left: -1px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #e6e6e6;
+}
+
+.payment .seat-text {
+  position: absolute;
+  width: 24px;
+  height: 17px;
+  top: 20px;
+  left: 47px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 12px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.payment .seat-num {
+  position: absolute;
+  width: 135px;
+  height: 17px;
+  top: 20px;
+  left: 87px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 12px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.payment .movie-image {
+  position: absolute;
+  width: 135px;
+  height: 154px;
+  top: 43px;
+  left: 98px;
+  background-image: url(./img/movieimage.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.payment .age-image {
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  top: 212px;
+  left: 44px;
+}
+
+.payment .movie-name {
+  position: absolute;
+  width: 145px;
+  height: 16px;
+  top: 214px;
+  left: 75px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #1e1d1d;
+  font-size: 20px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.payment .date-text {
+  position: absolute;
+  width: 24px;
+  height: 17px;
+  top: 244px;
+  left: 45px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 12px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.payment .theater-text {
+  width: 35px;
+  left: 44px;
+  font-weight: 300;
+  position: absolute;
+  height: 17px;
+  top: 269px;
+  font-family: "Noto Sans KR", Helvetica;
+  color: #000000;
+  font-size: 12px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.payment .peo-num-text {
+  position: absolute;
+  width: 24px;
+  height: 17px;
+  top: 294px;
+  left: 45px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 12px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.payment .watch-date {
+  position: absolute;
+  width: 192px;
+  height: 17px;
+  top: 244px;
+  left: 85px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 12px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.payment .theater-num {
+  width: 135px;
+  left: 85px;
+  font-weight: 400;
+  position: absolute;
+  height: 17px;
+  top: 269px;
+  font-family: "Noto Sans KR", Helvetica;
+  color: #000000;
+  font-size: 12px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.payment .people-num {
+  position: absolute;
+  width: 135px;
+  height: 17px;
+  top: 294px;
+  left: 85px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 12px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.payment .pay-meth-frame {
+  position: absolute;
+  width: 421px;
+  height: 815px;
+  top: 55px;
+  left: 413px;
+  background-color: #f8f8f8;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-color: #e6e6e6;
+}
+
+.payment .point-pay-method {
+  position: absolute;
+  width: 420px;
+  height: 363px;
+  top: 0;
+  left: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #e6e6e6;
+}
+
+.payment .div-2 {
+  position: relative;
+  width: 116px;
+  height: 57px;
+  top: 69px;
+  left: 152px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #c8c8c8;
+}
+
+.payment .text-wrapper-10 {
+  width: 76px;
+  height: 21px;
+  top: 16px;
+  left: 19px;
+  font-weight: 500;
+  color: #000000;
+  font-size: 11px;
+  text-align: center;
+  line-height: 16.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .ticket-pay {
+  position: absolute;
+  width: 116px;
+  height: 57px;
+  top: 69px;
+  left: 24px;
+}
+
+.payment .coupon-pay {
+  position: relative;
+  height: 57px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #c8c8c8;
+}
+
+.payment .coupon-num {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 4px;
+  left: 95px;
+  background-color: #303030;
+  border-radius: 8px;
+}
+
+.payment .coupon-count {
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  top: 1px;
+  left: 5px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 9px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+.payment .point-count {
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  top: 1px;
+  left: 5px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 9px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.payment .text-wrapper-11 {
+  width: 87px;
+  height: 32px;
+  top: 20px;
+  left: 24px;
+  font-weight: 500;
+  color: #000000;
+  font-size: 16px;
+  line-height: 16.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .overlap-group {
+  position: absolute;
+  width: 387px;
+  height: 219px;
+  top: 134px;
+  left: 17px;
+  border-radius: 8px;
+}
+
+.payment .frame {
+  width: 387px;
+  height: 219px;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 2px solid;
+  border-color: #c8c8c8;
+  position: absolute;
+  overflow: hidden;
+}
+
+.payment .text-wrapper-12 {
+  width: 126px;
+  height: 32px;
+  top: 39px;
+  left: 18px;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  line-height: 16.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .frame-2 {
+  width: 387px;
+  height: 36px;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 8px 8px 0px 0px;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-color: #c8c8c8;
+  position: absolute;
+  overflow: hidden;
+}
+
+.payment .text-wrapper-13 {
+  width: 40px;
+  height: 32px;
+  top: -2px;
+  left: 179px;
+  font-weight: 500;
+  color: #000000;
+  font-size: 14px;
+  line-height: 16.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+  padding-top: 10px;
+}
+
+.payment .div-wrapper {
+  position: absolute;
+  width: 35px;
+  height: 36px;
+  top: 0;
+  left: 352px;
+  background-color: #ffffff;
+  border-radius: 0px 8px 0px 0px;
+}
+
+.payment .text-wrapper-14 {
+  width: 16px;
+  height: 22px;
+  top: 3px;
+  left: 8px;
+  font-weight: 500;
+  color: #414141;
+  font-size: 20px;
+  line-height: 16.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .frame-3 {
+  width: 225px;
+  height: 42px;
+  position: absolute;
+  top: 60px;
+  left: 18px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.payment .text-wrapper-15 {
+  width: 116px;
+  height: 25px;
+  top: 8px;
+  left: 93px;
+  font-weight: 500;
+  color: #000000;
+  font-size: 16px;
+  text-align: right;
+  line-height: 16.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .frame-4 {
+  width: 225px;
+  height: 42px;
+  top: 110px;
+  left: 18px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.payment .text-wrapper-16 {
+  width: 116px;
+  height: 25px;
+  top: 8px;
+  left: 93px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #414141;
+  font-size: 16px;
+  text-align: right;
+  line-height: 16.5px;
+  position: absolute;
+  letter-spacing: -0.36px;
+}
+/* 
+.payment .frame-5 {
+  width: 172px;
+  height: 42px;
+  top: 167px;
+  left: 18px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #595959;
+  position: absolute;
+  overflow: hidden;
+} */
+
+.payment .text-wrapper-17 {
+  width: 35px;
+  top: 9px;
+  left: 74px;
+  font-weight: 500;
+  color: #414141;
+  font-size: 14px;
+  line-height: 16.5px;
+  position: absolute;
+  height: 22px;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+/* 
+.payment .frame-6 {
+  width: 172px;
+  height: 42px;
+  top: 167px;
+  left: 199px;
+  background-color: #414141;
+  border-radius: 5px;
+  border: 1px solid;
+  position: absolute;
+  overflow: hidden;
+} */
+
+.payment .text-wrapper-18 {
+  width: 35px;
+  height: 22px;
+  top: 9px;
+  left: 73px;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 16.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .frame-7 {
+  width: 121px;
+  height: 42px;
+  top: 110px;
+  left: 250px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #595959;
+  position: absolute;
+  overflow: hidden;
+}
+
+.payment .text-wrapper-19 {
+  width: 58px;
+  height: 26px;
+  top: 7px;
+  left: 34px;
+  font-weight: 500;
+  color: #414141;
+  font-size: 14px;
+  line-height: 16.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .overlap-2 {
+  position: absolute;
+  width: 106px;
+  height: 32px;
+  top: 39px;
+  left: 18px;
+}
+
+.payment .text-wrapper-20 {
+  width: 99px;
+  height: 32px;
+  top: 0;
+  left: 0;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  line-height: 16.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+  padding-top:6px;
+}
+
+.payment .text-wrapper-21 {
+  width: 10px;
+  height: 19px;
+  top: 7px;
+  left: 89px;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  line-height: 16.5px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .text-wrapper-22 {
+  width: 10px;
+  height: 19px;
+  top: 7px;
+  left: 96px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  line-height: 16.5px;
+  white-space: nowrap;
+  position: absolute;
+  letter-spacing: -0.36px;
+}
+
+.payment .text-wrapper-23 {
+  width: 87px;
+  height: 32px;
+  top: 1px;
+  left: 150px;
+  font-weight: 500;
+  color: #000000;
+  font-size: 14px;
+  text-align: center;
+  line-height: 16.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+  padding-top: 7px;
+}
+
+.payment .frame-8 {
+  width: 348px;
+  height: 120px;
+  position: absolute;
+  top: 73px;
+  left: 18px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+.payment .text-wrapper-24 {
+  width: 285px;
+  height: 5px;
+  top: 14px;
+  left: 26px;
+  font-weight: 500;
+  color: #000000;
+  font-size: 10px;
+  text-align: center;
+  line-height: 16.5px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .text-wrapper-25 {
+  width: 10px;
+  height: 19px;
+  top: 46px;
+  left: 124px;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  line-height: 16.5px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .final-pay-method {
+  position: absolute;
+  width: 420px;
+  height: 452px;
+  top: 363px;
+  left: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #e6e6e6;
+}
+
+.payment .card-pay-bt {
+  position: absolute;
+  width: 116px;
+  height: 57px;
+  top: 69px;
+  left: 24px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #c8c8c8;
+}
+
+.payment .overlap-group-2 {
+  height: 34px;
+  top: 14px;
+  left: 20px;
+  position: relative;
+  width: 76px;
+}
+
+.payment .text-wrapper-26 {
+  width: 76px;
+  height: 21px;
+  top: 13px;
+  left: 0;
+  font-weight: 500;
+  color: #000000;
+  font-size: 11px;
+  text-align: center;
+  line-height: 16.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .element {
+  width: 22px;
+  top: 0;
+  left: 28px;
+  position: absolute;
+  height: 15px;
+  object-fit: cover;
+}
+
+.payment .text-wrapper-27 {
+  width: 76px;
+  height: 21px;
+  top: 27px;
+  left: 19px;
+  font-weight: 500;
+  color: #000000;
+  font-size: 11px;
+  text-align: center;
+  line-height: 16.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .img {
+  width: 22px;
+  top: 12px;
+  left: 47px;
+  position: absolute;
+  height: 15px;
+  object-fit: cover;
+}
+
+.payment .text-wrapper-28 {
+  width: 91px;
+  height: 32px;
+  top: 20px;
+  left: 24px;
+  font-weight: 500;
+  color: #000000;
+  font-size: 16px;
+  line-height: 16.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+}
+
+.payment .ori-pay {
+  position: absolute;
+  width: 448px;
+  height: 52px;
+  top: 661px;
+  left: 833px;
+  background-color: #555555;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #e6e6e6;
+}
+
+.payment .text-wrapper-29 {
+  position: absolute;
+  width: 76px;
+  height: 21px;
+  top: 14px;
+  left: 26px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+}
+
+.payment .overlap-3 {
+  position: absolute;
+  width: 87px;
+  height: 21px;
+  top: 14px;
+  left: 317px;
+}
+
+.payment .ori-price {
+  position: absolute;
+  width: 76px;
+  height: 21px;
+  top: 0;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+}
+
+.payment .ori-won {
+  position: absolute;
+  width: 31px;
+  height: 21px;
+  top: 0;
+  left: 56px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+}
+
+.payment .discount {
+  position: absolute;
+  width: 448px;
+  height: 52px;
+  top: 711px;
+  left: 833px;
+  background-color: #555555;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #e6e6e6;
+}
+
+.payment .overlap-4 {
+  position: absolute;
+  width: 55px;
+  height: 21px;
+  top: 14px;
+  left: 349px;
+}
+
+.payment .dis-won {
+  width: 31px;
+  left: 24px;
+  font-size: 13px;
+  position: absolute;
+  height: 21px;
+  top: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+}
+
+.payment .dis-price {
+  width: 40px;
+  left: -10px;
+  font-size: 16px;
+  position: absolute;
+  height: 21px;
+  top: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: right;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+}
+
+.payment .minus {
+  position: absolute;
+  width: 19px;
+  height: 12px;
+  top: 3px;
+  left: -40px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.payment .total-pay {
+  position: absolute;
+  width: 448px;
+  height: 52px;
+  top: 761px;
+  left: 833px;
+  background-color: #555555;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #e6e6e6;
+}
+
+.payment .overlap-5 {
+  position: absolute;
+  width: 103px;
+  height: 21px;
+  top: 14px;
+  left: 301px;
+}
+
+.payment .total-won {
+  position: absolute;
+  width: 31px;
+  height: 21px;
+  top: 0;
+  left: 72px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+}
+
+.payment .total {
+  position: absolute;
+  width: 31px;
+  height: 21px;
+  top: 0;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+}
+
+.payment .total-price {
+  position: absolute;
+  width: 76px;
+  height: 21px;
+  top: 0;
+  left: 16px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+}
+
+.payment .pay-button {
+  position: absolute;
+  width: 446px;
+  height: 59px;
+  top: 812px;
+  left: 834px;
+  background-color: #3d4d55;
+}
+
+.payment .pay-text {
+  position: absolute;
+  width: 133px;
+  height: 55px;
+  top: 2px;
+  left: 156px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 55px;
+}
+
+
+<!---->
+.selected {
+  background-color: #C0C0C0;
+}

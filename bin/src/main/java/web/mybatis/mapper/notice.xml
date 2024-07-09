@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+    <!--  해당 게시물의 전체게시물 수를 반환(공지사항)  -->
+    <select id="count" resultType="int">
+        SELECT COUNT(*) FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 1
+    </select>
+
+    <!--  해당 게시물의 전체게시물 수를 반환(공지사항)  -->
+    <select id="searchcount" resultType="int" parameterType="String">
+        SELECT COUNT(*) FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 1
+        AND n_title LIKE CONCAT('%',#{n_title},'%')
+    </select>
+
+    <!--  해당 게시물의 전체게시물 수를 반환(자주묻는질문)  -->
+    <select id="fcount" resultType="int">
+        SELECT COUNT(*) FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 4
+    </select>
+
+    <!--  해당 게시물의 전체게시물 수를 반환(자주묻는질문)  -->
+    <select id="searchfcount" resultType="int" parameterType="String">
+        SELECT COUNT(*) FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 4
+        AND n_title LIKE CONCAT('%',#{n_title},'%')
+    </select>
+
+    <!--  해당 게시물의 전체게시물 수를 반환(이벤트)  -->
+    <select id="ecount" resultType="int">
+        SELECT COUNT(*) FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 2
+    </select>
+
+    <!--  해당 게시물의 전체게시물 수를 반환(혜택)  -->
+    <select id="bcount" resultType="int">
+        SELECT COUNT(*) FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 3
+    </select>
+
+    <resultMap type="web.mybatis.vo.NoticeVO" id="map1">
+        <!--  기본키설정  -->
+        <id property="n_idx" column="n_idx"/>
+        <result property="nt_ct_code" column="nt_ct_code"/>
+        <result property="n_title" column="n_title"/>
+        <result property="n_content" column="n_content"/>
+        <result property="n_banner" column="n_banner"/>
+        <result property="n_img" column="n_img"/>
+        <result property="n_time" column="n_time"/>
+        <result property="n_status" column="n_status"/>
+    </resultMap>
+
+    <!--  공지사항 -->
+    <select id="list" resultMap="map1" parameterType="Map">
+        SELECT * FROM(
+        SELECT @RN:=@RN+1 AS rnum, a.* FROM(
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 1
+        <if test="n_title != null">
+            AND n_title LIKE CONCAT('%', #{n_title}, '%')
+        </if>
+        ORDER BY n_idx DESC
+        ) a, (SELECT @RN:=0) b
+        ) c 
+        WHERE c.rnum between #{begin} AND #{end};
+    </select>
+
+    <select id="view" resultMap="map1" parameterType="Map">
+        SELECT * FROM(
+        SELECT @RN:=@RN+1 AS rnum, a.* FROM(
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 1
+        <if test="n_title != null and n_title != ''">
+            AND n_title LIKE CONCAT('%', #{n_title}, '%')
+        </if>
+        <if test="n_idx != null and n_idx != 0">
+                AND n_idx = #{n_idx}
+        </if>
+        ORDER BY n_idx DESC
+        ) a, (SELECT @RN:=0) b
+        ) c 
+        <if test="begin != null and end != null">
+        WHERE c.rnum BETWEEN #{begin} AND #{end}
+    	</if>
+    </select>
+    <!--  자주묻는질문  -->
+    <select id="flist" resultMap="map1" parameterType="Map">
+        SELECT * FROM(
+        SELECT @RN:=@RN+1 AS rnum, a.* FROM(
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 4
+        <if test="n_title != null">
+            AND n_title LIKE CONCAT('%', #{n_title}, '%')
+        </if>
+        ORDER BY n_idx DESC
+        ) a, (SELECT @RN:=0) b
+        ) c WHERE c.rnum between #{begin} AND #{end};
+    </select>
+
+    <select id="fview" resultMap="map1" parameterType="Map">
+        SELECT * FROM(
+        SELECT @RN:=@RN+1 AS rnum, a.* FROM(
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 4
+        <if test="n_title != null and n_idx != null">
+            AND n_title LIKE CONCAT('%', #{n_title}, '%')
+            AND n_idx = #{n_idx}
+        </if>
+        ORDER BY n_idx DESC
+        ) a, (SELECT @RN:=0) b
+        ) c WHERE c.rnum between #{begin} AND #{end};
+    </select>
+
+    <!--  이벤트 -->
+    <select id="elist" resultMap="map1">
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 2
+        ORDER BY n_idx ASC
+    </select>
+
+    <select id="eview" resultMap="map1" parameterType="String">
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 2
+        AND n_idx = #{n_idx}
+    </select>
+
+    <!--  혜택 -->
+    <select id="blist" resultMap="map1">
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 3
+        ORDER BY n_idx ASC
+    </select>
+
+    <select id="bview" resultMap="map1" parameterType="String">
+        SELECT * FROM notice
+        WHERE n_status = 0 AND nt_ct_code = 3
+        AND n_idx = #{n_idx}
+    </select>
+
+
+
+
+
+
+
+	<!-- 공지사항 DB -->
+	<select id="noticeList" parameterType="String" resultType="web.mybatis.vo.NoticeVO">
+	select *
+	from notice
+	<where>
+	 nt_ct_code = 1
+        <if test="n_none != null and n_none != ''">
+            n_none = #{n_none}
+        </if>
+    </where>
+	</select>
+	<!-- 공지사항 넣기 -->
+	<insert id="insertNotice" parameterType="web.mybatis.vo.NoticeVO">
+	INSERT INTO notice(nt_ct_code,n_title,n_content,n_time,n_status)
+	VALUES(#{nt_ct_code},#{n_title},#{n_content},#{n_time},#{n_status}) 
+	</insert>
+	<!-- 공지사항 삭제 -->
+	<delete id="deleteNotice" parameterType="web.mybatis.vo.NoticeVO">
+	<!-- 삭제할곳 공지사항은 nt_ct_code = 1 로 고정-->
+	DELETE FROM notice
+    WHERE n_idx = #{n_idx}
+    AND nt_ct_code = 1
+	</delete>
+	<!-- 공지사항 검색 -->
+	<select id="searchList" parameterType="String" resultType="web.mybatis.vo.NoticeVO">
+	select *
+	from notice
+	<where>
+			<if test="searchCategory != null and searchTerm != null">
+                ${searchCategory} LIKE CONCAT('%', #{searchTerm}, '%')
+            </if>
+	</where>
+	
+	</select>
+	<!-- 공지사항 갯수 -->
+	<select id="noticeCount" resultType="int">
+	SELECT COUNT(*) FROM notice
+	WHERE nt_ct_code=1
+	</select>
+	<!-- noticeCount 페이징 -->
+	<!-- 자주묻는질문 DB -->
+	<select id="noticeFreList" parameterType="String" resultType="web.mybatis.vo.NoticeVO">
+	select *
+	from notice
+	<where>
+	 nt_ct_code = 4 and n_status = 0
+        <if test="n_none != null and n_none != ''">
+            n_none = #{n_none}
+        </if>
+    </where>
+    
+	</select>
+	<!-- 자주묻는질문 넣기 -->
+	<insert id="insertFreNotice" parameterType="web.mybatis.vo.NoticeVO">
+	INSERT INTO notice(nt_ct_code,n_title,n_content,n_time,n_status)
+	VALUES(#{nt_ct_code},#{n_title},#{n_content},#{n_time},#{n_status}) 
+	</insert>
+	<!-- 자주묻는질문 검색 -->
+	<select id="searchFreList" parameterType="String" resultType="web.mybatis.vo.NoticeVO">
+	select *
+	from notice
+	<where>
+			<if test="searchCategory != null and searchTerm != null">
+                ${searchCategory} LIKE CONCAT('%', #{searchTerm}, '%')
+            </if>
+	</where>
+	</select>
+	<!-- 자주묻는질문 삭제 -->
+	<delete id="deleteFreNotice" parameterType="web.mybatis.vo.NoticeVO">
+	<!-- 삭제할곳 공지사항은 nt_ct_code = 2 로 고정-->
+	DELETE FROM notice
+    WHERE n_idx = #{n_idx}
+    AND nt_ct_code = 2
+	</delete>
+	
+	<!-- 이벤트 관련 DB -->
+   <select id="eventList" parameterType="String" resultType="web.mybatis.vo.NoticeVO">
+   select *
+   from notice
+   <where>
+    (nt_ct_code = 3 OR nt_ct_code = 4)
+        <if test="n_none != null and n_none != ''">
+            n_none = #{n_none}
+        </if>
+    </where>
+   </select>
+	
+	<!-- 이벤트 넣기 -->
+	<insert id="insertEvent" parameterType="web.mybatis.vo.NoticeVO">
+	INSERT INTO notice(nt_ct_code,n_title,n_content,n_time,n_status,n_img,n_banner)
+	VALUES(#{nt_ct_code},#{n_title},#{n_content},#{n_time},#{n_status},#{n_img},#{n_banner}) 
+	</insert>
+
+	
+	<!-- 이벤트 검색 -->
+	<select id="searchEventList" parameterType="map" resultType="web.mybatis.vo.NoticeVO">
+	select *
+	from notice
+	<where>
+			<if test="searchTerm != null and searchTerm != ''">
+            <choose>
+                <when test="searchCategory == 'n_title'">
+                    n_title LIKE CONCAT('%', #{searchTerm}, '%')
+                </when>
+                <when test="searchCategory == 'n_content'">
+                    n_content LIKE CONCAT('%', #{searchTerm}, '%')
+                </when>
+            </choose>
+        </if>
+	</where>
+	</select>
+
+	
+	<delete id="deleteEvent" parameterType="web.mybatis.vo.NoticeVO">
+	<!-- 삭제할곳 공지사항은 nt_ct_code = 1 로 고정-->
+	DELETE FROM notice
+    WHERE n_idx = #{n_idx}
+	</delete>
+		<!-- 게시물 목록을 만들기 위한 select -->
+	<!--  <select id="list" resultMap="map1"
+	parameterType="Map">
+		SELECT * FROM(
+			SELECT @RN:=@RN+1 AS rnum, a.* FROM(
+				SELECT * FROM notice
+				WHERE nt_ct_code = 1 AND bname = #{bname}
+				ORDER BY n_idx DESC
+			) a, (SELECT @RN:=0) b
+		) c WHERE c.rnum BETWEEN #{begin} AND #{end}
+	</select>
+	-->
+	
+	
+</mapper>

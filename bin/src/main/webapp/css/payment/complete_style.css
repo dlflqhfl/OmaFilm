@@ -1,0 +1,877 @@
+.pay-complt {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.pay-complt .overlap-wrapper {
+  background-color: #ffffff;
+  width: 1280px;
+  height: 870px;
+}
+
+.pay-complt .overlap {
+  position: relative;
+  height: 870px;
+}
+
+.pay-complt .overlap-group {
+  position: absolute;
+  width: 1280px;
+  height: 870px;
+  top: 0;
+  left: 0;
+}
+
+.pay-complt .list {
+  position: absolute;
+  width: 78px;
+  height: 870px;
+  top: 0;
+  left: 0;
+}
+
+.pay-complt .item {
+  position: absolute;
+  width: 78px;
+  height: 218px;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #3d4d55;
+}
+
+.pay-complt .link {
+  position: relative;
+  width: 76px;
+  height: 216px;
+  left: 1px;
+}
+
+.pay-complt .strong {
+  position: relative;
+  height: 125px;
+}
+
+.pay-complt .text-wrapper {
+  top: 82px;
+  color: #666666;
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  left: 31px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.pay-complt .div {
+  width: 54px;
+  height: 22px;
+  top: 101px;
+  left: 11px;
+  color: #666666;
+  line-height: 22.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  white-space: nowrap;
+}
+
+.pay-complt .link-wrapper {
+  position: absolute;
+  width: 78px;
+  height: 218px;
+  top: 218px;
+  left: 0;
+  background-color: #ffffff;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #3d4d55;
+}
+
+.pay-complt .strong-2 {
+  position: relative;
+  height: 120px;
+}
+
+.pay-complt .text-wrapper-2 {
+  top: 80px;
+  color: #3d4d55;
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  left: 31px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.pay-complt .text-wrapper-3 {
+  width: 51px;
+  height: 20px;
+  top: 99px;
+  left: 12px;
+  color: #3d4d55;
+  line-height: 19.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  white-space: nowrap;
+}
+
+.pay-complt .div-wrapper {
+  position: absolute;
+  width: 78px;
+  height: 218px;
+  top: 436px;
+  left: 0;
+  background-color: #ffffff;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #666666;
+}
+
+.pay-complt .text-wrapper-4 {
+  top: 80px;
+  color: #666666;
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  left: 31px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.pay-complt .text-wrapper-5 {
+  width: 24px;
+  height: 20px;
+  top: 99px;
+  left: 26px;
+  color: #666666;
+  line-height: 19.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  white-space: nowrap;
+}
+
+.pay-complt .item-2 {
+  position: absolute;
+  width: 78px;
+  height: 218px;
+  top: 652px;
+  left: 0;
+  background-color: #3d4d55;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-left-width: 1px;
+  border-left-style: solid;
+}
+
+.pay-complt .text-wrapper-6 {
+  top: 80px;
+  color: #ffffff;
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  left: 31px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.pay-complt .text-wrapper-7 {
+  width: 47px;
+  height: 20px;
+  top: 99px;
+  left: 15px;
+  color: #ffffff;
+  line-height: 19.5px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  white-space: nowrap;
+}
+
+.pay-complt .pay-complt-frame {
+  position: absolute;
+  width: 1201px;
+  height: 817px;
+  top: 53px;
+  left: 78px;
+}
+
+.pay-complt .seat-background {
+  position: absolute;
+  width: 1202px;
+  height: 53px;
+  top: 0;
+  left: 78px;
+  background-color: #0f212b;
+  overflow: hidden;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.pay-complt .select-seat-text {
+  position: absolute;
+  width: 453px;
+  height: 50px;
+  top: 4px;
+  left: 375px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 48px;
+  white-space: nowrap;
+}
+
+/*========================================*/
+
+.div {
+  position: relative;
+  width: 1202px;
+  height: 816px;
+  background-color: #f8f8f8;
+}
+
+.div .text {
+  position: absolute;
+  width: 362px;
+  height: 26px;
+  top: 107px;
+  left: 430px;
+}
+
+.div .pay-complt-text {
+  position: absolute;
+  width: 287px;
+  height: 25px;
+  top: 0;
+  left: 75px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+}
+
+.div .pay-id {
+  position: absolute;
+  width: 70px;
+  height: 26px;
+  top: 0;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 18px;
+  text-align: right;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+}
+
+.div .text-warrning {
+  position: absolute;
+  background-image: url("img/_text_warrning_.png");
+  width: 540px;
+  height: 89px;
+  top: 543px;
+  left: 286px;
+}
+
+.div .flexcontainer {
+  width: 540px;
+  height: 61px;
+  top: 27px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  position: absolute;
+  left: 0;
+}
+
+.div .span-wrapper {
+  position: relative;
+  align-self: stretch;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: transparent;
+  font-size: 9px;
+  letter-spacing: -0.36px;
+  line-height: 9px;
+}
+
+.div .text-wrapper {
+  color: #d61010;
+  letter-spacing: -0.03px;
+  line-height: 14px;
+}
+
+.div .span {
+  color: #000000;
+  letter-spacing: -0.03px;
+  line-height: 16px;
+}
+
+.div .flexcontainer-2 {
+  width: 287px;
+  height: 23px;
+  top: -1px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  position: absolute;
+  left: 0;
+}
+
+.div .p {
+  position: relative;
+  align-self: stretch;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #d61010;
+  font-size: 9px;
+  letter-spacing: -0.36px;
+  line-height: 16px;
+}
+
+.div .text-wrapper-2 {
+  letter-spacing: -0.03px;
+}
+
+.div .pay-key {
+  position: absolute;
+  width: 170px;
+  height: 51px;
+  top: 703px;
+  left: 414px;
+  background-image: url(https://c.animaapp.com/O42ywLB0/img/rectangle-332.svg);
+  background-size: 100% 100%;
+}
+
+.div .text-wrapper-3 {
+  position: absolute;
+  width: 115px;
+  height: 33px;
+  top: 8px;
+  left: 26px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #303030;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 30px;
+}
+
+.div .home-key {
+  position: absolute;
+  width: 170px;
+  height: 51px;
+  top: 703px;
+  left: 622px;
+  background-color: #3d4d55;
+  border-radius: 4px;
+}
+
+.div .text-wrapper-4 {
+  position: absolute;
+  width: 115px;
+  height: 33px;
+  top: 8px;
+  left: 28px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 30px;
+}
+
+.div .frame {
+  position: absolute;
+  width: 630px;
+  height: 376px;
+  top: 144px;
+  left: 286px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #e6e6e6;
+}
+
+.div .discount-text {
+  position: absolute;
+  width: 61px;
+  height: 18px;
+  top: 256px;
+  left: 232px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .movie-image {
+  position: absolute;
+  width: 148px;
+  height: 174px;
+  top: 50px;
+  left: 58px;
+  border-radius: 3px;
+}
+
+.div .date-text {
+  position: absolute;
+  width: 56px;
+  height: 17px;
+  top: 110px;
+  left: 256px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .peo-num-text {
+  position: absolute;
+  width: 54px;
+  height: 17px;
+  top: 164px;
+  left: 258px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .watch-date {
+  position: absolute;
+  width: 192px;
+  height: 17px;
+  top: 110px;
+  left: 317px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 400;
+  color: #555555;
+  font-size: 12px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.div .people-num {
+  position: absolute;
+  width: 33px;
+  height: 17px;
+  top: 164px;
+  left: 317px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 400;
+  color: #555555;
+  font-size: 12px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .theaters {
+  position: absolute;
+  width: 106px;
+  height: 17px;
+  top: 138px;
+  left: 258px;
+}
+
+.div .theater-text {
+  width: 43px;
+  left: 0;
+  font-weight: 300;
+  color: #000000;
+  font-size: 13px;
+  position: absolute;
+  height: 17px;
+  top: -1px;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .theater-num {
+  width: 47px;
+  left: 59px;
+  font-weight: 400;
+  color: #555555;
+  font-size: 12px;
+  position: absolute;
+  height: 17px;
+  top: -1px;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .line {
+  position: absolute;
+  width: 339px;
+  height: 2px;
+  top: 95px;
+  left: 255px;
+}
+
+.div .img {
+  position: absolute;
+  width: 536px;
+  height: 1px;
+  top: 239px;
+  left: 58px;
+  object-fit: cover;
+}
+
+.div .seat-text {
+  width: 24px;
+  left: 258px;
+  font-weight: 300;
+  color: #000000;
+  font-size: 13px;
+  position: absolute;
+  height: 17px;
+  top: 191px;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .seat-num {
+  width: 17px;
+  left: 317px;
+  font-weight: 400;
+  color: #555555;
+  font-size: 12px;
+  position: absolute;
+  height: 17px;
+  top: 191px;
+  font-family: "Noto Sans KR", Helvetica;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .minus {
+  position: absolute;
+  width: 21px;
+  height: 106px;
+  top: 256px;
+  left: 196px;
+}
+
+.div .overlap-group {
+  width: 23px;
+  height: 107px;
+  position: relative;
+  top: -1px;
+  left: -1px;
+}
+
+.div .line-2 {
+  position: absolute;
+  width: 3px;
+  height: 95px;
+  top: 12px;
+  left: 10px;
+}
+
+.div .ellipse {
+  top: 1px;
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  left: 0;
+}
+
+.div .text-wrapper-5 {
+  position: absolute;
+  width: 19px;
+  height: 12px;
+  top: 0;
+  left: 2px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 100;
+  color: #484848;
+  font-size: 50px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .equal {
+  position: absolute;
+  width: 23px;
+  height: 105px;
+  top: 257px;
+  left: 397px;
+}
+
+.div .overlap {
+  height: 106px;
+  position: relative;
+  top: -1px;
+  left: -1px;
+}
+
+.div .line-3 {
+  position: absolute;
+  width: 3px;
+  height: 95px;
+  top: 11px;
+  left: 10px;
+}
+
+.div .ellipse-2 {
+  top: 0;
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  left: 0;
+}
+
+.div .text-wrapper-6 {
+  position: absolute;
+  width: 18px;
+  height: 10px;
+  top: 0px;
+  left: 3px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 400;
+  color: #484848;
+  font-size: 25px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .dis-won {
+  width: 14px;
+  height: 18px;
+  top: 257px;
+  left: 373px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .total-won {
+  width: 14px;
+  height: 18px;
+  top: 255px;
+  left: 580px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .total-price-text {
+  position: absolute;
+  width: 72px;
+  height: 18px;
+  top: 255px;
+  left: 428px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .price {
+  position: absolute;
+  width: 129px;
+  height: 18px;
+  top: 256px;
+  left: 58px;
+}
+
+.div .sel-price-text {
+  position: absolute;
+  width: 61px;
+  height: 18px;
+  top: -1px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .select-won {
+  width: 14px;
+  height: 18px;
+  top: -1px;
+  left: 115px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .select-price {
+  width: 45px;
+  height: 15px;
+  top: 1px;
+  left: 70px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .dis-price {
+  width: 70px;
+  height: 15px;
+  top: 258px;
+  left: 300px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.div .total-price {
+  width: 45px;
+  height: 15px;
+  top: 257px;
+  left: 535px;
+  position: absolute;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.div .text-wrapper-7 {
+  position: absolute;
+  width: 87px;
+  height: 32px;
+  top: 55px;
+  left: 255px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+}
+
+.div .text-wrapper-8 {
+  position: absolute;
+  width: 122px;
+  top: 287px;
+  left: 58px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 10px;
+  letter-spacing: -0.36px;
+  line-height: 16.5px;
+}
