@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,76 +45,83 @@
 								</div>
 							</div>
 							<div class="body">
-								<c:forEach var="event" items="${eventList}" varStatus="status">
+								<c:set var="len" value="${fn:length(eventList)}" />
+	                <c:if test="${page.end<=len}">
+	                	<c:set var="end" value="${page.end}"/>
+	                </c:if>
+					<c:if test="${page.end>len}">
+						<c:set var="end" value="${len}" />
+					</c:if>
+						
+					<c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
 									<c:choose>
 										<c:when test="${status.index == 0}">
 											<div class="row">
 										</c:when>
 										<c:otherwise>
-											<div class="row-${status.index+1}">
+											<div class="row-${status.count}">
 										</c:otherwise>
 									</c:choose>
 									<div class="overlap-group-3">
 										<div class="data">
 										<c:choose>
-										    <c:when test="${event.nt_ct_code == 3}">
+										    <c:when test="${eventList[i-1].nt_ct_code == 3}">
 										        <div class="text-wrapper-6">이벤트</div>
 										    </c:when>
-										    <c:when test="${event.nt_ct_code == 4}">
+										    <c:when test="${eventList[i-1].nt_ct_code == 4}">
 										        <div class="text-wrapper-6">혜택</div>
 										    </c:when>
 										 </c:choose>
 										</div>
 										<div class="data-2">
-											<div class="text-wrapper-7">${event.n_title}</div>
+											<div class="text-wrapper-7">${eventList[i-1].n_title}</div>
 										</div>
 									</div>
 									<div class="rectangle-wrapper">
 										<input type="checkbox" class="rectangle" name="deleteIds"
-											value="${event.n_idx}" />
+											value="${eventList[i-1].n_idx}" />
 									</div>
 									<div class="data-3">
-										<div class="text-wrapper-8">${event.n_time}</div>
+										<div class="text-wrapper-8">${eventList[i-1].n_time}</div>
 									</div>
 							</div>
 							</c:forEach>
 						</div>
 					</div>
-					<div class="frame-2">
-						<div class="strong">
-							<div class="text-wrapper-9">1</div>
-						</div>
-						<div class="link-2">
-							<div class="text-wrapper-10">2</div>
-						</div>
-						<div class="link-3">
-							<div class="text-wrapper-10">3</div>
-						</div>
-						<div class="link-4">
-							<div class="text-wrapper-10">4</div>
-						</div>
-						<div class="link-5">
-							<div class="text-wrapper-10">5</div>
-						</div>
-						<div class="link-6">
-							<div class="text-wrapper-10">6</div>
-						</div>
-						<div class="link-7">
-							<div class="text-wrapper-10">7</div>
-						</div>
-						<div class="link-8">
-							<div class="text-wrapper-10">8</div>
-						</div>
-						<div class="link-9">
-							<div class="text-wrapper-10">9</div>
-						</div>
-						<div class="link-10">
-							<div class="text-wrapper-11">10</div>
-						</div>
-						<div class="link-11"></div>
-						<div class="link-12"></div>
-					</div>
 					
+					<div class="frame-2">   <!-- 페이징 시작 -->
+					<div>
+						<ol class="paging">
+							<c:if test="${page.startPage < page.pagePerBlock}">
+								<li class="disable">&lt;</li>
+							</c:if>
+							<c:if test="${page.startPage >= page.pagePerBlock}">
+								<li class=""><a
+									href="Controller?type=adminEvent&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+							</c:if>
+							<!-- <div class="nav"> -->
+							<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+								<c:if test="${i == page.nowPage}">
+									<li class="now">${i}</li>
+								</c:if>
+								<c:if test="${i != page.nowPage}">
+									<li class=" "><a
+										href="Controller?type=adminEvent&cPage=${i}">${i}</a></li>
+								</c:if>
+							</c:forEach>
+	
+	
+							<c:if test="${page.endPage < page.totalPage}">
+								<li class=""><a
+									href="Controller?type=adminEvent&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+							</c:if>
+							<c:if test="${page.endPage >= page.totalPage}">
+								<li class=" disable">&gt;</li>
+							</c:if>
+	
+						</ol>
+					</div>
+				</div>
 					
 				</div>
 				

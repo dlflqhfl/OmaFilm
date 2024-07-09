@@ -112,7 +112,7 @@
 }
 
 .div-wrapper .overlap-group {
-  position: absolute;
+  position: relative;
   width: 1300px;
   height: 598px;
   top: 536px;
@@ -323,10 +323,9 @@
 
 .div-wrapper .text-wrapper-7 {
   position: absolute;
-  width: 108px;
+  width: 720px;
   height: 20px;
   top: 9px;
-  left: 307px;
   font-family: "ABeeZee", Helvetica;
   font-weight: 400;
   color: #444444;
@@ -376,10 +375,9 @@
 
 .div-wrapper .text-wrapper-8 {
   position: absolute;
-  width: 92px;
+  width: 240px;
   height: 20px;
   top: 9px;
-  left: 74px;
   font-family: "ABeeZee", Helvetica;
   font-weight: 400;
   color: #444444;
@@ -463,11 +461,12 @@
 }
 
 .div-wrapper .frame-2 {
-  position: absolute;
+  position: relative;
   width: 436px;
   height: 33px;
   top: 564px;
-  left: 399px;
+  left: 131px;
+  margin: 0 auto;
 }
 
 .div-wrapper .strong {
@@ -705,7 +704,6 @@
   top: 397px;
   left: 1134px;
   border-radius: 3px;
-  border: 1px solid;
   border-color: #d8d9db;
 }
 
@@ -895,7 +893,7 @@
 .div-wrapper .heading {
   position: absolute;
   height: 31px;
-  top: 169px;
+  top: 255px;
   left: 380px;
   font-family: "Noto Sans KR", Helvetica;
   font-weight: 300;
@@ -1071,6 +1069,52 @@
   line-height: 19.5px;
   white-space: nowrap;
 }
+
+ol.paging {
+	    list-style:none;
+	   
+	}
+	
+	.nav{
+	 position: absolute;
+  width: 840px;
+  height: 62px;
+  top: 500px;
+  left: 92px;
+	}
+	
+	ol.paging li {
+	    float:left;
+	    margin-right:8px;
+	}
+	
+	ol.paging li a {
+	    display:block;
+	    padding:3px 7px;
+	    border:1px solid #00B3DC;
+	    color:#2f313e;
+	    font-weight:bold;
+	}
+	
+	ol.paging li a:hover {
+	    background:#00B3DC;
+	    color:white;
+	    font-weight:bold;
+	}
+	
+	.disable {
+	    padding:3px 7px;
+	    border:1px solid silver;
+	    color:silver;
+	}
+	
+	.now {
+	   padding:3px 7px;
+	    border:1px solid #ff4aa5;
+	    background:#ff4aa5;
+	    color:white;
+	    font-weight:bold;
+	}
 
 a {
     text-decoration: none;

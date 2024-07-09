@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -35,20 +36,41 @@
                 </div>
               </div>
             </div>
-            <div class="frame-2">
-              <div class="strong"><div class="text-wrapper-2">1</div></div>
-              <div class="link-2"><div class="text-wrapper-3">2</div></div>
-              <div class="link-3"><div class="text-wrapper-3">3</div></div>
-              <div class="link-4"><div class="text-wrapper-3">4</div></div>
-              <div class="link-5"><div class="text-wrapper-3">5</div></div>
-              <div class="link-6"><div class="text-wrapper-3">6</div></div>
-              <div class="link-7"><div class="text-wrapper-3">7</div></div>
-              <div class="link-8"><div class="text-wrapper-3">8</div></div>
-              <div class="link-9"><div class="text-wrapper-3">9</div></div>
-              <div class="link-10"><div class="text-wrapper-4">10</div></div>
-              <div class="link-11"></div>
-              <div class="link-12"></div>
-            </div>
+           
+           <div class="frame-2">   <!-- 페이징 시작 -->
+				<div>
+					<ol class="paging">
+						<c:if test="${page.startPage < page.pagePerBlock}">
+							<li class="disable">&lt;</li>
+						</c:if>
+						<c:if test="${page.startPage >= page.pagePerBlock}">
+							<li class=""><a
+								href="Controller?type=adminCpHome&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+						</c:if>
+						<!-- <div class="nav"> -->
+						<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+							<c:if test="${i == page.nowPage}">
+								<li class="now">${i}</li>
+							</c:if>
+							<c:if test="${i != page.nowPage}">
+								<li class=" "><a
+									href="Controller?type=adminCpHome&cPage=${i}">${i}</a></li>
+							</c:if>
+						</c:forEach>
+
+
+						<c:if test="${page.endPage < page.totalPage}">
+							<li class=""><a
+								href="Controller?type=adminCpHome&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+						</c:if>
+						<c:if test="${page.endPage >= page.totalPage}">
+							<li class=" disable">&gt;</li>
+						</c:if>
+
+					</ol>
+				</div>
+			</div>   <!-- 페이징 끝 -->
+           
             <form id="searchForm" method="post" action="Controller?type=adminSearchInquiry">
            		<div class="button">
 						<select id="searchCategory" name="searchCategory" class="text-wrapper-5">
@@ -90,32 +112,42 @@
               </div>
               <div class="body">
               <!-- row 뒤 숫자에 신경쓸 필요 없음 -->
-              <c:forEach var="inquiry" items="${inquiryList}" varStatus="status">
+              
+              <c:set var="len" value="${fn:length(inquiryList)}" />
+	                <c:if test="${page.end<=len}">
+	                	<c:set var="end" value="${page.end}"/>
+	                </c:if>
+					<c:if test="${page.end>len}">
+						<c:set var="end" value="${len}" />
+					</c:if>
+						
+					<c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
+              
     				
-            		<div class="row-${status.index+1}">
+            		<div class="row-${status.count}">
     				<div class="overlap-group-3">
-                      <div class="data"><div class="text-wrapper-17" name="iq_idx">${inquiry.iq_idx}</div></div>
-                       <div class="data-2"><a href="Controller?type=adminComment&iq_idx=${inquiry.iq_idx}" class="p" name="title">${inquiry.iq_title}</a></div>
-                      <div class="data-4"><div class="text-wrapper-19">${inquiry.u_code } </div></div>
+                      <div class="data"><div class="text-wrapper-17" name="iq_idx">${inquiryList[i-1].iq_idx}</div></div>
+                       <div class="data-2"><a href="Controller?type=adminComment&iq_idx=${inquiryList[i-1].iq_idx}" class="p" name="title">${inquiryList[i-1].iq_title}</a></div>
+                      <div class="data-4"><div class="text-wrapper-19">${inquiryList[i-1].u_code } </div></div>
                       
-                      <c:if test="${inquiry.icvo == null}">
+                      <c:if test="${inquiryList[i-1].icvo == null}">
 						    <div class="data-5"><div class="text-wrapper-19">답변 미완료</div></div>
 						</c:if>
-						<c:if test="${inquiry.icvo != null}">
+						<c:if test="${inquiryList[i-1].icvo != null}">
 						    <div class="data-5"><div class="text-wrapper-19">답변 완료</div></div>
 						</c:if>
 						
 						
 						
-                    <div class="data-3"><div class="text-wrapper-8">${inquiry.iq_time}</div></div>
+                    <div class="data-3"><div class="text-wrapper-8">${inquiryList[i-1].iq_time}</div></div>
                     </div>
                     <div class="rectangle-wrapper">
                     
-                    	<c:if test="${inquiry.icvo == null}">
-						    <input type="radio" class="rectangle" name="deleteiqIds" value="${inquiry.iq_idx}"/></div>
+                    	<c:if test="${inquiryList[i-1].icvo == null}">
+						    <input type="radio" class="rectangle" name="deleteiqIds" value="${inquiryList[i-1].iq_idx}"/></div>
 						</c:if>
-						<c:if test="${inquiry.icvo != null}">
-						    <input type="radio" class="rectangle" name="deleteiqIds" value="${inquiry.iq_idx}" disabled/></div>
+						<c:if test="${inquiryList[i-1].icvo != null}">
+						    <input type="radio" class="rectangle" name="deleteiqIds" value="${inquiryList[i-1].iq_idx}" disabled/></div>
 						</c:if>
                     
                     
