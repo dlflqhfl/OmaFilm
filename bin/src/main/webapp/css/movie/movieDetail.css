@@ -1,0 +1,1632 @@
+@charset "UTF-8";
+.www-lottecinema-co {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.www-lottecinema-co .div {
+  background-color: #ffffff;
+  overflow-x: hidden;
+  width: 1920px;
+  height: 3265.48px;
+  position: relative;
+}
+
+.www-lottecinema-co .container {
+  position: absolute;
+  width: 980px;
+  height: 460px;
+  top: 277px;
+  left: 470px;
+}
+
+.www-lottecinema-co .overlap {
+  position: absolute;
+  width: 617px;
+  height: 75px;
+  top: 86px;
+  left: 363px;
+}
+
+.www-lottecinema-co .overlap-group {
+  position: absolute;
+  width: 617px;
+  height: 75px;
+  top: 0;
+  left: 0;
+}
+
+.www-lottecinema-co .strong {
+  position: absolute;
+  width: 90px;
+  height: 40px;
+  top: 0;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 26px;
+  letter-spacing: -2px;
+  line-height: 40px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .item {
+  position: absolute;
+  width: 73px;
+  height: 24px;
+  top: 51px;
+  left: 143px;
+}
+
+.www-lottecinema-co .image {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 3px;
+  left: 12px;
+}
+
+.www-lottecinema-co .text-wrapper {
+  width: 23px;
+  height: 22px;
+  top: 1px;
+  left: 35px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: -0.36px;
+  line-height: 22px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .text-wrapper-2 {
+  position: absolute;
+  width: 14px;
+  height: 20px;
+  top: 2px;
+  left: 71px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 18px;
+  letter-spacing: -0.36px;
+  line-height: 19.8px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .vertical-divider {
+  position: absolute;
+  width: 1px;
+  height: 15px;
+  top: 4px;
+  left: 0;
+  background-color: #000000;
+  opacity: 0.7;
+}
+
+.www-lottecinema-co .list {
+  position: absolute;
+  width: 617px;
+  height: 42px;
+  top: 9px;
+  left: 0;
+}
+
+.www-lottecinema-co .image-2 {
+  position: absolute;
+  width: 8px;
+  height: 13px;
+  top: 52px;
+  left: 16px;
+}
+
+.www-lottecinema-co .image-3 {
+  position: absolute;
+  width: 22px;
+  height: 18px;
+  top: 75px;
+  left: 19px;
+}
+
+.www-lottecinema-co .overlap-group-wrapper {
+  position: absolute;
+  width: 137px;
+  height: 22px;
+  top: 53px;
+  left: 0;
+}
+
+.www-lottecinema-co .overlap-group-2 {
+  position: relative;
+  height: 22px;
+  top: -1px;
+}
+
+.www-lottecinema-co .text-wrapper-3 {
+  position: absolute;
+  width: 100px;
+  height: 22px;
+  top: 0;
+  left: 0;
+  font-family: "Roboto", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: -0.36px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .text-wrapper-4 {
+  position: absolute;
+  width: 37px;
+  height: 20px;
+  top: 1px;
+  left: 100px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 18px;
+  letter-spacing: -0.36px;
+  line-height: 19.8px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .item-2 {
+  position: absolute;
+  width: 131px;
+  height: 22px;
+  top: 53px;
+  left: 235px;
+}
+
+.www-lottecinema-co .overlap-2 {
+  width: 120px;
+  height: 22px;
+  left: 12px;
+  position: absolute;
+  top: -1px;
+}
+
+.www-lottecinema-co .text-wrapper-5 {
+  width: 23px;
+  height: 22px;
+  top: 0;
+  left: 0;
+  font-family: "Roboto", Helvetica;
+  font-weight: 600;
+  color: #dd7430;
+  font-size: 20px;
+  letter-spacing: -0.36px;
+  line-height: 22px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .text-wrapper-6 {
+  position: absolute;
+  width: 120px;
+  height: 20px;
+  top: 1px;
+  left: 1px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #dd7430;
+  font-size: 18px;
+  letter-spacing: -0.36px;
+  line-height: 19.8px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .item-3 {
+  position: absolute;
+  width: 72px;
+  height: 22px;
+  top: 53px;
+  left: 378px;
+}
+
+.www-lottecinema-co .text-wrapper-7 {
+  position: absolute;
+  width: 28px;
+  height: 22px;
+  top: -1px;
+  left: 12px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: -0.36px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .text-wrapper-8 {
+  position: absolute;
+  width: 33px;
+  height: 20px;
+  top: -2px;
+  left: 44px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 18px;
+  letter-spacing: -0.36px;
+  line-height: 19.8px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .paragraph-background {
+  position: absolute;
+  width: 617px;
+  height: 125px;
+  top: 192px;
+  left: 363px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.www-lottecinema-co .element {
+  position: absolute;
+  width: 474px;
+  height: 58px;
+  top: 372px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 18px;
+  letter-spacing: -0.36px;
+  line-height: 28.8px;
+}
+
+.www-lottecinema-co .link {
+  position: absolute;
+  width: 323px;
+  height: 77px;
+  top: 24px;
+  left: 0;
+  background-color: #2f3246;
+  border-radius: 60px;
+  border: 1px solid;
+}
+
+.www-lottecinema-co .text-wrapper-9 {
+  position: absolute;
+  width: 124px;
+  height: 67px;
+  top: 3px;
+  left: 100px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 26px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 58px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .element-jpg {
+  position: absolute;
+  width: 316px;
+  height: 424px;
+  top: -3px;
+  left: 0;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.www-lottecinema-co .background {
+  width: 1918px;
+  height: 389px;
+  top: 839px;
+  background-color: #f8f8f8;
+  position: absolute;
+  left: 0;
+}
+
+.www-lottecinema-co .overlap-3 {
+  position: relative;
+  width: 978px;
+  height: 354px;
+  top: -14px;
+  left: 470px;
+}
+
+.www-lottecinema-co .container-2 {
+  position: absolute;
+  width: 978px;
+  height: 269px;
+  top: 0;
+  left: 0;
+}
+
+.www-lottecinema-co .heading {
+  position: absolute;
+  width: 95px;
+  height: 29px;
+  top: 49px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 26px;
+  letter-spacing: -0.36px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .list-2 {
+  position: absolute;
+  width: 978px;
+  height: 120px;
+  top: 99px;
+  left: 0;
+}
+
+.www-lottecinema-co .item-4 {
+  position: absolute;
+  width: 978px;
+  height: 32px;
+  top: 0;
+  left: 0;
+}
+
+.www-lottecinema-co .emphasis {
+  position: absolute;
+  width: 38px;
+  height: 32px;
+  top: -1px;
+  left: 10px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #7c7c7c;
+  font-size: 21px;
+  letter-spacing: -0.36px;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .text-wrapper-10 {
+  position: absolute;
+  width: 114px;
+  height: 32px;
+  top: -1px;
+  left: 58px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #191919;
+  font-size: 21px;
+  letter-spacing: -0.36px;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .background-2 {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  top: 16px;
+  left: 0;
+  background-color: #7c7c7c;
+  border-radius: 3px;
+}
+
+.www-lottecinema-co .item-5 {
+  position: absolute;
+  width: 978px;
+  height: 32px;
+  top: 44px;
+  left: 0;
+}
+
+.www-lottecinema-co .div-wrapper {
+  position: absolute;
+  width: 57px;
+  height: 32px;
+  top: 0;
+  left: 58px;
+}
+
+.www-lottecinema-co .text-wrapper-11 {
+  position: absolute;
+  width: 57px;
+  height: 32px;
+  top: -1px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 21px;
+  letter-spacing: -0.36px;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .item-6 {
+  position: absolute;
+  width: 978px;
+  height: 32px;
+  top: 88px;
+  left: 0;
+}
+
+.www-lottecinema-co .emphasis-2 {
+  position: absolute;
+  width: 38px;
+  height: 32px;
+  top: -2px;
+  left: 10px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #7c7c7c;
+  font-size: 21px;
+  letter-spacing: -0.36px;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .link-2 {
+  position: absolute;
+  width: 57px;
+  height: 32px;
+  top: 0;
+  left: 63px;
+}
+
+.www-lottecinema-co .overlap-group-3 {
+  position: absolute;
+  width: 68px;
+  height: 33px;
+  top: -1px;
+  left: 120px;
+}
+
+.www-lottecinema-co .text-wrapper-12 {
+  position: absolute;
+  width: 11px;
+  height: 32px;
+  top: 0;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #191919;
+  font-size: 21px;
+  letter-spacing: -0.36px;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .link-3 {
+  position: absolute;
+  width: 57px;
+  height: 32px;
+  top: 0;
+  left: 11px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #181818;
+}
+
+.www-lottecinema-co .overlap-4 {
+  position: absolute;
+  width: 68px;
+  height: 33px;
+  top: -1px;
+  left: 188px;
+}
+
+.www-lottecinema-co .overlap-5 {
+  width: 68px;
+  height: 33px;
+  left: 256px;
+  position: absolute;
+  top: -1px;
+}
+
+.www-lottecinema-co .background-3 {
+  width: 3px;
+  height: 3px;
+  top: 15px;
+  background-color: #7c7c7c;
+  border-radius: 3px;
+  position: absolute;
+  left: 0;
+}
+
+.www-lottecinema-co .p {
+  position: absolute;
+  width: 970px;
+  height: 160px;
+  top: 230px;
+  left: 10px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 18px;
+  letter-spacing: -0.36px;
+  line-height: 28.8px;
+}
+
+.www-lottecinema-co .overlap-6 {
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  top: 1565px;
+  left: 449px;
+}
+
+.www-lottecinema-co .text-wrapper-13 {
+  position: absolute;
+  width: 67px;
+  height: 50px;
+  top: 0;
+  left: 16px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 50px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .item-7 {
+  position: absolute;
+  width: 100px;
+  height: 1px;
+  top: 46px;
+  left: 0;
+  background-color: #111111;
+}
+
+.www-lottecinema-co .button {
+  all: unset;
+  box-sizing: border-box;
+  position: absolute;
+  width: 490px;
+  height: 50px;
+  top: 760px;
+  left: 273px;
+  background-color: #ffffff;
+}
+
+.www-lottecinema-co .overlap-7 {
+  position: relative;
+  width: 100px;
+  height: 50px;
+  top: -1px;
+  left: 188px;
+}
+
+.www-lottecinema-co .text-wrapper-14 {
+  position: absolute;
+  width: 67px;
+  height: 50px;
+  top: 0;
+  left: 18px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 50px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .item-8 {
+  position: absolute;
+  width: 100px;
+  height: 1px;
+  top: 48px;
+  left: 0;
+  background-color: #111111;
+}
+
+.www-lottecinema-co .overlap-8 {
+  position: absolute;
+  width: 979px;
+  height: 282px;
+  top: 1256px;
+  left: 472px;
+}
+
+.www-lottecinema-co .overlap-wrapper {
+  position: absolute;
+  width: 929px;
+  height: 29px;
+  top: 0;
+  left: 0;
+}
+
+.www-lottecinema-co .overlap-9 {
+  position: relative;
+  width: 121px;
+  height: 30px;
+  top: -1px;
+}
+
+.www-lottecinema-co .text-wrapper-15 {
+  position: absolute;
+  width: 102px;
+  height: 29px;
+  top: 0;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 26px;
+  letter-spacing: -0.36px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .emphasis-3 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  left: 101px;
+  opacity: 0.8;
+}
+
+.www-lottecinema-co .text-wrapper-16 {
+  position: absolute;
+  width: 21px;
+  height: 19px;
+  top: 0;
+  left: 0;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 17px;
+  letter-spacing: -0.36px;
+  line-height: 18.7px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .container-3 {
+  position: absolute;
+  width: 979px;
+  height: 264px;
+  top: 18px;
+  left: 0;
+}
+
+.www-lottecinema-co .container-4 {
+  position: absolute;
+  width: 979px;
+  height: 218px;
+  top: 37px;
+  left: 0;
+  overflow: hidden;
+}
+
+.www-lottecinema-co .div-2 {
+  position: absolute;
+  width: 313px;
+  height: 218px;
+  top: 0;
+  left: 0;
+}
+
+.www-lottecinema-co .overlap-group-4 {
+  position: relative;
+  height: 218px;
+}
+
+.www-lottecinema-co .emphasis-4 {
+  position: absolute;
+  width: 313px;
+  height: 193px;
+  top: 0;
+  left: 0;
+  border-radius: 8px;
+}
+
+.www-lottecinema-co .strong-2 {
+  position: absolute;
+  width: 62px;
+  height: 14px;
+  top: 203px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: -0.36px;
+  line-height: 14.3px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .img {
+  position: absolute;
+  width: 49px;
+  height: 54px;
+  top: 65px;
+  left: 133px;
+}
+
+.www-lottecinema-co .container-5 {
+  position: absolute;
+  width: 313px;
+  height: 218px;
+  top: 0;
+  left: 333px;
+}
+
+.www-lottecinema-co .emphasis-5 {
+  position: absolute;
+  width: 313px;
+  height: 193px;
+  top: 0;
+  left: 0;
+  border-radius: 8px;
+}
+
+.www-lottecinema-co .container-6 {
+  position: absolute;
+  width: 313px;
+  height: 218px;
+  top: 0;
+  left: 667px;
+}
+
+.www-lottecinema-co .emphasis-6 {
+  position: absolute;
+  width: 313px;
+  height: 193px;
+  top: 0;
+  left: 0;
+  border-radius: 8px;
+}
+
+.www-lottecinema-co .strong-3 {
+  position: absolute;
+  width: 64px;
+  height: 14px;
+  top: 203px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: -0.36px;
+  line-height: 14.3px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .image-4 {
+  position: absolute;
+  width: 20px;
+  height: 39px;
+  top: -8px;
+  left: 934px;
+  opacity: 0.35;
+  background-image: url(../../img/movie/movieDetail/image-4.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.www-lottecinema-co .image-5 {
+  position: absolute;
+  width: 20px;
+  height: 39px;
+  top: -8px;
+  left: 959px;
+  background-image: url(../../img/movie/movieDetail/image-5.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.www-lottecinema-co .footer {
+  position: absolute;
+  width: 1919px;
+  height: 200px;
+  top: 3065px;
+  left: 0;
+  object-fit: cover;
+}
+
+.www-lottecinema-co .overlap-10 {
+  position: absolute;
+  width: 905px;
+  height: 66px;
+  top: 2865px;
+  left: 473px;
+}
+
+.www-lottecinema-co .nav {
+  position: absolute;
+  width: 840px;
+  height: 62px;
+  top: 4px;
+  left: 65px;
+}
+
+.www-lottecinema-co .strong-4 {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 30px;
+  left: 205px;
+  background-color: #01738b;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+.www-lottecinema-co .text-wrapper-17 {
+  width: 9px;
+  height: 30px;
+  top: 0;
+  left: 12px;
+  font-family: "ABeeZee", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .link-4 {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 30px;
+  left: 241px;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #ebebeb;
+}
+
+.www-lottecinema-co .text-wrapper-18 {
+  position: absolute;
+  width: 9px;
+  height: 30px;
+  top: 0;
+  left: 12px;
+  font-family: "ABeeZee", Helvetica;
+  font-weight: 400;
+  color: #333333;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 30px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .link-5 {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 30px;
+  left: 276px;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #ebebeb;
+}
+
+.www-lottecinema-co .link-6 {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 30px;
+  left: 311px;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #ebebeb;
+}
+
+.www-lottecinema-co .link-7 {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 30px;
+  left: 347px;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #ebebeb;
+}
+
+.www-lottecinema-co .link-8 {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 30px;
+  left: 382px;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #ebebeb;
+}
+
+.www-lottecinema-co .link-9 {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 30px;
+  left: 417px;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #ebebeb;
+}
+
+.www-lottecinema-co .link-10 {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 30px;
+  left: 453px;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #ebebeb;
+}
+
+.www-lottecinema-co .link-11 {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 30px;
+  left: 488px;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #ebebeb;
+}
+
+.www-lottecinema-co .link-12 {
+  position: absolute;
+  width: 38px;
+  height: 32px;
+  top: 30px;
+  left: 524px;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #ebebeb;
+}
+
+.www-lottecinema-co .text-wrapper-19 {
+  width: 28px;
+  height: 30px;
+  top: 0;
+  left: 5px;
+  font-family: "ABeeZee", Helvetica;
+  font-weight: 400;
+  color: #333333;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .link-13 {
+  position: absolute;
+  width: 37px;
+  height: 32px;
+  top: 30px;
+  left: 562px;
+  border-radius: 4px;
+  background-image: url(../../img/movie/movieDetail/link.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.www-lottecinema-co .link-14 {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 30px;
+  left: 603px;
+  border-radius: 4px;
+  background-image: url(../../img/movie/movieDetail/link-1.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.www-lottecinema-co .text-wrapper-20 {
+  position: absolute;
+  width: 426px;
+  height: 13px;
+  top: 0;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: -0.36px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .overlap-11 {
+  position: absolute;
+  width: 184px;
+  height: 21px;
+  top: 2088px;
+  left: 1270px;
+}
+
+.www-lottecinema-co .text-wrapper-21 {
+  position: absolute;
+  width: 70px;
+  height: 18px;
+  top: 3px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 700;
+  color: #4f4c4c;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 14.3px;
+}
+
+.www-lottecinema-co .text-wrapper-22 {
+  position: absolute;
+  width: 70px;
+  height: 18px;
+  top: 3px;
+  left: 57px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 700;
+  color: #4f4c4c;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 14.3px;
+}
+
+.www-lottecinema-co .text-wrapper-23 {
+  position: absolute;
+  width: 70px;
+  height: 18px;
+  top: 3px;
+  left: 114px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 700;
+  color: #4f4c4c;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 14.3px;
+}
+
+.www-lottecinema-co .text-wrapper-24 {
+  position: absolute;
+  width: 21px;
+  height: 19px;
+  top: 0;
+  left: 52px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 700;
+  color: #8d8888;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 14.3px;
+}
+
+.www-lottecinema-co .text-wrapper-25 {
+  position: absolute;
+  width: 21px;
+  height: 19px;
+  top: 0;
+  left: 109px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 700;
+  color: #8d8888;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 14.3px;
+}
+
+.www-lottecinema-co .overlap-12 {
+  position: absolute;
+  width: 982px;
+  height: 728px;
+  top: 2128px;
+  left: 467px;
+}
+
+.www-lottecinema-co .frame {
+  position: absolute;
+  width: 982px;
+  height: 123px;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 0.5px;
+  border-bottom-style: solid;
+  border-color: #9a9a9a;
+}
+
+.www-lottecinema-co .frame-2 {
+  position: absolute;
+  width: 104px;
+  height: 30px;
+  top: 18px;
+  left: 90px;
+}
+
+.www-lottecinema-co .text-wrapper-26 {
+  position: absolute;
+  width: 93px;
+  height: 29px;
+  top: 0;
+  left: 4px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: -0.36px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .overlap-13 {
+  position: absolute;
+  width: 121px;
+  height: 40px;
+  top: 0;
+  left: 841px;
+}
+
+.www-lottecinema-co .text-wrapper-27 {
+  position: absolute;
+  width: 88px;
+  height: 15px;
+  top: 17px;
+  left: 0;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: -0.36px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .image-6 {
+  position: absolute;
+  width: 35px;
+  height: 40px;
+  top: 0;
+  left: 86px;
+}
+
+.www-lottecinema-co .frame-3 {
+  width: 734px;
+  top: 59px;
+  left: 94px;
+  overflow: hidden;
+  position: absolute;
+  height: 55px;
+}
+
+.www-lottecinema-co .text-wrapper-28 {
+  position: absolute;
+  width: 845px;
+  top: 4px;
+  left: 6px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: -0.36px;
+  line-height: 28.6px;
+}
+
+.www-lottecinema-co .img-2 {
+  position: absolute;
+  width: 59px;
+  height: 59px;
+  top: 30px;
+  left: 14px;
+}
+
+.www-lottecinema-co .frame-4 {
+  position: absolute;
+  width: 981px;
+  height: 122px;
+  top: 122px;
+  left: 1px;
+  background-color: #ffffff;
+  border-top-width: 0.5px;
+  border-top-style: solid;
+  border-color: #9a9a9a;
+}
+
+.www-lottecinema-co .overlap-14 {
+  position: absolute;
+  width: 860px;
+  height: 55px;
+  top: 59px;
+  left: 94px;
+}
+
+.www-lottecinema-co .frame-5 {
+  width: 860px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 55px;
+}
+
+.www-lottecinema-co .text-wrapper-29 {
+  position: absolute;
+  width: 708px;
+  top: -1px;
+  left: 6px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: -0.36px;
+  line-height: 28.6px;
+}
+
+.www-lottecinema-co .rectangle {
+  left: 745px;
+  position: absolute;
+  width: 55px;
+  height: 32px;
+  top: 18px;
+}
+
+.www-lottecinema-co .rectangle-2 {
+  left: 804px;
+  background-color: #2f3246;
+  border-radius: 3px;
+  position: absolute;
+  width: 55px;
+  height: 32px;
+  top: 18px;
+}
+
+.www-lottecinema-co .text-wrapper-30 {
+  position: absolute;
+  width: 57px;
+  height: 23px;
+  top: 22px;
+  left: 803px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 28.8px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .text-wrapper-31 {
+  position: absolute;
+  width: 57px;
+  height: 23px;
+  top: 22px;
+  left: 744px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: 28.8px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .element-2 {
+  position: absolute;
+  width: 59px;
+  height: 59px;
+  top: 29px;
+  left: 14px;
+}
+
+.www-lottecinema-co .overlap-15 {
+  position: absolute;
+  width: 121px;
+  height: 40px;
+  top: 3px;
+  left: 841px;
+}
+
+.www-lottecinema-co .frame-6 {
+  position: absolute;
+  width: 981px;
+  height: 122px;
+  top: 243px;
+  left: 0;
+  background-color: #ffffff;
+  border-top-width: 0.5px;
+  border-top-style: solid;
+  border-color: #9a9a9a;
+}
+
+.www-lottecinema-co .frame-7 {
+  position: absolute;
+  width: 104px;
+  height: 30px;
+  top: 19px;
+  left: 82px;
+}
+
+.www-lottecinema-co .frame-8 {
+  position: absolute;
+  width: 860px;
+  height: 55px;
+  top: 60px;
+  left: 86px;
+}
+
+.www-lottecinema-co .text-wrapper-32 {
+  position: absolute;
+  width: 762px;
+  top: 4px;
+  left: 6px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: -0.36px;
+  line-height: 28.6px;
+}
+
+.www-lottecinema-co .clip-path-group {
+  position: absolute;
+  width: 59px;
+  height: 59px;
+  top: 31px;
+  left: 14px;
+}
+
+.www-lottecinema-co .overlap-16 {
+  position: absolute;
+  width: 121px;
+  height: 40px;
+  top: 7px;
+  left: 841px;
+}
+
+.www-lottecinema-co .frame-9 {
+  position: absolute;
+  width: 981px;
+  height: 122px;
+  top: 364px;
+  left: 0;
+  background-color: #ffffff;
+  border-top-width: 0.5px;
+  border-top-style: solid;
+  border-color: #9a9a9a;
+}
+
+.www-lottecinema-co .text-wrapper-33 {
+  position: absolute;
+  width: 772px;
+  top: 4px;
+  left: 6px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: -0.36px;
+  line-height: 28.6px;
+}
+
+.www-lottecinema-co .overlap-17 {
+  position: absolute;
+  width: 121px;
+  height: 40px;
+  top: 2px;
+  left: 841px;
+}
+
+.www-lottecinema-co .frame-10 {
+  position: absolute;
+  width: 981px;
+  height: 122px;
+  top: 485px;
+  left: 0;
+  background-color: #ffffff;
+  border-top-width: 0.5px;
+  border-top-style: solid;
+  border-color: #9a9a9a;
+}
+
+.www-lottecinema-co .text-wrapper-34 {
+  position: absolute;
+  width: 771px;
+  top: 4px;
+  left: 6px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: -0.36px;
+  line-height: 28.6px;
+}
+
+.www-lottecinema-co .frame-11 {
+  position: absolute;
+  width: 982px;
+  height: 123px;
+  top: 605px;
+  left: 0;
+  background-color: #ffffff;
+  border-top-width: 0.5px;
+  border-top-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #9a9a9a;
+}
+
+.www-lottecinema-co .text-wrapper-35 {
+  position: absolute;
+  width: 769px;
+  top: 4px;
+  left: 6px;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: -0.36px;
+  line-height: 28.6px;
+}
+
+.www-lottecinema-co .overlap-18 {
+  position: absolute;
+  width: 1920px;
+  height: 393px;
+  top: 1633px;
+  left: 0;
+}
+
+.www-lottecinema-co .background-4 {
+  width: 1920px;
+  height: 393px;
+  top: 0;
+  background-color: #f8f8f8;
+  position: absolute;
+  left: 0;
+}
+
+.www-lottecinema-co .overlap-19 {
+  position: absolute;
+  width: 257px;
+  height: 169px;
+  top: 14px;
+  left: 810px;
+}
+
+.www-lottecinema-co .star {
+  top: 90px;
+  left: 197px;
+  position: absolute;
+  width: 60px;
+  height: 53px;
+}
+
+.www-lottecinema-co .star-2 {
+  top: 90px;
+  left: 0;
+  position: absolute;
+  width: 60px;
+  height: 53px;
+}
+
+.www-lottecinema-co .overlap-20 {
+  position: absolute;
+  width: 188px;
+  height: 140px;
+  top: 29px;
+  left: 32px;
+}
+
+.www-lottecinema-co .element-3 {
+  position: absolute;
+  width: 98px;
+  height: 105px;
+  top: 35px;
+  left: 45px;
+}
+
+.www-lottecinema-co .star-3 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 60px;
+  height: 53px;
+}
+
+.www-lottecinema-co .star-4 {
+  position: absolute;
+  width: 60px;
+  height: 53px;
+  top: 0;
+  left: 128px;
+}
+
+.www-lottecinema-co .star-5 {
+  position: absolute;
+  width: 60px;
+  height: 53px;
+  top: 0;
+  left: 96px;
+}
+
+.www-lottecinema-co .text-wrapper-36 {
+  position: absolute;
+  width: 123px;
+  top: 188px;
+  left: 885px;
+  font-family: "Inter", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.www-lottecinema-co .frame-12 {
+  position: absolute;
+  width: 884px;
+  height: 134px;
+  top: 230px;
+  left: 506px;
+}
+
+.www-lottecinema-co .frame-13 {
+  position: absolute;
+  width: 125px;
+  height: 134px;
+  top: 230px;
+  left: 1265px;
+  background-color: #2f3246;
+  border-radius: 0px 2px 2px 0px;
+  overflow: hidden;
+}
+
+.www-lottecinema-co .text-wrapper-37 {
+  position: absolute;
+  width: 100px;
+  height: 29px;
+  top: 52px;
+  left: 20px;
+  -webkit-text-stroke: 1px #ffffff;
+  font-family: "Noto Sans KR", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 18px;
+  letter-spacing: -0.36px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.www-lottecinema-co .text-wrapper-38 {
+  position: absolute;
+  width: 720px;
+  top: 241px;
+  left: 528px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}

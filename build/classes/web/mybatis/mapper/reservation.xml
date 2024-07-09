@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reservation">
+
+    <insert id="insertReservation" parameterType="Map">
+        insert into reservation (p_code, rsvr_code, ss_code, rs_count, rs_time, rs_status)
+        values (#{p_code}, #{rsvr_code}, #{ss_code}, #{rs_count}, now(), 0)
+    </insert>
+
+    <select id="getRsNum" parameterType="Map" resultType="int">
+        SELECT rs_num FROM reservation
+        WHERE p_code = #{p_code}
+        ORDER BY rs_time DESC
+        LIMIT 1
+    </select>
+
+    <resultMap type="web.mybatis.vo.ReservationVO" id="getSsvoAndgetPvo" >
+
+        <id property="p_code" column="p_code"/>
+        <id property="ss_code" column="ss_code"/>
+
+        <association property="pvo" javaType="web.mybatis.vo.PaymentVO"
+                     select="payment.getPVO" column="p_code">
+        </association>
+
+        <association property="ssvo" javaType="web.mybatis.vo.ScreeningScheduleVO"
+                     select="screeningSchedule.getSSVO" column="ss_code">
+        </association>
+    </resultMap>
+
+    <select id="getReservation" parameterType="int" resultMap="getSsvoAndgetPvo">
+        SELECT *
+        FROM reservation
+        WHERE rsvr_code = #{rsvr_code} and rs_status = 0
+
+    </select>
+
+    <select id="getCancel" parameterType="int" resultMap="getSsvoAndgetPvo">
+        SELECT *
+        FROM reservation
+        WHERE rsvr_code = #{rsvr_code} and rs_status = 1
+    </select>
+
+    <update id="cancelReservation" parameterType="String">
+        UPDATE reservation
+        SET rs_status = 1, rs_cancel_time = now()
+        WHERE rs_num = ${rs_num} AND rs_status = 0;
+    </update>
+
+    <resultMap type="web.mybatis.vo.ReservationVO" id="seacrhMap" >
+        <id property="ss_code" column="ss_code"/>
+
+        <association property="ssvo" javaType="web.mybatis.vo.ScreeningScheduleVO"
+                     select="screeningSchedule.getSSVO" column="ss_code">
+        </association>
+    </resultMap>
+
+    <select id="searchReservation" parameterType="Map" resultMap="getSsvoAndgetPvo">
+        SELECT *
+        FROM reservation r
+        JOIN screening_schedule s ON r.ss_code = s.ss_code
+        <where>
+            r.rsvr_code = #{rsvr_code} AND r.rs_status=0
+            <if test="movieCd != null">
+                AND s.movieCd = #{movieCd}
+            </if>
+        </where>
+    </select>
+
+    <select id="searchCancel" parameterType="Map" resultMap="getSsvoAndgetPvo">
+        SELECT *
+        FROM reservation r
+        JOIN screening_schedule s ON r.ss_code = s.ss_code
+        WHERE r.rsvr_code = #{rsvr_code} AND r.rs_status=1
+        ORDER BY r.rs_cancel_time DESC
+    </select>
+    
+	<select id="getPcode" resultType="String" parameterType="String">
+		SELECT p_code
+		FROM reservation
+		WHERE rs_num = #{rs_num}
+	</select>
+	
+	<resultMap type="web.mybatis.vo.ScreeningScheduleVO" id="map2">
+		<association property="mvo" column="web.mybatis.vo.MovieListVO">
+			<result property="movieNm" column="movieNm"/>
+			<result property="watchGradeNm" column="watchGradeNm"/>
+		</association>
+	</resultMap>
+	
+	<select id="selectByText" resultMap="map2">
+		SELECT DISTINCT movieNm,watchGradeNm FROM screening_schedule sc
+        INNER JOIN movie_list m 
+        ON sc.movieCd = m.movieCd
+		
+	</select>
+	
+	<select id="selectByTime" resultType="String" parameterType="Map">
+		    SELECT TIME(ss_time) AS time
+		    FROM screening_schedule sc 
+            INNER JOIN movie_list m 
+        	ON sc.movieCd = m.movieCd
+		    WHERE DATE(ss_time) = #{date}
+		    AND movieNm = #{movieName}
+		    AND t_name = #{guan}
+		    ORDER BY ss_time
+	</select>
+	
+	<select id="selectByScode" parameterType="Map" resultType="int">
+		SELECT ss_code FROM screening_schedule sc
+        INNER JOIN movie_list m 
+ 		ON sc.movieCd = m.movieCd
+		WHERE DATE(ss_time) = #{date}
+		AND movieNm = #{movieName}
+		AND t_name = #{guan}
+	</select>
+	
+</mapper>

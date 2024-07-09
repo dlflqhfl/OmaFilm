@@ -1,0 +1,1052 @@
+/*=============회원 로그인=================*/
+
+.container {
+    position: relative;
+    height: 1600px;
+    width: 1920px;
+    margin: auto;
+}
+
+.container .div {
+    position: absolute;
+    width: 198px;
+    height: 59px;
+    top: 349px;
+    left: 449px;
+    font-family: "Inter", Helvetica;
+    font-weight: 400;
+    color: #222222;
+    font-size: 50px;
+    letter-spacing: -1px;
+    line-height: 30.8px;
+}
+
+.container .navbar {
+    position: absolute;
+    width: 1920px;
+    height: 100px;
+    top: 0;
+    left: 0;
+    background-color: #00000080;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: #ffffff33;
+}
+
+.container .link {
+    position: absolute;
+    width: 46px;
+    height: 20px;
+    top: 15px;
+    left: 1464px;
+}
+
+.container .text-wrapper {
+    position: absolute;
+    width: 47px;
+    height: 20px;
+    top: -1px;
+    left: 0;
+    font-family: "ABeeZee", Helvetica;
+    font-weight: 400;
+    color: #888888;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 19.5px;
+    white-space: nowrap;
+}
+
+.container .div-wrapper {
+    position: absolute;
+    width: 46px;
+    height: 20px;
+    top: 15px;
+    left: 486px;
+}
+
+.container .link-2 {
+    position: absolute;
+    width: 35px;
+    height: 20px;
+    top: 15px;
+    left: 1399px;
+}
+
+
+.container .text-wrapper-3 {
+    width: 35px;
+    height: 20px;
+    top: 14px;
+    left: 1334px;
+    font-family: "ABeeZee", Helvetica;
+    color: #888888;
+    font-size: 12px;
+    line-height: 19.5px;
+    white-space: nowrap;
+    position: absolute;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.container .link-3 {
+    position: absolute;
+    width: 46px;
+    height: 20px;
+    top: 14px;
+    left: 410px;
+}
+
+.container .img {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: 42px;
+    left: 450px;
+}
+
+.container .link-4 {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: 42px;
+    left: 1434px;
+}
+
+.container .link-5 {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: 42px;
+    left: 1474px;
+}
+
+.container .text-wrapper-5 {
+    position: absolute;
+    width: 48px;
+    top: 30px;
+    left: 655px;
+    -webkit-text-stroke: 1px #ffffff;
+    font-family: "Kokoro-Regular", Helvetica;
+    font-weight: 400;
+    color: transparent;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 22.5px;
+}
+
+.container .text-wrapper-6 {
+    left: 1117px;
+    position: absolute;
+    width: 56px;
+    top: 30px;
+    -webkit-text-stroke: 1px #ffffff;
+    font-family: "Kokoro-Regular", Helvetica;
+    font-weight: 400;
+    color: transparent;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 22.5px;
+}
+
+.container .text-wrapper-7 {
+    left: 1225px;
+    position: absolute;
+    width: 56px;
+    top: 30px;
+    -webkit-text-stroke: 1px #ffffff;
+    font-family: "Kokoro-Regular", Helvetica;
+    font-weight: 400;
+    color: transparent;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 22.5px;
+}
+
+.container .heading-link {
+    position: absolute;
+    width: 186px;
+    height: 92px;
+    top: -1px;
+    left: 867px;
+}
+
+.container .link-6 {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: 42px;
+    left: 410px;
+    background-image: url(https://c.animaapp.com/s5cVxUlg/img/link-8@2x.png);
+    background-size: 100% 100%;
+}
+
+.container .button {
+    all: unset;
+    box-sizing: border-box;
+    width: 500px;
+    top: 563px;
+    left: 488px;
+    background-color: #ffffff;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-color: #000000;
+    position: absolute;
+    height: 50px;
+}
+
+.container .text-wrapper-8 {
+    position: absolute;
+    width: 85px;
+    height: 50px;
+    top: -2px;
+    left: 208px;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #000000;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 50px;
+    white-space: nowrap;
+}
+
+.container .button-2 {
+    all: unset;
+    box-sizing: border-box;
+    width: 500px;
+    top: 563px;
+    left: 991px;
+    background-color: #ffffff;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: #cccccccc;
+    position: absolute;
+    height: 50px;
+}
+
+.container .text-wrapper-9 {
+    position: absolute;
+    width: 101px;
+    height: 50px;
+    top: -1px;
+    left: 200px;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #7f7f7f;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 50px;
+    white-space: nowrap;
+}
+
+.container .link-7 {
+    position: absolute;
+    width: 587px;
+    height: 20px;
+    top: 1076px;
+    left: 969px;
+}
+
+.container .text-wrapper-10 {
+    position: absolute;
+    width: 57px;
+    height: 15px;
+    top: 17px;
+    left: 23px;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #666666;
+    font-size: 15px;
+    letter-spacing: -0.36px;
+    line-height: 20px;
+    white-space: nowrap;
+}
+
+.container .vertical-divider {
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    top: 10px;
+    left: -57px;
+    background-color: #dddddd;
+}
+
+.container .overlap {
+    position: absolute;
+    width: 1001px;
+    height: 374px;
+    top: 698px;
+    left: 449px;
+}
+
+.container .form {
+    position: absolute;
+    width: 1001px;
+    height: 374px;
+    top: 0;
+    left: 0;
+}
+
+.container .input {
+    top: 33px;
+    position: absolute;
+    width: 449px;
+    height: 50px;
+    left: 319px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #dddddd;
+    padding: 5px;
+    padding-left: 15px;
+    font-size: 20px;
+}
+
+.container .div-wrapper-2 {
+    overflow: hidden;
+    position: relative;
+    width: 404px;
+    height: 23px;
+    top: 13px;
+    left: 19px;
+}
+
+.container .p {
+    position: absolute;
+    width: 755px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #757575;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.container .container-wrapper {
+    top: 114px;
+    position: absolute;
+    width: 449px;
+    height: 50px;
+    left: 319px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #dddddd;
+    padding: 5px;
+    padding-left: 15px;
+    font-size: 20px;
+}
+
+.container .div-wrapper-3 {
+    position: relative;
+    width: 404px;
+    height: 23px;
+    top: 13px;
+    left: 19px;
+}
+
+.container .text-wrapper-11 {
+    position: absolute;
+    width: 404px;
+    height: 23px;
+    top: 0;
+    left: 0;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #757575;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.container .overlap-group {
+    position: absolute;
+    width: 155px;
+    height: 29px;
+    top: 224px;
+    left: 260px;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: -0.36px;
+    line-height: 13.2px;
+}
+
+.container .label {
+    position: absolute;
+    width: 88px;
+    height: 20px;
+    top: 0;
+    left: 0;
+}
+
+.container .background-border {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    left: 14px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    border: 1px solid;
+    border-color: #dddddd;
+}
+
+
+.container .text-wrapper-13 {
+    position: absolute;
+    width: 106px;
+    height: 53px;
+    top: 29px;
+    left: 218px;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #000000;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 50px;
+    white-space: nowrap;
+}
+
+.container .text-wrapper-14 {
+    position: absolute;
+    width: 106px;
+    height: 53px;
+    top: 113px;
+    left: 218px;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #000000;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 50px;
+    white-space: nowrap;
+}
+
+.container .button-3 {
+    all: unset;
+    box-sizing: border-box;
+    width: 350px;
+    top: 314px;
+    left: 342px;
+    background-color: #0e202a;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #dddddd;
+    position: absolute;
+    height: 50px;
+    font-weight: 300;
+    font-family: "Noto Sans KR", Helvetica;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    color: #ffffff;
+}
+
+/*.container .text-wrapper-15 {
+    position: absolute;
+    width: 59px;
+    height: 24px;
+    top: 11px;
+    left: 145px;
+    -webkit-text-stroke: 1px #ffffff;
+
+
+    color: #ffffff;
+
+    white-space: nowrap;
+}*/
+
+.container .link-8 {
+    position: absolute;
+    width: 71px;
+    height: 15px;
+    top: 1094px;
+    left: 878px;
+}
+
+.container .text-wrapper-16 {
+    position: absolute;
+    width: 75px;
+    height: 15px;
+    top: -1px;
+    left: 0;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #666666;
+    font-size: 15px;
+    letter-spacing: -0.36px;
+    line-height: 20px;
+    white-space: nowrap;
+}
+
+.container .image {
+    width: 88px;
+    left: 1003px;
+    position: absolute;
+    height: 80px;
+    top: 1183px;
+    object-fit: cover;
+}
+
+.container .image-2 {
+    width: 86px;
+    left: 847px;
+    position: absolute;
+    height: 80px;
+    top: 1183px;
+    object-fit: cover;
+}
+
+/*=========비회원 로그인 창===========*/
+
+.login_2 {
+    position: relative;
+    width: 1920px;
+    height: 1720px;
+    margin: auto;
+}
+
+.login_2 .div {
+    position: absolute;
+    width: 198px;
+    height: 59px;
+    top: 349px;
+    left: 449px;
+    font-family: "Inter", Helvetica;
+    font-weight: 400;
+    color: #222222;
+    font-size: 50px;
+    letter-spacing: -1px;
+    line-height: 30.8px;
+}
+
+.login_2 .navbar {
+    position: absolute;
+    width: 1920px;
+    height: 100px;
+    top: 0;
+    left: 0;
+    background-color: #00000080;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: #ffffff33;
+}
+
+.login_2 .link {
+    position: absolute;
+    width: 46px;
+    height: 20px;
+    top: 15px;
+    left: 1464px;
+}
+
+.login_2 .text-wrapper {
+    position: absolute;
+    width: 47px;
+    height: 20px;
+    top: -1px;
+    left: 0;
+    font-family: "ABeeZee", Helvetica;
+    font-weight: 400;
+    color: #888888;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 19.5px;
+    white-space: nowrap;
+}
+
+.login_2 .div-wrapper {
+    position: absolute;
+    width: 46px;
+    height: 20px;
+    top: 15px;
+    left: 486px;
+}
+
+.login_2 .link-2 {
+    position: absolute;
+    width: 35px;
+    height: 20px;
+    top: 15px;
+    left: 1399px;
+}
+
+.login_2 .text-wrapper-2 {
+    position: absolute;
+    width: 35px;
+    height: 20px;
+    top: -1px;
+    left: 0;
+    font-family: "ABeeZee", Helvetica;
+    font-weight: 400;
+    color: #888888;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 19.5px;
+    white-space: nowrap;
+}
+
+.login_2 .text-wrapper-3 {
+    width: 35px;
+    height: 20px;
+    top: 14px;
+    left: 1334px;
+    font-family: "ABeeZee", Helvetica;
+    color: #888888;
+    font-size: 12px;
+    line-height: 19.5px;
+    white-space: nowrap;
+    position: absolute;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.login_2 .link-3 {
+    position: absolute;
+    width: 46px;
+    height: 20px;
+    top: 14px;
+    left: 410px;
+}
+
+.login_2 .img {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: 42px;
+    left: 450px;
+}
+
+.login_2 .link-4 {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: 42px;
+    left: 1434px;
+}
+
+.login_2 .link-5 {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: 42px;
+    left: 1474px;
+}
+
+.login_2 .text-wrapper-4 {
+    width: 48px;
+    top: 30px;
+    left: 755px;
+    -webkit-text-stroke: 1px #ffffff;
+    font-family: "Kokoro-Regular", Helvetica;
+    color: transparent;
+    font-size: 18px;
+    text-align: center;
+    line-height: 22.5px;
+    position: absolute;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.login_2 .text-wrapper-5 {
+    position: absolute;
+    width: 48px;
+    top: 30px;
+    left: 655px;
+    -webkit-text-stroke: 1px #ffffff;
+    font-family: "Kokoro-Regular", Helvetica;
+    font-weight: 400;
+    color: transparent;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 22.5px;
+}
+
+.login_2 .text-wrapper-6 {
+    left: 1117px;
+    position: absolute;
+    width: 56px;
+    top: 30px;
+    -webkit-text-stroke: 1px #ffffff;
+    font-family: "Kokoro-Regular", Helvetica;
+    font-weight: 400;
+    color: transparent;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 22.5px;
+}
+
+.login_2 .text-wrapper-7 {
+    left: 1225px;
+    position: absolute;
+    width: 56px;
+    top: 30px;
+    -webkit-text-stroke: 1px #ffffff;
+    font-family: "Kokoro-Regular", Helvetica;
+    font-weight: 400;
+    color: transparent;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 22.5px;
+}
+
+.login_2 .heading-link {
+    position: absolute;
+    width: 186px;
+    height: 92px;
+    top: -1px;
+    left: 867px;
+}
+
+.login_2 .link-6 {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: 42px;
+    left: 410px;
+    background-image: url(https://c.animaapp.com/I6c9R1Xr/img/link-8@2x.png);
+    background-size: 100% 100%;
+}
+
+.login_2 .footer {
+    position: absolute;
+    width: 1920px;
+    height: 223px;
+    top: 1497px;
+    left: 0;
+    object-fit: cover;
+}
+
+.login_2 .button {
+    all: unset;
+    box-sizing: border-box;
+    left: 488px;
+    border-bottom-width: 1px;
+    border-color: #cccccc;
+    position: absolute;
+    width: 500px;
+    height: 50px;
+    top: 563px;
+    background-color: #ffffff;
+    border-bottom-style: solid;
+}
+
+.login_2 .text-wrapper-8 {
+    position: absolute;
+    width: 85px;
+    height: 50px;
+    top: -1px;
+    left: 208px;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #7f7f7f;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 50px;
+    white-space: nowrap;
+}
+
+.login_2 .button-2 {
+    all: unset;
+    box-sizing: border-box;
+    left: 991px;
+    border-bottom-width: 2px;
+    border-color: #000000;
+    position: absolute;
+    width: 500px;
+    height: 50px;
+    top: 563px;
+    background-color: #ffffff;
+    border-bottom-style: solid;
+}
+
+.login_2 .text-wrapper-9 {
+    position: absolute;
+    width: 101px;
+    height: 50px;
+    top: -2px;
+    left: 200px;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #000000;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 50px;
+    white-space: nowrap;
+}
+
+.login_2 .overlap-group {
+    position: absolute;
+    width: 1003px;
+    height: 549px;
+    top: 638px;
+    left: 488px;
+}
+
+.login_2 .form {
+    position: absolute;
+    width: 1003px;
+    height: 549px;
+    top: 0;
+    left: 0;
+}
+
+.login_2 .input {
+    position: absolute;
+    width: 684px;
+    height: 53px;
+    top: 55px;
+    left: 152px;
+}
+
+.login_2 .text {
+    position: absolute;
+    width: 448px;
+    height: 50px;
+    top: 1px;
+    left: 236px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #dddddd;
+    padding: 5px;
+    padding-left: 15px;
+    font-size: 20px;
+}
+
+.login_2 .text-wrapper-10 {
+    position: absolute;
+    width: 69px;
+    height: 53px;
+    top: -1px;
+    left: 0;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #000000;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 50px;
+    white-space: nowrap;
+}
+
+.login_2 .input-2 {
+    position: absolute;
+    width: 685px;
+    height: 53px;
+    top: 132px;
+    left: 155px;
+}
+
+.login_2 .text-2 {
+    position: absolute;
+    width: 452px;
+    height: 50px;
+    top: 2px;
+    left: 233px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #dddddd;
+    padding: 5px;
+    padding-left: 15px;
+    font-size: 20px;
+}
+
+.login_2 .text-wrapper-11 {
+    position: absolute;
+    width: 107px;
+    height: 53px;
+    top: -1px;
+    left: 0;
+    font-weight: 300;
+    color: #000000;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 50px;
+    white-space: nowrap;
+}
+
+.login_2 .input-3 {
+    position: absolute;
+    width: 684px;
+    height: 53px;
+    top: 210px;
+    left: 156px;
+}
+
+.login_2 .text-3 {
+    position: absolute;
+    width: 452px;
+    height: 50px;
+    top: 1px;
+    left: 232px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #dddddd;
+    padding: 5px;
+    padding-left: 15px;
+    font-size: 20px;
+}
+
+.login_2 .text-wrapper-12 {
+    position: absolute;
+    width: 138px;
+    height: 53px;
+    top: -1px;
+    left: 0;
+    font-weight: 300;
+    color: #000000;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 50px;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.login_2 .input-4 {
+    position: absolute;
+    width: 688px;
+    height: 53px;
+    top: 287px;
+    left: 152px;
+}
+
+.login_2 .text-4 {
+    position: absolute;
+    width: 452px;
+    height: 50px;
+    top: 0;
+    left: 236px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #dddddd;
+    padding: 5px;
+    padding-left: 15px;
+    font-size: 20px;
+}
+
+.login_2 .text-wrapper-13 {
+    position: absolute;
+    width: 162px;
+    height: 53px;
+    top: -1px;
+    left: 0;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #000000;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 50px;
+    white-space: nowrap;
+}
+
+.login_2 .input-5 {
+    position: absolute;
+    width: 685px;
+    height: 56px;
+    top: 355px;
+    left: 152px;
+}
+
+.login_2 .text-wrapper-14 {
+    position: absolute;
+    width: 214px;
+    height: 53px;
+    top: -1px;
+    left: 0;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #000000;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 50px;
+    white-space: nowrap;
+}
+
+.login_2 .text-5 {
+    position: absolute;
+    width: 450px;
+    height: 50px;
+    top: 6px;
+    left: 235px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #dddddd;
+}
+
+.login_2 .submit {
+    position: absolute;
+    width: 350px;
+    height: 50px;
+    top: 484px;
+    left: 353px;
+    background-color: #0e202a;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #dddddd;
+}
+
+.login_2 .text-wrapper-15 {
+    position: absolute;
+    width: 59px;
+    height: 24px;
+    top: 11px;
+    left: 145px;
+    -webkit-text-stroke: 1px #ffffff;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.login_2 .link-7 {
+    position: absolute;
+    width: 98px;
+    height: 20px;
+    top: 1227px;
+    left: 1016px;
+}
+
+.login_2 .text-wrapper-16 {
+    position: absolute;
+    width: 57px;
+    height: 20px;
+    top: 2px;
+    left: -28px;
+    font-family: "Noto Sans KR", Helvetica;
+    font-weight: 300;
+    color: #666666;
+    font-size: 15px;
+    letter-spacing: -0.36px;
+    line-height: 20px;
+    white-space: nowrap;
+}

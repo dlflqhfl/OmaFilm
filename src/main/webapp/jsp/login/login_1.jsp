@@ -34,10 +34,8 @@
     apiURL += "&state=" + state;
     session.setAttribute("state", state);
 %>
-
+<jsp:include page="/jsp/header/header.jsp"/>
 <div class="container">
-
-    <jsp:include page="/jsp/header/header.jsp"/>
     <div class="div">로그인</div>
     <span class="button"><div class="text-wrapper-8">회원</div></span>
     <span class="button-2"><div class="text-wrapper-9"><a href="login_2.jsp">비회원</a></div></span>
@@ -63,10 +61,9 @@
     <a href="javascript:kakao_login()"><img class="image" src="https://c.animaapp.com/s5cVxUlg/img/image-5@2x.png"
                                             id="kakao_login"/></a>
     <a href="<%=apiURL%>" id="naver_login"><img class="image-2" src="https://c.animaapp.com/s5cVxUlg/img/image-6@2x.png"/></a>
-    <jsp:include page="/jsp/footer/footer.jsp"/>
 </div>
 
-
+<jsp:include page="/jsp/footer/footer.jsp"/>
 <script>
     window.onload = function() {
         //requset에 저장된 result값을 가져온다.
