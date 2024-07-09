@@ -112,7 +112,7 @@
 }
 
 .screen .overlap-group {
-  position: absolute;
+  position: relative;
   width: 1301px;
   height: 601px;
   top: 487px;
@@ -551,11 +551,12 @@
 }
 
 .screen .nav {
-  position: absolute;
+  position: relative;
   width: 840px;
   height: 62px;
-  top: 539px;
+  top: 580px;
   left: 258px;
+  margin: 0 auto;
 }
 
 .screen .strong {
@@ -1119,3 +1120,7 @@ ol.paging {
 	    color:white;
 	    font-weight:bold;
 	}
+a {
+    text-decoration: none;
+    color: #ffffff;
+}

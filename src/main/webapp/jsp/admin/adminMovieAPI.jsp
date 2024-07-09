@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="div-con-wrap">
-		 			<div class="nav1">
+                <div class="nav1">
                     <ol class="paging">
 
                         <c:set var="page" value="${requestScope.page}"/>
@@ -35,10 +35,10 @@
 
                     </ol>
                 </div>
-                	<form action="Controller?type=adminMovieApi" method="post">
-	                    <input class="border" id="searchData" name="searchData" placeholder="영화제목을 입력하세요">
-		                <button class="button">검색</button>
-                	</form>
+                   <form action="Controller?type=adminMovieApi" method="post">
+                       <input class="border" id="searchData" name="searchData" placeholder="영화제목을 입력하세요">
+                      <button class="button">검색</button>
+                   </form>
                     <div class="button-2"></div>
                 <div class="frame">
                     <div class="span-name"></div>
@@ -55,27 +55,27 @@
                 <div class="heading">영화관리</div>
                 <form id="searchForm" action="Controller?type=adminMovieApi" method="post">
                     개봉 년도 : <input type="text" name="openStartDt" required="" style="
-				    width: 120px;
-				    height: 30px;
-				    margin-left: 10px;
-				    border: 1px solid;
-				    border-color: #d8d9db;
-				    border-radius: 3px;
-				"placeholder="시작년도"> &nbsp;
-				                    ~ <input type="text" name="openEndDt" required="" style="
-				    width: 120px;
-				    height: 30px;
-				    margin-left: 10px;
-				    border: 1px solid;
-				    border-color: #d8d9db;
-				    border-radius: 3px;
-				"placeholder="종료년도"> &nbsp;
-				                    <button type="submit" style="
-				    width: 55px;
-				    height: 35px;
-				    border: none;
-				    border-radius: 5px;
-				">조회</button>
+                width: 120px;
+                height: 30px;
+                margin-left: 10px;
+                border: 1px solid;
+                border-color: #d8d9db;
+                border-radius: 3px;
+            "placeholder="시작년도"> &nbsp;
+                                ~ <input type="text" name="openEndDt" required="" style="
+                width: 120px;
+                height: 30px;
+                margin-left: 10px;
+                border: 1px solid;
+                border-color: #d8d9db;
+                border-radius: 3px;
+            "placeholder="종료년도"> &nbsp;
+                                <button type="submit" style="
+                width: 55px;
+                height: 35px;
+                border: none;
+                border-radius: 5px;
+            ">조회</button>
                 </form>
                 <div class="overlap-group">
                     <a href="Controller?type=adminMovieApi"><div class="view"><div class="text-wrapper-14">API</div></div></a>

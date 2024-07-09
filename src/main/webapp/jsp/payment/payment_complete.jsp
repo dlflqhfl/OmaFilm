@@ -12,6 +12,7 @@
   String name = request.getParameter("buyer_name");
   System.out.println(name);%>
 <body>
+<jsp:include page="/jsp/header/header.jsp"/>
 <div class="pay-complt">
   <div class="overlap-wrapper">
     <div class="overlap">
@@ -194,5 +195,6 @@ $(function(){
 	
 });
 </script>
+<jsp:include page="/jsp/footer/footer.jsp"/>
 </body>
 </html>

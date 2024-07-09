@@ -6,6 +6,8 @@ public class InquiryVO {
 	iq_content, //문의 내용
 	iq_time; //문의 시간
 	
+	private IqCommentVO icvo;
+	
 	public InquiryVO() {}
 
 	public InquiryVO(int iq_idx, int u_code, String iq_title, String iq_content, String iq_time) {
@@ -56,4 +58,16 @@ public class InquiryVO {
 	public void setIq_time(String iq_time) {
 		this.iq_time = iq_time;
 	}
+
+	public IqCommentVO getIcvo() {
+		return icvo;
+	}
+
+	public void setIcvo(IqCommentVO icvo) {
+		this.icvo = icvo;
+	}
+
+	
+	
+	
 }

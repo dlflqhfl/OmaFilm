@@ -61,14 +61,14 @@
           </div>
         </div>
         <form id="add" action="Controller?type=adminAddMovie" method="post">
-	        <input type="hidden" id="nameData" name="nameData" value="">
-	        <input type="hidden" id="timeData" name="timeData" value="">
-	        <input type="hidden" id="dateData" name="dateData" value="">
-	        <input type="hidden" id="fileData" name="fileData" value="">
-	        <input type="hidden" id="contentData" name="contentData" value="">
-	        <input type="hidden" id="submit" name="submit" value="submit">
-	        <input type="hidden" id="movieCd" name="movieCd" value="${movie.movieCd }">
-        	<button type="submit" id="goAdd" class="button-2 "><div class="text-wrapper-5">등록</div></button>
+           <input type="hidden" id="nameData" name="nameData" value="">
+           <input type="hidden" id="timeData" name="timeData" value="">
+           <input type="hidden" id="dateData" name="dateData" value="">
+           <input type="hidden" id="fileData" name="fileData" value="">
+           <input type="hidden" id="contentData" name="contentData" value="">
+           <input type="hidden" id="submit" name="submit" value="submit">
+           <input type="hidden" id="movieCd" name="movieCd" value="${movie.movieCd }">
+           <button type="submit" id="goAdd" class="button-2 "><div class="text-wrapper-5">등록</div></button>
         </form>
         <button class="button-3"><div class="text-wrapper-6">목록</div></button>
         <div class="heading">영화관리</div>
@@ -83,13 +83,9 @@
         <img class="line" src="img/line-2.svg" />
         <div class="text-wrapper-9">영화 추가</div>
         <jsp:include page="/jsp/admin/menu/menu.jsp"></jsp:include>
-        
       </div>
     </div>
-    
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 let date;
 let name, time;
@@ -291,20 +287,20 @@ $(function() {
         console.log(date);
     });
     $("#goAdd").click(function() {
-	    let content = $("#area").val();
-	    console.log(content)
-	    $("#contentData").val(content);
+       let content = $("#area").val();
+       console.log(content)
+       $("#contentData").val(content);
 
-	    let file = $(".input").val()
-	    $("#fileData").val(file)
-	    console.log(file)
-	    
-	    $("#add").submit(); // form을 submit하는 코드입니다.
-	});
+       let file = $(".input").val()
+       $("#fileData").val(file)
+       console.log(file)
+       
+       $("#add").submit(); // form을 submit하는 코드입니다.
+   });
 
     
 });
-	
+   
 
 // 모달창 열기
 function showDialog() {
@@ -318,33 +314,33 @@ function closeDialog() {
 
 
 const settings = {
-	  async: true,
-	  crossDomain: true,
-	  
-	  url: 'https://api.themoviedb.org/3/search/movie?query=${movie.movieNm}&include_adult=false&language=ko-KR&page=1&year=${movie.openDt.substring(0,4)}',
-	  method: 'GET',
-	  headers: {
-	    accept: 'application/json',
-	    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzYzMjcxODhhNjViZTE5YTc4MjhjNzY4Y2NhNzg3NCIsIm5iZiI6MTcxOTg4NjExNC4yNjk4NzEsInN1YiI6IjY2ODM1ZWZmOTg4NzA5NzNhZTJiZWQ2YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.T8d6wDtewcUbAw4oecS_48QB4EolWbMIODHZ_GxvLXI'
-	  }
-	};
+     async: true,
+     crossDomain: true,
+     
+     url: 'https://api.themoviedb.org/3/search/movie?query=${movie.movieNm}&include_adult=false&language=ko-KR&page=1&year=${movie.openDt.substring(0,4)}',
+     method: 'GET',
+     headers: {
+       accept: 'application/json',
+       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzYzMjcxODhhNjViZTE5YTc4MjhjNzY4Y2NhNzg3NCIsIm5iZiI6MTcxOTg4NjExNC4yNjk4NzEsInN1YiI6IjY2ODM1ZWZmOTg4NzA5NzNhZTJiZWQ2YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.T8d6wDtewcUbAw4oecS_48QB4EolWbMIODHZ_GxvLXI'
+     }
+   };
 
-	$.ajax(settings).done(function (response) {
-	  console.log(response);
+   $.ajax(settings).done(function (response) {
+     console.log(response);
 
-	  var results = response.results;
+     var results = response.results;
 
-	  var posterPath = "https://image.tmdb.org/t/p/w500/" + results[0].poster_path;
+     var posterPath = "https://image.tmdb.org/t/p/w500/" + results[0].poster_path;
 
-	  var overview = results[0].overview;
-	  console.log(posterPath);
-	  console.log(overview);
+     var overview = results[0].overview;
+     console.log(posterPath);
+     console.log(overview);
 
-	  $(".input").val(posterPath);
-	  $("#area").val(overview);
-	});
-	
-	//아이디가 로그아웃을 클릭했을때 로그아웃할거냐고 경고창
+     $(".input").val(posterPath);
+     $("#area").val(overview);
+   });
+   
+   //아이디가 로그아웃을 클릭했을때 로그아웃할거냐고 경고창
     document.querySelector('#logout').addEventListener('click', function(event) {
         var confirmLogout = confirm("로그아웃하시겠습니까?");
         if (!confirmLogout) {

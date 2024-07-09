@@ -33,10 +33,7 @@ public class NoReservationCheckAction implements Action{
 		System.out.println(map);
 		
 		int res = ReservationDAO.loginNoReserver(map);
-		
-		
-		
-		
+					
 		if( name != null && email != null && password != null && birth != null) {
 			if(res > 0) {
 				request.setAttribute("res", res);
@@ -55,24 +52,20 @@ public class NoReservationCheckAction implements Action{
 		    ReserverVO[] list = ReservationDAO.selectReserver(userInfo); 
 		    ReserverVO[] cancel_list = ReservationDAO.getNonMemCancelList(userInfo); 
 		    
-		    
 		    request.setAttribute("list", list);
 		    request.setAttribute("cancel_list", cancel_list);
 		    int cnt = ReservationDAO.selectCnt(userInfo);
 		    System.out.println(cnt);
 			request.setAttribute("cnt", cnt);
-			
-			
-			
-			
+				
 			//rvo 페이징 처리
 			Paging page = new Paging(10,5);
 			
-			String res2 = request.getParameter("res");
+			String cPage = request.getParameter("cPage");
 			if(cancel_list !=null)
 				page.setTotalRecode(cancel_list.length);
-			if(res2 !=null)
-				page.setNowPage(Integer.parseInt(res2));
+			if(cPage !=null)
+				page.setNowPage(Integer.parseInt(cPage));
 			else
 				page.setNowPage(1);
 			request.setAttribute("page", page);
@@ -84,5 +77,6 @@ public class NoReservationCheckAction implements Action{
 		
 		
 	}
+
 
 }

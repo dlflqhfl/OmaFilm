@@ -45,6 +45,14 @@
 		WHERE movieNm LIKE CONCAT('%', #{movieNm}, '%')
 	</select>
 	
+	<select id="getDBMovieList" parameterType="Map" resultType="web.mybatis.vo.MovieListVO">
+        SELECT * FROM movie_list
+        <where>
+			<if test="searchValue != null">
+				AND movieNm LIKE CONCAT('%', #{searchValue}, '%')
+			</if>
+		</where>
+	</select>
 	
 	<!--  전체 영화 수  -->
 	<select id="count" resultType="int"> 

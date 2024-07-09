@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html> 
 <head>
@@ -18,10 +19,10 @@
             <img class="element" src="img/adminMovie/1.png" />
             <div class="text-wrapper">관리자</div>
             <div class="list">
-              <div class="item-link"><div class="div">영화관리</div></div>
-              <div class="div-wrapper"><div class="text-wrapper-2">이벤트/혜택 관리</div></div>
-              <div class="item-link-2"><div class="text-wrapper-3">쿠폰관리</div></div>
-              <div class="item-link-2"><div class="text-wrapper-4">고객센터 관리</div></div>
+              <div class="item-link"><div class="div"><a href="Controller?type=adminMovieDb">영화관리</a></div></div>
+              <div class="div-wrapper"><div class="text-wrapper-2"><a href="Controller?type=adminEvent">이벤트/혜택 관리</a></div></div>
+              <div class="item-link-2"><div class="text-wrapper-3"><a href="Controller?type=adminCpHome">쿠폰관리</a></div></div>
+              <div class="item-link-2"><div class="text-wrapper-4"><a href="Controller?type=adminNotice">고객센터 관리</a></div></div>
             </div>
           </div>
           <div class="div-con-wrap">
@@ -30,9 +31,8 @@
               <div class="input">
                 <div class="container-2"><input type="text" id="search" name="search" class="text-wrapper-9" placeholder="영화제목을 입력해주세요"></div>
               </div>
-              <div class="button-2"></div>
             </div>
-            <div class="cell" ><div class="text-wrapper-10" onclick="del()">삭제</div></div>
+            
             <div class="cell-2"><div class="text-wrapper-11" onclick="dialog()">시간 추가</div></div>
        	 	<div id="myModal" class="modal">
        			<div class="modal-content">
@@ -57,42 +57,40 @@
             </div>
             <div class="heading">영화관리</div>
             
-                  <div class="nav1">
-                    <ol class="paging">
-
-                        <c:set var="page" value="${requestScope.page}"/>
-
-                        <c:if test="${page.startPage < page.pagePerBlock }">
-                            <li class="disable">&lt;</li>
-                        </c:if>
-
-                        <c:if test="${page.startPage >= page.pagePerBlock }">
-
-                            <li><a href="Controller?type=adminMovieDb&cPage=${page.nowPage-page.pagePerBlock }">&lt;</a></li>
-                        </c:if>
-
-                        <c:forEach begin="${page.startPage }" end="${page.endPage }" varStatus="vs">
-                            <c:if test="${vs.index eq page.nowPage }">
-                                <li class="now">${vs.index}</li>
-                            </c:if>
-                            <c:if test="${vs.index ne page.nowPage }">
-                                <li><a href="Controller?type=adminMovieDb&cPage=${vs.index}">${vs.index}</a></li>
-                            </c:if>
-                        </c:forEach>
+            	<div class="nav1">   <!-- 페이징 시작 -->
+				<div>
+					<ol class="paging">
+						<c:if test="${page.startPage < page.pagePerBlock}">
+							<li class="disable">&lt;</li>
+						</c:if>
+						<c:if test="${page.startPage >= page.pagePerBlock}">
+							<li class=""><a
+								href="Controller?type=adminMovieDbcPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+						</c:if>
+						<!-- <div class="nav"> -->
+						<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+							<c:if test="${i == page.nowPage}">
+								<li class="now">${i}</li>
+							</c:if>
+							<c:if test="${i != page.nowPage}">
+								<li class=" "><a
+									href="Controller?type=adminMovieDb&cPage=${i}">${i}</a></li>
+							</c:if>
+						</c:forEach>
 
 
-                        <c:if test="${page.endPage < page.totalPage }">
+						<c:if test="${page.endPage < page.totalPage}">
+							<li class=""><a
+								href="Controller?type=adminMovieDb&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+						</c:if>
+						<c:if test="${page.endPage >= page.totalPage}">
+							<li class=" disable">&gt;</li>
+						</c:if>
 
-                            <li><a href="Controller?type=adminMovieDb&cPage=${page.nowPage+page.pagePerBlock}">&gt;</a></li>
-                        </c:if>
-
-                        <c:if test="${page.endPage >= page.totalPage }">
-                            <li class="disable">&gt;</li>
-                        </c:if>
-
-                    </ol>
-                </div>
-            
+					</ol>
+				</div>
+			</div>   <!-- 페이징 끝 -->
+            	
             <table class="movie-table">
                 <thead>
                 <tr>
@@ -103,12 +101,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="movie" items="${ar }" varStatus="num">
+                
+                <c:set var="len" value="${fn:length(ar)}" />
+	                <c:if test="${page.end<=len}">
+	                	<c:set var="end" value="${page.end}"/>
+	                </c:if>
+					<c:if test="${page.end>len}">
+						<c:set var="end" value="${len}" />
+					</c:if>
+						
+					<c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
+					
                     <tr>
-                        <td><input type="checkbox" id="checkbox" name="movieCd" value="${movie.movieCd }"/></td>
-                        <td>${num.index + 1}</td>
-                        <td>${movie.movieNm}</td>
-                        <td>${movie.openDt}</td>
+                        <td><input type="checkbox" id="checkbox" name="movieCd" value="${ar[i-1].movieCd }"/></td>
+                        <td>${status.index}</td>
+                        <td>${ar[i-1].movieNm}</td>
+                        <td>${ar[i-1].openDt}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -120,7 +128,7 @@
                 <input type="hidden" id="movieCd" name="movieCd" value="">
             </form>
             <form id="screenDelete" action="Controller?type=adminMovieDb" method="post">
-                <input type="hidden" id="movieCD" name="movieCd" value="">
+                <input type="hidden" id="movieCD_2" name="movieCd" value="">
                 <input type="hidden" id="delete" name="delete" value="delete">
             </form>
             

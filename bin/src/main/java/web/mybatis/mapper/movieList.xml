@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="movieList">
+	
+    <!-- 영화 이름 -> MovieListVO -->
+    <select id="getMovieVO" parameterType="String" resultType="web.mybatis.vo.MovieListVO">
+        SELECT *
+        FROM movie_list
+        WHERE movieNm = #{movieNm} 
+    </select>
+
+    <select id="getMVO" parameterType="String" resultType="web.mybatis.vo.MovieListVO">
+        SELECT *
+        FROM movie_list
+        WHERE movieCd = #{movieCd}
+    </select>
+
+    <insert id="insertMovie" parameterType="web.mybatis.vo.MovieListVO">
+        INSERT INTO movie_list(movieCd, movieNm,movieNmEn,prdtYear,showTm,openDt,typeNm,
+        nationNm,genreNm,directors,peopleNm,peopleNmEn,actors,cast,castEn,showTypeGroupNm,
+        showTypeNm,watchGradeNm,m_plot, m_file)
+        VALUES(#{movieCd}, #{movieNm},#{movieNmEn},#{prdtYear},#{showTm},#{openDt},#{typeNm},
+        #{nationNm},#{genreNm},#{directors},#{peopleNm},#{peopleNmEn},#{actors},#{cast},#{castEn},#{showTypeGroupNm},
+        #{showTypeNm},#{watchGradeNm},#{m_plot}, #{m_file} )
+    </insert>
+
+    <select id="selectMovie" resultType="web.mybatis.vo.MovieListVO" parameterType="Map">
+        SELECT * FROM(
+        SELECT @RN:=@RN+1 AS rnum, a.* FROM(
+        SELECT * FROM movie_list
+		<where>
+			<if test="searchValue != null">
+				AND movieNm LIKE CONCAT('%', #{searchValue}, '%')
+			</if>
+		</where>        
+        ) a, (SELECT @RN:=0) b
+        ) c WHERE c.rnum between #{begin} AND #{end}
+    </select>
+
+	<select id="searchMovie" parameterType="String" resultType="web.mybatis.vo.MovieListVO">
+		SELECT *
+		FROM movie_list
+		WHERE movieNm LIKE CONCAT('%', #{movieNm}, '%')
+	</select>
+	
+	
+	<!--  전체 영화 수  -->
+	<select id="count" resultType="int"> 
+	SELECT COUNT(*) FROM movie_list
+	</select>
+	
+	<!--  영화이름으로 검색한 영화 수  -->
+	<select id="searchcount" resultType="int" parameterType="String"> 
+	SELECT COUNT(*) FROM movie_list
+	    <where>
+	        <if test="movieNm != null and movieNm != ''">
+	            movieNm LIKE CONCAT('%', #{movieNm}, '%')
+	        </if>
+	    </where>
+	</select>
+	
+	<resultMap type="web.mybatis.vo.MovieListVO" id="map1">
+		<result property="movieCd" column="movieCd"/>
+		<result property="movieNm" column="movieNm"/>
+		<result property="openDt" column="openDt"/>
+		<result property="watchGradeNm" column="watchGradeNm"/>
+		<result property="m_plot" column="m_plot"/>
+		<result property="m_file" column="m_file"/>
+		<association property="dvo" javaType="web.mybatis.vo.DailyBoxOfficeVO">
+	        <result property="rank" column="mrank"/>
+	        <result property="salesShare" column="salesShare"/>
+    	</association>
+	    <association property="rvo" javaType="web.mybatis.vo.ReviewVO">
+	        <result property="review_count" column="review_count"/>
+	    </association>
+	</resultMap>
+	
+	<!--  영화리스트(예매율순) -->
+	  <select id="list" resultMap="map1" parameterType="map">
+       SELECT 
+        c.rnum1, 
+        c.movieCd, 
+        c.movieNm, 
+        c.openDt, 
+        c.watchGradeNm, 
+        c.m_plot, 
+        c.m_file,
+        c.mrank,
+        c.salesShare,
+        c.review_count
+    FROM (
+        SELECT 
+            (@RN := @RN + 1) AS rnum1,
+            m.movieCd, 
+            m.movieNm,  
+            m.openDt, 
+            m.watchGradeNm, 
+            m.m_plot, 
+            m.m_file,
+            IFNULL(d.rank, '') AS mrank,
+            IFNULL(d.salesShare, '0') AS salesShare,
+            IFNULL(r.review_count, 0) AS review_count
+        FROM 
+            (SELECT * FROM movie_list
+            <where>
+                <if test="movieNm != null and movieNm != ''">
+                    movieNm LIKE CONCAT('%', #{movieNm}, '%') 
+                </if>
+            </where>
+            ) m
+            LEFT JOIN daily_boxoffice d ON m.movieCd = d.movieCd
+            LEFT JOIN (
+                SELECT movieCd, COUNT(*) AS review_count
+                FROM review
+                GROUP BY movieCd
+            ) r ON m.movieCd = r.movieCd,
+            (SELECT @RN := 0) b
+        ORDER BY        
+            IF(d.rank IS NULL, 1, 0) ASC,  
+       		CAST(d.rank AS UNSIGNED) ASC,
+       		m.openDt DESC
+	    ) c
+	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
+		</select>
+	
+		<!--  영화리스트(관람평순) -->
+		<select id="rlist" resultMap="map1" parameterType="map">
+	    SELECT 
+	        c.rnum1,
+	        c.movieCd, 
+	        c.movieNm, 
+	        c.openDt, 
+	        c.watchGradeNm, 
+	        c.m_plot, 
+	        c.m_file,
+	        c.mrank,
+	        c.salesShare,
+	        c.review_count
+	    FROM (
+	        SELECT 
+	            (@RN := @RN + 1) AS rnum1,
+	            m.movieCd, 
+	            m.movieNm, 
+	            m.openDt, 
+	            m.watchGradeNm, 
+	            m.m_plot, 
+	            m.m_file,
+	            IFNULL(d.rank, '') AS mrank,
+	            IFNULL(d.salesShare, '0') AS salesShare,
+	            IFNULL(r.review_count, 0) AS review_count
+	        FROM 
+	            (SELECT * FROM movie_list
+	            <where>
+	                <if test="movieNm != null and movieNm != ''">
+	                    movieNm LIKE CONCAT('%', #{movieNm}, '%') 
+	                </if>
+	            </where>
+	            ) m
+	            LEFT JOIN daily_boxoffice d ON m.movieCd = d.movieCd
+	            LEFT JOIN (
+	                SELECT movieCd, COUNT(*) AS review_count
+	                FROM review
+	                GROUP BY movieCd
+	            ) r ON m.movieCd = r.movieCd,
+	            (SELECT @RN := 0) b
+	        ORDER BY
+	            IF(r.review_count IS NULL, 1, 0) ASC,  
+       			 r.review_count DESC, 
+        		CAST(COALESCE(d.rank, '9999') AS UNSIGNED) ASC 
+	    ) c
+	    WHERE c.rnum1 BETWEEN #{begin} AND #{end}
+	</select>
+	
+	<delete id="deleteMovie" parameterType="String">
+        DELETE FROM movie_list 
+        WHERE movieCd = #{movieCd}
+    </delete>
+
+</mapper>
