@@ -5,6 +5,8 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+    	document.body.addEventListener('click', function(event) {
+    	var target = event.target;
         var mvo = <c:out value="${sessionScope.mvo}" default="null" />;
 
 
@@ -28,6 +30,7 @@
                 });
             });
         }
+         
 
         document.querySelector('.header_modal-button').addEventListener('click', function () {
             closeModal();
@@ -43,6 +46,7 @@
             closeModal();
         });
     });
+    });   	
 </script>
 <header class="site_header">
     <div class="header-wrapper">
@@ -165,7 +169,7 @@
                         공지사항
                     </div>
                 </a>
-                <a href="${pageContext.request.contextPath}/Controller?type=sinquiry">
+                <a href="${pageContext.request.contextPath}/jsp/serviceCenter/inquiry.jsp" id="my_6">
                     <div style="width: 181px; height: 32px; left: 636px; top: 620px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
                         1:1문의
                     </div>

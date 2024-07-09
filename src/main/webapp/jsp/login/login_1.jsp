@@ -37,7 +37,6 @@
 <jsp:include page="/jsp/header/header.jsp"/>
 <div class="container">
     <div class="div">로그인</div>
-    <jsp:include page="/jsp/header/header.jsp"/>
     <span class="button"><div class="text-wrapper-8">회원</div></span>
     <span class="button-2"><div class="text-wrapper-9"><a href="login_2.jsp">비회원</a></div></span>
     <div class="link-7">

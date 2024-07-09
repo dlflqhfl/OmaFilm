@@ -17,6 +17,7 @@ public class MovieListAction implements Action {
 		Paging page = new Paging(20, 5);
 		
 		String cPage = request.getParameter("cPage");
+		String type = request.getParameter("type");
 		
 		//전체페이지 수를 구하기
 		page.setTotalRecode(MovieListDAO.getCount());
@@ -41,6 +42,7 @@ public class MovieListAction implements Action {
 		request.setAttribute("mar", mar);
 		request.setAttribute("page", page);
 		request.setAttribute("cnt", cnt);
+		request.setAttribute("type", type);
 
 		
 		return "/jsp/movie/movieList.jsp";

@@ -40,11 +40,10 @@
             </a>
         </div>
     </div>
-
     <div class="footer__wrapper--secondary">
         <div class="footer__image"></div>
         <p class="footer__address">
-            서울 강남구 테헤란로 132 8층 쌍용교육센터 (역삼동 735) ARS 010-9776-3713 대표이메일 aajj9776@gmial.com<br/>대표자명
+            서울 강남구 테헤란로 132 8층 쌍용교육센터 (역삼동 735) ARS 0507-1316-4632 대표이메일 aajj9776@gmial.com<br/>대표자명
             이주현 · 개인정보보호책임자 이하운 · 사업자등록번호 123-45-6789 · 통신판매업신고번호 2023-서울성동-0177<br/>COPYRIGHT
             © Omacakse sajwo, Inc. All rights reserved
         </p>

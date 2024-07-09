@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
@@ -159,8 +159,8 @@
 						            </div>
 					            </c:if>
 					         </c:forEach>
-
-
+					         
+					         
 				            <c:if test="${empty mar}">
 				            	<div id="none">
 		              			 죄송합니다. 상영 준비중입니다.<br/>

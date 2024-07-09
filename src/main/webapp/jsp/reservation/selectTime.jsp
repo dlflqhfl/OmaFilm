@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/selectTimeStyle.css" />
   </head>
   <body>
- 
+ <jsp:include page="/jsp/header/header.jsp"/>
     <div class="select-movie">
       <div class="div">
         <div class="list">
@@ -51,31 +51,7 @@
         </div>
         <div class="container">
           <div class="overlap">
-            <div class="div-wrapper"><div class="text-wrapper-8">상</div></div>
-            <div class="background">
-              <div class="heading-wrapper"><div class="heading">영화관</div></div>
-              <div class="vertical-border">
-                <div class="list-2">
-                  <div class="overlap-group-wrapper">
-                    <div class="div-3">
-                      <div class="div-wrapper"><div class="text-wrapper-9">전</div></div>
-                      <div class="list-wrapper">
-                        <div class="div-3">
-                          <div class="item-link"></div>
-                          <div class="background-wrapper"><div class="background-2"></div></div>
-                          <div class="item-link-2"></div>
-                          <div class="item-link-3"></div>
-                          <div class="item-link-4"></div>
-                          <div class="item-link-5"></div>
-                          <div class="item-link-6"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <button class="button"><div class="text-wrapper-10">상영관</div></button>
-                </div>
-              </div>
-            </div>
+            
             <div class="background-3">
               <div class="background-4"><div class="heading-2">영화 선택</div></div>
               <div class="vertical-border-2">
@@ -83,34 +59,39 @@
                   <div class="container-2"><div class="text-wrapper-11">목</div></div>
                 </div>
                 <div class="container-wrapper">
-                  <div class="container-3">
-                    <div class="container-4">
-                     <div class="list-3">
+                  <div class="list-3">
                       <div class="showMovie"></div>
                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
+            </div><div class="background">
+              <div class="heading-wrapper"><div class="heading">영화관</div></div>
+              <div class="list-2">
+                  <div class="button"><div class="text-wrapper-10">상영관</div></div><div class="list-wrapper">
+                        <div class="item-link-25 guan" style=""><div class="text-wrapper-24">쌍용 1관</div></div>
+                      <div class="item-link-25 guan" style=""><div class="text-wrapper-24">쌍용 1관</div></div><div class="item-link-25 guan" style=""><div class="text-wrapper-24">쌍용 1관</div></div><div class="item-link-25 guan" style=""><div class="text-wrapper-24">쌍용 1관</div></div><div class="item-link-25 guan" style=""><div class="text-wrapper-24">쌍용 1관</div></div></div>
+                  
+                </div>
             </div>
-            <div class="item-link-21 guan"><div class="text-wrapper-24">쌍용 2관</div></div>
-            <div class="item-link-22 guan"><div class="text-wrapper-24">쌍용 3관</div></div>
-            <div class="item-link-23 guan"><div class="text-wrapper-24">쌍용 4관</div></div>
-            <div class="item-link-24 guan"><div class="text-wrapper-25">프리미엄 오경주관</div></div>
-            <div class="item-link-25 guan"><div class="text-wrapper-24">쌍용 1관</div></div>
+            
+            
+            
+            
+            
+            
           </div>
           <div class="background-5">
-            <div class="background-6"><div class="heading-3">(오늘)</div></div>
+            <div class="background-6"><div class="heading-3">2024-07-08(오늘)</div></div>
             <div class="container-5">
               <div class="list-4">
                 <div class="overlap-4">
                   <div class="container-6">
 					<div class="calendar">
 						<div class="month">
-							<span id="current-month">6월</span>
+							<span id="current-month"></span>
 						</div>
 						<div class="days" id="days">
-						</div>
+						<div class="day"><span class="day-name">일</span><span class="date" style="color: red;">7</span></div><div class="day selected"><span class="day-name now">오늘</span><span class="date today" style="color: white;">8</span></div><div class="day"><span class="day-name">화</span><span class="date" style="color: black;">9</span></div><div class="day"><span class="day-name">수</span><span class="date" style="color: black;">10</span></div><div class="day"><span class="day-name">목</span><span class="date" style="color: black;">11</span></div><div class="day"><span class="day-name">금</span><span class="date" style="color: black;">12</span></div><div class="day"><span class="day-name">토</span><span class="date" style="color: blue;">13</span></div></div>
 					</div>
                   </div>
                 </div>
@@ -143,6 +124,7 @@
         </div>
       </div>
     </div>
+    <jsp:include page="/jsp/footer/footer.jsp"/>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
   crossorigin="anonymous"></script>

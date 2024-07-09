@@ -19,7 +19,6 @@ public class SinquiryAction implements Action {
 			request.getSession().setAttribute("u_code", mvo.getU_code());
 			return "/jsp/serviceCenter/inquiry.jsp";
 		} else {
-			request.getSession().setAttribute("loginErrorMessage", "로그인이 필요한 서비스입니다.");
 			return "/jsp/login/login_1.jsp";
 		}	
 			

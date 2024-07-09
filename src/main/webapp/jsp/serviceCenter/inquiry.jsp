@@ -59,8 +59,8 @@
                 <button type="button" class="button" onclick="sendData()"><div class="text-wrapper-6">등록</div></button>
               </div>
             </div>
-          </div>
          </form>
+          </div>
 
           <div class="heading">1:1 문의</div>
           <div class="overlap-wrapper">
@@ -68,15 +68,15 @@
               <div class="link-8"><div class="text-wrapper-14">고객센터</div></div>
               <div class="overlap-group-wrapper">
                 <div class="overlap-group-3">
-                  <div class="item-link"><div class="text-wrapper-15"><a href="Controller?type=home">고객센터 홈</a></div></div>
-                  <div class="item-link-2"><div class="text-wrapper-16"><a href="Controller?type=faq">자주 묻는 질문</a></div></div>
-                  <div class="link-10"><div class="text-wrapper-17"><a href="Controller?type=notice">공지사항</a></div></div>
+                  <div class="item-link"><div class="text-wrapper-15"><a href="${pageContext.request.contextPath}/Controller?type=home">고객센터 홈</a></div></div>
+                  <div class="item-link-2"><div class="text-wrapper-16"><a href="${pageContext.request.contextPath}/Controller?type=faq">자주 묻는 질문</a></div></div>
+                  <div class="link-10"><div class="text-wrapper-17"><a href="${pageContext.request.contextPath}/Controller?type=notice">공지사항</a></div></div>
                   <div class="item-link-3">
                   <div class="text-wrapper-18">
-                  <a href="Controller?type=sinquiry"><%--1:1 문의--%></a>
+                  <a href="${pageContext.request.contextPath}/jsp/serviceCenter/inquiry.jsp" id="my_11"><%--1:1 문의--%></a>
                   </div>
                   </div>
-                  <div class="link-11"><div class="text-wrapper-19"><a href="Controller?type=directions">오시는 길</a></div></div>
+                  <div class="link-11"><div class="text-wrapper-19"><a href="${pageContext.request.contextPath}/Controller?type=directions">오시는 길</a></div></div>
                 </div>
               </div>
             </div>
@@ -84,7 +84,6 @@
         </div>
       </div>
     </div>
-   
    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>   
    <script>
       function sendData(){

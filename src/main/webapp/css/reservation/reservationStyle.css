@@ -385,8 +385,8 @@
 
 .selectseat .a {
   position: absolute;
-  width: 27px;
-  height: 27px;
+  /* width: 27px; */
+  /* height: 27px; */
   top: 0;
   left: 3px;
   font-family: "Lato", Helvetica;
