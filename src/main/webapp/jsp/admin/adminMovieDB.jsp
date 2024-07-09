@@ -18,10 +18,10 @@
             <img class="element" src="img/adminMovie/1.png" />
             <div class="text-wrapper">관리자</div>
             <div class="list">
-              <div class="item-link"><div class="div">영화관리</div></div>
-              <div class="div-wrapper"><div class="text-wrapper-2">이벤트/혜택 관리</div></div>
-              <div class="item-link-2"><div class="text-wrapper-3">쿠폰관리</div></div>
-              <div class="item-link-2"><div class="text-wrapper-4">고객센터 관리</div></div>
+              <div class="item-link"><div class="div"><a href="Controller?type=adminMovieDb">영화관리</a></div></div>
+              <div class="div-wrapper"><div class="text-wrapper-2"><a href="Controller?type=adminEvent">이벤트/혜택 관리</a></div></div>
+              <div class="item-link-2"><div class="text-wrapper-3"><a href="Controller?type=adminCpHome">쿠폰관리</a></div></div>
+              <div class="item-link-2"><div class="text-wrapper-4"><a href="Controller?type=adminNotice">고객센터 관리</a></div></div>
             </div>
           </div>
           <div class="div-con-wrap">

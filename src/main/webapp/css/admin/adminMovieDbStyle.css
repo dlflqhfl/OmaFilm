@@ -1059,3 +1059,8 @@ ol.paging li a:hover {
 .day:nth-child(3) .date {
     color: red;
 }
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}

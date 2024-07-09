@@ -333,7 +333,7 @@
   left: 164px;
   border-radius: 4px;
   transform: rotate(-179.79deg);
-  background-image: url(/img/adminMovie/link.png);
+  background-image: url(./img/link.png);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -345,7 +345,7 @@
   top: 30px;
   left: 563px;
   border-radius: 4px;
-  background-image: url(/img/adminMovie/link-1.png);
+  background-image: url(./img/link-1.png);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -443,7 +443,7 @@
   height: 32px;
   top: 2px;
   left: 328px;
-  background-image: url(/img/adminMovie/button.svg);
+  background-image: url(./img/button.svg);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -520,7 +520,7 @@
   height: 23px;
   top: 6px;
   left: 0;
-  background-image: url(/img/adminMovie/span-name.png);
+  background-image: url(./img/span-name.png);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -879,4 +879,45 @@
   letter-spacing: 0;
   line-height: 19.5px;
   white-space: nowrap;
+}
+
+/* 테이블 스타일 */
+.DB table.movie-table {
+	width: 1293px;
+	margin-left: 177px;
+	margin-top: 40px;
+	border-collapse: collapse;
+	font-family: "ABeeZee", Helvetica;
+	position: absolute;
+	bottom: 271px;
+}
+
+.DB table.movie-table th, .DB table.movie-table td {
+  height: auto;
+  border: 1px solid #eaeaea;
+  text-align: center;
+  padding: 15px;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.DB table.movie-table th {
+  background-color: #f2f4f5;
+  font-weight: bold;
+}
+
+/* 영화 제목 셀 최소 너비 설정 */
+.DB table.movie-table td:nth-child(2) { /* 영화 제목 셀은 두 번째 셀 */
+  min-width: 949px; 
+}
+#searchForm {
+    position: absolute;
+    top: 444px;
+    left: 391px;
+}
+
+
+a {
+    text-decoration: none;
+    color: #ffffff;
 }

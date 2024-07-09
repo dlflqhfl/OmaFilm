@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>     
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
-  <head> 
+  <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/" />
@@ -17,10 +17,10 @@
             <img class="element" src="img/adminAddMovie/1.png" />
             <div class="text-wrapper">관리자</div>
             <div class="list">
-              <div class="item-link"><div class="div">영화관리</div></div>
-              <div class="div-wrapper"><div class="text-wrapper-2">이벤트/혜택 관리</div></div>
-              <div class="item-link-2"><div class="text-wrapper-3">쿠폰관리</div></div>
-              <div class="item-link-2"><div class="text-wrapper-4">고객센터 관리</div></div>
+              <div class="item-link"><div class="div"><a href="Controller?type=adminMovieDb">영화관리</a></div></div>
+              <div class="div-wrapper"><div class="text-wrapper-2"><a href="Controller?type=adminEvent">이벤트/혜택 관리</a></div></div>
+              <div class="item-link-2"><div class="text-wrapper-3"><a href="Controller?type=adminCpHome">쿠폰관리</a></div></div>
+              <div class="item-link-2"><div class="text-wrapper-4"><a href="Controller?type=adminNotice">고객센터 관리</a></div></div>
             </div>
           </div>
           <div class="div-con-wrap">
