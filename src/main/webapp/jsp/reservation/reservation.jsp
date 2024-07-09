@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/noReservationStyle.css" />
 </head>
 <body>
+<jsp:include page="/jsp/header/header.jsp"/>
 <div class="selectseat">
     <div class="overlap-wrapper">
         <div class="overlap">
@@ -712,5 +713,6 @@ $(function(){
 	  });
 });
 </script>
+<jsp:include page="/jsp/footer/footer.jsp"/>
 </body>
 </html>

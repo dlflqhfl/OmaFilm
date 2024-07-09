@@ -1302,6 +1302,8 @@
   position: absolute;
   width: 324px;
   height: 31px;
+  top: 239px;
+  left: 609px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #222222;
@@ -1315,6 +1317,7 @@
   position: absolute;
   width: 1028px;
   height: 726px;
+  top: 350px;
   left: 607px;
 }
 

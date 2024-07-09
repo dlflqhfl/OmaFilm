@@ -90,7 +90,7 @@
                         <div class="item-link-2"><div class="text-wrapper-19"><a href="Controller?type=directions">오시는 길</a></div></div>
                         <div class="link-4"><div class="text-wrapper-20"><a href="Controller?type=notice">공지사항</a></div></div>
                         <div class="item-link-3"><div class="text-wrapper-21"><a href="Controller?type=faq"><%--자주 묻는 질문--%></a></div></div>
-                        <div class="link-5"><div class="text-wrapper-22" ><a href="Controller?type=sinquiry" id="my_8">1:1문의</a></div></div>
+                        <div class="link-5"><div class="text-wrapper-22"><a href="${pageContext.request.contextPath}/jsp/serviceCenter/inquiry.jsp" id="my_8">1:1문의</a></div></div>
                       </div>
                     </div>
                   </div>

@@ -18,6 +18,7 @@ public class MovieListSearchAction implements Action {
 		Paging page = new Paging(20, 5);
 		String cPage = request.getParameter("cPage");
 		String movieNm = request.getParameter("movieNm");
+		String type = request.getParameter("type");
 
 		 if (movieNm != null) {
 			 movieNm = movieNm.replaceAll("\\s+", "");
@@ -46,6 +47,7 @@ public class MovieListSearchAction implements Action {
 		request.setAttribute("mar", mar);
 		request.setAttribute("page", page);
 		request.setAttribute("cnt", cnt);
+		request.setAttribute("type", type);
 
 		return "/jsp/movie/movieList.jsp";
 	}

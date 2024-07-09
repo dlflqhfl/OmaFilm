@@ -4,8 +4,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css"/>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
-    window.onload = function () {
-        var mvo = <c:out value="${sessionScope.mvo}" default="null" />;
+    document.addEventListener('DOMContentLoaded', function () {
+    	var mvo = <c:out value="${sessionScope.mvo}" default="null" />;
 
         var openModal = function () {
             document.querySelector('.header_modal_wrapper').style.display = 'block';
@@ -27,6 +27,7 @@
                 });
             });
         }
+         
 
         document.querySelector('.header_modal-button').addEventListener('click', function () {
             closeModal();
@@ -41,7 +42,8 @@
         document.querySelector('.header_modal-multiply').addEventListener('click', function () {
             closeModal();
         });
-    }
+    });   	
+
 </script>
 <header class="site_header">
     <div class="header-wrapper">
@@ -164,6 +166,13 @@
                         공지사항
                     </div>
                 </a>
+<<<<<<< HEAD
+                <a href="${pageContext.request.contextPath}/jsp/serviceCenter/inquiry.jsp" id="my_6">
+                    <div style="width: 181px; height: 32px; left: 636px; top: 620px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
+                        1:1문의
+                    </div>
+                </a>
+=======
                 <div style="width: 181px; height: 32px; left: 636px; top: 620px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
                     <a id="my_255" href="${pageContext.request.contextPath}/Controller?type=sinquiry">
                     1:1문의
@@ -172,6 +181,7 @@
 
 
 
+>>>>>>> 5d1ab45a8fb1b8ece68b02f7bedb8d446f5e95ac
                 <a href="${pageContext.request.contextPath}/Controller?type=directions">
                     <div style="width: 181px; height: 32px; left: 636px; top: 685px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Kokoro; font-weight: 400; line-height: 22.50px; letter-spacing: 2px; word-wrap: break-word">
                         오시는 길

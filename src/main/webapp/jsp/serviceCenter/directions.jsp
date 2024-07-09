@@ -25,7 +25,7 @@
                   <div class="item-link-2"><div class="text-wrapper-10"><a href="Controller?type=faq">자주 묻는 질문</a></div></div>
                   <div class="link-10"><div class="text-wrapper-11"><a href="Controller?type=notice">공지사항</a></div></div>
                   <div class="item-link-3"><div class="text-wrapper-12"><a href="Controller?type=directions"><%--오시는 길--%></a></div></div>
-                  <div class="link-11"><div class="text-wrapper-13"><a href="Controller?type=sinquiry" id="my_7">1:1문의</a></div></div>
+                  <div class="link-11"><div class="text-wrapper-13"><a href="${pageContext.request.contextPath}/jsp/serviceCenter/inquiry.jsp" id="my_12">1:1문의</a></div></div>
                 </div>
               </div>
             </div>
