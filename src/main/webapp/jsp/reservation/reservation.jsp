@@ -26,20 +26,74 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation/noReservationStyle.css" />
 </head>
 <body>
+<jsp:include page="/jsp/header/header.jsp"/>
 <div class="selectseat">
     <div class="overlap-wrapper">
         <div class="overlap">
             <div class="overlap-group">
-                <div class="list">
+                <div class="seat-background">
+                <div class="select-seat-text">인원 / 좌석 선택</div>
+            </div><div class="frame"> 
+							          <div class="list-5">
+							              <div class="overlap-3">
+							                  <div class="overlap-group-wrapper-2">
+							                      <div class="overlap-group-5">
+							                          <div class="text-wrapper-10" id="adult">0</div>
+							                      </div>
+							                  </div>
+							                  <div class="div-wrapper-3">
+							                      <div class="text-wrapper-11 aPlus">+</div>
+							                  </div>
+							              </div>
+							              <div class="overlap-4">
+							                  <div class="minus-adult-bt">
+							                      <div class="div-2"></div>
+							                      <div class="text-wrapper-12 aMinus">-</div>
+							                  </div>
+							                  <div class="text-wrapper-13">성인</div>
+							              </div>
+							              <div class="overlap-5">
+							                  <div class="teen-count">
+							                      <div class="overlap-group-5">
+							                          <div class="text-wrapper-10" id="teen">0</div>
+							                      </div>
+							                  </div>
+							                  <div class="plus-teen-bt">
+							                      <div class="text-wrapper-11 tPlus">+</div>
+							                  </div>
+							                  <div class="minus-senior-bt">
+							                      <div class="div-2"></div>
+							                      <div class="text-wrapper-12 oMinus">-</div>
+							                  </div>
+							                  <div class="senior-text">경로</div>
+							              </div>
+							              <div class="overlap-6">
+							                  <div class="minus-teen-bt">
+							                      <div class="div-2"></div>
+							                      <div class="text-wrapper-12 tMinus">-</div>
+							                  </div>
+							                  <div class="text-wrapper-13">청소년</div>
+							              </div>
+							              <div class="overlap-7">
+							                  <div class="overlap-group-wrapper-2">
+							                      <div class="overlap-group-5">
+							                          <div class="text-wrapper-10" id="old">0</div>
+							                      </div>
+							                  </div>
+							                  <div class="div-wrapper-3">
+							                      <div class="text-wrapper-11 oPlus">+</div>
+							                  </div>
+							              </div>
+							          </div>
+                                    </div><div class="list">
                     <div class="item">
                         <div class="div">
-                            <div class="link a">
+                            <div class="link a" style="background-color: white;">
                                 <div class="strong">
-                                    <div class="text-wrapper text">01</div>
-                                    <div class="text-wrapper-2 text">상영시간</div>
-                                    <div class="frame"></div>
+                                    <div class="text-wrapper text" style="color: rgb(102, 102, 102);">01</div>
+                                    <div class="text-wrapper-2 text" style="color: rgb(102, 102, 102);">상영시간</div>
+                                    
                                 </div>
-                                <div class="frame-2"></div>
                             </div>
                             <div class="container">
                                 <div class="text-wrapper-3">현재 단계</div>
@@ -71,6 +125,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="frame-2"><div class="s-CREEN">Screen</div></div>
                 <div class="price-frame">
                     <div class="pay-button">
                         <div class="pay-text">결제하기</div>
@@ -262,80 +317,96 @@
                     </div>
                 </div>
             </div>
-            <div class="s-CREEN">Screen</div>
-            <div class="list-5">
-                <div class="overlap-3">
-                    <div class="overlap-group-wrapper-2">
-                        <div class="overlap-group-5">
-                            <div class="text-wrapper-10" id="adult">0</div>
-                        </div>
-                    </div>
-                    <div class="div-wrapper-3">
-                        <div class="text-wrapper-11 aPlus">+</div>
-                    </div>
-                </div>
-                <div class="overlap-4">
-                    <div class="minus-adult-bt">
-                        <div class="div-2"></div>
-                        <div class="text-wrapper-12 aMinus">-</div>
-                    </div>
-                    <div class="text-wrapper-13">성인</div>
-                </div>
-                <div class="overlap-5">
-                    <div class="teen-count">
-                        <div class="overlap-group-5">
-                            <div class="text-wrapper-10" id="teen">0</div>
-                        </div>
-                    </div>
-                    <div class="plus-teen-bt">
-                        <div class="text-wrapper-11 tPlus">+</div>
-                    </div>
-                    <div class="minus-senior-bt">
-                        <div class="div-2"></div>
-                        <div class="text-wrapper-12 oMinus">-</div>
-                    </div>
-                    <div class="senior-text">경로</div>
-                </div>
-                <div class="overlap-6">
-                    <div class="minus-teen-bt">
-                        <div class="div-2"></div>
-                        <div class="text-wrapper-12 tMinus">-</div>
-                    </div>
-                    <div class="text-wrapper-13">청소년</div>
-                </div>
-                <div class="overlap-7">
-                    <div class="overlap-group-wrapper-2">
-                        <div class="overlap-group-5">
-                            <div class="text-wrapper-10" id="old">0</div>
-                        </div>
-                    </div>
-                    <div class="div-wrapper-3">
-                        <div class="text-wrapper-11 oPlus">+</div>
-                    </div>
-                </div>
-            </div>
-            <div class="seat-background">
-                <div class="select-seat-text">인원 / 좌석 선택</div>
-            </div>
-        </div>
+            
+<jsp:include page="/jsp/footer/footer.jsp"/>
+</div>
         <form id="goPayment" action="Controller?type=payment" method="post">
-            <input type="hidden" id="movieName" name="movieName" value="${param.movieName }">
-            <input type="hidden" id="text" name="text" value="${param.text }">
-            <input type="hidden" id="time" name="time" value="${param.time }">
+            <input type="hidden" id="movieName" name="movieName" value="탈주">
+            <input type="hidden" id="text" name="text" value="쌍용 1관">
+            <input type="hidden" id="time" name="time" value="14:00">
             <input type="hidden" id="totalCount" name="totalCount" value="">
             <input type="hidden" id="checkSeat" name="checkSeat" value="">
-            <input type="hidden" id="date" name="date" value="${param.date }">
+            <input type="hidden" id="date" name="date" value="2024-07-09">
             <input type="hidden" id="totalPrice" name="totalPrice" value="">
         </form>
         
         <div>
-       <c:if test="${mvo == null}">
-		  <div id="modal" class="modal">
+       
+		  <div id="modal" class="modal" style="display: none;">
 		    <div class="modal-content">
-              	<%@ include file="/jsp/reservation/noReservation.jsp" %>
+              	
+    <div class="background">
+      <div class="modal_overlap-group-wrapper">
+          <div class="modal_container">
+            <div class="modal_frame"><div class="modal_text-wrapper">비회원 로그인</div></div>
+          </div>
+          <div class="form">
+            <button class="button"><div class="div" onclick="noReservation()">확인</div></button>
+            <div class="form-2">
+              <div class="row-2">
+                <div class="cell"><div class="label-2">인증번호</div></div>
+                <div class="data">
+                  <button class="button-2" id="checkButton"><div class="text-wrapper-6">인증확인</div></button>
+                  <div class="background-border">
+                    <input type="text" id="emailCheck" name="emailCheck" class="input-3">
+                    <div class="text-wrapper-7" id="timer">3:00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row-3">
+                <div class="label-wrapper"><div class="label-3">이메일</div></div>
+                <div class="data-2">
+                  <input class="input-4" placeholder="이메일을 입력해주세요" type="email" id="email" name="email">
+                  <button class="button-3" onclick="sendEmail()"><div class="text-wrapper-8">인증요청</div></button>
+                </div>
+              </div>
+              <div class="row-4">
+                <div class="label-wrapper"><div class="label-4">생년월일</div></div>
+                <div class="data-2">
+                  <input type="text" id="birth" name="birth" class="input-5" placeholder="생년월일 앞 6자리">
+                </div>
+              </div>
+              <div class="row-5">
+                <div class="label-wrapper"><div class="label-5">이름</div></div>
+                <div class="data-2">
+                  <input type="text" id="name" name="name" class="input-5" placeholder="이름을 입력해주세요">
+                </div>
+              </div>
+              <div class="row-6">
+                <div class="label-wrapper"><div class="label-4">비밀번호</div></div>
+                <div class="data-2">
+                  <input type="password" id="pw" name="pw" placeholder="비밀번호를 입력해주세요" class="input-5">
+                </div>
+              </div>
+              <div class="row-7">
+                <div class="data1"><div class="dd">비밀번호 확인</div></div>
+                <div class="data22">
+                  <input type="password" id="pw1" name="pw1" placeholder="비밀번호를 다시 입력해주세요" class="input-5"><br>
+                  <span class="checkPw"></span>
+                </div>
+              </div>
+              
+			<form id="nonReserver" action="Controller?type=payment" method="post">
+				<input type="hidden" id="movieName" name="movieName" value="탈주">
+			 	<input type="hidden" id="nText" name="nText" value="쌍용 1관">
+            	<input type="hidden" id="nTime" name="nTime" value="14:00">
+            	<input type="hidden" id="nDate" name="nDate" value="2024-07-09">
+				<input type="hidden" id="nTotalCount" name="nTotalCount" value="">
+				<input type="hidden" id="nCheckSeat" name="nCheckSeat" value="">
+				<input type="hidden" id="nTotalPrice" name="nTotalPrice" value="">
+				<input type="hidden" id="non_name" name="non_name" value="">
+				<input type="hidden" id="non_email" name="non_email" value="">
+				<input type="hidden" id="non_pw" name="non_pw" value="">
+			</form>
+        
+              
+            </div>
+          </div>
+      </div>
+    </div>
 		    </div>
 		  </div>
-		</c:if>
+		
         </div>
     </div>
 </div>
@@ -359,36 +430,30 @@ function sendEmail() {
     // jQuery AJAX를 사용하여 서버에 이메일을 보냅니다.
     $.ajax({
         type: "POST",
-        url: "${pageContext.request.contextPath}/Controller?type=send",
+        url: "${pageContext.request.contextPath}/Controller?type=send_2",
         data: {email: email},
-        success: function (data) {
-            data = data.trim();
-            if (data === "0") {
-                alert("이메일이 성공적으로 전송되었습니다.");
-                time = 180;
-                timer = setInterval(function () {
-                    var minutes = Math.floor(time / 60);
-                    var seconds = time % 60;
-                    $("#timer").text(minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
-                    if (time <= 0) {
-                        clearInterval(timer);
-                        alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
-                        $(".input-3").prop("readonly", true);
-                        $(".background-border").css("background-color", "#f2f2f2");
-                        $(".input-3").val("");
-                        $(".input-3").css("background-color", "#f2f2f2");
-                        $(".text-wrapper-9").css("display", "none");
-                    }
-                    time--;
-                }, 1000);
-
-                setTimeout(function () {
+        success: function () {
+            alert("이메일이 성공적으로 전송되었습니다.");
+            time = 180;
+            timer = setInterval(function () {
+                var minutes = Math.floor(time / 60);
+                var seconds = time % 60;
+                $("#timer").text(minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
+                if (time <= 0) {
+                    clearInterval(timer);
                     alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
-                }, 3 * 60 * 1000);
-            }else if (data === "1") {
-                alert("가입된 이메일입니다.");
-                location.href = "${pageContext.request.contextPath}/jsp/login/login_1.jsp";
-            }
+                    $(".input-3").prop("readonly", true);
+                    $(".background-border").css("background-color", "#f2f2f2");
+                    $(".input-3").val("");
+                    $(".input-3").css("background-color", "#f2f2f2");
+                    $(".text-wrapper-9").css("display", "none");
+                }
+                time--;
+            }, 1000);
+
+            setTimeout(function () {
+                alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
+            }, 3 * 60 * 1000);
         }
     });
 }
@@ -550,7 +615,7 @@ $('#pw1').keyup(function () {
 		if(length > 0){
 			let value = $(this).attr("value")
 			if( checkSeat.has(value)){
-				alert("이미 선택한 좌석입니다")
+				checkSeat.delete(value)
 			} else {
 				hoverEvent()
 				checkSeat.add(value)
@@ -664,17 +729,24 @@ $('#pw1').keyup(function () {
 
 	//결제하기로 넘기기
 	$(".pay-button").click(function(){
+		console.log(checkSeat.size)
 		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?")
+
 		if( result ){
+			if( length != checkSeat.size){
+				alert("좌석을 다 선택해주십시오")
+				return
+			}
 			if(login){
-				paymentData()
+					paymentData()
+				
 			} else{
 				modal.css("display", "block")
 			}
 		} else {
 			
 		}
-	})
+	});
 
 	$(".a").click(function(){
 
@@ -711,5 +783,6 @@ $(function(){
 	  });
 });
 </script>
+
 </body>
 </html>
