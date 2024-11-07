@@ -398,8 +398,6 @@
 				<input type="hidden" id="non_email" name="non_email" value="">
 				<input type="hidden" id="non_pw" name="non_pw" value="">
 			</form>
-        
-              
             </div>
           </div>
       </div>

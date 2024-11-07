@@ -23,6 +23,7 @@ public class inquiryDAO {
 				ivo = new InquiryVO[list.size()];
 				list.toArray(ivo);
 			}
+			ss.close();
 				return ivo;	
 	  }
 	  
@@ -74,7 +75,7 @@ public class inquiryDAO {
 				ivo = new InquiryVO[list.size()];
 				list.toArray(ivo); //list가 가지는 모든 요소들을 ar 배열에 복사
 			}
-			
+			ss.close();
 			return ivo;
 		}
 		

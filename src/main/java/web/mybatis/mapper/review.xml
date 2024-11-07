@@ -3,5 +3,71 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="review">
-
+	<insert id="insertReview" parameterType="web.mybatis.vo.ReviewVO">
+		 INSERT INTO review (u_code, movieCd, r_grade, r_content, r_date, r_recomm, r_status)
+  		 VALUES (#{u_code}, #{movieCd}, #{r_grade}, #{r_content}, now(), #{r_recomm}, #{r_status})
+	</insert>
+	
+	<update id="updateStatus" parameterType="String">
+		  UPDATE review
+	      SET r_status = 1
+	      WHERE r_idx = #{r_idx}
+	</update>
+	
+	<update id="updateRecomm" parameterType="String">
+		UPDATE review
+        SET r_recomm = r_recomm + 1
+        WHERE r_idx = #{r_idx}
+	</update>
+	
+	<select id="selectLatestReview" parameterType="Map" resultType="web.mybatis.vo.ReviewVO">
+		 SELECT * FROM (
+		      SELECT @RN := @RN + 1 AS rnum, a.* FROM (
+		        SELECT  r.*, m.u_id
+		        FROM review r 
+		        INNER JOIN member m 
+		        ON r.u_code = m.u_code
+		        WHERE movieCd = #{movieCd}
+		        AND r_status = 0
+		        ORDER BY r_date DESC
+		    ) a, (SELECT @RN := 0) b
+			) c 
+			WHERE c.rnum BETWEEN #{begin} AND #{end}
+	</select>
+	
+	<select id="selectGradeReview" parameterType="Map" resultType="web.mybatis.vo.ReviewVO">
+		 SELECT * FROM (
+		      SELECT @RN := @RN + 1 AS rnum, a.* FROM (
+		        SELECT  r.*, m.u_id
+		        FROM review r 
+		        INNER JOIN member m 
+		        ON r.u_code = m.u_code
+		        WHERE movieCd = #{movieCd}
+		        AND r_status = 0
+		        ORDER BY r_grade DESC
+		    ) a, (SELECT @RN := 0) b
+			) c 
+			WHERE c.rnum BETWEEN #{begin} AND #{end}
+	</select>
+	
+	<select id="selectRecommReview" parameterType="Map" resultType="web.mybatis.vo.ReviewVO">
+		 SELECT * FROM (
+		      SELECT @RN := @RN + 1 AS rnum, a.* FROM (
+		        SELECT  r.*, m.u_id
+		        FROM review r 
+		        INNER JOIN member m 
+		        ON r.u_code = m.u_code
+		        WHERE movieCd = #{movieCd}
+		        AND r_status = 0
+		        ORDER BY r_recomm DESC
+		    ) a, (SELECT @RN := 0) b
+			) c 
+			WHERE c.rnum BETWEEN #{begin} AND #{end}
+	</select>
+	
+	<select id="selectReviewCount" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM review
+		WHERE movieCd=#{movieCd}
+		AND r_status=0 
+	</select>
 </mapper>

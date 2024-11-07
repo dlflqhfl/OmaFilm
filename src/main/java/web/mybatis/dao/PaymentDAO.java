@@ -112,11 +112,11 @@ public class PaymentDAO {
 				list.add(avo);
 			}
 		}
-		ss.close();
 
 		AudienceVO[] avoArr = new AudienceVO[list.size()];
 		list.toArray(avoArr);
 
+		ss.close();
 		return avoArr;
 	}
 

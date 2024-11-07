@@ -16,7 +16,6 @@ public class PersonInforAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		System.out.println("ㅋㅋㅋㅋ");
 		Object obj = request.getSession().getAttribute("mvo");
         MemberVO mvo = (MemberVO) obj;
 
@@ -50,6 +49,7 @@ public class PersonInforAction implements Action {
                 request.getSession().setAttribute("mvo", member);
                 request.setAttribute("cnt",updateSuccess);
                 System.out.println("Response Sent: 1"); // 응답 로그
+                
                 
                 return "jsp/myPage/personInforSuccess.jsp"; 
             } else {

@@ -103,6 +103,7 @@ public class AdminCpDAO {
 		
 		CouponItemVO[] couponItem = new CouponItemVO[list.size()];
 		list.toArray(couponItem);
+		ss.close();
 		return couponItem;
 		
 	}
@@ -121,6 +122,7 @@ public class AdminCpDAO {
 		
 		MemberVO[] memItem = new MemberVO[list.size()];
 		list.toArray(memItem);
+		ss.close();
 		return memItem;
 	}
 }

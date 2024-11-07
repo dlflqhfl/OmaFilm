@@ -16,7 +16,7 @@ public class PersonInforDAO {
 	            } else {
 	            	ss.rollback();
 	            }
-	            
+	            ss.close();
 	            return cnt;
 	        }
 	    } 

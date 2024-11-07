@@ -1,8 +1,28 @@
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="web.mybatis.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<%! int u_code = 0; 
+	String u_id ="";
+    String formattedDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+%>
+<%
+	boolean login = false;
+	Object obj = request.getSession().getAttribute("mvo");
+	if ( obj != null){
+		MemberVO member = (MemberVO) obj;
+		login = true;
+		u_id = member.getU_id();
+		u_code = member.getU_code();
+		System.out.println(u_code);
+	}
+	
+%>
 <!DOCTYPE html> 
 <html>
   <head>
@@ -13,6 +33,7 @@
   <body>
     <div class="www-lottecinema-co">
       <div class="div">
+       <jsp:include page="/jsp/header/header.jsp"/>
         <div class="container">
           <div class="overlap">
             <div class="overlap-group">
@@ -46,7 +67,7 @@
             
           </div>
           <div class="paragraph-background">
-            <div class="link"><div class="text-wrapper-9">예매하기</div></div>
+            <button type="button" class="link" onclick="window.location.href='${pageContext.request.contextPath}/Controller?type=selectTime'"><div class="text-wrapper-9">예매하기</div></button>
           </div>
           <div class="element-jpg"><img src="${mvo.m_file }" width="316px"></div>
         </div>
@@ -135,114 +156,52 @@
             <div class="image-5"></div>
           </div>
         </div>
-        <img class="footer" src="${pageContext.request.contextPath}/img/movie/movieDetail/footer.png" />
         <div class="overlap-10">
-          <div class="nav">
-            <div class="strong-4"><div class="text-wrapper-17">1</div></div>
-            <div class="link-4"><div class="text-wrapper-18">2</div></div>
-            <div class="link-5"><div class="text-wrapper-18">3</div></div>
-            <div class="link-6"><div class="text-wrapper-18">4</div></div>
-            <div class="link-7"><div class="text-wrapper-18">5</div></div>
-            <div class="link-8"><div class="text-wrapper-18">6</div></div>
-            <div class="link-9"><div class="text-wrapper-18">7</div></div>
-            <div class="link-10"><div class="text-wrapper-18">8</div></div>
-            <div class="link-11"><div class="text-wrapper-18">9</div></div>
-            <div class="link-12"><div class="text-wrapper-19">10</div></div>
-            <div class="link-13"></div>
-            <div class="link-14"></div>
+          <div class="nav1" id="reviewPage">
+          
+          
           </div>
           <p class="text-wrapper-20">작성하신 관람평은 마이페이지 &gt; 관람 내역에서 확인하실 수 있습니다.</p>
         </div>
         <div class="overlap-11">
-          <div class="text-wrapper-21">최신순</div>
-          <div class="text-wrapper-22">공감순</div>
-          <div class="text-wrapper-23">평점순</div>
+          <button type="button" id="latestButton" class="text-wrapper-21">최신순</button>
+          <button type="button" id="recommButton" class="text-wrapper-22">공감순</button>
+          <button type="button" id="ratingButton" class="text-wrapper-23">평점순</button>
           <div class="text-wrapper-24">|</div>
           <div class="text-wrapper-25">|</div>
         </div>
-        <div class="overlap-12">
-          <div class="frame">
-            <div class="frame-2"><div class="text-wrapper-26">안녕</div></div>
-            <div class="overlap-13">
-              <div class="text-wrapper-27">2024-06-14</div>
-              <img class="image-6" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-1-6.png" />
-            </div>
-            <div class="frame-3"><div class="text-wrapper-28">메롱</div></div>
-            <img class="img-2" src="${pageContext.request.contextPath}/img/movie/movieDetail/1.svg" />
-          </div>
-          <div class="frame-4">
-            <div class="frame-2"><div class="text-wrapper-26">안녕</div></div>
-            <div class="overlap-14">
-              <div class="frame-5"><div class="text-wrapper-29">메롱</div></div>
-              <img class="rectangle" src="${pageContext.request.contextPath}/img/movie/movieDetail/ectangle-1.svg" />
-              <div class="rectangle-2"></div>
-              <div class="text-wrapper-30">삭제</div>
-              <div class="text-wrapper-31">수정</div>
-            </div>
-            <img class="element-2" src="${pageContext.request.contextPath}/img/movie/movieDetail/1-1.svg" />
-            <div class="overlap-15">
-              <div class="text-wrapper-27">2024-06-14</div>
-              <img class="image-6" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-1-6.png" />
-            </div>
-          </div>
-          <div class="frame-6">
-            <div class="frame-7"><div class="text-wrapper-26">안녕</div></div>
-            <div class="frame-8"><div class="text-wrapper-32">메롱</div></div>
-            <img class="clip-path-group" src="${pageContext.request.contextPath}/img/movie/movieDetail/clip-path-group-3.png" />
-            <div class="overlap-16">
-              <div class="text-wrapper-27">2024-06-14</div>
-              <img class="image-6" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-1-6.png" />
-            </div>
-          </div>
-          <div class="frame-9">
-            <div class="frame-7"><div class="text-wrapper-26">안녕</div></div>
-            <div class="frame-8"><div class="text-wrapper-33">메롱</div></div>
-            <img class="img-2" src="${pageContext.request.contextPath}/img/movie/movieDetail/clip-path-group-3.png" />
-            <div class="overlap-17">
-              <div class="text-wrapper-27">2024-06-14</div>
-              <img class="image-6" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-1-6.png" />
-            </div>
-          </div>
-          <div class="frame-10">
-            <div class="frame-7"><div class="text-wrapper-26">안녕</div></div>
-            <div class="frame-8"><div class="text-wrapper-34">메롱</div></div>
-            <img class="clip-path-group" src="${pageContext.request.contextPath}/img/movie/movieDetail/clip-path-group-3.png" />
-            <div class="overlap-15">
-              <div class="text-wrapper-27">2024-06-14</div>
-              <img class="image-6" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-1-6.png" />
-            </div>
-          </div>
-          <div class="frame-11">
-            <div class="frame-7"><div class="text-wrapper-26">안녕</div></div>
-            <div class="frame-8"><div class="text-wrapper-35">메롱</div></div>
-            <div class="overlap-17">
-              <div class="text-wrapper-27">2024-06-14</div>
-              <img class="image-6" src="${pageContext.request.contextPath}/img/movie/movieDetail/image-1-6.png" />
-            </div>
-            <img class="img-2" src="${pageContext.request.contextPath}/img/movie/movieDetail/clip-path-group-3.png" />
-          </div>
-        </div>
+        <div class="overlap-12" id="reviewListContainer">
+        
+         </div>
+        
         <div class="overlap-18">
           <div class="background-4">
             <div class="overlap-19">
-              <img class="star" src="${pageContext.request.contextPath}/img/movie/movieDetail/star-4-1.svg" />
-              <img class="star-2" src="${pageContext.request.contextPath}/img/movie/movieDetail/star-4-1.svg" />
-              <div class="overlap-20">
-                <img class="element-3" src="${pageContext.request.contextPath}/img/movie/movieDetail/16132.png" />
-                <img class="star-3" src="${pageContext.request.contextPath}/img/movie/movieDetail/star-4-1.svg" />
-                <img class="star-4" src="${pageContext.request.contextPath}/img/movie/movieDetail/star-4-1.svg" />
-              </div>
-              <img class="star-5" src="${pageContext.request.contextPath}/img/movie/movieDetail/star-4-1.svg" />
+            	  <span class="star" data-rating="1" style="left: -15px;top: 113px;"></span>
+            	  <span class="star" data-rating="2" style="left: 31px; top: 46px;"></span>
+            	  <span class="star" data-rating="3" style="left: 108px;top: 1px;"></span>
+            	  <span class="star" data-rating="4" style="left: 189px;top: 46px;"></span>
+            	  <span class="star" data-rating="5" style="left: 235px;top: 113px;"></span>
             </div>
+              <div class="overlap-20">
+                <img class="element-3" src="${pageContext.request.contextPath}/img/movie/movieDetail/sadImg.png" />
+              </div>
             <div class="text-wrapper-36">평점을 입력하세요.</div>
           </div>
-          <img class="frame-12" src="${pageContext.request.contextPath}/img/movie/movieDetail/frame-1.png" />
-          <div class="frame-13"><div class="text-wrapper-37">관람평 작성</div></div>
-          <p class="text-wrapper-38">영화 관람 후 관람평 작성 시 포인트 500P 적립</p>
+          <div class="inputText">
+           <img class="frame-12" src="${pageContext.request.contextPath}/img/movie/movieDetail/frame-1.png"/>
+           <input type="text" class="text-movie" placeholder="관람평을 작성하세요!"/>
+           </div>
+           <input type="hidden" id="reviewDate" value="<%= formattedDate %>">
+           <input type="hidden" id="movieCd" value="${mvo.movieCd}" />
+           <input type="hidden" id="userCode" value="<%= u_code %>"/>
+           <input type="hidden" id="userId" value="<%= u_id %>"/>
+          <button type="button" class="frame-13" name="sendBtn" id="sendBtn"><div class="text-wrapper-37">관람평 작성</div></button>
         </div>
+         <jsp:include page="/jsp/footer/footer.jsp"/>
       </div>
     </div>
-    
+    <input type="hidden" id="cPage" value="1"/>
     
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
@@ -303,6 +262,234 @@
 			
 		});
 	}
+	
+		let userCode = document.getElementById("userCode").value;
+	
+		$(document).ready(function () {
+			
+			reviewList();
+			
+		    const stars = $('.overlap-19 .star'); 
+		    const imageContainer = $('.overlap-20');
+		    const changeImg = imageContainer.find('img');
+		    const reviewButton = $('.frame-13');
+
+		    
+		    let score = 0;
+	
+		    stars.each((index, star) => {
+		        $(star).on('click', () => { score = index + 1; 
+		            changeStars(score);
+		            changeImage(score);
+		        });
+		    });
+	
+		    function changeStars(score) {
+		        stars.removeClass('active');
+		        if (score > 0) {
+		            stars.slice(0, score).addClass('active');
+		        } else {
+		            stars.addClass('empty');
+		        }
+		        console.log(score)
+		    }
+	
+		    function changeImage(score) {
+		        const contextPath = "${pageContext.request.contextPath}";
+		        changeImg.attr('src', score >= 3 ? contextPath + "/img/movie/movieDetail/happyImg.png" : contextPath + "/img/movie/movieDetail/sadImg.png");
+		    }
+		    
+		    function resetStarRating() {
+		    	$('.overlap-19 .star').removeClass('active').addClass('empty'); 
+		        
+		        const changeImg = $('.overlap-20').find('img');
+		        const contextPath = "${pageContext.request.contextPath}";
+		        changeImg.attr('src', contextPath + "/img/movie/movieDetail/sadImg.png");
+
+		        score = 0;
+		        changeStars(score); 
+		    }
+
+		    function clearReviewText() {
+		        $('.text-movie').val(''); 
+		    }
+		    
+			$('#sendBtn').on('click', function() {
+				  let login = <%= login %>;
+				  const reviewText = $('.text-movie').val();
+				  
+				  if (!login) {
+				    alert('리뷰 작성은 로그인이 필요합니다.');
+				    window.location.href = "${pageContext.request.contextPath}/jsp/login/login_1.jsp";
+				    return;
+				  }
+
+				  if (reviewText === '') {
+				    alert('관람평을 입력해주세요.');
+				    return;
+				  }
+
+				  const score = $('.overlap-19 .star.active').length;
+
+				  let movieCd = $('#movieCd').length > 0 ? $('#movieCd').val() : '';
+				  let reviewDate = $('#reviewDate').length > 0 ? $('#reviewDate').val() : '';
+
+				  console.log("movieCd:", movieCd);
+				  console.log("reviewDate:", reviewDate);
+				  console.log($('.text-movie'));
+				  console.log($('.text-movie').val());
+
+	  	            
+	  	    
+		        $.ajax({
+		            type: 'POST',
+		            url: '${pageContext.request.contextPath}/Controller?type=moviedetail',
+		            data: {
+		  	            score: score, 
+		  	            reviewText: reviewText,
+		  	            u_code: userCode,
+		  	            movieCd: movieCd, 
+		  	            reviewDate: reviewDate
+		  	            
+		  	        },
+		            success: function (response) {
+		            	if (response > 0) {
+		                 alert('소중한 리뷰가 성공적으로 등록되었습니다.');
+		                 reviewList();
+		                 
+		                 resetStarRating();
+
+		                 clearReviewText();
+		                 
+		            	} else {
+		                    alert('리뷰 등록 중 오류가 발생했습니다.');
+		                }
+		              
+		            },
+		            error: function (jqXHR, textStatus, errorThrown) {
+		                alert('응답 요청에 실패했습니다.');
+		                console.error("AJAX 요청 에러:", textStatus, errorThrown);
+		                console.log("응답 데이터:", jqXHR.responseText);
+		                // 버튼 다시 활성화 (오류 발생 시에도)
+		            }
+	      });
+	   });
+		    
+				    
+		  });
+		var cate = 'latest'
+		function reviewList2(cPage){
+				
+		             $("#reviewPage").empty();
+		        $.ajax({
+		            type: 'GET',
+		            url: '${pageContext.request.contextPath}/Controller',
+		            data: { u_code: userCode, 
+		            		type:'reviewPage',
+		            		list:'1',
+		            		movieCd: '${param.movieCd}',
+		            		cPage: cPage,
+		            },
+		            success: function (response) {
+		             console.log("나는 바보다")
+		             $("#cPage").val(cPage);
+		             $("#reviewPage").html(response);
+		             console.log(response)
+		             reviewList();
+		             
+		            },
+		            error: function (jqXHR, textStatus, errorThrown) {
+		                alert('안나옴.');
+		                console.error("AJAX 요청 에러:", textStatus, errorThrown);
+		                console.log("응답 데이터:", jqXHR.responseText);
+		            }
+		        });
+		    }
+		
+				function reviewList() {
+			        $.ajax({
+			            type: 'GET',
+			            url: '${pageContext.request.contextPath}/Controller?type=moviedetail&list=1&movieCd='+${param.movieCd}+'&cate=' + cate,
+			            data: { u_code: userCode, cPage: $("#cPage").val() },
+			            success: function (response) {
+			             console.log(response)
+			             console.log("나는 바보다")
+			             $("#reviewListContainer").html(response);
+			             viewPage();
+			            },
+			            error: function (jqXHR, textStatus, errorThrown) {
+			                alert('안나옴.');
+			                console.error("AJAX 요청 에러:", textStatus, errorThrown);
+			                console.log("응답 데이터:", jqXHR.responseText);
+			            }
+			        });
+			    }
+				
+				function viewPage(){
+					$.ajax({
+			            type: 'GET',
+			            url: '${pageContext.request.contextPath}/Controller',
+			            data: { type: 'reviewPage', list:'1', movieCd: '${param.movieCd}'}
+					}).done(function(res){
+					$("#reviewPage").empty();
+		             $("#reviewPage").html(res);
+		             
+		           });
+				
+				}
+				$("#latestButton").click(function() {
+				    cate = 'latest';
+				    reviewList();
+				});
+
+				$("#ratingButton").click(function() {
+				    cate = 'rating';
+				    reviewList();
+				});
+				
+				$("#recommButton").click(function() {
+				    cate = 'recomm';
+				    reviewList();
+				});
+				
+				
+				function deleteReview(r_idx){
+					if (confirm('삭제하시겠습니까?')) {
+					$.ajax({
+			            type: 'POST',
+			            url: '${pageContext.request.contextPath}/Controller?type=moviedetail&delete=1&movieCd='+${param.movieCd},
+			            data: { r_idx: r_idx },
+			            success: function (response) {
+			             console.log("나는 멍청이")
+			             console.log("응답 데이터:", response);
+		                 reviewList();
+			             },
+			            error: function (jqXHR, textStatus, errorThrown) {
+			                console.error("AJAX 요청 에러:", textStatus, errorThrown);
+			                console.log("응답 데이터:", jqXHR.responseText);
+			            }
+			        });
+					}
+					
+				}
+				
+				function recommReview(r_idx){
+					$.ajax({
+			            type: 'POST',
+			            url: '${pageContext.request.contextPath}/Controller?type=moviedetail&recomm=1&movieCd='+${param.movieCd},
+			            data: { r_idx: r_idx },
+			            success: function (response) {
+			             console.log("메롱")
+		                 reviewList();
+			             },
+			            error: function (jqXHR, textStatus, errorThrown) {
+			                console.error("AJAX 요청 에러:", textStatus, errorThrown);
+			                console.log("응답 데이터:", jqXHR.responseText);
+			            }
+			        });
+					
+				}
+				
 </script>
   </body>
 </html>

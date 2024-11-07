@@ -15,7 +15,7 @@ public class WithDrawalDAO {
 	        	ss.commit();
 	        else
 	        	ss.rollback();
-	        
+	        ss.close();
 	        return result;
 	}
 }

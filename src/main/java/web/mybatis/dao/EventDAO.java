@@ -39,7 +39,6 @@ public class EventDAO {
 		
 		nvo = ss.selectOne("notice.eview", n_idx);
 		
-		
 		ss.close();
 		
 		return nvo;

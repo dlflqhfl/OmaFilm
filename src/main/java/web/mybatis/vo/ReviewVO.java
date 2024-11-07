@@ -6,14 +6,23 @@ public class ReviewVO {
 	r_grade, // 평점
 	r_content,// 내용
 	r_date,// 리뷰날짜
-	r_recomm;// 추천
+	r_recomm,// 추천
+	movieCd,
+	u_id;
 	
 	private int review_count;
 	
 	public ReviewVO() {}
 
+	@Override
+	public String toString() {
+		return "ReviewVO [r_idx=" + r_idx + ", r_status=" + r_status + ", u_code=" + u_code + ", r_grade=" + r_grade
+				+ ", r_content=" + r_content + ", r_date=" + r_date + ", r_recomm=" + r_recomm + ", movieCd=" + movieCd
+				+ ", u_id=" + u_id + ", review_count=" + review_count + "]";
+	}
+
 	public ReviewVO(int r_idx, int r_status, String u_code, String r_grade, String r_content, String r_date,
-			String r_recomm) {
+			String r_recomm, String movieCd, String u_id, int review_count) {
 		super();
 		this.r_idx = r_idx;
 		this.r_status = r_status;
@@ -22,6 +31,9 @@ public class ReviewVO {
 		this.r_content = r_content;
 		this.r_date = r_date;
 		this.r_recomm = r_recomm;
+		this.movieCd = movieCd;
+		this.u_id = u_id;
+		this.review_count = review_count;
 	}
 
 	public int getR_idx() {
@@ -79,6 +91,23 @@ public class ReviewVO {
 	public void setR_recomm(String r_recomm) {
 		this.r_recomm = r_recomm;
 	}
+
+	public String getMovieCd() {
+		return movieCd;
+	}
+
+	public void setMovieCd(String movieCd) {
+		this.movieCd = movieCd;
+	}
+
+	public String getU_id() {
+		return u_id;
+	}
+
+	public void setU_id(String u_id) {
+		this.u_id = u_id;
+	}
+
 	public int getReview_count() {
 		return review_count;
 	}
@@ -86,4 +115,6 @@ public class ReviewVO {
 	public void setReview_count(int review_count) {
 		this.review_count = review_count;
 	}
+
+	
 }
